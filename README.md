@@ -3,7 +3,13 @@
 Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Laboration 2` i kursen `Agil Utveckling`. 
 ## Gruppmedlemmar
 
--   Linus Romland
+- Linus Romland
+- David Sabel
+- Fredric Ryding
+- Kenneth Wilhelmsson
+- Nahti Geigant
+- Olena Drozdova
+- Patryk Sroka
 
 ## Licens
 
