@@ -36,7 +36,7 @@
 
 <template>
 <hr />
-<h3>Vue-router-sidan DJUR här:</h3>
+<h5>Vue-router-sidan DjurView här:</h5>
 <h6>Visar bara innehållet i databasen som en tabell</h6>
   <!-- <ol>
     <li :key="city.id" v-for="city in cities">{{ city.name }}</li>

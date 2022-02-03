@@ -28,7 +28,7 @@
       </li>
 
       <li>
-        <RouterLink to="/djur">Djur-sidan...</RouterLink> (visas)
+        <RouterLink to="/djur">Djur-sidan...</RouterLink>
       </li>
 
     </ul>
