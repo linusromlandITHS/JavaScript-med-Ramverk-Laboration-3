@@ -1,28 +1,31 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 
-import AboutView from './views/AboutView.vue'
-import ContactView from './views/ContactView.vue'
-import HomeView from './views/HomeView.vue'
-import DjurView from './views/DjurView.vue'
+const router = createRouter({
+	history: createWebHashHistory(),
+	routes: [
+		{
+			name: 'Home',
+			component: () => import('./views/HomeView.vue'),
+			path: '/'
+		},
+		{
+			name: 'About',
+			component: () => import('./views/AboutView.vue'),
+			path: '/about'
+		},
+		{
+			name: 'Djur',
+			component: () => import('./views/DjurView.vue'),
+			path: '/djur'
+		}
+	]
+});
 
-export default createRouter({
-  history: createWebHashHistory(),
-  routes: [
-    {
-      component: AboutView,
-      path: '/about'
-    },
-    {
-      component: ContactView,
-      path: '/contact'
-    },
-    {
-      component: HomeView,
-      path: '/'
-    },
-    {
-      component: DjurView,
-      path: '/djur'
-    }
-  ]
-})
+router.beforeEach((to, from, next) => {
+	//Before each route, updates the title of page to match name attribute of route
+	document.title = `${String(to.name)} | Red Mountain Ranch`;
+	next();
+});
+
+//Exports vue-router
+export default router;

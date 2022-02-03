@@ -4,13 +4,13 @@ Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Lab
 
 ## Gruppmedlemmar
 
-- Linus Romland
-- David Sabel
-- Fredric Ryding
-- Kenneth Wilhelmsson
-- Nahti Geigant
-- Olena Drozdova
-- Patryk Sroka
+-   Linus Romland
+-   David Sabel
+-   Fredric Ryding
+-   Kenneth Wilhelmsson
+-   Nahti Geigant
+-   Olena Drozdova
+-   Patryk Sroka
 
 ## Licens
 
