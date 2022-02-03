@@ -2,12 +2,14 @@
   import CitiesList from './components/CitiesList.vue'
   import CounterButton from './components/CounterButton.vue'
   import HelloWorld from './components/HelloWorld.vue'
+  import EndScreen from './components/EndScreen.vue'
 
   export default {
     components: {
       CitiesList,
       CounterButton,
-      HelloWorld
+      HelloWorld,
+      EndScreen
     }
   }
 </script>
@@ -29,6 +31,7 @@
   <HelloWorld msg="Hello Team!" />
   <CitiesList />
   <CounterButton />
+  <EndScreen />
   <main>
     <RouterView />
   </main>
