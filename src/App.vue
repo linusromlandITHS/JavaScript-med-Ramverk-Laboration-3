@@ -41,11 +41,11 @@
   Main slut
 
   <HelloWorld msg="Hello Team!" />
-  <hr/>
+  <hr />
   <CitiesList />
-  <hr/>
+  <hr />
   <CounterButton />
-  <hr/>
+  <hr />
   <EndScreen />
 
 </template>

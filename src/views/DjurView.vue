@@ -35,7 +35,7 @@
 </script>
 
 <template>
-<hr>
+<hr />
 <h3>Vue-router-sidan DJUR här:</h3>
 <h6>Visar bara innehållet i databasen som en tabell</h6>
   <!-- <ol>
