@@ -26,13 +26,26 @@
       <li>
         <RouterLink to="/contact">Kontakt</RouterLink>
       </li>
+
+      <li>
+        <RouterLink to="/djur">Djur-sidan...</RouterLink> (visas)
+      </li>
+
     </ul>
   </nav>
-  <HelloWorld msg="Hello Team!" />
-  <CitiesList />
-  <CounterButton />
-  <EndScreen />
+
+  Här nedan kommer main och RouterView:
   <main>
     <RouterView />
   </main>
+  Main slut
+
+  <HelloWorld msg="Hello Team!" />
+  <hr/>
+  <CitiesList />
+  <hr/>
+  <CounterButton />
+  <hr/>
+  <EndScreen />
+
 </template>

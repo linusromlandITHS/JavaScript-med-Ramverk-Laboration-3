@@ -1,1 +1,1 @@
-<template><h1>Hem</h1></template>
+<template><h1>Hem (HomeView.vue)</h1></template>
