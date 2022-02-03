@@ -30,7 +30,7 @@
 					console.log(djur);
 					this.djur = djur;
 					let d = djur.djursamling;
-					let htmlarr = ['<table class="table">'];
+					let htmlarr = ['<table class="table table-striped">'];
 					for (let i = 0; i < d.length; i++) {
 						console.log(d[i]);
 						let post = d[i];
