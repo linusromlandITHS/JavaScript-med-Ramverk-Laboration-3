@@ -43,9 +43,9 @@
   </ol> -->
 
 
-  <div v-html="djurtabell">
+  <div v-html="djurtabell" />
 
-  </div>
+
 <b>
 DJUR SLUTAR HÄR
 </b></template>
