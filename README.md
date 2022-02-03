@@ -14,4 +14,4 @@ Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Lab
 
 ## Licens
 
-Distribueras under MIT-licensen. Se [`LICENSE`](LICENSE) för mer information. (Kenneth testar här att ändra Readme för att göra en conflict...)
+Distribueras under MIT-licensen. Se [`LICENSE`](LICENSE) för mer information.
