@@ -1,7 +1,11 @@
-<script></script>
-
 <template>
-  <div>
-    <p>Hej</p>
-  </div>
+	<div>
+		<p>Hej</p>
+	</div>
 </template>
+
+<script>
+	export default {
+		name: 'EndScreen'
+	};
+</script>
