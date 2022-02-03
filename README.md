@@ -1,6 +1,7 @@
 # JavaScript-Med-Ramverk-Laboration-3
 
-Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Laboration 2` i kursen `Agil Utveckling`. 
+Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Laboration 2` i kursen `Agil Utveckling`.
+
 ## Gruppmedlemmar
 
 - Linus Romland
@@ -13,4 +14,4 @@ Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Lab
 
 ## Licens
 
-Distribueras under MIT-licensen. Se [`LICENSE`](LICENSE) för mer information.
+Distribueras under MIT-licensen. Se [`LICENSE`](LICENSE) för mer information. (Kenneth testar här att ändra Readme för att göra en conflict...)
