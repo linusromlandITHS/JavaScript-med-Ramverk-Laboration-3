@@ -3,11 +3,12 @@
 Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Laboration 2` i kursen `Agil Utveckling`.
 
 ## Utvecklingsinstruktioner
+
 För att se hur man kör projektet, tryck [här](SETUP.md).
 
 ## Projektet
-Läs mer om projektet [här](PROJECT.md).
 
+Läs mer om projektet [här](PROJECT.md).
 
 ## Gruppmedlemmar
 

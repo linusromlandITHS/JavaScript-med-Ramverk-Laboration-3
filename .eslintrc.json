@@ -2,6 +2,7 @@
 	"env": {
 		"node": true
 	},
+	"ignorePatterns": ["*.md"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:vue/base",
