@@ -1,8 +1,10 @@
 # JavaScript-Med-Ramverk-Laboration-3
 
-Projektet tillhörande `Laboration 3`.
+Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk`.
+<br>
+Projektet ingår också i `Laboration 2` i kursen `Agil Utveckling`.
 
-## Gruppens Medlemmar
+## Gruppmedlemmar
 
 -   Linus Romland
 
