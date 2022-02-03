@@ -15,6 +15,8 @@
         <RouterLink to="/djur">Djur-sidan...</RouterLink>
       </li>
 
+		</ul>
+    </nav>
 	Här nedan kommer main och RouterView:
 	<main>
 		<RouterView />
