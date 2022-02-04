@@ -19,7 +19,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<button class="btn-primary">Hem</button>
+		<button class="btn-primary">Betala</button>
 	</div>
 </template>
 
