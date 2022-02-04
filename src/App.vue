@@ -1,32 +1,30 @@
 <template>
-	<nav>
-		<ul>
-			<li>
-				<RouterLink to="/">Hem</RouterLink>
-			</li>
-			<li>
-				<RouterLink to="/about">Om</RouterLink>
-			</li>
-			<li>
-				<RouterLink to="/contact">Kontakt</RouterLink>
-			</li>
+<div style="padding:35px">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-			<li>
-				<RouterLink to="/djur">Djur-sidan...</RouterLink>
-			</li>
-		</ul>
+				<RouterLink class="navbar-brand"  to="/">Hem</RouterLink>
+
+				<RouterLink class="navbar-brand"  to="/about">Om</RouterLink>
+	
+				<RouterLink class="navbar-brand" to="/contact">Kontakt</RouterLink>
+		
+				<RouterLink class="navbar-brand" to="/djur">Djur-sidan...</RouterLink>
+	
 	</nav>
 	Här nedan kommer main och RouterView:
-	<main>
+	<main style="padding:35px; border:1px solid">
 		<RouterView />
 	</main>
+  <hr />
+Detta nedanför kanske inte ska ligga kvar?
 	Main slut
-
+  <hr />
 	<HelloWorld msg="Hello Team!" />
 	<hr />
 	<CitiesList />
 	<hr />
 	<EndScreen />
+</div>
 </template>
 
 <script>
