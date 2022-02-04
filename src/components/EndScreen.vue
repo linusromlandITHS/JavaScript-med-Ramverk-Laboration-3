@@ -53,6 +53,19 @@
 					}
 				]
 			};
+		},
+		mounted() {
+			if (localStorage.tasks) {
+				this.payments = JSON.parse(localStorage.tasks);
+			}
+		},
+		watch: {
+			payments: {
+				handler(newSave) {
+					localStorage.tasks = JSON.stringify(newSave);
+				},
+				deep: true
+			}
 		}
 	};
 </script>
