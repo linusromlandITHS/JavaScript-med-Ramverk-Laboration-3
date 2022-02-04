@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<p>Ditt köp</p>
 		<table class="table">
 			<thead>
 				<tr>
@@ -10,26 +11,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Kattavel</td>
-					<td>6</td>
-					<td>6000 kr</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Hö och grismat</td>
-					<td>1000</td>
-					<td>10 000 kr</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
+				<tr v-for="(task, index) in payments" :key="index">
+					<th scope="row">{{ task.köp }}</th>
+					<td>{{ task.varor }}</td>
+					<td>{{ task.antal }}</td>
+					<td>{{ task.pris }}</td>
 				</tr>
 			</tbody>
 		</table>
+		<button class="btn-primary">Hem</button>
 	</div>
 	=======
 	<div>
@@ -39,6 +29,30 @@
 
 <script>
 	export default {
-		name: 'EndScreen'
+		name: 'EndScreen',
+		data() {
+			return {
+				payments: [
+					{
+						köp: 1,
+						varor: 'Kattavel',
+						antal: '6',
+						pris: '6 000 kr'
+					},
+					{
+						köp: 2,
+						varor: 'Hö',
+						antal: '7',
+						pris: '10 000 kr'
+					},
+					{
+						köp: 3,
+						varor: 'Höna',
+						antal: '10',
+						pris: '400 kr'
+					}
+				]
+			};
+		}
 	};
 </script>
