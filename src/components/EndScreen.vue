@@ -15,7 +15,7 @@
 					<th scope="row">{{ task.köp }}</th>
 					<td>{{ task.varor }}</td>
 					<td>{{ task.antal }}</td>
-					<td>{{ task.pris }}</td>
+					<td>{{ task.pris + ' kr' }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -37,19 +37,19 @@
 						köp: 1,
 						varor: 'Kattavel',
 						antal: '6',
-						pris: '6 000 kr'
+						pris: 6000
 					},
 					{
 						köp: 2,
 						varor: 'Hö',
 						antal: '7',
-						pris: '10 000 kr'
+						pris: 10000
 					},
 					{
 						köp: 3,
 						varor: 'Höna',
 						antal: '10',
-						pris: '400 kr'
+						pris: 400
 					}
 				]
 			};
