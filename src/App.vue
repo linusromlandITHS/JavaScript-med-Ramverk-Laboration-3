@@ -1,6 +1,4 @@
 <template>
-
-
 	<!-- Navbar  -->
 	<Navbar />
 
@@ -8,9 +6,9 @@
 	<main style="padding:35px; border:1px solid">
 		<RouterView />
 	</main>
-  <hr />
-Detta nedanför kanske inte ska ligga kvar?
-	Main slut
+	<hr />
+	<!-- Detta nedanför kanske inte ska ligga kvar?
+	Main slut -->
 
 	<EndScreen />
 </template>
