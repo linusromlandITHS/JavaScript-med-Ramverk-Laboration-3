@@ -22,22 +22,14 @@
 	</main>
 	Main slut
 
-	<HelloWorld msg="Hello Team!" />
-	<hr />
-	<CitiesList />
-	<hr />
 	<EndScreen />
 </template>
 
 <script>
-	import CitiesList from './components/CitiesList.vue';
-	import HelloWorld from './components/HelloWorld.vue';
 	import EndScreen from './components/EndScreen.vue';
 
 	export default {
 		components: {
-			CitiesList,
-			HelloWorld,
 			EndScreen
 		}
 	};
