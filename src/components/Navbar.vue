@@ -12,6 +12,9 @@
 			</li>
 		</ul>
 	</nav>
+	<RouterLink to="/cart">
+		<button id="myCart" type="button" class="btn btn-primary">Varukorg</button>
+	</RouterLink>
 </template>
 
 <script>

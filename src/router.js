@@ -20,6 +20,12 @@ const router = createRouter({
 			name: 'Djur',
 			component: () => import('./views/DjurView.vue'),
 			path: '/djur'
+		},
+		{
+			// Cart Route
+			name: 'Cart',
+			component: () => import('./views/CartView.vue'),
+			path: '/cart'
 		}
 	]
 });

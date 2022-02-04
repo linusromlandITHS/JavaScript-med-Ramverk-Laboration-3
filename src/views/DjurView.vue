@@ -1,15 +1,13 @@
-<template>
+<template >
+<div style="background-color:white !important; padding:12px; border:1px solid">
 	<hr />
 	<h5>Vue-router-sidan DjurView här:</h5>
 	<h6>Visar bara innehållet i databasen som en tabell</h6>
-	<!-- <ol>
 
-    <li :key="city.id" v-for="city in cities">{{ city.name }}</li>
-  </ol> -->
-
-	<div v-html="djurtabell" />
+	<div v-html="djurtabell" style="padding:12px; border:1px solid" />
 
 	<b> DJUR SLUTAR HÄR </b>
+  </div>
 </template>
 
 <script>

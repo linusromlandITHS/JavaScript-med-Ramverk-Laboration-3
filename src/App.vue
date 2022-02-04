@@ -2,11 +2,13 @@
 	<!-- Navbar  -->
 	<Navbar />
 
-	Här nedan kommer main och RouterView:
-	<main>
+	<!-- Här nedan kommer main och RouterView: -->
+	<main style="padding: 35px; border: 1px solid">
 		<RouterView />
 	</main>
-	Main slut
+	<hr />
+	<!-- Detta nedanför kanske inte ska ligga kvar?
+	Main slut -->
 
 	<EndScreen />
 </template>
