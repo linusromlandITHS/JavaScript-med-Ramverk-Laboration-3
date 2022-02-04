@@ -19,7 +19,7 @@
 				</tr>
 				<tr>
 					<th scope="row">Att Betala</th>
-					<td>{{ helaPriset }}</td>
+					<td>{{ helaPriset + ' kr' }}</td>
 				</tr>
 			</tbody>
 		</table>
