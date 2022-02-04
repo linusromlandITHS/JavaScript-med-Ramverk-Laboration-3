@@ -1,6 +1,5 @@
-<script></script>
-
 <template>
+<<<<<<< HEAD
   <div>
     <table class="table">
       <thead>
@@ -33,4 +32,15 @@
       </tbody>
     </table>
   </div>
+=======
+	<div>
+		<p>Hej</p>
+	</div>
+>>>>>>> 3740811abbb79c1504b3f7dc9e677e8f9b503bd0
 </template>
+
+<script>
+	export default {
+		name: 'EndScreen'
+	};
+</script>

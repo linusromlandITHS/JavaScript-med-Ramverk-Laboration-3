@@ -1,0 +1,48 @@
+<template>
+	<hr />
+	<h5>Vue-router-sidan DjurView här:</h5>
+	<h6>Visar bara innehållet i databasen som en tabell</h6>
+	<!-- <ol>
+
+    <li :key="city.id" v-for="city in cities">{{ city.name }}</li>
+  </ol> -->
+
+	<div v-html="djurtabell" />
+
+	<b> DJUR SLUTAR HÄR </b>
+</template>
+
+<script>
+	export default {
+		name: 'DjurView',
+		data() {
+			return {
+				cities: null,
+				djur: null,
+				djurtabell: null
+			};
+		},
+		created() {
+			fetch('/database.json')
+				.then((response) => response.json())
+				.then((djur) => {
+					console.log(djur);
+					this.djur = djur;
+					let d = djur.djursamling;
+					let htmlarr = ['<table class="table table-striped">'];
+					for (let i = 0; i < d.length; i++) {
+						console.log(d[i]);
+						let post = d[i];
+						htmlarr.push('<tr>');
+						console.log(post);
+						for (let j in post) {
+							htmlarr.push('<td>' + post[j] + '</td>');
+						}
+						htmlarr.push('</tr>');
+					}
+					htmlarr.push('</table>');
+					this.djurtabell = htmlarr.join('');
+				});
+		}
+	};
+</script>
