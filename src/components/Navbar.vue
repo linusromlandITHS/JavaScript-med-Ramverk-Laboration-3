@@ -12,6 +12,7 @@
 			</li>
 		</ul>
 	</nav>
+	<RouterLink to="/cart">Varukorg</RouterLink>
 </template>
 
 <script>
