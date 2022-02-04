@@ -4,8 +4,7 @@
 	<!-- Navbar  -->
 	<Navbar />
 
->>>>>>> 3428365c4e419a428ce435092829e3f9d0ba1f10
-	Här nedan kommer main och RouterView:
+
 	<main style="padding:35px; border:1px solid">
 		<RouterView />
 	</main>
@@ -13,9 +12,7 @@
 Detta nedanför kanske inte ska ligga kvar?
 	Main slut
 
-  
 	<EndScreen />
-</div>
 </template>
 
 <script>
