@@ -1,16 +1,10 @@
 <template>
-<div style="padding:35px">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<RouterLink class="navbar-brand"  to="/">Hem</RouterLink>
 
-				<RouterLink class="navbar-brand"  to="/about">Om</RouterLink>
-	
-				<RouterLink class="navbar-brand" to="/contact">Kontakt</RouterLink>
-		
-				<RouterLink class="navbar-brand" to="/djur">Djur-sidan...</RouterLink>
-	
-	</nav>
+	<!-- Navbar  -->
+	<Navbar />
+
+>>>>>>> 3428365c4e419a428ce435092829e3f9d0ba1f10
 	Här nedan kommer main och RouterView:
 	<main style="padding:35px; border:1px solid">
 		<RouterView />
@@ -18,25 +12,22 @@
   <hr />
 Detta nedanför kanske inte ska ligga kvar?
 	Main slut
-  <hr />
-	<HelloWorld msg="Hello Team!" />
-	<hr />
-	<CitiesList />
-	<hr />
+
+  
 	<EndScreen />
 </div>
 </template>
 
 <script>
-	import CitiesList from './components/CitiesList.vue';
-	import HelloWorld from './components/HelloWorld.vue';
+	//Component Imports:
 	import EndScreen from './components/EndScreen.vue';
+	import Navbar from './components/Navbar.vue';
 
 	export default {
+		name: 'App',
 		components: {
-			CitiesList,
-			HelloWorld,
-			EndScreen
+			EndScreen,
+			Navbar
 		}
 	};
 </script>

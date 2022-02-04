@@ -4,19 +4,28 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	routes: [
 		{
+			// Home Route
 			name: 'Home',
 			component: () => import('./views/HomeView.vue'),
 			path: '/'
 		},
 		{
+			// About Route
 			name: 'About',
 			component: () => import('./views/AboutView.vue'),
 			path: '/about'
 		},
 		{
+			// Products Route?
 			name: 'Djur',
 			component: () => import('./views/DjurView.vue'),
 			path: '/djur'
+		},
+		{
+			// Cart Route
+			name: 'Cart',
+			component: () => import('./views/CartView.vue'),
+			path: '/cart'
 		}
 	]
 });
