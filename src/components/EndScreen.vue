@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<p>Ditt köp</p>
+		<h2>Ditt köp</h2>
 		<table class="table">
 			<thead>
 				<tr>
@@ -74,3 +74,15 @@
 		}
 	};
 </script>
+
+<style>
+	table {
+		padding: 30px;
+	}
+	h2 {
+		padding: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
