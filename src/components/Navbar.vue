@@ -8,10 +8,6 @@
 				<RouterLink to="/about">Om</RouterLink>
 			</li>
 			<li>
-				<RouterLink to="/contact">Kontakt</RouterLink>
-			</li>
-
-			<li>
 				<RouterLink to="/djur">Djur-sidan...</RouterLink>
 			</li>
 		</ul>
