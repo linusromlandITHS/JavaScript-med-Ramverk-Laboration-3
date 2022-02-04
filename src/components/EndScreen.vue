@@ -17,6 +17,10 @@
 					<td>{{ task.antal }}</td>
 					<td>{{ task.pris + ' kr' }}</td>
 				</tr>
+				<tr>
+					<th scope="row">Att Betala</th>
+					<td>{{ helaPriset + ' kr' }}</td>
+				</tr>
 			</tbody>
 		</table>
 		<button class="btn-primary">Betala</button>
@@ -28,6 +32,7 @@
 		name: 'EndScreen',
 		data() {
 			return {
+				summa: 0,
 				payments: [
 					{
 						köp: 1,
@@ -62,6 +67,9 @@
 				},
 				deep: true
 			}
+		},
+		created() {
+			this.helaPriset = this.payments.reduce((acc, item) => acc + item.pris, 0);
 		}
 	};
 </script>
