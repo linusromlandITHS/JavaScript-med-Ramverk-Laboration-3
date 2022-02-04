@@ -56,13 +56,13 @@
 		},
 		mounted() {
 			if (localStorage.tasks) {
-				this.payments = JSON.parse(localStorage.tasks);
+				this.payments = JSON.parse(localStorage.payments);
 			}
 		},
 		watch: {
 			payments: {
 				handler(newSave) {
-					localStorage.tasks = JSON.stringify(newSave);
+					localStorage.payments = JSON.stringify(newSave);
 				},
 				deep: true
 			}
