@@ -1,44 +1,26 @@
 <template>
-	<nav>
-		<ul>
-			<li>
-				<RouterLink to="/">Hem</RouterLink>
-			</li>
-			<li>
-				<RouterLink to="/about">Om</RouterLink>
-			</li>
-			<li>
-				<RouterLink to="/contact">Kontakt</RouterLink>
-			</li>
+	<!-- Navbar  -->
+	<Navbar />
 
-			<li>
-				<RouterLink to="/djur">Djur-sidan...</RouterLink>
-			</li>
-		</ul>
-	</nav>
 	Här nedan kommer main och RouterView:
 	<main>
 		<RouterView />
 	</main>
 	Main slut
 
-	<HelloWorld msg="Hello Team!" />
-	<hr />
-	<CitiesList />
-	<hr />
 	<EndScreen />
 </template>
 
 <script>
-	import CitiesList from './components/CitiesList.vue';
-	import HelloWorld from './components/HelloWorld.vue';
+	//Component Imports:
 	import EndScreen from './components/EndScreen.vue';
+	import Navbar from './components/Navbar.vue';
 
 	export default {
+		name: 'App',
 		components: {
-			CitiesList,
-			HelloWorld,
-			EndScreen
+			EndScreen,
+			Navbar
 		}
 	};
 </script>
