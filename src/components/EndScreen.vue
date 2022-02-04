@@ -55,7 +55,7 @@
 			};
 		},
 		mounted() {
-			if (localStorage.tasks) {
+			if (localStorage.payments) {
 				this.payments = JSON.parse(localStorage.payments);
 			}
 		},
