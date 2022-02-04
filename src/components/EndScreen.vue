@@ -21,10 +21,6 @@
 		</table>
 		<button class="btn-primary">Hem</button>
 	</div>
-	=======
-	<div>
-		<p>Hej</p>
-	</div>
 </template>
 
 <script>
