@@ -4,7 +4,7 @@ Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Lab
 
 ## Utvecklingsinstruktioner
 
-För att se hur man kör projektet, tryck [här](SETUP.md).
+För att se hur man kör projektet, tryck [här](developmentGuide.md).
 
 ## Projektet
 
