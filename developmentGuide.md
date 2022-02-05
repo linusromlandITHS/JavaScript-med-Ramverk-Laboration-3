@@ -41,3 +41,13 @@ npm run lint
 ```
 
 Sedan ser du i terminalen om du får några eventuella errors.
+
+## Lägga till nya produkter i databasen
+
+För att lägga till nya produkter i projektets databas, kör följande kommando i **en terminal**
+
+```
+npm run add
+```
+
+Följ sedan instruktionerna i terminalen.
