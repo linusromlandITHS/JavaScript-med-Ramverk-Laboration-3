@@ -26,7 +26,7 @@
 				.then((djur) => {
 					console.log(djur);
 					this.djur = djur;
-					let d = djur.djursamling;
+					let d = djur.animals;
 					let htmlarr = ['<table class="table table-striped">'];
 					for (let i = 0; i < d.length; i++) {
 						console.log(d[i]);
