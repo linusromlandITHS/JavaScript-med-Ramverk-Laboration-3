@@ -34,7 +34,9 @@
 
 				//If product is not found, redirect to home page
 				if (!this.product) this.$router.push('/');
-				console.log(this.product);
+
+				//Updates title of document to product name
+				document.title = `${this.product.name} | Red Mountain Ranch`;
 			}
 		},
 		computed: {
