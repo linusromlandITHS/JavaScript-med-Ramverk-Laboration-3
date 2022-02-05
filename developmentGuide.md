@@ -32,6 +32,16 @@ npm run dev
 
 Sedan kan du i din webbläsare navigera till [localhost:3000](http://localhost:3000/)
 
+## Köra ESLint
+
+För att kolla om projektet följer ESLint's Regler, kör följande kommando i **en terminal**
+
+```
+npm run lint
+```
+
+Sedan ser du i terminalen om du får några eventuella errors.
+
 ## Lägga till nya produkter i databasen
 
 För att lägga till nya produkter i projektets databas, kör följande kommando i **en terminal**
