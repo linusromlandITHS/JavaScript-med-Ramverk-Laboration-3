@@ -195,5 +195,23 @@
 			"images": ["fcef347f-8432-4bb8-908b-b27619996187/0.jpg"],
 			"price": 31000
 		},
+		{
+			"id": "7b8dd433-a977-4f26-b90a-33a31a6be7ad",
+			"name": "Bosse",
+			"type": "Katt",
+			"breed": "Bondkatt",
+			"sex": "Male",
+			"categories": ["Däggdjur", "Sällskapsdjur"],
+			"color": "Svart/Vit",
+			"temperament": "Jobbig",
+			"age": 8,
+			"images": [
+				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/0.png",
+				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/1.png",
+				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/2.png",
+				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/3.png"
+			],
+			"price": 149
+		}
 	]
 }
