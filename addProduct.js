@@ -30,16 +30,18 @@ async function main() {
 		price: null
 	};
 
-	newProduct.name = await (
-		await inquirer.prompt({
-			name: 'output',
-			type: 'input',
-			message: 'Name:',
-			default() {
-				return 'Namn';
-			}
-		})
-	).output;
+	newProduct.name = capitalizeFirstLetter(
+		await (
+			await inquirer.prompt({
+				name: 'output',
+				type: 'input',
+				message: 'Name:',
+				default() {
+					return 'Namn';
+				}
+			})
+		).output
+	);
 
 	newProduct.type = await (
 		await inquirer.prompt({
@@ -50,16 +52,18 @@ async function main() {
 		})
 	).output;
 
-	newProduct.breed = await (
-		await inquirer.prompt({
-			name: 'output',
-			type: 'input',
-			message: 'Breed:',
-			default() {
-				return 'Ras';
-			}
-		})
-	).output;
+	newProduct.breed = capitalizeFirstLetter(
+		await (
+			await inquirer.prompt({
+				name: 'output',
+				type: 'input',
+				message: 'Breed:',
+				default() {
+					return 'Ras';
+				}
+			})
+		).output
+	);
 
 	newProduct.sex = await (
 		await inquirer.prompt({
@@ -70,37 +74,43 @@ async function main() {
 		})
 	).output;
 
-	newProduct.color = await (
-		await inquirer.prompt({
-			name: 'output',
-			type: 'input',
-			message: 'Color:',
-			default() {
-				return 'Färg';
-			}
-		})
-	).output;
-
-	newProduct.temperament = await (
-		await inquirer.prompt({
-			name: 'output',
-			type: 'input',
-			message: 'Temperament:',
-			default() {
-				return 'Temperament';
-			}
-		})
-	).output;
-
-	// eslint-disable-next-line no-constant-condition
-	while (true) {
-		const category = await (
+	newProduct.color = capitalizeFirstLetter(
+		await (
 			await inquirer.prompt({
 				name: 'output',
 				type: 'input',
-				message: 'Category:'
+				message: 'Color:',
+				default() {
+					return 'Färg';
+				}
 			})
-		).output;
+		).output
+	);
+
+	newProduct.temperament = capitalizeFirstLetter(
+		await (
+			await inquirer.prompt({
+				name: 'output',
+				type: 'input',
+				message: 'Temperament:',
+				default() {
+					return 'Temperament';
+				}
+			})
+		).output
+	);
+
+	// eslint-disable-next-line no-constant-condition
+	while (true) {
+		const category = capitalizeFirstLetter(
+			await (
+				await inquirer.prompt({
+					name: 'output',
+					type: 'input',
+					message: 'Category:'
+				})
+			).output
+		);
 
 		newProduct.categories.push(category);
 
@@ -208,6 +218,11 @@ async function main() {
 	});
 
 	return;
+}
+
+function capitalizeFirstLetter(string) {
+	if (string.length <= 0) return string;
+	return string.toLowerCase().charAt(0).toUpperCase() + string.slice(1);
 }
 
 main();
