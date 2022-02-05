@@ -31,3 +31,13 @@ npm run dev
 ```
 
 Sedan kan du i din webbläsare navigera till [localhost:3000](http://localhost:3000/)
+
+## Lägga till nya produkter i databasen
+
+För att lägga till nya produkter i projektets databas, kör följande kommando i **en terminal**
+
+```
+npm run add
+```
+
+Följ sedan instruktionerna i terminalen.
