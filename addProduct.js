@@ -100,17 +100,42 @@ async function main() {
 		).output
 	);
 
+	//Get all diffent categories from products.json
+	let categories = [];
+
+	require('./public/database.json').animals.forEach((product) => {
+		product.categories.forEach((category) => {
+			if (!categories.includes(category)) {
+				categories.push(category);
+			}
+		});
+	});
+	categories.push('Other');
+
 	// eslint-disable-next-line no-constant-condition
 	while (true) {
-		const category = capitalizeFirstLetter(
+		let category = capitalizeFirstLetter(
 			await (
 				await inquirer.prompt({
 					name: 'output',
-					type: 'input',
+					type: 'list',
+					choices: categories,
 					message: 'Category:'
 				})
 			).output
 		);
+
+		if (category === 'Other') {
+			category = capitalizeFirstLetter(
+				await (
+					await inquirer.prompt({
+						name: 'output',
+						type: 'input',
+						message: 'Category:'
+					})
+				).output
+			);
+		}
 
 		newProduct.categories.push(category);
 
@@ -199,8 +224,8 @@ async function main() {
 		newProduct.images[i] = `${newProduct.id}/${i}${path.extname(element)}`;
 	}
 
-	// Adds the new product to the "database"
 	const products = './public/database.json';
+	// Adds the new product to the "database"
 	fs.readFile(products, 'utf8', (err, data) => {
 		if (err) {
 			console.log(err);
