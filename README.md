@@ -2,9 +2,9 @@
 
 Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Laboration 2` i kursen `Agil Utveckling`.
 
-## Utvecklingsinstruktioner
+## Utvecklingsguide
 
-För att se hur man kör projektet, tryck [här](developmentGuide.md).
+För information om hur utvecklingen går till, tryck [här](developmentGuide.md#utvecklingsguide).
 
 ## Projektet
 
