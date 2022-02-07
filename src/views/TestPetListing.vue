@@ -1,5 +1,5 @@
 <template>
-	<div style="background-color: white !important; padding: 12px; border: 1px solid; text-align:center">
+	<div style="background-color: white !important;color:black; padding: 12px; border: 1px solid; text-align:center">
 
 <p>Testsida för listningen</p>
 <i>(Visar här upp  info via TestPetCardComponent som får info som props)</i>

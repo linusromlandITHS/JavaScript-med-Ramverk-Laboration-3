@@ -6,6 +6,10 @@ Projektet tillhörande `Laboration 3` i kursen `JavaScript med Ramverk` och `Lab
 
 För information om hur utvecklingen går till, tryck [här](developmentGuide.md#utvecklingsguide).
 
+## Stilguide
+
+För att se stilguiden, tryck [här](STILGUIDE.md#stilguide).
+
 ## Projektet
 
 Läs mer om projektet [här](PROJECT.md).

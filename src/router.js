@@ -11,19 +11,19 @@ const router = createRouter({
 		},
 		{
 			// About Route
-			name: 'About',
-			component: () => import('./views/AboutView.vue'),
-			path: '/about'
+			name: 'Contact',
+			component: () => import('./views/ContactView.vue'),
+			path: '/contact'
 		},
 		{
 			// Products Route?
-			name: 'Djur',
-			component: () => import('./views/DjurView.vue'),
-			path: '/djur'
+			name: 'Animal',
+			component: () => import('./views/AnimalView.vue'),
+			path: '/animal'
 		},
 		{
 			// Product Route
-			name: 'Produkt',
+			name: 'Product',
 			component: () => import('./views/ProductView.vue'),
 			path: '/product/:id'
 		},
@@ -32,6 +32,12 @@ const router = createRouter({
 			name: 'Cart',
 			component: () => import('./views/CartView.vue'),
 			path: '/cart'
+		},
+		{
+			// Checkout Route
+			name: 'Checkout',
+			component: () => import('./components/EndScreen.vue'),
+			path: '/checkout'
 		}
 		,
 		{

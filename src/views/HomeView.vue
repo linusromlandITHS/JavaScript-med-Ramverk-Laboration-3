@@ -1,8 +1,3 @@
-<template>
-	<h1>Hem</h1>
-	<EndScreen />
-</template>
-
 <script>
 	//Component Imports:
 	import EndScreen from '../components/EndScreen.vue';
@@ -14,3 +9,10 @@
 		}
 	};
 </script>
+
+<template>
+	<h1>Hem</h1>
+	<EndScreen />
+</template>
+
+<style></style>
