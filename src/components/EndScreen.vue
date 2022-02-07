@@ -26,6 +26,11 @@
 				]
 			};
 		},
+		methods: {
+			deleteItem(index) {
+				this.payments.splice(index, 1);
+			}
+		},
 		mounted() {
 			if (localStorage.payments) {
 				this.payments = JSON.parse(localStorage.payments);
@@ -46,7 +51,7 @@
 </script>
 
 <template>
-	<div>
+	<div class="container">
 		<h2>Ditt köp</h2>
 		<table class="table">
 			<thead>
@@ -55,6 +60,7 @@
 					<th scope="col">Varor</th>
 					<th scope="col">Antal</th>
 					<th scope="col">Pris</th>
+					<th scope="col">X</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -63,6 +69,7 @@
 					<td>{{ task.varor }}</td>
 					<td>{{ task.antal }}</td>
 					<td>{{ task.pris + ' kr' }}</td>
+					<td @click="deleteItem">X</td>
 				</tr>
 				<tr>
 					<th scope="row">Att Betala</th>
@@ -78,11 +85,22 @@
 <style>
 	table {
 		padding: 30px;
+		background-color: #c9c9bd;
+		border: 4px;
+		border-color: #faac77;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	div {
+		border: 4px;
+		border-color: #faac77;
 	}
 	h2 {
+		border: 4px;
+		border-color: #faac77;
 		padding: 30px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		color: #faac77;
 	}
 </style>
