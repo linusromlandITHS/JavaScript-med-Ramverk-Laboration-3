@@ -1,5 +1,5 @@
 <script>
-	import vue3slideshow from 'vue3slideshow';
+	import vue3slideshow from 'vue3-slideshow';
 
 	export default {
 		name: 'ProductView',
