@@ -19,7 +19,6 @@
 			<li>
 				<RouterLink to="/testpetlisting">Temp. version av listningssidan</RouterLink>
 			</li>
-
 		</ul>
 	</nav>
 	<RouterLink to="/cart">

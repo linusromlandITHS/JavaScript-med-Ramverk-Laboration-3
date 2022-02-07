@@ -2,16 +2,12 @@
 	<!-- Navbar  -->
 	<Navbar />
 
-
-	<main style="padding:35px; border:1px solid">
+	<main style="padding: 35px; border: 1px solid">
 		<RouterView />
 	</main>
 	<hr />
 
-
 	<EndScreen />
-
-
 </template>
 
 <script>

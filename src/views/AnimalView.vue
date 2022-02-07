@@ -26,9 +26,11 @@
 						for (let j in post) {
 							htmlarr.push('<td>' + post[j] + '</td>');
 						}
-						htmlarr.push('<td><img src="assets/products/' + post[ "id" ] + '/0.jpg" style="max-width:80px" /></td>');
+						htmlarr.push(
+							'<td><img src="assets/products/' + post['id'] + '/0.jpg" style="max-width:80px" /></td>'
+						);
 
-//assets/products/d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg
+						//assets/products/d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg
 
 						htmlarr.push('</tr>');
 					}
