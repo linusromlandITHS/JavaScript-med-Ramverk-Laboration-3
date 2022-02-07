@@ -1,3 +1,9 @@
+<script>
+	export default {
+		name: 'Navbar'
+	};
+</script>
+
 <template>
 	<nav>
 		<ul>
@@ -17,8 +23,4 @@
 	</RouterLink>
 </template>
 
-<script>
-	export default {
-		name: 'Navbar'
-	};
-</script>
+<style></style>

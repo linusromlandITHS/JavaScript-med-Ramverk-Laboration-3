@@ -1,9 +1,3 @@
-<template>
-	<!-- This is a very very temporary showing of data!!! -->
-	<h1>{{ product.name }}</h1>
-	<img v-for="(image, index) in images" :key="index" :src="image" />
-</template>
-
 <script>
 	export default {
 		name: 'ProductView',
@@ -49,3 +43,11 @@
 		}
 	};
 </script>
+
+<template>
+	<!-- This is a very very temporary showing of data!!! -->
+	<h1>{{ product.name }}</h1>
+	<img v-for="(image, index) in images" :key="index" :src="image" />
+</template>
+
+<style></style>

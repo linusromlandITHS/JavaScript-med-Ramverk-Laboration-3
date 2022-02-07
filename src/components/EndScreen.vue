@@ -1,33 +1,3 @@
-<template>
-	<div>
-		<h2>Ditt köp</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Köp</th>
-					<th scope="col">Varor</th>
-					<th scope="col">Antal</th>
-					<th scope="col">Pris</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="(task, index) in payments" :key="index">
-					<th scope="row">{{ task.köp }}</th>
-					<td>{{ task.varor }}</td>
-					<td>{{ task.antal }}</td>
-					<td>{{ task.pris + ' kr' }}</td>
-				</tr>
-				<tr>
-					<th scope="row">Att Betala</th>
-					<td>{{ helaPriset + ' kr' }}</td>
-					<td>{{ 'var av moms ' + helaPriset * 0.25 + ' kr' }}</td>
-				</tr>
-			</tbody>
-		</table>
-		<button class="btn-primary">Betala</button>
-	</div>
-</template>
-
 <script>
 	export default {
 		name: 'EndScreen',
@@ -74,6 +44,36 @@
 		}
 	};
 </script>
+
+<template>
+	<div>
+		<h2>Ditt köp</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Köp</th>
+					<th scope="col">Varor</th>
+					<th scope="col">Antal</th>
+					<th scope="col">Pris</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(task, index) in payments" :key="index">
+					<th scope="row">{{ task.köp }}</th>
+					<td>{{ task.varor }}</td>
+					<td>{{ task.antal }}</td>
+					<td>{{ task.pris + ' kr' }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Att Betala</th>
+					<td>{{ helaPriset + ' kr' }}</td>
+					<td>{{ 'var av moms ' + helaPriset * 0.25 + ' kr' }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<button class="btn-primary">Betala</button>
+	</div>
+</template>
 
 <style>
 	table {
