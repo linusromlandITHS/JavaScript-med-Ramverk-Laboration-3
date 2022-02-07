@@ -1,20 +1,32 @@
-<script></script>
+<script>
+	export default {
+		name: 'Cart',
+
+		methods: {
+			onClick() {
+				this.$router.push({ path: '/checkout' });
+			}
+		}
+	};
+</script>
 
 <template>
-	<h1>Min varukorg</h1>
-	<div id="itemSection">
-		<li>Added item*</li>
-		<li>Added item*</li>
-		<li>Added item*</li>
-	</div>
-	<div class="container-sm">
-		<h4>
-			Total summa
-			<span id="inclVAT">inkl. moms </span>
-		</h4>
-		<p id="totalAmount">"Total amount"</p>
-	</div>
-	<button id="checkOut" type="button" class="btn btn-secondary">Gå vidare till kassan</button>
+	<main>
+		<h1>Din varukorg</h1>
+		<div id="itemSection">
+			<li>Added item*</li>
+			<li>Added item*</li>
+			<li>Added item*</li>
+		</div>
+		<div class="container-sm">
+			<h4>
+				Total summa
+				<span id="inclVAT">inkl. moms </span>
+			</h4>
+			<p id="totalAmount">"Total amount"</p>
+		</div>
+		<button @click="onClick" id="checkOut" type="button" class="btn btn-secondary">Gå vidare till kassan</button>
+	</main>
 </template>
 
 <style>
@@ -24,10 +36,16 @@
 
 	h1 {
 		margin-bottom: 20px;
+		padding-left: 25%;
+		padding-right: 25%;
 	}
 
 	h4 {
 		margin-top: 0.5rem;
+	}
+
+	main {
+		margin: 2%;
 	}
 	@media (max-width: 575.98px) {
 		.container-sm {
@@ -40,6 +58,13 @@
 
 		#checkOut {
 			width: 100%;
+		}
+	}
+
+	@media (min-width: 576px) {
+		.container-sm {
+			display: block;
+			background-color: beige;
 		}
 	}
 
