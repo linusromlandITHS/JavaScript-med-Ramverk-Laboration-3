@@ -69,7 +69,7 @@
 					<td>{{ task.varor }}</td>
 					<td>{{ task.antal }}</td>
 					<td>{{ task.pris + ' kr' }}</td>
-					<td @click="deleteItem">X</td>
+					<td @click="deleteItem"><span class="fa fa-trash">X</span></td>
 				</tr>
 				<tr>
 					<th scope="row">Att Betala</th>
@@ -102,5 +102,8 @@
 		justify-content: center;
 		align-items: center;
 		color: #faac77;
+	}
+	span {
+		cursor: pointer;
 	}
 </style>
