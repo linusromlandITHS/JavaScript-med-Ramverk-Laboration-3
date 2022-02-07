@@ -106,4 +106,7 @@
 	span {
 		cursor: pointer;
 	}
+	span:hover {
+		color: white;
+	}
 </style>
