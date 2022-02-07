@@ -50,9 +50,24 @@
 </script>
 
 <template>
-	<!-- This is a very very temporary showing of data!!! -->
-	<h1>{{ product.name }}</h1>
-	<vue3slideshow :images="images" :autoPlay="true" :interval="500" />
-</template>
+	<vue3slideshow :images="images" :autoPlay="false" />
 
-<style></style>
+	<div class="col-sm-10">
+		<h1 class="text-black fs-1">{{ product.name }}</h1>
+		<ul class="list-group">
+			<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
+			<li class="list-group-item"><span class="fw-bold">Ålder:</span> {{ product.age }}</li>
+			<li class="list-group-item"><span class="fw-bold">Färg:</span> {{ product.color }}</li>
+			<li class="list-group-item">
+				<span class="fw-bold">Kön:</span> {{ product.sex == 'Male' ? 'Hane' : 'Hona' }}
+			</li>
+			<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
+		</ul>
+		<p class="text-black">
+			Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek och
+			lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på magen. Drar
+			sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett snöre.
+		</p>
+		<p class="text-black fs-2">SEK{{ product.price }}:-</p>
+	</div>
+</template>
