@@ -1,6 +1,11 @@
 <script>
+	import vue3slideshow from 'vue3slideshow';
+
 	export default {
 		name: 'ProductView',
+		components: {
+			vue3slideshow
+		},
 		data() {
 			return {
 				product: {} //Object containg all data for product
@@ -47,7 +52,7 @@
 <template>
 	<!-- This is a very very temporary showing of data!!! -->
 	<h1>{{ product.name }}</h1>
-	<img v-for="(image, index) in images" :key="index" :src="image" />
+	<vue3slideshow :images="images" :autoPlay="true" :interval="500" />
 </template>
 
 <style></style>
