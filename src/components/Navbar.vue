@@ -8,8 +8,12 @@
 				<RouterLink to="/about">Om</RouterLink>
 			</li>
 			<li>
-				<RouterLink to="/djur">Djur-sidan...</RouterLink>
+				<RouterLink to="/djur">Sida för att se innehållet i DB...</RouterLink>
 			</li>
+			<li>
+				<RouterLink to="/testpetlisting">Temp. version av listningssidan</RouterLink>
+			</li>
+
 		</ul>
 	</nav>
 	<RouterLink to="/cart">

@@ -7,8 +7,7 @@
 		<RouterView />
 	</main>
 	<hr />
-	<!-- Detta nedanför kanske inte ska ligga kvar?
-	Main slut -->
+
 
 	<EndScreen />
 

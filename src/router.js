@@ -33,10 +33,19 @@ const router = createRouter({
 			component: () => import('./views/CartView.vue'),
 			path: '/cart'
 		}
+		,
+		{
+			// Products Route?
+			name: 'TestPetlisting',
+			component: () => import('./views/TestPetListing.vue'),
+			path: '/testpetlisting'
+		}
+
 	]
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) =>
+{
 	//Before each route, updates the title of page to match name attribute of route
 	document.title = `${String(to.name)} | Red Mountain Ranch`;
 	next();
