@@ -1,4 +1,6 @@
 <script>
+	import ProductCard from '../components/ProductCard.vue';
+
 	export default {
 		name: 'DjurView',
 		data() {
@@ -29,7 +31,8 @@
 					htmlarr.push('</table>');
 					this.djurtabell = htmlarr.join('');
 				});
-		}
+		},
+		components: { ProductCard }
 	};
 </script>
 
@@ -43,6 +46,7 @@
 
 		<b> DJUR SLUTAR HÄR </b>
 	</div>
+	<ProductCard />
 </template>
 
 <style></style>
