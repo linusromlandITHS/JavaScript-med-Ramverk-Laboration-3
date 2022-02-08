@@ -4,8 +4,8 @@
 	};
 </script>
 
-<template>
-	<nav>
+<template style="border-bottom: 1px solid black">
+	<nav >
 		<ul>
 			<li>
 				<RouterLink to="/">Hem</RouterLink>
@@ -26,4 +26,4 @@
 	</RouterLink>
 </template>
 
-<style></style>
+

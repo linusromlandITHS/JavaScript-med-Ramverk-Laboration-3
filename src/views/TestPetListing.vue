@@ -1,14 +1,11 @@
-<template>
-	<div style="background-color: white !important;color:black; padding: 12px; border: 1px solid; text-align:center">
+<template >
+	<div style="background-color: white !important;color:black; padding: 12px; border: 1px solid;  text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
 <p>Testsida för listningen</p>
 <i>(Visar här upp  info via TestPetCardComponent som får info som props)</i>
 <hr />
-<small>** <u>Använder ej Nathis mall här än</u><br/>Använder Bootstrap flex: <b>class="d-flex flex-wrap justify-content-around"</b> på "containern"
-samt <b>class="p-2"</b> på elementen</small>
+<small>** <u>Börjar nu plocka in Nathis mall</u><br/></small>
 
-
-		<!-- <div v-html="djurtabell" style="padding: 12px; border: 1px solid" /> -->
 
 <hr /> 
 <h4><i>Välkommen att se våra djur!</i></h4>
@@ -16,7 +13,7 @@ samt <b>class="p-2"</b> på elementen</small>
 
 <span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
 <hr /> 
-<div  class="d-flex flex-wrap bg-light  justify-content-around">
+<div  class="d-flex flex-wrap bg-light  justify-content-around" style="margin-right:10%;margin-left:10%;">
   <div v-for="pet in current_pet_list" class="p-2">
 
 	<TestPetCardComponent 
@@ -76,14 +73,16 @@ output_obj = { ...full };
 
 		for(let i in output_obj)
 			{
+				var b1 = output_obj[i];
+
+console.log(b1)
+
 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
 
-			console.log("1¤¤¤¤¤¤ "+output_obj[i]['IM1'])
+			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
 			//['IM1']);
 
-
 //	:p_images_arr = pet.images
-
 
 				//output_obj[i]['type']
 
@@ -104,6 +103,9 @@ output_obj = { ...full };
 						//output_obj[i]['IM1']
 
 						console.log("och detta:" + output_obj[ i ]);
+
+console.log("#######" + output_obj[ i ]['image1'] + b1)
+			//	var b1 = output_obj[i]['p_images_arr'][0];
 
 					}
 			}
@@ -159,12 +161,24 @@ output_obj = { ...full };
 	};
 </script>
 
-<style>
+<style scoped>
+
+	*{
+  font-family: Roboto Mono;
+		font-style: normal;
+		font-weight: normal;
+}
+
 
 .linklike{
 cursor: pointer;
-
 }
+
+.linklike:hover{
+font-weight: bold;
+color:black;
+}
+
 
 </style>
 
