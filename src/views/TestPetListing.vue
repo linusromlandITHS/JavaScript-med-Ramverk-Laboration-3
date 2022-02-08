@@ -1,27 +1,29 @@
 <template >
 	<div style="background-color: white !important;color:black; padding: 12px; border: 1px solid;  text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
-<p>Testsida för listningen</p>
-<i>(Visar här upp  info via TestPetCardComponent som får info som props)</i>
-<hr />
-<small>** <u>Börjar nu plocka in Nathis mall</u><br/></small>
-
-
+<p>Testsida för listningen
+<i>(Visar här upp  info via TestPetCardComponent som får info som props)</i> <br /><small>** <u>Börjar nu plocka in Nathis mall</u><br/>Men den ser inte så bra ut med CSS nu - fel fonter mm...?</small>
+</p>
 <hr /> 
 <h4><i>Välkommen att se våra djur!</i></h4>
 <hr /> 
 
 <span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
 <hr /> 
-<div  class="d-flex flex-wrap bg-light  justify-content-around" style="margin-right:10%;margin-left:10%;">
-  <div v-for="pet in current_pet_list" class="p-2">
+<div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:10%;">
+  <div v-for="pet in current_pet_list" class="p-2" 	>
+
+<!-- v-if="pet.type=='Fisk'" -->
 
 	<TestPetCardComponent 
+	:key=pet.id
 	:p_id=pet.id
   :p_name=pet.name
 	:p_images_arr = pet.images
   :p_temperament=pet.temperament
 	:p_price=pet.price
+	:p_type=pet.type
+	:p_one_picture=this.picture_1
 	/>
 
 
@@ -43,14 +45,14 @@
 			return {
 				current_pet_list: null,
 				full_pet_list: null,
-				//image_1 : ""
 
-				//djurtabell: null
+				picture_1: "" //current_pet_list[0]
+
 			};
 		},
 		created() 
 		{
-			this.image_1 = this.p_images_arr[0];
+			this.picture_1 = this.p_images_arr[0];
 		},
 
 		methods: 
@@ -58,9 +60,9 @@
 			onclick(djurtyp
 			)
 			{
+				console.log(djurtyp);
 				this.filter_by_pet_type(djurtyp);
 			},
-
 	keep_only_type(pet_type_to_show)
 	{ 
 		let full = this.full_pet_list;
@@ -96,16 +98,19 @@ console.log(b1)
 					}
 					else
 					{
+
+				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+
 						console.log("behåller:" + output_obj[ i ].name);
 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
-						
-						//output_obj[i]['IM1']
 
 						console.log("och detta:" + output_obj[ i ]);
 
 console.log("#######" + output_obj[ i ]['image1'] + b1)
 			//	var b1 = output_obj[i]['p_images_arr'][0];
+
+			
 
 					}
 			}
@@ -161,10 +166,10 @@ console.log("#######" + output_obj[ i ]['image1'] + b1)
 	};
 </script>
 
-<style scoped>
+<style >
 
-	*{
-  font-family: Roboto Mono;
+*{
+  font-family: 'Roboto Mono';
 		font-style: normal;
 		font-weight: normal;
 }
@@ -175,10 +180,23 @@ cursor: pointer;
 }
 
 .linklike:hover{
-font-weight: bold;
+  text-decoration-line: underline;
 color:black;
 }
 
+/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
+
+
+/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
+* {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}
+
+
+	.p-2 {
+margin-bottom: 14px;
+cursor: pointer;
+
+
+	}
 
 </style>
 

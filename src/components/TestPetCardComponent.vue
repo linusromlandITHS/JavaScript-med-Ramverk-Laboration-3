@@ -22,20 +22,28 @@
 
 
 
-    <div class="card">
+    <div class="card" v-on:click="go_to_details_view( this.p_id, this.p_name)">
 		<div class="image">
 			<picture>
-				<source  media="(max-width: 480px)" />
+				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
-				<img style="max-width:100%" alt="Bild på djur" />
+				<img  :srcset="this.img_src" style="max-width:100%" alt="Bild på djur" />
 			</picture>
+
+			<!-- <picture>
+				<source :srcset="this.img_src" media="(max-width: 480px)" />
+				<source :srcset="this.img_src" media="(max-width: 768px)" />
+				<source :srcset="this.img_src" media="(max-width: 1500px)" />
+				<img  :srcset="this.img_src" style="max-width:100%" alt="Bild på djur" />
+			</picture> -->
+
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
 		<div class="price">{{p_price}} KR</div>
 	</div>
-	<button type="button" class="cart-button">Lägg i kundvagn</button>
+	<button type="button" class="cart-button" v-on:click="add_to_cart( this.p_id, this.p_name)">Lägg i kundvagn</button>
 </template>
 
 <script>
@@ -44,30 +52,47 @@
 		props: {
   p_id: String,
   p_name: String,
-  p_images_arr:Array,
+	p_one_picture:String,
 	p_image_1:String,
   p_temperament: String,
-	p_price:Number
+	p_price:Number,
+	  p_images_arr:Array
 
   },
   data() 
   {
     		return {
-				image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
+					image_1: "assets/products/" + this.p_id + "/0.jpg" ,
+					img_src: "assets/products/" + this.p_id + "/0.jpg" 
+					/*
+				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
         // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
-        img_src: "assets/products/" + this.p_id + "/0.jpg"
+        //img_src: "assets/products/" + this.p_id + "/0.jpg"
+*/
 }
   },
+	computed() 
+	{
+		img_src()
+		{
+			return "assets/products/" + this.p_id + "/0.jpg";
+		}
+
+	},
   created()
   {
     //alert("this.p_id \n"+ this.p_id);
-    this.img_src ="assets/products/" + this.p_images_arr[0];
+    this.img_src ="assets/products/" + this.p_id + "/0.jpg";
   },
   methods: 
   {
-    go_to_details_view(a, b, c)
+    go_to_details_view(a, b)
     {
-        alert("Här går vi till detaljvyn för: \n\n" + a, b, c);
+        alert("Här går vi till detaljvyn för: \n\n" + a, b);
+    },
+    add_to_cart(a, b, c)
+    {
+        alert("Här lägger vi följande i kundvagnen: \n\n" + a, b);
     }
   }
 	};
@@ -93,12 +118,15 @@
 .card{
   max-width:190px;
   margin-top: 14px;
+  margin-bottom: 12px;
 }
 } */
 
 /* Desktop: Bredd 200px, Höjd 290px
 Mobil: Bredd 158px, Höjd 229px */
 
+/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
+/** {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}*/
 
 /* NATHIS STYLE HÄR */
 
@@ -111,6 +139,11 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 	}
 
+  .card:hover
+  {
+    border: 1px solid black;
+  }
+
 	.image {
 		width: 190px;
 		height: 137.1px;
@@ -119,10 +152,20 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 	}
 
+/* Stylar img såsom .image nu */
+	img {
+		width: 190px;
+		height: 137.1px;
+		background: #cfc6c6;
+		margin-bottom: 5px;
+		border-radius: 8px;
+	}
+
+
 	.title {
 		width: 190px;
 		height: 17.14px;
-		font-family: Roboto Mono;
+
 		font-style: normal;
 		font-weight: normal;
 		font-size: 14px;
@@ -131,13 +174,16 @@ Mobil: Bredd 158px, Höjd 229px */
 		text-transform: uppercase;
 		color: #000000;
 		margin-bottom: 5px;
+
+    		margin-top: 5px;
 	}
 
 	.text {
 		width: 190px;
 		height: 50.4px;
 
-		font-family: Noto Serif;
+		/* font-family: 'Noto Serif', 'Roboto Mono', Arial; */
+
 		font-style: normal;
 		font-weight: 200;
 		font-size: 10px;
@@ -150,7 +196,7 @@ Mobil: Bredd 158px, Höjd 229px */
 	.price {
 		width: 190px;
 		height: 14.11px;
-		font-family: Roboto Mono;
+
 		font-style: normal;
 		font-weight: normal;
 		font-size: 14px;
@@ -168,7 +214,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 		margin-top: 5px;
 
-		font-family: Roboto Mono;
+
 		font-style: normal;
 		font-weight: normal;
 		font-size: 9px;
@@ -179,6 +225,15 @@ Mobil: Bredd 158px, Höjd 229px */
 		color: #f0efee;
 		border: none;
 	}
+	.cart-button:hover {
+  border: 1px solid black;
+  }
+
+*{
+  font-family: 'Roboto Mono', Arial, sans-serif;
+		font-style: normal;
+		font-weight: normal;
+}
 
 
 
