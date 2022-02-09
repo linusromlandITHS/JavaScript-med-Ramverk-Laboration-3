@@ -58,7 +58,7 @@
 <template>
 	<div class="col-sm-10">
 		<div id="slideshow">
-			<Slideshow :images="images" :autoPlay="false" />
+			<Slideshow :images="images" />
 		</div>
 
 		<h1 class="text-black fs-1">{{ product.name }}</h1>
