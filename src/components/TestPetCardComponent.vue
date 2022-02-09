@@ -1,23 +1,21 @@
-<template >
-
-
-<!-- <div style="border: solid black 2px;padding: 12px; text-align:center" class="card d-flex flex-row">
+<template>
+	<!-- <div style="border: solid black 2px;padding: 12px; text-align:center" class="card d-flex flex-row">
       <div style="margin:auto">
 <img :src="this.img_src" class="card_img" alt="Bild på djur"  style="width:100%"/>
 
         <h6 >{{ p_name }}</h6>
 <hr />
         {{ p_price }} kr
-<hr /> 
+<hr />
 <p><b>
-  
+
   <span v-on:click="go_to_details_view( this.p_id, this.p_name)" style="cursor:pointer">
 
 <router-link to="/">Hem</router-link>
 
   Läs mer om {{ p_name }}
   </span>
-  </b></p> 
+  </b></p>
 
       </div>
     </div> -->
@@ -27,12 +25,13 @@
    <div class="card" v-on:click="go_to_details_view( this.p_id, this.p_name)"> 
     <div class="card" >
 
+
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
-				<img  :srcset="this.img_src" style="max-width:100%" alt="Bild på djur" />
+				<img :srcset="this.img_src" style="max-width: 100%" alt="Bild på djur" />
 			</picture>
 
 			<!-- <picture>
@@ -41,35 +40,34 @@
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
 				<img  :srcset="this.img_src" style="max-width:100%" alt="Bild på djur" />
 			</picture> -->
-
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
-		<div class="price">{{p_price}} KR</div>
+		<div class="price">{{ p_price }} KR</div>
 	</div>
+
 	</div>
-	<button type="button" class="cart-button" v-on:click="add_to_cart( this.p_id, this.p_name)">Lägg i kundvagn</button>
+
+	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
 </template>
 
 <script>
 	export default {
 		name: 'TestPetCardComponent',
 		props: {
-  p_id: String,
-  p_name: String,
-	p_one_picture:String,
-	p_image_1:String,
-  p_temperament: String,
-	p_price:Number,
-	  p_images_arr:Array
-
-  },
-  data() 
-  {
-    		return {
-					image_1: "assets/products/" + this.p_id + "/0.jpg" ,
-					img_src: "assets/products/" + this.p_id + "/0.jpg" 
-					/*
+			p_id: String,
+			p_name: String,
+			p_one_picture: String,
+			p_image_1: String,
+			p_temperament: String,
+			p_price: Number,
+			p_images_arr: Array
+		},
+		data() {
+			return {
+				image_1: 'assets/products/' + this.p_id + '/0.jpg',
+				img_src: 'assets/products/' + this.p_id + '/0.jpg'
+				/*
 				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
         // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
         //img_src: "assets/products/" + this.p_id + "/0.jpg"
@@ -88,73 +86,53 @@
     //alert("this.p_id \n"+ this.p_id);
     this.img_src ="assets/products/" + this.p_id + "/0.jpg";
   },
-  methods: 
-  {
-    go_to_details_view(id_, na_)
-    {
-        alert("Här går vi till detaljvyn för: " + na_ + "\n\nID: " + id_);
+		methods: {
+			go_to_details_view(id_, na_) {
+				this.$router.push({ path: '/product/' + id_ + '/' });
+			},
+			add_to_cart(id_, na_) {
+				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
+				// 1 Hämta tidigare innehåll i localStorage (en array)
 
+				if (localStorage.getItem('petCart')) {
+					var cart = JSON.parse(localStorage.getItem('petCart'));
 
-    },
-    add_to_cart(id_, na_)
-    {
+					//	alert("Det fanns ngt i ls");
+				} else {
+					//alert("ls var tomt.");
+					var cart = {}; //sessionStorage.getItem('petCart');
+				}
 
+				// 2 Pusha det aktuella id:t till hämtad array
 
-//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+				// Lägger till aktuellt djur
+				cart[id_] = na_;
 
-// 1 Hämta tidigare innehåll i localStorage (en array)
+				// 3 Sätt localStorage till den nya arrayen
+				localStorage.setItem('petCart', JSON.stringify(cart));
 
-if(localStorage.getItem('petCart'))
-	{
-	var cart = JSON.parse(localStorage.getItem('petCart'));
+				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
 
-//	alert("Det fanns ngt i ls");
+				this.displayCartContents();
+			},
+			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			displayCartContents() {
+				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+				let utarr = [];
 
-	}
-	else
-	{
-	//alert("ls var tomt.");
-	var cart = {};//sessionStorage.getItem('petCart');
-	}
+				for (let i in fetched_cart) {
+					utarr.push(i);
+				}
 
-// 2 Pusha det aktuella id:t till hämtad array
-
-// Lägger till aktuellt djur
-cart[id_] = na_;
-
-// 3 Sätt localStorage till den nya arrayen
-localStorage.setItem('petCart', JSON.stringify(cart));
-
-// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
-
-
-this.displayCartContents();
-
-    },
-	// Alerta innehållet i kundvagn (petCart) i Localstorage
-	displayCartContents()
-	{
-		let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
-		let utarr = [];
-
-		for(let i in fetched_cart)
-			{
-				utarr.push( i  + " (" + fetched_cart[i] +")");
+				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			}
-
-		alert("Innehåll i petCart (i localStorage) nu:\n\n" + utarr.join("\n"));
-
-	}
-
-
-
-  }
+		}
 	};
 </script>
 
 <style scoped>
-/*
+	/*
 // Tidigare style innan Nathis här:
 
 .card_img
@@ -180,15 +158,13 @@ this.displayCartContents();
 }
 } */
 
-/* Desktop: Bredd 200px, Höjd 290px
+	/* Desktop: Bredd 200px, Höjd 290px
 Mobil: Bredd 158px, Höjd 229px */
 
-/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
-/** {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}*/
+	/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
+	/** {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}*/
 
-
-
-/* NATHIS STYLE HÄR */
+	/* NATHIS STYLE HÄR */
 	.card {
 		width: 200px;
 		height: 250px;
@@ -197,10 +173,9 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 	}
 
-  .card:hover
-  {
-    border: 1px solid black;
-  }
+	.card:hover {
+		border: 1px solid black;
+	}
 
 	.image {
 		width: 190px;
@@ -210,7 +185,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 	}
 
-/* Stylar img-element såsom .image nu */
+	/* Stylar img-element såsom .image nu */
 	img {
 		width: 190px;
 		height: 137.1px;
@@ -218,7 +193,6 @@ Mobil: Bredd 158px, Höjd 229px */
 		margin-bottom: 5px;
 		border-radius: 8px;
 	}
-
 
 	.title {
 		width: 190px;
@@ -233,7 +207,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		color: #000000;
 		margin-bottom: 5px;
 
-    		margin-top: 5px;
+		margin-top: 5px;
 	}
 
 	.text {
@@ -272,7 +246,6 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 		margin-top: 5px;
 
-
 		font-style: normal;
 		font-weight: normal;
 		font-size: 9px;
@@ -284,15 +257,12 @@ Mobil: Bredd 158px, Höjd 229px */
 		border: none;
 	}
 	.cart-button:hover {
-  border: 1px solid black;
-  }
+		border: 1px solid black;
+	}
 
-*{
-  font-family: 'Roboto Mono', Arial, sans-serif;
+	* {
+		font-family: 'Roboto Mono', Arial, sans-serif;
 		font-style: normal;
 		font-weight: normal;
-}
-
-
-
+	}
 </style>

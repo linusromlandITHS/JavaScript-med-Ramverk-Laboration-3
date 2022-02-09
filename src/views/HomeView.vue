@@ -11,11 +11,32 @@
 </script>
 
 <template>
-	<h1>Hem</h1>
+	<h1 style="display: none">Hem</h1>
 	<div id="dogDiv">
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
+		<H2 style="margin-top: 60px">Välkommen</H2>
 	</div>
+	<section id="mainInfo">
+		<div class="info">
+			<div class="underTitel"><h3>Grej 1</h3></div>
+			<div class="innerDiv">
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quam nesciunt unde dolores ut hic
+					facere molestias quas esse, sequi incidunt, suscipit adipisci dol
+				</p>
+			</div>
+		</div>
+		<div class="info">
+			<div class="underTitel"><h3>Grej 2</h3></div>
+			<div class="innerDiv">
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quam nesciunt unde dolores ut hic
+					facere molestias quas esse, sequi incidunt, suscipit adipisci dol
+				</p>
+			</div>
+		</div>
+	</section>
 	<EndScreen />
 </template>
 
@@ -51,5 +72,35 @@
 		75% {
 			transform: scale(0.95, 1.05);
 		}
+	}
+	#mainInfo {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+	}
+	@media screen and (max-width: 600px) {
+		#mainInfo {
+			flex-direction: column;
+		}
+	}
+	.info {
+		background-color: #faac77;
+		height: 400px;
+		width: 40%;
+		margin: 20px;
+		border-radius: 30px;
+	}
+	.innerDiv {
+		padding: 7%;
+	}
+	.underTitel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: white;
+		color: black;
+		margin: 3%;
+		height: 60px;
+		border-radius: 30px;
 	}
 </style>

@@ -1,10 +1,12 @@
 <script>
 	import Slideshow from '../components/Slideshow.vue';
+	import Button from '../components/Button.vue';
 
 	export default {
 		name: 'ProductView',
 		components: {
-			Slideshow
+			Slideshow,
+			Button
 		},
 		data() {
 			return {
@@ -36,6 +38,9 @@
 
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
+			},
+			test() {
+				console.log('test');
 			}
 		},
 		computed: {
@@ -72,6 +77,7 @@
 			sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett snöre.
 		</p>
 		<p class="text-black fs-2">SEK{{ product.price }}:-</p>
+		<Button :alternative="false" :disabled="false" @clicked="test">PRIMARY</Button>
 	</div>
 </template>
 <style>
