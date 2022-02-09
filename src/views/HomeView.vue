@@ -77,6 +77,7 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
+		align-items: center;
 	}
 	@media screen and (max-width: 600px) {
 		#mainInfo {
@@ -86,7 +87,7 @@
 	.info {
 		background-color: #faac77;
 		height: 400px;
-		width: 40%;
+		width: 350px;
 		margin: 20px;
 		border-radius: 30px;
 	}
