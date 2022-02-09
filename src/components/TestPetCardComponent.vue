@@ -23,7 +23,7 @@
 
  <!-- <router-link :to="'product/'" + this.p_id">-->
    <div class="card" v-on:click="go_to_details_view( this.p_id, this.p_name)"> 
-    <div class="card" >
+
 
 
 		<div class="image">
@@ -44,7 +44,7 @@
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
 		<div class="price">{{ p_price }} KR</div>
-	</div>
+
 
 	</div>
 
@@ -122,7 +122,7 @@
 				let utarr = [];
 
 				for (let i in fetched_cart) {
-					utarr.push(i);
+					utarr.push(i + " (" + fetched_cart[i] +")");
 				}
 
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
