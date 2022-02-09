@@ -79,6 +79,12 @@
 	input {
 		width: 60%;
 	}
+	h1,
+	label,
+	h3,
+	p {
+		color: black;
+	}
 
 	.input-error {
 		border-color: red;
