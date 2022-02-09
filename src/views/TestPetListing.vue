@@ -10,7 +10,11 @@
 
 <span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
 <hr /> 
+
+<span class="linklike" v-on:click="displayCartContents()">Visa kundvagn</span> |
 <span class="linklike" v-on:click="purgeCart()">Töm kundvagn</span>
+
+<hr /> 
 
 <div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:10%;">
   <div v-for="pet in current_pet_list" class="p-2" 	>
@@ -59,6 +63,23 @@
 
 		methods: 
 		{
+
+	// Alerta innehållet i kundvagn (petCart) i Localstorage
+	// Denna metod ligger både här och komponenten (TestPetCardComponent) - borde kunna göras elegantare?
+	displayCartContents()
+	{
+		let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+		let utarr = [];
+
+		for(let i in fetched_cart)
+			{
+				utarr.push( i  + " (" + fetched_cart[i] +")");
+			}
+
+		alert("Innehåll i petCart (i localStorage) nu:\n\n" + utarr.join("\n"));
+
+	},
+
 	// Tömmer innehållet i kundvagn (petCart) i localStorage
 	purgeCart()
 	{
