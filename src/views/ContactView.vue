@@ -94,8 +94,8 @@
 		}
 		iframe {
 			margin: 10px;
-			height: 250px;
-			width: 350px;
+			height: 200px;
+			width: 300px;
 		}
 		div {
 			display: flex;
