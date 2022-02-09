@@ -5,7 +5,7 @@
 </script>
 
 <template style="border-bottom: 1px solid black">
-	<nav >
+	<nav>
 		<ul>
 			<li>
 				<RouterLink to="/">Hem</RouterLink>
@@ -25,5 +25,3 @@
 		<button id="myCart" type="button" class="btn btn-primary">Varukorg</button>
 	</RouterLink>
 </template>
-
-
