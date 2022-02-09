@@ -20,11 +20,11 @@
 		</div>
 		<div id="totalCheckout">
 			<div class="container-sm">
-				<h4>
+				<h6>
 					Total summa
 					<span id="inclVAT">inkl. moms </span>
-				</h4>
-				<p id="totalAmount">"Total amount"</p>
+				</h6>
+				<p id="totalAmount">100:-</p>
 			</div>
 			<button @click="onClick" id="checkOut" type="button" class="btn btn-secondary">
 				Gå vidare till kassan
@@ -33,24 +33,29 @@
 	</main>
 </template>
 
-<style>
+<style scoped>
+	* {
+		color: black;
+	}
 	li {
 		list-style: none;
 	}
 
 	h1 {
+		text-align: center;
 		margin-bottom: 20px;
-		padding-left: 25%;
-		padding-right: 25%;
 	}
 
-	h4 {
+	h6 {
 		margin-top: 0.5rem;
 	}
 
 	main {
 		background-color: aliceblue;
-		margin: 2%;
+		border: 1px solid;
+		margin: auto;
+		max-width: 1024px;
+		padding: 5%;
 	}
 	@media (max-width: 575.98px) {
 		.container-sm {
@@ -79,6 +84,7 @@
 
 		#totalCheckout {
 			background-color: beige;
+			border: 1px solid;
 			border-radius: 5px;
 			margin-left: 65%;
 			padding: 10px;
