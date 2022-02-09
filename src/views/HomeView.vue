@@ -78,6 +78,11 @@
 		justify-content: center;
 		flex-direction: row;
 	}
+	@media screen and (max-width: 600px) {
+		#mainInfo {
+			flex-direction: column;
+		}
+	}
 	.info {
 		background-color: #faac77;
 		height: 400px;
