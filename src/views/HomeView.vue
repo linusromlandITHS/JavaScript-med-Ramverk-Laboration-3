@@ -11,7 +11,7 @@
 </script>
 
 <template>
-	<h1>Hem</h1>
+	<h1 style="display: none">Hem</h1>
 	<div id="dogDiv">
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
