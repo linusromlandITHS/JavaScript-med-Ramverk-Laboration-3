@@ -16,24 +16,27 @@
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
 		<H2 style="margin-top: 60px">Välkommen</H2>
+		<p>Här är Sveriges främsta websida för kattavel och husdjurs handel.</p>
 	</div>
 	<section id="mainInfo">
 		<div class="info">
-			<div class="underTitel"><h3>Grej 1</h3></div>
+			<div class="underTitel"><h3>Nytt husdjur?</h3></div>
 			<div class="innerDiv">
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quam nesciunt unde dolores ut hic
-					facere molestias quas esse, sequi incidunt, suscipit adipisci dol
+					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
+					alla typer av djurälskare.
 				</p>
+				<button>Handla</button>
 			</div>
 		</div>
 		<div class="info">
-			<div class="underTitel"><h3>Grej 2</h3></div>
+			<div class="underTitel"><h3>Avla din katt?</h3></div>
 			<div class="innerDiv">
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quam nesciunt unde dolores ut hic
-					facere molestias quas esse, sequi incidunt, suscipit adipisci dol
+					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
+					högsta kalitét.
 				</p>
+				<button>Avla</button>
 			</div>
 		</div>
 	</section>
@@ -98,8 +101,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		align-self: center;
 		background-color: white;
-		color: black;
+		color: #333c3e;
 		margin: 3%;
 		height: 60px;
 		border-radius: 30px;
