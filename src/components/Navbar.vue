@@ -4,7 +4,7 @@
 	};
 </script>
 
-<template>
+<template style="border-bottom: 1px solid black">
 	<nav>
 		<ul>
 			<li>
@@ -14,7 +14,10 @@
 				<RouterLink to="/contact">Kontakt</RouterLink>
 			</li>
 			<li>
-				<RouterLink to="/djur">Djur-sidan...</RouterLink>
+				<RouterLink to="/djur">Sida för att se innehållet i DB...</RouterLink>
+			</li>
+			<li>
+				<RouterLink to="/testpetlisting">Temp. version av listningssidan</RouterLink>
 			</li>
 		</ul>
 	</nav>
@@ -22,5 +25,3 @@
 		<button id="myCart" type="button" class="btn btn-primary">Varukorg</button>
 	</RouterLink>
 </template>
-
-<style></style>

@@ -1,4 +1,6 @@
 <script>
+	import ProductCard from '../components/ProductCard.vue';
+
 	export default {
 		name: 'DjurView',
 		data() {
@@ -24,12 +26,19 @@
 						for (let j in post) {
 							htmlarr.push('<td>' + post[j] + '</td>');
 						}
+						htmlarr.push(
+							'<td><img src="assets/products/' + post['id'] + '/0.jpg" style="max-width:80px" /></td>'
+						);
+
+						//assets/products/d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg
+
 						htmlarr.push('</tr>');
 					}
 					htmlarr.push('</table>');
 					this.djurtabell = htmlarr.join('');
 				});
-		}
+		},
+		components: { ProductCard }
 	};
 </script>
 
@@ -43,6 +52,7 @@
 
 		<b> DJUR SLUTAR HÄR </b>
 	</div>
+	<ProductCard />
 </template>
 
 <style></style>
