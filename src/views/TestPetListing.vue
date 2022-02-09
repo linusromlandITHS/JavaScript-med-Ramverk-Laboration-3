@@ -10,6 +10,8 @@
 
 <span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
 <hr /> 
+<span class="linklike" v-on:click="purgeCart()">Töm kundvagn</span>
+
 <div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:10%;">
   <div v-for="pet in current_pet_list" class="p-2" 	>
 
@@ -57,8 +59,16 @@
 
 		methods: 
 		{
-			onclick(djurtyp
-			)
+	// Tömmer innehållet i kundvagn (petCart) i localStorage
+	purgeCart()
+	{
+//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+localStorage.removeItem('petCart');
+		alert("Kundvagnen är tom");
+	}
+			,
+			// Val av djurkategori
+			onclick(djurtyp)
 			{
 				console.log(djurtyp);
 				this.filter_by_pet_type(djurtyp);

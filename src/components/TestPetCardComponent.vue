@@ -77,7 +77,6 @@
 		{
 			return "assets/products/" + this.p_id + "/0.jpg";
 		}
-
 	},
   created()
   {
@@ -86,20 +85,71 @@
   },
   methods: 
   {
-    go_to_details_view(a, b)
+    go_to_details_view(id_, na_)
     {
-        alert("Här går vi till detaljvyn för: \n\n" + a, b);
+        alert("Här går vi till detaljvyn för: " + na_ + "\n\nID: " + id_);
     },
-    add_to_cart(a, b, c)
+    add_to_cart(id_, na_)
     {
-        alert("Här lägger vi följande i kundvagnen: \n\n" + a, b);
-    }
+
+
+//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+
+// 1 Hämta tidigare innehåll i localStorage (en array)
+
+if(localStorage.getItem('petCart'))
+	{
+	var cart = JSON.parse(localStorage.getItem('petCart'));
+
+//	alert("Det fanns ngt i ls");
+
+	}
+	else
+	{
+	//alert("ls var tomt.");
+	var cart = {};//sessionStorage.getItem('petCart');
+	}
+
+// 2 Pusha det aktuella id:t till hämtad array
+
+// Lägger till aktuellt djur
+cart[id_] = na_;
+
+// 3 Sätt localStorage till den nya arrayen
+localStorage.setItem('petCart', JSON.stringify(cart));
+
+// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+
+
+this.displayCartContents();
+
+    },
+	// Alerta innehållet i kundvagn (petCart) i Localstorage
+	displayCartContents()
+	{
+		let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+		let utarr = [];
+
+		for(let i in fetched_cart)
+			{
+				utarr.push( i );
+			}
+
+		alert("Innehåll i petCart (i localStorage) nu:\n\n" + utarr.join("\n"));
+
+	}
+
+
+
   }
 	};
 </script>
 
 <style scoped>
-/* .card_img
+/*
+// Tidigare style innan Nathis här:
+
+.card_img
 {
   max-width: 90%;
   margin:5px;
@@ -128,9 +178,9 @@ Mobil: Bredd 158px, Höjd 229px */
 /* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
 /** {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}*/
 
+
+
 /* NATHIS STYLE HÄR */
-
-
 	.card {
 		width: 200px;
 		height: 250px;
@@ -152,7 +202,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 	}
 
-/* Stylar img såsom .image nu */
+/* Stylar img-element såsom .image nu */
 	img {
 		width: 190px;
 		height: 137.1px;
