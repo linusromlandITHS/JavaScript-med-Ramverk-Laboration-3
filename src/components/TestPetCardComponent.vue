@@ -25,7 +25,6 @@
    <div class="card" v-on:click="go_to_details_view( this.p_id, this.p_name)"> 
 
 
-
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
