@@ -11,7 +11,7 @@
 				<RouterLink to="/">Hem</RouterLink>
 			</li>
 			<li>
-				<RouterLink to="/about">Om</RouterLink>
+				<RouterLink to="/contact">Kontakt</RouterLink>
 			</li>
 			<li>
 				<RouterLink to="/djur">Sida för att se innehållet i DB...</RouterLink>

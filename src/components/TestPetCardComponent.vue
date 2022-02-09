@@ -10,6 +10,9 @@
 <p><b>
 
   <span v-on:click="go_to_details_view( this.p_id, this.p_name)" style="cursor:pointer">
+
+<router-link to="/">Hem</router-link>
+
   Läs mer om {{ p_name }}
   </span>
   </b></p>
@@ -17,7 +20,12 @@
       </div>
     </div> -->
 
-	<div class="card" @click="go_to_details_view(this.p_id, this.p_name)">
+
+ <!-- <router-link :to="'product/'" + this.p_id">-->
+   <div class="card" v-on:click="go_to_details_view( this.p_id, this.p_name)"> 
+
+
+
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
@@ -36,7 +44,10 @@
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
 		<div class="price">{{ p_price }} KR</div>
+
+
 	</div>
+
 	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
 </template>
 
@@ -61,18 +72,20 @@
         // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
         //img_src: "assets/products/" + this.p_id + "/0.jpg"
 */
-			};
-		},
-		computed() {
-			img_src();
-			{
-				return 'assets/products/' + this.p_id + '/0.jpg';
-			}
-		},
-		created() {
-			//alert("this.p_id \n"+ this.p_id);
-			this.img_src = 'assets/products/' + this.p_id + '/0.jpg';
-		},
+}
+  },
+	computed() 
+	{
+		img_src()
+		{
+			return "assets/products/" + this.p_id + "/0.jpg";
+		}
+	},
+  created()
+  {
+    //alert("this.p_id \n"+ this.p_id);
+    this.img_src ="assets/products/" + this.p_id + "/0.jpg";
+  },
 		methods: {
 			go_to_details_view(id_, na_) {
 				this.$router.push({ path: '/product/' + id_ + '/' });
@@ -109,7 +122,7 @@
 				let utarr = [];
 
 				for (let i in fetched_cart) {
-					utarr.push(i);
+					utarr.push(i + " (" + fetched_cart[i] +")");
 				}
 
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
