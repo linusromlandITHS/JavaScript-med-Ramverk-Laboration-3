@@ -1,10 +1,10 @@
 <script>
-	import vue3slideshow from 'vue3-slideshow';
+	import Slideshow from '../components/Slideshow.vue';
 
 	export default {
 		name: 'ProductView',
 		components: {
-			vue3slideshow
+			Slideshow
 		},
 		data() {
 			return {
@@ -40,6 +40,7 @@
 		},
 		computed: {
 			images() {
+				console.log(this.product);
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
 		},
@@ -50,9 +51,11 @@
 </script>
 
 <template>
-	<vue3slideshow :images="images" :autoPlay="false" />
-
 	<div class="col-sm-10">
+		<div id="slideshow">
+			<Slideshow :images="images" :autoPlay="false" />
+		</div>
+
 		<h1 class="text-black fs-1">{{ product.name }}</h1>
 		<ul class="list-group">
 			<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
@@ -71,3 +74,12 @@
 		<p class="text-black fs-2">SEK{{ product.price }}:-</p>
 	</div>
 </template>
+<style>
+	.text-black {
+		font-family: 'Noto Serif', serif;
+	}
+	#slideshow {
+		height: 300px;
+		width: 100%;
+	}
+</style>
