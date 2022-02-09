@@ -11,11 +11,35 @@
 </script>
 
 <template>
-	<h1>Hem</h1>
+	<h1 style="display: none">Hem</h1>
 	<div id="dogDiv">
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
+		<H2 style="margin-top: 60px">Välkommen</H2>
+		<p>Här är Sveriges främsta websida för kattavel och husdjurs handel.</p>
 	</div>
+	<section id="mainInfo">
+		<div class="info">
+			<div class="underTitel"><h3>Nytt husdjur?</h3></div>
+			<div class="innerDiv">
+				<p>
+					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
+					alla typer av djurälskare.
+				</p>
+				<button>Handla</button>
+			</div>
+		</div>
+		<div class="info">
+			<div class="underTitel"><h3>Avla din katt?</h3></div>
+			<div class="innerDiv">
+				<p>
+					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
+					högsta kalitét.
+				</p>
+				<button>Avla</button>
+			</div>
+		</div>
+	</section>
 	<EndScreen />
 </template>
 
@@ -51,5 +75,37 @@
 		75% {
 			transform: scale(0.95, 1.05);
 		}
+	}
+	#mainInfo {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		align-items: center;
+	}
+	@media screen and (max-width: 600px) {
+		#mainInfo {
+			flex-direction: column;
+		}
+	}
+	.info {
+		background-color: #faac77;
+		height: 400px;
+		width: 350px;
+		margin: 20px;
+		border-radius: 30px;
+	}
+	.innerDiv {
+		padding: 7%;
+	}
+	.underTitel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		background-color: white;
+		color: #333c3e;
+		margin: 3%;
+		height: 60px;
+		border-radius: 30px;
 	}
 </style>
