@@ -54,6 +54,46 @@
 			};
 		},
 
+	methods: {
+
+				add_to_cart(id_, na_) {
+				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+
+				// 1 Hämta tidigare innehåll i localStorage (en array)
+				let cart;
+				if (localStorage.getItem('petCart')) {
+					cart = JSON.parse(localStorage.getItem('petCart'));
+
+					//	alert("Det fanns ngt i ls");
+				} else {
+					//alert("ls var tomt.");
+					cart = {}; //sessionStorage.getItem('petCart');
+				}
+
+				// 2 Lägg till det aktuella id:t till hämtat obj
+				// Lägger till aktuellt djur
+				cart[id_] = na_;
+
+				// 3 Sätt localStorage till det nya objektet
+				localStorage.setItem('petCart', JSON.stringify(cart));
+
+				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				this.displayCartContents();
+			},
+			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			displayCartContents() {
+				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+				let utarr = [];
+
+				for (let i in fetched_cart) {
+					utarr.push(i + ' (' + fetched_cart[i] + ')');
+				}
+
+
+
+
+				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
+			},
 
 			// Tömmer innehållet i kundvagn (petCart) i localStorage
 			purgeCart() {
@@ -111,7 +151,7 @@
 				console.log(output_obj);
 				return output_obj;
 			
-
+			}
 		},
 		created() {
 			//this.picture_1 = this.p_images_arr[0];

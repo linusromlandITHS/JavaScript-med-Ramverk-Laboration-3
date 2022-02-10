@@ -70,9 +70,9 @@
 		},
 
 	methods: {
-			// go_to_details_view(id_) {
-			// 	this.$router.push({ path: '/product/' + id_ + '/' });
-			// },
+			 go_to_details_view(id_) {
+			 	this.$router.push({ path: '/product/' + id_ + '/' });
+			 },
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
@@ -115,7 +115,7 @@
 	};
 </script>
 <template>
-	<div @click="onClick" class="card">
+	<div @click="go_to_details_view(this.p_id, this.p_name)" class="card">
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
@@ -128,7 +128,7 @@
 		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
 		<div class="price">{{ p_price }}:-</div>
 	</div>
-	<Button class="btn">lägg i kundvagn</Button>
+	<Button class="btn"  @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
 </template>
 
 <style scoped>
