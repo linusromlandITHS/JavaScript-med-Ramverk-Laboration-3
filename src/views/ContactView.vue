@@ -50,9 +50,9 @@
 </template>
 
 <style scoped>
-	h1 {
+	/* h1 {
 		text-align: center;
-	}
+	} */
 	label {
 		margin: 10px;
 	}
