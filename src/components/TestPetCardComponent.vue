@@ -92,7 +92,7 @@
 		},
 		data() {
 			return {
-				image_1: 'assets/products/' + this.p_id + '/0.jpg',
+				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
 				img_src: 'assets/products/' + this.p_images_arr[0]
 				/*
 				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,

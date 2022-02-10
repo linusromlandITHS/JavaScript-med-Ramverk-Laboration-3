@@ -1,7 +1,7 @@
 <template>
 	<div style="background-color: white !important;color:black; padding: 12px; text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
-<small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for
+<small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: TestPetCardComponent) med en v-for
 </small> 
 <h4><i>Välkommen att se våra djur!</i></h4>
 <span class="linklike" @click="onclick('alla')">Alla</span> | <span class="linklike" @click="onclick('katt')">Katter</span> | <span class="linklike" @click="onclick('hund')">Hundar</span> | <span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
@@ -16,7 +16,7 @@
 
 <!-- v-if="pet.type=='Fisk'" -->
 
-	<ProductCard 
+	<TestPetCardComponent 
 	:key="pet.id"
 	:p_id="pet.id"
   :p_name="pet.name"
@@ -35,12 +35,12 @@
 </template>
 
 <script>
-	//import TestPetCardComponent from '../components/TestPetCardComponent.vue';
-	import ProductCard from '../components/ProductCard.vue';
+	import TestPetCardComponent from '../components/TestPetCardComponent.vue';
+
 	export default {
 		name: 'TestPetListing',
 			components: {
-			ProductCard
+			TestPetCardComponent
 		},
 		data() {
 			return {
