@@ -76,7 +76,11 @@
 				utarr.push( i  + " (" + fetched_cart[i] +")");
 			}
 
+
+
 		alert("Innehåll i petCart (i localStorage) nu:\n\n" + utarr.join("\n"));
+
+
 
 	},
 
@@ -222,12 +226,14 @@ color:black;
 * {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}
 
 
-	.p-2 {
+.p-2 {
 margin-bottom: 14px;
 cursor: pointer;
+flex-basis: 25%;  
+}
 
 
-	}
+
 
 </style>
 
