@@ -1,10 +1,6 @@
 //External Dependencies import:
 import { createApp } from 'vue';
 
-
-
-
-
 //Internal Dependencies import:
 import App from './App.vue';
 import router from './router';
@@ -18,11 +14,6 @@ app.use(router);
 
 //Registers vuex
 app.use(store);
-
-
-
-
-
 
 //Mounts app to div with id app
 app.mount('#app');
