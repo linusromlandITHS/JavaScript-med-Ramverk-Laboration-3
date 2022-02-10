@@ -10,15 +10,106 @@
 			data: {
 				type: Object,
 				required: true
+			},
+// NYTT
+			p_id: {
+				type: String,
+				required: true
+			},
+			p_name: {
+				type: String,
+				required: true
+			},
+			p_one_picture: {
+				type: String,
+				required: true
+			},
+			p_image_1: {
+				type: String,
+				required: true
+			},
+			p_temperament: {
+				type: String,
+				required: true
+			},
+			p_price: {
+				type: String,
+				required: true
+			},
+			p_images_arr: {
+				type: String,
+				required: true
+			},
+			p_type: {
+				type: String,
+				required: true
 			}
-		},
-		created() {
-			console.log(this.data);
+
+
+
 		},
 
-		methods: {
-			onClick() {
-				this.$router.push({ path: '/product/:id' });
+		data() {
+			return {
+				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
+				img_src: 'assets/products/' + this.p_images_arr[0]
+				/*
+				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
+        // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
+        //img_src: "assets/products/" + this.p_id + "/0.jpg"
+*/
+			};
+		},
+
+		created() {
+			console.log(this.data);
+
+			//alert("this.p_id \n"+ this.p_id);
+			this.img_src = 'assets/products/' + this.p_images_arr[0]
+
+		},
+
+	methods: {
+			// go_to_details_view(id_) {
+			// 	this.$router.push({ path: '/product/' + id_ + '/' });
+			// },
+			add_to_cart(id_, na_) {
+				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+
+				// 1 Hämta tidigare innehåll i localStorage (en array)
+				let cart;
+				if (localStorage.getItem('petCart')) {
+					cart = JSON.parse(localStorage.getItem('petCart'));
+
+					//	alert("Det fanns ngt i ls");
+				} else {
+					//alert("ls var tomt.");
+					cart = {}; //sessionStorage.getItem('petCart');
+				}
+
+				// 2 Lägg till det aktuella id:t till hämtat obj
+				// Lägger till aktuellt djur
+				cart[id_] = na_;
+
+				// 3 Sätt localStorage till det nya objektet
+				localStorage.setItem('petCart', JSON.stringify(cart));
+
+				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				this.displayCartContents();
+			},
+			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			displayCartContents() {
+				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+				let utarr = [];
+
+				for (let i in fetched_cart) {
+					utarr.push(i + ' (' + fetched_cart[i] + ')');
+				}
+
+
+
+
+				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			}
 		}
 	};
@@ -26,16 +117,16 @@
 <template>
 	<div @click="onClick" class="card">
 		<div class="image">
-			<!-- <picture>
-				<source srcset="" media="(max-width: 480px)" />
-				<source srcset="" media="(max-width: 768px)" />
-				<source srcset="" media="(max-width: 1500px)" />
-				<img src="" alt="brutus" />
-			</picture> -->
+			<picture>
+				<source :srcset="this.img_src" media="(max-width: 480px)" />
+				<source :srcset="this.img_src" media="(max-width: 768px)" />
+				<source :srcset="this.img_src" media="(max-width: 1500px)" />
+				<img :srcset="this.img_src" style="max-width: 100%" alt="brutus" />
+			</picture>
 		</div>
-		<div class="title">{{ data.name }}</div>
+		<div class="title">{{ p_name }}</div>
 		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
-		<div class="price">{{ data.price }}:-</div>
+		<div class="price">{{ p_price }}:-</div>
 	</div>
 	<Button class="btn">lägg i kundvagn</Button>
 </template>
@@ -53,6 +144,10 @@
 
 		cursor: pointer;
 		transition: 0.3s ease-out;
+
+		margin-left: auto;
+		margin-right: auto;
+
 	}
 
 	.card:hover {

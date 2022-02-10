@@ -21,13 +21,12 @@
     </div> -->
 
 	<!-- <router-link :to="'product/'" + this.p_id">-->
-<!-- 
+	<!-- 
 <div class="container_for_card_and_button"> -->
 
 	<div class="card" @click="go_to_details_view(this.p_id, this.p_name)">
 		<div class="image">
 			<picture>
-				
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
@@ -42,15 +41,17 @@
 			</picture> -->
 		</div>
 		<div class="title">{{ p_name }}</div>
-		<div class="card_description_text"><b>{{ p_name }} &mdash; en {{ p_temperament.toLowerCase() }} {{ p_type.toLowerCase() }}</b> <br /></div>
-		
+		<div class="card_description_text">
+			<b>{{ p_name }} &mdash; en {{ p_temperament.toLowerCase() }} {{ p_type.toLowerCase() }}</b> <br />
+		</div>
+
 		<!-- .toLocaleString() visar nummer med mellanslag: 10000 blir 10 000 -->
 		<div class="price">{{ p_price.toLocaleString() }} KR</div>
 	</div>
 
 	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
 
-<!-- </div> -->
+	<!-- </div> -->
 </template>
 
 <script>
@@ -92,7 +93,7 @@
 		},
 		data() {
 			return {
-				image_1: 'assets/products/' + this.p_id + '/0.jpg',
+				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
 				img_src: 'assets/products/' + this.p_images_arr[0]
 				/*
 				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
@@ -103,7 +104,7 @@
 		},
 		created() {
 			//alert("this.p_id \n"+ this.p_id);
-			this.img_src = 'assets/products/' + this.p_images_arr[0]
+			this.img_src = 'assets/products/' + this.p_images_arr[0];
 		},
 		methods: {
 			go_to_details_view(id_) {
@@ -141,9 +142,6 @@
 				for (let i in fetched_cart) {
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
-
-
-
 
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			}
@@ -188,19 +186,17 @@ Mobil: Bredd 158px, Höjd 229px */
 
 	/* NATHIS STYLE HÄR */
 
-
-
 	.card {
 		width: 200px;
 		height: 250px;
 		background-color: #f0efee;
 		padding: 5px;
 		border-radius: 8px;
-		border:none;
-		transition: transform .1s; /* Animation */
+		border: none;
+		transition: transform 0.1s; /* Animation */
 
 		margin-left: auto;
-			margin-right: auto;
+		margin-right: auto;
 	}
 
 	.card:hover {
@@ -244,7 +240,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		width: 190px;
 		height: 40px;
 
-		font-family: 'Noto Serif', Roboto;/*, 'Roboto Mono', Arial;*/
+		font-family: 'Noto Serif', Roboto; /*, 'Roboto Mono', Arial;*/
 
 		font-style: normal;
 		font-weight: 200;
@@ -266,7 +262,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		text-align: center;
 		color: #000000;
 		margin-bottom: 5px;
-		font-family: "Noto Serif";
+		font-family: 'Noto Serif';
 	}
 
 	.cart-button {
@@ -286,18 +282,15 @@ Mobil: Bredd 158px, Höjd 229px */
 
 		color: #f0efee;
 		border: none;
-		transition: transform .1s; /* Animation */
-
+		transition: transform 0.1s; /* Animation */
 	}
 	.cart-button:hover {
-
-				transform: scale(1.04);
+		transform: scale(1.04);
 	}
 
 	* {
-		font-family: "Roboto";
+		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: normal;
-		
 	}
 </style>
