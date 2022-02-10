@@ -52,33 +52,51 @@
 </script>
 
 <template>
-	<div class="col-sm-10">
+	<div class="col-12 col-md-8 d-flex flex-column">
 		<Slideshow class="h-25" :images="images" />
 
-		<h1 class="text-black fs-1">{{ product.name }}</h1>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
-			<li class="list-group-item"><span class="fw-bold">Ålder:</span> {{ product.age }}</li>
-			<li class="list-group-item"><span class="fw-bold">Färg:</span> {{ product.color }}</li>
-			<li class="list-group-item">
-				<span class="fw-bold">Kön:</span> {{ product.sex == 'Male' ? 'Hane' : 'Hona' }}
-			</li>
-			<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
-		</ul>
-		<p class="text-black">
-			Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek och
-			lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på magen. Drar
-			sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett snöre.
-		</p>
-		<p class="text-black fs-2">SEK{{ product.price }}:-</p>
-		<Button :alternative="false" :disabled="false" @clicked="test">PRIMARY</Button>
+		<h1 class="monospace text-black fs-1">{{ product.name }}</h1>
+		<div class="d-flex flex-column flex-md-row">
+			<ul class="list-group col-md-4 col-12 me-4 mb-2">
+				<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
+				<li class="list-group-item"><span class="fw-bold">Ålder:</span> {{ product.age }}</li>
+				<li class="list-group-item"><span class="fw-bold">Färg:</span> {{ product.color }}</li>
+				<li class="list-group-item">
+					<span class="fw-bold">Kön:</span> {{ product.sex == 'Male' ? 'Hane' : 'Hona' }}
+				</li>
+				<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
+			</ul>
+			<p class="serif text-black col-md-6 col-12">
+				<!-- TEXTEN ÄR FRÅN BLOCKET, SKALL GÖRAS TILL NÅGON DYNAMISK TEXT-->
+				Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek och
+				lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på magen.
+				Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett
+				snöre.
+			</p>
+		</div>
+		<div class="align-self-center">
+			<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
+			<Button :alternative="false" :disabled="false" @clicked="test">Lägg i kundvagn</Button>
+		</div>
 	</div>
 </template>
 <style>
-	.text-black {
+	.serif {
 		font-family: 'Noto Serif', serif;
 	}
+
+	.monospace {
+		font-family: 'Noto Mono', monospace;
+	}
+
 	#slideshow {
 		height: 300px;
+	}
+
+	/**Media Query for desktop */
+	@media (min-width: 992px) {
+		#slideshow {
+			height: 800px;
+		}
 	}
 </style>

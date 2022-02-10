@@ -46,12 +46,12 @@
 		<img :src="activeImage" alt="Product image" />
 
 		<!-- Only shows nav if more then one image is available. -->
-		<nav v-if="images.length > 1" class="mw-100 d-flex horizontal-scrollable p-2">
+		<nav v-if="images.length > 1" class="mw-100 d-flex horizontal-scrollable p-2 justify-content-center">
 			<!-- Loops through all images and creates a button for each image. -->
 			<button
 				v-for="(image, index) in this.images"
 				:key="index"
-				class="btn col-2 flex-grow-1"
+				class="btn col-1 thumb flex-grow-1"
 				@click="changeImage($event, index)"
 			>
 				<img :src="`assets/products/${image}`" class="w-100 rounded" />
@@ -68,18 +68,37 @@
 	img {
 		width: 100%;
 		height: 250px;
-		object-fit: cover;
+		object-fit: contain;
 	}
 
 	button {
-		height: 100px;
+		height: 80px;
+		outline: none;
+		border: none;
 	}
 
 	button > img {
 		height: 100%;
 	}
 
+	button:hover,
+	button:focus {
+		outline: none !important;
+		border: none !important;
+	}
+
+	.thumb {
+		max-width: 125px;
+	}
+
 	.activeImage {
 		filter: brightness(50%);
+	}
+
+	/**Media Query for desktop */
+	@media (min-width: 992px) {
+		img {
+			height: 500px;
+		}
 	}
 </style>
