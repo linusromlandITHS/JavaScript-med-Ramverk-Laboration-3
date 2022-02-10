@@ -117,7 +117,7 @@
 <template>
 	<div @click="onClick" class="card">
 		<div class="image">
-			 <picture>
+			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />

@@ -12,7 +12,7 @@
 <hr /> 
 
 <div class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:auto;margin-right:auto;">
-  <div v-for="pet in current_pet_list" class="p-2">
+  <div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
 
 <!-- v-if="pet.type=='Fisk'" -->
 
@@ -50,10 +50,7 @@
 
 			};
 		},
-		created() 
-		{
-			this.picture_1 = this.p_images_arr[0];
-		},
+
 
 		methods: 
 		{
@@ -181,6 +178,7 @@ console.log("#######" + output_obj[ i ]['image1'] + b1)
 
 		},
 		created() {
+			this.picture_1 = this.p_images_arr[0];
 			fetch('/database.json')
 				.then((response) => response.json())
 				.then((djur) => {
