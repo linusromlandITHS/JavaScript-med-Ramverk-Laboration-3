@@ -1,131 +1,104 @@
 <script>
-	import playIcon from '../../assets/play.svg';
-	import pauseIcon from '../../assets/pause.svg';
-
 	export default {
 		name: 'Slideshow',
 		props: {
 			images: {
+				//Array of images to display
 				type: Array,
 				required: true
-			},
-			autoPlay: {
-				type: Boolean,
-				default: true
-			},
-			interval: {
-				type: Number,
-				default: 5000
-			},
-			bgColor: {
-				type: String,
-				default: '#000'
 			}
 		},
 		data() {
 			return {
-				currentIndex: 0,
-				timer: null,
-				isPlaying: this.autoPlay
+				activeImageIndex: 0 // the index of the active image
 			};
 		},
-		computed: {
-			currentImage() {
-				return this.images[this.currentIndex];
-			},
-			pausePlayIcon() {
-				return this.isPlaying ? pauseIcon : playIcon;
-			}
-		},
 		methods: {
-			startTimer() {
-				this.timer = setInterval(() => {
-					this.next();
-				}, this.interval);
-			},
-			stopTimer() {
-				clearInterval(this.timer);
-				this.timer = null;
-			},
-			next() {
-				this.currentIndex = (this.currentIndex + 1) % this.images.length;
-			},
-			previous() {
-				this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-			},
-			playPause() {
-				if (this.timer) {
-					this.stopTimer();
-					this.isPlaying = false;
-				} else {
-					setTimeout(() => {
-						this.next();
-						this.startTimer();
-					}, 1000);
-					this.isPlaying = true;
-				}
+			/**
+			 * @author Linus Romland (hello@linusromland.com)
+			 *
+			 * @name changeImage
+			 * @param {Event} event - The event of the button click
+			 * @param {String} index - The index of the button clicked
+			 */
+			changeImage(event, index) {
+				this.activeImageIndex = index;
+				// Removed activeImg from all images
+				document.querySelectorAll('.activeImage').forEach((node) => {
+					node.classList.remove('activeImage');
+				});
+				//Set activeImg on clicked image
+				event.currentTarget.classList.add('activeImage');
 			}
 		},
-		created() {
-			if (this.autoPlay) this.startTimer();
-			console.log(this.currentImage);
+		computed: {
+			// Returns the active image
+			activeImage() {
+				return `assets/products/${this.images[this.activeImageIndex]}`;
+			}
 		}
 	};
 </script>
 
 <template>
-	<div class="slideshow" :style="{ backgroundImage: `url(${currentImage})`, backgroundColor: bgColor }">
-		<div id="buttons" v-if="images.length > 1">
-			<button @click="next"><img src="../../assets/leftArrow.svg" /></button>
-			<button @click="playPause"><img :src="pausePlayIcon" /></button>
-			<button @click="previous"><img src="../../assets/rightArrow.svg" /></button>
-		</div>
-	</div>
+	<section class="d-flex flex-column">
+		<!-- The active image shown -->
+		<img :src="activeImage" alt="Product image" />
+
+		<!-- Only shows nav if more then one image is available. -->
+		<nav v-if="images.length > 1" class="mw-100 d-flex horizontal-scrollable p-2 justify-content-center">
+			<!-- Loops through all images and creates a button for each image. -->
+			<button
+				v-for="(image, index) in this.images"
+				:key="index"
+				class="btn col-1 thumb flex-grow-1"
+				@click="changeImage($event, index)"
+			>
+				<img :src="`assets/products/${image}`" class="w-100 rounded" />
+			</button>
+		</nav>
+	</section>
 </template>
 
 <style scoped>
-	.slideshow {
-		width: 100%;
-		height: 100%;
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: contain;
-		display: block;
-	}
-
-	#buttons {
-		display: flex;
-		opacity: 0;
-		height: 100%;
-		justify-content: space-between;
-		align-items: center;
-		transition: opacity 175ms ease-in-out;
-	}
-
-	.slideshow:hover #buttons {
-		opacity: 1;
-	}
-
-	button {
-		background: none;
-		outline: none;
-		border: none;
-		padding: 0;
-		margin: 0;
-		cursor: pointer;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 250px;
-		transition: background-color 175ms ease-in-out;
-	}
-
-	button:hover {
-		background-color: rgba(100, 100, 100, 0.9);
+	nav {
+		overflow-x: scroll;
 	}
 
 	img {
-		width: 50px;
-		height: 50px;
+		width: 100%;
+		height: 250px;
+		object-fit: contain;
+	}
+
+	button {
+		height: 80px;
+		outline: none;
+		border: none;
+	}
+
+	button > img {
+		height: 100%;
+	}
+
+	button:hover,
+	button:focus {
+		outline: none !important;
+		border: none !important;
+	}
+
+	.thumb {
+		max-width: 125px;
+	}
+
+	.activeImage {
+		filter: brightness(50%);
+	}
+
+	/**Media Query for desktop */
+	@media (min-width: 992px) {
+		img {
+			height: 500px;
+		}
 	}
 </style>
