@@ -1,11 +1,13 @@
 <script>
 	//Component Imports:
 	import EndScreen from '../components/EndScreen.vue';
+	import Button from '../components/Button.vue';
 
 	export default {
 		name: 'HomeView',
 		components: {
-			EndScreen
+			EndScreen,
+			Button
 		}
 	};
 </script>
@@ -26,7 +28,7 @@
 					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
 					alla typer av djurälskare.
 				</p>
-				<button>Handla</button>
+				<Button class="btn btn-secondary">Handla</Button>
 			</div>
 		</div>
 		<div class="info">
@@ -36,7 +38,7 @@
 					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
 					högsta kalitét.
 				</p>
-				<button>Avla</button>
+				<Button class="btn btn-secondary">Avla</Button>
 			</div>
 		</div>
 	</section>
