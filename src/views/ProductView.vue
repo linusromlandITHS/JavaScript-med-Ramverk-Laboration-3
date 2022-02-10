@@ -42,10 +42,13 @@
 		},
 		computed: {
 			images() {
+
+				//This edits the image array and adds the correct path to the image.
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
 		},
 		created() {
+			//This runs the method that retrieves the product datater
 			this.fetchProduct();
 		}
 	};
@@ -54,6 +57,7 @@
 <template>
 	<div class="col-12 col-md-8 d-flex flex-column">
 		<Slideshow class="h-25" :images="images" />
+
 
 		<h1 class="monospace text-black fs-1">{{ product.name }}</h1>
 		<div class="d-flex flex-column flex-md-row">

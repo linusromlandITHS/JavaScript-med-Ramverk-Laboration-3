@@ -27,6 +27,7 @@
 		"vue/multiline-html-element-content-newline": "off",
 		"vue/singleline-html-element-content-newline": "off",
 		"vue/multi-word-component-names": "off",
-		"vue/attribute-hyphenation": "off"
+		"vue/attribute-hyphenation": "off",
+		"vue/prop-name-casing": "off"
 	}
 }
