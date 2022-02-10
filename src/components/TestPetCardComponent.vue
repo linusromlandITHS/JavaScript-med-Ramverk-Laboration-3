@@ -21,6 +21,9 @@
     </div> -->
 
 	<!-- <router-link :to="'product/'" + this.p_id">-->
+
+<div class="container_for_card_and_button">
+
 	<div class="card" @click="go_to_details_view(this.p_id, this.p_name)">
 		<div class="image">
 			<picture>
@@ -45,6 +48,8 @@
 	</div>
 
 	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
+
+</div>
 </template>
 
 <script>
@@ -132,6 +137,9 @@
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
 
+
+
+
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			}
 		}
@@ -154,6 +162,8 @@
 .card{
   max-width:45px;
   margin-top: 12px;
+
+	
 }
 
 @media screen and (min-width: 500px)
@@ -172,6 +182,9 @@ Mobil: Bredd 158px, Höjd 229px */
 	/** {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}*/
 
 	/* NATHIS STYLE HÄR */
+
+
+
 	.card {
 		width: 200px;
 		height: 250px;
@@ -180,6 +193,9 @@ Mobil: Bredd 158px, Höjd 229px */
 		border-radius: 8px;
 		border:none;
 		transition: transform .1s; /* Animation */
+
+		margin-left: auto;
+			margin-right: auto;
 	}
 
 	.card:hover {
@@ -206,7 +222,7 @@ Mobil: Bredd 158px, Höjd 229px */
 	.title {
 		width: 190px;
 		height: 17.14px;
-
+		font-family: 'Roboto Mono', Roboto;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 14px;
@@ -223,7 +239,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		width: 190px;
 		height: 40px;
 
-		font-family: 'Noto Serif';/*, 'Roboto Mono', Arial;*/
+		font-family: 'Noto Serif', Roboto;/*, 'Roboto Mono', Arial;*/
 
 		font-style: normal;
 		font-weight: 200;
@@ -274,8 +290,9 @@ Mobil: Bredd 158px, Höjd 229px */
 	}
 
 	* {
-		font-family: "Roboto Mono";
+		font-family: "Roboto";
 		font-style: normal;
 		font-weight: normal;
+		
 	}
 </style>
