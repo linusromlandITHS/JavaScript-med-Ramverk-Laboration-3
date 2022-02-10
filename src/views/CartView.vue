@@ -14,9 +14,9 @@
 	<main>
 		<h1>Din varukorg</h1>
 		<div id="itemSection">
-			<li>Added item*</li>
-			<li>Added item*</li>
-			<li>Added item*</li>
+			<li class="productCard">Added item*</li>
+			<li class="productCard">Added item*</li>
+			<li class="productCard">Added item*</li>
 		</div>
 		<div id="totalCheckout">
 			<div class="container-sm">
@@ -57,13 +57,22 @@
 		max-width: 1024px;
 		padding: 5%;
 	}
+
+	.productCard {
+		border: 1px solid;
+		height: 80px;
+		margin-top: 15px;
+	}
+
 	@media (max-width: 575.98px) {
 		.container-sm {
 			background-color: rgba(44, 44, 44, 0.5);
 			border-radius: 5px;
 			display: flex;
 			justify-content: space-between;
-			margin: 20px 0 20px 0;
+			margin-top: 50px;
+			margin-bottom: 15px;
+			max-width: 90%;
 		}
 
 		#checkOut {
@@ -80,6 +89,10 @@
 
 		#checkOut {
 			width: 95%;
+		}
+
+		#itemSection {
+			max-width: 55%;
 		}
 
 		#totalCheckout {
