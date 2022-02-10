@@ -1,11 +1,42 @@
 <script>
 	export default {
 		name: 'Cart',
-
+		data() {
+			return {
+				cartItems: []
+			};
+		},
 		methods: {
 			onClick() {
 				this.$router.push({ path: '/checkout' });
+			},
+
+			getCart() {
+				if (localStorage.petCart) {
+					return JSON.parse(localStorage.petCart);
+				}
+			},
+
+			async fetchData() {
+				const request = await fetch('/database.json');
+				const result = await request.json();
+
+				return result.animals;
 			}
+		},
+
+		async mounted() {
+			const items = await this.fetchData();
+			const cart = this.getCart();
+
+			// Pick all keys from the cart and put into an array
+			const itemIds = Object.keys(cart);
+			// Replace every itemId with the full item-object from the database
+			const cartItems = itemIds.map((itemID) => {
+				// Search through the database for the item
+				return items.find((a) => a.id === itemID);
+			});
+			this.cartItems = cartItems;
 		}
 	};
 </script>
@@ -14,9 +45,9 @@
 	<main>
 		<h1>Din varukorg</h1>
 		<div id="itemSection">
-			<li class="productCard">Added item*</li>
-			<li class="productCard">Added item*</li>
-			<li class="productCard">Added item*</li>
+			<li v-for="cartItem in cartItems" :key="cartItem.id" class="productCard">
+				{{ cartItem.name }} {{ cartItem.type }} {{ cartItem.type }}
+			</li>
 		</div>
 		<div id="totalCheckout">
 			<div class="container-sm">
