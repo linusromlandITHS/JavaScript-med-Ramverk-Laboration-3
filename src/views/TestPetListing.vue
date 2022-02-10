@@ -1,16 +1,11 @@
 <template >
 	<div style="background-color: white !important;color:black; padding: 12px; text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
-<p>Testsida för listningen
-<i>(Visar här upp  info via TestPetCardComponent som får info som props)</i> <br /><small>** <u>Börjar nu plocka in Nathis mall</u><br/>Men den ser inte så bra ut med CSS nu - fel fonter mm...?</small>
-</p>
-<hr /> 
+<small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: TestPetCardComponent) med en v-for
+</small> 
 <h4><i>Välkommen att se våra djur!</i></h4>
-<hr /> 
-
 <span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
-<hr /> 
-
+<br />
 <span class="linklike" v-on:click="displayCartContents()">Visa kundvagn</span> |
 <span class="linklike" v-on:click="purgeCart()">Töm kundvagn</span>
 

@@ -21,12 +21,13 @@
     </div> -->
 
 	<!-- <router-link :to="'product/'" + this.p_id">-->
-
-<div class="container_for_card_and_button">
+<!-- 
+<div class="container_for_card_and_button"> -->
 
 	<div class="card" @click="go_to_details_view(this.p_id, this.p_name)">
 		<div class="image">
 			<picture>
+				
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
@@ -41,7 +42,7 @@
 			</picture> -->
 		</div>
 		<div class="title">{{ p_name }}</div>
-		<div class="card_description_text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
+		<div class="card_description_text"><b>{{ p_name }} &mdash; en {{ p_temperament.toLowerCase() }} {{ p_type.toLowerCase() }}</b> <br /></div>
 		
 		<!-- .toLocaleString() visar nummer med mellanslag: 10000 blir 10 000 -->
 		<div class="price">{{ p_price.toLocaleString() }} KR</div>
@@ -49,7 +50,7 @@
 
 	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
 
-</div>
+<!-- </div> -->
 </template>
 
 <script>
@@ -83,12 +84,16 @@
 			p_images_arr: {
 				type: String,
 				required: true
+			},
+			p_type: {
+				type: String,
+				required: true
 			}
 		},
 		data() {
 			return {
 				image_1: 'assets/products/' + this.p_id + '/0.jpg',
-				img_src: 'assets/products/' + this.p_id + '/0.jpg'
+				img_src: 'assets/products/' + this.p_images_arr[0]
 				/*
 				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
         // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
@@ -98,7 +103,7 @@
 		},
 		created() {
 			//alert("this.p_id \n"+ this.p_id);
-			this.img_src = 'assets/products/' + this.p_id + '/0.jpg';
+			this.img_src = 'assets/products/' + this.p_images_arr[0]
 		},
 		methods: {
 			go_to_details_view(id_) {
@@ -243,7 +248,7 @@ Mobil: Bredd 158px, Höjd 229px */
 
 		font-style: normal;
 		font-weight: 200;
-		font-size: 10px;
+		font-size: 11px;
 		line-height: 12px;
 
 		color: #000000;
