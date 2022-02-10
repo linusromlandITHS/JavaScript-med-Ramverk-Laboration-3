@@ -51,13 +51,34 @@
 	export default {
 		name: 'TestPetCardComponent',
 		props: {
-			p_id: String,
-			p_name: String,
-			p_one_picture: String,
-			p_image_1: String,
-			p_temperament: String,
-			p_price: Number,
-			p_images_arr: Array
+			p_id: {
+				type: String,
+				required: true
+			},
+			p_name: {
+				type: String,
+				required: true
+			},
+			p_one_picture: {
+				type: String,
+				required: true
+			},
+			p_image_1: {
+				type: String,
+				required: true
+			},
+			p_temperament: {
+				type: String,
+				required: true
+			},
+			p_price: {
+				type: String,
+				required: true
+			},
+			p_images_arr: {
+				type: String,
+				required: true
+			}
 		},
 		data() {
 			return {
@@ -70,30 +91,26 @@
 */
 			};
 		},
-		computed() {
-			img_src();
-			{
-				return 'assets/products/' + this.p_id + '/0.jpg';
-			}
-		},
 		created() {
 			//alert("this.p_id \n"+ this.p_id);
 			this.img_src = 'assets/products/' + this.p_id + '/0.jpg';
 		},
 		methods: {
-			go_to_details_view(id_, na_) {
+			go_to_details_view(id_) {
 				this.$router.push({ path: '/product/' + id_ + '/' });
 			},
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
-				// 1 Hämta tidigare innehåll i localStorage (ett objekt)
+				// 1 Hämta tidigare innehåll i localStorage (en array)
+				let cart;
 				if (localStorage.getItem('petCart')) {
-					var cart = JSON.parse(localStorage.getItem('petCart'));
+					cart = JSON.parse(localStorage.getItem('petCart'));
+
 					//	alert("Det fanns ngt i ls");
 				} else {
 					//alert("ls var tomt.");
-					var cart = {}; //sessionStorage.getItem('petCart');
+					cart = {}; //sessionStorage.getItem('petCart');
 				}
 
 				// 2 Lägg till det aktuella id:t till hämtat obj

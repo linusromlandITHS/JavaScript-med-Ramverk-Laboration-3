@@ -117,7 +117,7 @@
 	</div>
 </template>
 
-<style>
+<style scoped>
 	.table {
 		padding: 30px;
 		background-color: #c9c9bd;

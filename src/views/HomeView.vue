@@ -11,7 +11,7 @@
 </script>
 
 <template>
-	<h1 style="display: none">Hem</h1>
+	<h1 style="display: none">Red Mountain Ranch</h1>
 	<div id="dogDiv">
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
@@ -85,6 +85,12 @@
 	@media screen and (max-width: 600px) {
 		#mainInfo {
 			flex-direction: column;
+		}
+		.info {
+			width: 330px;
+		}
+		#title {
+			width: 365px;
 		}
 	}
 	.info {
