@@ -56,8 +56,7 @@
 	}
 
 	.card:hover {
-		background: #ffffff;
-		color: black;
+		transform: scale(1.04);
 	}
 
 	.image {
