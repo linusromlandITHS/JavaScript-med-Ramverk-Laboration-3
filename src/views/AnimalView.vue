@@ -10,33 +10,29 @@
 				djurtabell: null
 			};
 		},
-		created() {
-			fetch('/database.json')
-				.then((response) => response.json())
-				.then((djur) => {
-					console.log(djur);
-					this.djur = djur;
-					let d = djur.animals;
-					let htmlarr = ['<table class="table table-striped">'];
-					for (let i = 0; i < d.length; i++) {
-						console.log(d[i]);
-						let post = d[i];
-						htmlarr.push('<tr>');
-						console.log(post);
-						for (let j in post) {
-							htmlarr.push('<td>' + post[j] + '</td>');
-						}
-						htmlarr.push(
-							'<td><img src="assets/products/' + post['id'] + '/0.jpg" style="max-width:80px" /></td>'
-						);
+		async created() {
+			const request = await fetch('/database.json');
+			const response = await request.json();
+			this.djur = response.animals;
 
-						//assets/products/d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg
+			let d = response.animals;
+			let htmlarr = ['<table class="table table-striped">'];
+			for (let i = 0; i < d.length; i++) {
+				console.log(d[i]);
+				let post = d[i];
+				htmlarr.push('<tr>');
+				console.log(post);
+				for (let j in post) {
+					htmlarr.push('<td>' + post[j] + '</td>');
+				}
+				htmlarr.push('<td><img src="assets/products/' + post['id'] + '/0.jpg" style="max-width:80px" /></td>');
 
-						htmlarr.push('</tr>');
-					}
-					htmlarr.push('</table>');
-					this.djurtabell = htmlarr.join('');
-				});
+				//assets/products/d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg
+
+				htmlarr.push('</tr>');
+			}
+			htmlarr.push('</table>');
+			this.djurtabell = htmlarr.join('');
 		},
 		components: { ProductCard }
 	};
