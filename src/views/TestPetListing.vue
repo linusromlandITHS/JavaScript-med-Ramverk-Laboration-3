@@ -12,9 +12,9 @@
 	>
 		<small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small>
 		<h4><i>Välkommen att se våra djur!</i></h4>
-		<span class="linklike" @click="onclick('alla')">Alla</span> |
-		<span class="linklike" @click="onclick('katt')">Katter</span> |
-		<span class="linklike" @click="onclick('hund')">Hundar</span> |
+		<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
+		<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
+		<span class="linklike" @click="filter_by_pet_type('hund')">Hundar</span> |
 		<span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> |
 		<span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> |
 		<span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
@@ -65,6 +65,112 @@
 		},
 
 	methods: {
+
+
+
+keep_only_type(pet_type_to_show)
+	{ 
+		let full = this.full_pet_list;
+
+
+let output_obj = new Object();
+
+//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+output_obj = { ...full };
+
+		for(let i in output_obj)
+			{
+				var b1 = output_obj[i];
+
+console.log(b1)
+
+			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+
+			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+			//['IM1']);
+
+//	:p_images_arr = pet.images
+
+				//output_obj[i]['type']
+
+				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+
+				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+					{
+						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+						delete output_obj[ i ];
+
+					}
+					else
+					{
+
+				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+
+						console.log("behåller:" + output_obj[ i ].name);
+						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+
+						console.log("och detta:" + output_obj[ i ]);
+
+console.log("#######" + output_obj[ i ]['image1'] + b1)
+			//	var b1 = output_obj[i]['p_images_arr'][0];
+
+			
+
+					}
+			}
+
+	console.log(output_obj);
+	return output_obj;
+	},
+
+
+		filter_by_pet_type(category)
+		{
+//alla katt hund häst fisk kanin
+
+// 
+// 
+// 
+	console.log("filter_by_pet_type " + category);
+	switch(category) {
+
+  case 'katt':
+    this.current_pet_list = this.keep_only_type('katt');
+    break;
+  case 'hund':
+    this.current_pet_list = this.keep_only_type('hund');
+    break;
+  case 'häst':
+    this.current_pet_list = this.keep_only_type('häst');
+    break;
+  case 'fisk':
+    this.current_pet_list = this.keep_only_type('fisk');
+    break;
+  case 'kanin':
+    this.current_pet_list = this.keep_only_type('kanin');
+    break;
+  default:
+    this.current_pet_list = this.full_pet_list;
+}
+},
+
+
+
+
+
+
+
+
+
+			// Tömmer innehållet i kundvagn (petCart) i localStorage
+	purgeCart()
+	{
+//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+localStorage.removeItem('petCart');
+		alert("Kundvagnen är tom");
+	}
+			,
 
 				add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
