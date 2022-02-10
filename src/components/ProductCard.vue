@@ -1,23 +1,43 @@
 <script>
+	import Button from './Button.vue';
+
 	export default {
-		name: 'ProductCard'
+		name: 'ProductCard',
+		components: {
+			Button
+		},
+		props: {
+			data: {
+				type: Object,
+				required: true
+			}
+		},
+		created() {
+			console.log(this.data);
+		},
+
+		methods: {
+			onClick() {
+				this.$router.push({ path: '/product/:id' });
+			}
+		}
 	};
 </script>
 <template>
-	<div class="card">
+	<div @click="onClick" class="card">
 		<div class="image">
-			<picture>
+			<!-- <picture>
 				<source srcset="" media="(max-width: 480px)" />
 				<source srcset="" media="(max-width: 768px)" />
 				<source srcset="" media="(max-width: 1500px)" />
 				<img src="" alt="brutus" />
-			</picture>
+			</picture> -->
 		</div>
-		<div class="title">Brutus</div>
-		<div class="text">Brutus är helt galen, söker du en vakthund så är Brutus hunden för dig.</div>
+		<div class="title">{{ data.name }}</div>
+		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
 		<div class="price">100 000:-</div>
 	</div>
-	<button type="button" class="cart-button">Lägg i kundvagn</button>
+	<Button>bajs</Button>
 </template>
 
 <style>
@@ -27,6 +47,8 @@
 		background-color: #f0efee;
 		padding: 5px;
 		border-radius: 8px;
+
+		cursor: pointer;
 	}
 
 	.image {

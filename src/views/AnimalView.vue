@@ -52,7 +52,7 @@
 
 		<b> DJUR SLUTAR HÄR </b>
 	</div>
-	<ProductCard />
+	<ProductCard :data="this.djur[0]" />
 </template>
 
 <style></style>
