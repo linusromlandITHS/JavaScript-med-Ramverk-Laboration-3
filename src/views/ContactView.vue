@@ -25,42 +25,43 @@
 
 <template>
 	<h1>Ställ en fråga till oss</h1>
-	<div>
-		<label>Namn</label>
-		<input v-model="name" type="text" :class="{ 'input-error': !name && clicked }" />
-
-		<label>Email</label>
-		<input v-model="email" type="email" :class="{ 'input-error': !email && clicked }" />
-
-		<textarea placeholder="Skriv din fråga" />
+	<div class="main">
+		<div class="field">
+			<label>Namn</label>
+			<input v-model="name" type="text" :class="{ 'input-error': !name && clicked }" />
+		</div>
+		<div class="field">
+			<label>Email</label>
+			<input v-model="email" type="email" :class="{ 'input-error': !email && clicked }" />
+		</div>
+		<div class="field">
+			<textarea placeholder="Skriv din fråga" />
+		</div>
 		<input class="button" @click="onClick" type="button" value="Skicka" />
+		<h3>{{ msg }}</h3>
 	</div>
-	<h3>{{ msg }}</h3>
 
-	<p>Öppettider: 9:00 - 18:00</p>
-	<p>Adress:</p>
-	<p>Email: redmountain_team@gmail.com</p>
+	<div class="text-inner">
+		<p>Öppettider: 9:00 - 18:00</p>
+		<p>Adress:</p>
+		<p>Email: redmountain_team@gmail.com</p>
+	</div>
 	<iframe src="http://maps.google.com/maps?q=57.708870,11.974560&z=16&output=embed" />
 </template>
 
 <style scoped>
-	h1 {
+	/* h1 {
 		text-align: center;
-	}
+	} */
 	label {
 		margin: 10px;
 	}
 	iframe {
 		margin: 20px;
 		margin-top: 50px;
+		margin-left: 375px;
 		height: 450px;
 		width: 600px;
-	}
-	div {
-		display: flex;
-		flex-direction: column;
-		margin: 15px;
-		justify-content: center;
 	}
 	h3,
 	p {
@@ -85,7 +86,20 @@
 	p {
 		color: black;
 	}
-
+	.text-inner {
+		position: absolute;
+		margin-top: 250px;
+	}
+	.field {
+		clear: both;
+		text-align: right;
+	}
+	label {
+		float: left;
+	}
+	.main {
+		float: left;
+	}
 	.input-error {
 		border-color: red;
 	}
@@ -94,7 +108,7 @@
 		width: 80px;
 	}
 
-	@media screen and (max-width: 370px) {
+	@media screen and (max-width: 375px) {
 		h1 {
 			text-align: center;
 		}
@@ -103,19 +117,32 @@
 			height: 200px;
 			width: 300px;
 		}
-		div {
+		.main {
 			display: flex;
 			flex-direction: column;
 			margin: 15px;
+			float: left;
 		}
 		p {
 			margin: 15px;
 		}
 		textarea {
-			margin: 15px;
+			margin: 10px;
 			margin-left: 0;
 			margin-right: 0;
 			padding: 0;
+			width: 100%;
+			float: left;
 		}
+		.field {
+			clear: both;
+			text-align: left;
+		}
+		label {
+			float: left;
+		}
+		/* .main {
+			float: left;
+		} */
 	}
 </style>

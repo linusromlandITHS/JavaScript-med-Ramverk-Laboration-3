@@ -1,60 +1,41 @@
-<template>
-	<div
-		style="
-			background-color: white !important;
-			color: black;
-			padding: 12px;
-			border: 1px solid;
-			text-align: center;
-			max-width: 82%;
-			margin-right: auto;
-			margin-left: auto;
-		"
-	>
-		<p>
-			Testsida för listningen <i>(Visar här upp info via TestPetCardComponent som får info som props)</i>
-			<br /><small
-				>** <u>Börjar nu plocka in Nathis mall</u><br />Men den ser inte så bra ut med CSS nu - fel fonter
-				mm...?</small
-			>
-		</p>
-		<hr />
-		<h4><i>Välkommen att se våra djur!</i></h4>
-		<hr />
+<template >
+	<div style="background-color: white !important;color:black; padding: 12px; text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
-		<span class="linklike" @click="onclick('alla')">Alla</span> |
-		<span class="linklike" @click="onclick('katt')">Katter</span> |
-		<span class="linklike" @click="onclick('hund')">Hundar</span> |
-		<span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> |
-		<span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> |
-		<span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
-		<hr />
+<p>Testsida för listningen
+<i>(Visar här upp  info via TestPetCardComponent som får info som props)</i> <br /><small>** <u>Börjar nu plocka in Nathis mall</u><br/>Men den ser inte så bra ut med CSS nu - fel fonter mm...?</small>
+</p>
+<hr /> 
+<h4><i>Välkommen att se våra djur!</i></h4>
+<hr /> 
 
-		<span class="linklike" @click="displayCartContents()">Visa kundvagn</span> |
-		<span class="linklike" @click="purgeCart()">Töm kundvagn</span>
+<span class="linklike" v-on:click="onclick('alla')">Alla</span> | <span class="linklike" v-on:click="onclick('katt')">Katter</span> | <span class="linklike" v-on:click="onclick('hund')">Hundar</span> | <span class="linklike" v-on:click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" v-on:click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" v-on:click="filter_by_pet_type('häst')">Hästar</span>
+<hr /> 
 
-		<hr />
+<span class="linklike" v-on:click="displayCartContents()">Visa kundvagn</span> |
+<span class="linklike" v-on:click="purgeCart()">Töm kundvagn</span>
 
-		<div
-			class="d-flex flex-wrap justify-content-around"
-			style="background-color: white !important; margin-left: 10%"
-		>
-			<div v-for="(pet, index) in current_pet_list" :key="index" class="p-2">
-				<!-- v-if="pet.type=='Fisk'" -->
+<hr /> 
 
-				<TestPetCardComponent
-					:key="pet.id"
-					:p_id="pet.id"
-					:p_name="pet.name"
-					:p_images_arr="pet.images"
-					:p_temperament="pet.temperament"
-					:p_price="pet.price"
-					:p_type="pet.type"
-					:p_one_picture="this.picture_1"
-				/>
-			</div>
-		</div>
-		<hr />
+<div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:auto;margin-right:auto;">
+  <div v-for="pet in current_pet_list" class="p-2" 	>
+
+<!-- v-if="pet.type=='Fisk'" -->
+
+	<TestPetCardComponent 
+	:key=pet.id
+	:p_id=pet.id
+  :p_name=pet.name
+	:p_images_arr = pet.images
+  :p_temperament=pet.temperament
+	:p_price=pet.price
+	:p_type=pet.type
+	:p_one_picture=this.picture_1
+	/>
+
+
+</div>	
+</div>
+			<hr />
 	</div>
 </template>
 
@@ -63,7 +44,7 @@
 
 	export default {
 		name: 'TestPetListing',
-		components: {
+			components: {
 			TestPetCardComponent
 		},
 		data() {
@@ -71,149 +52,182 @@
 				current_pet_list: null,
 				full_pet_list: null,
 
-				picture_1: '' //current_pet_list[0]
+				picture_1: "" //current_pet_list[0]
+
 			};
 		},
-		created() {
+		created() 
+		{
 			this.picture_1 = this.p_images_arr[0];
+		},
+
+		methods: 
+		{
+
+	// Alerta innehållet i kundvagn (petCart) i Localstorage
+	// Denna metod ligger både här och komponenten (TestPetCardComponent) - borde kunna göras elegantare?
+	displayCartContents()
+	{
+		let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
+		let utarr = [];
+
+		for(let i in fetched_cart)
+			{
+				utarr.push( i  + " (" + fetched_cart[i] +")");
+			}
+
+		alert("Innehåll i petCart (i localStorage) nu:\n\n" + utarr.join("\n"));
+
+	},
+
+	// Tömmer innehållet i kundvagn (petCart) i localStorage
+	purgeCart()
+	{
+//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+localStorage.removeItem('petCart');
+		alert("Kundvagnen är tom");
+	}
+			,
+			// Val av djurkategori
+			onclick(djurtyp)
+			{
+				console.log(djurtyp);
+				this.filter_by_pet_type(djurtyp);
+			},
+	keep_only_type(pet_type_to_show)
+	{ 
+		let full = this.full_pet_list;
+
+
+let output_obj = new Object();
+
+//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+output_obj = { ...full };
+
+		for(let i in output_obj)
+			{
+				var b1 = output_obj[i];
+
+console.log(b1)
+
+			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+
+			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+			//['IM1']);
+
+//	:p_images_arr = pet.images
+
+				//output_obj[i]['type']
+
+				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+
+				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+					{
+						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+						delete output_obj[ i ];
+
+					}
+					else
+					{
+
+				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+
+						console.log("behåller:" + output_obj[ i ].name);
+						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+
+						console.log("och detta:" + output_obj[ i ]);
+
+console.log("#######" + output_obj[ i ]['image1'] + b1)
+			//	var b1 = output_obj[i]['p_images_arr'][0];
+
+			
+
+					}
+			}
+
+	console.log(output_obj);
+	return output_obj;
+	},
+
+
+		filter_by_pet_type(category)
+		{
+//alla katt hund häst fisk kanin
+
+// 
+// 
+// 
+	console.log("filter_by_pet_type " + category);
+	switch(category) {
+
+  case 'katt':
+    this.current_pet_list = this.keep_only_type('katt');
+    break;
+  case 'hund':
+    this.current_pet_list = this.keep_only_type('hund');
+    break;
+  case 'häst':
+    this.current_pet_list = this.keep_only_type('häst');
+    break;
+  case 'fisk':
+    this.current_pet_list = this.keep_only_type('fisk');
+    break;
+  case 'kanin':
+    this.current_pet_list = this.keep_only_type('kanin');
+    break;
+  default:
+    this.current_pet_list = this.full_pet_list;
+}
+}
+
+		},
+		created() {
 			fetch('/database.json')
 				.then((response) => response.json())
 				.then((djur) => {
 					console.log(djur);
 					this.djur = djur;
 					let d = djur.animals;
-					this.full_pet_list = d;
+          this.full_pet_list = d;
 					// Börja med att lista alla djur;
-					this.current_pet_list = this.full_pet_list;
+					this.current_pet_list =this.full_pet_list;
 				});
-		},
-
-		methods: {
-			// Alerta innehållet i kundvagn (petCart) i Localstorage
-			// Denna metod ligger både här och komponenten (TestPetCardComponent) - borde kunna göras elegantare?
-			displayCartContents() {
-				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
-				let utarr = [];
-
-				for (let i in fetched_cart) {
-					utarr.push(i + ' (' + fetched_cart[i] + ')');
-				}
-
-				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
-			},
-
-			// Tömmer innehållet i kundvagn (petCart) i localStorage
-			purgeCart() {
-				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
-				localStorage.removeItem('petCart');
-				alert('Kundvagnen är tom');
-			},
-			// Val av djurkategori
-			onclick(djurtyp) {
-				console.log(djurtyp);
-				this.filter_by_pet_type(djurtyp);
-			},
-			keep_only_type(pet_type_to_show) {
-				let full = this.full_pet_list;
-
-				let output_obj = new Object();
-
-				//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-				output_obj = { ...full };
-
-				for (let i in output_obj) {
-					var b1 = output_obj[i];
-
-					console.log(b1);
-
-					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
-
-					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
-					//['IM1']);
-
-					//	:p_images_arr = pet.images
-
-					//output_obj[i]['type']
-
-					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
-
-					if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
-						console.log('tar bort:' + output_obj[i] + output_obj[i].name);
-						delete output_obj[i];
-					} else {
-						//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
-
-						console.log('behåller:' + output_obj[i].name);
-						console.log('den har denna image1:' + output_obj[i]['image1']);
-						console.log('den har denna IM1:' + output_obj[i]['IM1']);
-
-						console.log('och detta:' + output_obj[i]);
-
-						console.log('#######' + output_obj[i]['image1'] + b1);
-						//	var b1 = output_obj[i]['p_images_arr'][0];
-					}
-				}
-
-				console.log(output_obj);
-				return output_obj;
-			},
-
-			filter_by_pet_type(category) {
-				//alla katt hund häst fisk kanin
-
-				//
-				//
-				//
-				console.log('filter_by_pet_type ' + category);
-				switch (category) {
-					case 'katt':
-						this.current_pet_list = this.keep_only_type('katt');
-						break;
-					case 'hund':
-						this.current_pet_list = this.keep_only_type('hund');
-						break;
-					case 'häst':
-						this.current_pet_list = this.keep_only_type('häst');
-						break;
-					case 'fisk':
-						this.current_pet_list = this.keep_only_type('fisk');
-						break;
-					case 'kanin':
-						this.current_pet_list = this.keep_only_type('kanin');
-						break;
-					default:
-						this.current_pet_list = this.full_pet_list;
-				}
-			}
 		}
 	};
 </script>
 
-<style>
-	* {
-		font-family: 'Roboto Mono';
+<style >
+
+*{
+  font-family: 'Roboto Mono';
 		font-style: normal;
 		font-weight: normal;
-	}
+}
 
-	.linklike {
-		cursor: pointer;
-	}
 
-	.linklike:hover {
-		text-decoration-line: underline;
-		color: black;
-	}
+.linklike{
+cursor: pointer;
+}
 
-	/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
+.linklike:hover{
+  text-decoration-line: underline;
+color:black;
+}
 
-	/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
-	* {
-		font-family: 'Roboto Light', 'Roboto Medium', 'Roboto';
-	}
+/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
+
+
+/* https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext */
+* {font-family: 'Roboto Light', 'Roboto Medium', 'Roboto'}
+
 
 	.p-2 {
-		margin-bottom: 14px;
-		cursor: pointer;
+margin-bottom: 14px;
+cursor: pointer;
+
+
 	}
+
 </style>
+
