@@ -38,8 +38,10 @@
 			</picture> -->
 		</div>
 		<div class="title">{{ p_name }}</div>
-		<div class="text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
-		<div class="price">{{ p_price }} KR</div>
+		<div class="card_description_text">{{ p_name }} är {{ p_temperament }} - Lorem ipsum dolor sit amet...</div>
+		
+		<!-- .toLocaleString() visar nummer med mellanslag: 10000 blir 10 000 -->
+		<div class="price">{{ p_price.toLocaleString() }} KR</div>
 	</div>
 
 	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
@@ -85,27 +87,23 @@
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
-				// 1 Hämta tidigare innehåll i localStorage (en array)
-
+				// 1 Hämta tidigare innehåll i localStorage (ett objekt)
 				if (localStorage.getItem('petCart')) {
 					var cart = JSON.parse(localStorage.getItem('petCart'));
-
 					//	alert("Det fanns ngt i ls");
 				} else {
 					//alert("ls var tomt.");
 					var cart = {}; //sessionStorage.getItem('petCart');
 				}
 
-				// 2 Pusha det aktuella id:t till hämtad array
-
+				// 2 Lägg till det aktuella id:t till hämtat obj
 				// Lägger till aktuellt djur
 				cart[id_] = na_;
 
-				// 3 Sätt localStorage till den nya arrayen
+				// 3 Sätt localStorage till det nya objektet
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
 				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
-
 				this.displayCartContents();
 			},
 			// Alerta innehållet i kundvagn (petCart) i Localstorage
@@ -163,10 +161,12 @@ Mobil: Bredd 158px, Höjd 229px */
 		background-color: #f0efee;
 		padding: 5px;
 		border-radius: 8px;
+		border:none;
+		transition: transform .1s; /* Animation */
 	}
 
 	.card:hover {
-		border: 1px solid black;
+		transform: scale(1.04);
 	}
 
 	.image {
@@ -202,11 +202,11 @@ Mobil: Bredd 158px, Höjd 229px */
 		margin-top: 5px;
 	}
 
-	.text {
+	.card_description_text {
 		width: 190px;
-		height: 50.4px;
+		height: 40px;
 
-		/* font-family: 'Noto Serif', 'Roboto Mono', Arial; */
+		font-family: 'Noto Serif';/*, 'Roboto Mono', Arial;*/
 
 		font-style: normal;
 		font-weight: 200;
@@ -228,6 +228,7 @@ Mobil: Bredd 158px, Höjd 229px */
 		text-align: center;
 		color: #000000;
 		margin-bottom: 5px;
+		font-family: "Noto Serif";
 	}
 
 	.cart-button {
@@ -236,24 +237,27 @@ Mobil: Bredd 158px, Höjd 229px */
 
 		background: #faac77;
 		border-radius: 8px;
-		margin-top: 5px;
+		margin-top: 8px;
 
 		font-style: normal;
 		font-weight: normal;
-		font-size: 9px;
+		font-size: 11px;
 		line-height: 12px;
 		text-align: center;
 		text-transform: uppercase;
 
 		color: #f0efee;
 		border: none;
+		transition: transform .1s; /* Animation */
+
 	}
 	.cart-button:hover {
-		border: 1px solid black;
+
+				transform: scale(1.04);
 	}
 
 	* {
-		font-family: 'Roboto Mono', Arial, sans-serif;
+		font-family: "Roboto Mono";
 		font-style: normal;
 		font-weight: normal;
 	}

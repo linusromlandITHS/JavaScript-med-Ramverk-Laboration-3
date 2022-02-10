@@ -1,5 +1,5 @@
 <template >
-	<div style="background-color: white !important;color:black; padding: 12px; border: 1px solid;  text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
+	<div style="background-color: white !important;color:black; padding: 12px; text-align:center;max-width:82%;margin-right:auto;margin-left:auto;">
 
 <p>Testsida för listningen
 <i>(Visar här upp  info via TestPetCardComponent som får info som props)</i> <br /><small>** <u>Börjar nu plocka in Nathis mall</u><br/>Men den ser inte så bra ut med CSS nu - fel fonter mm...?</small>
@@ -16,7 +16,7 @@
 
 <hr /> 
 
-<div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:10%;">
+<div  class="d-flex flex-wrap justify-content-around" style="background-color:white !important;margin-left:auto;margin-right:auto;">
   <div v-for="pet in current_pet_list" class="p-2" 	>
 
 <!-- v-if="pet.type=='Fisk'" -->
