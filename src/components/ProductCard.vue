@@ -35,20 +35,29 @@
 		</div>
 		<div class="title">{{ data.name }}</div>
 		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
-		<div class="price">100 000:-</div>
+		<div class="price">{{ data.price }}:-</div>
 	</div>
-	<Button>bajs</Button>
+	<Button class="btn">lägg i kundvagn</Button>
 </template>
 
-<style>
+<style scoped>
 	.card {
 		width: 200px;
 		height: 250px;
 		background-color: #f0efee;
+		color: #333c3e;
 		padding: 5px;
+		margin-bottom: 5px;
 		border-radius: 8px;
+		border-style: none;
 
 		cursor: pointer;
+		transition: 0.3s ease-out;
+	}
+
+	.card:hover {
+		background: #ffffff;
+		color: black;
 	}
 
 	.image {
@@ -69,7 +78,6 @@
 		line-height: 18px;
 		text-align: center;
 		text-transform: uppercase;
-		color: #000000;
 		margin-bottom: 5px;
 	}
 
@@ -83,7 +91,6 @@
 		font-size: 10px;
 		line-height: 12px;
 
-		color: #000000;
 		margin-bottom: 5px;
 	}
 
@@ -96,11 +103,10 @@
 		font-size: 14px;
 		line-height: 18px;
 		text-align: center;
-		color: #000000;
 		margin-bottom: 5px;
 	}
 
-	.cart-button {
+	/* .cart-button {
 		width: 200px;
 		height: 42px;
 
@@ -118,5 +124,9 @@
 
 		color: #f0efee;
 		border: none;
+	} */
+
+	.btn {
+		text-transform: uppercase;
 	}
 </style>
