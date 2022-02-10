@@ -18,7 +18,7 @@
 		<img src="/assets/välkommen.png" alt="" id="title" />
 		<img src="/assets/logo.png" alt="" id="animationLogo" />
 		<H2 style="margin-top: 60px">Välkommen</H2>
-		<p>Här är Sveriges främsta websida för kattavel och husdjurs handel.</p>
+		<p id="kortInfo">Här är Sveriges främsta websida för kattavel och husdjurs handel.</p>
 	</div>
 	<section id="mainInfo">
 		<div class="info">
@@ -46,6 +46,13 @@
 </template>
 
 <style>
+	h2,
+	h3 {
+		color: #333c3e;
+	}
+	#kortInfo {
+		color: #333c3e;
+	}
 	#dogDiv {
 		display: flex;
 		align-items: center;
@@ -89,10 +96,10 @@
 			flex-direction: column;
 		}
 		.info {
-			width: 330px;
+			width: 200px;
 		}
 		#title {
-			width: 365px;
+			width: 340px;
 		}
 	}
 	.info {
