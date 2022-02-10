@@ -38,14 +38,10 @@
 
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
-			},
-			test() {
-				console.log('test');
 			}
 		},
 		computed: {
 			images() {
-				console.log(this.product);
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
 		},
@@ -57,9 +53,7 @@
 
 <template>
 	<div class="col-sm-10">
-		<div id="slideshow">
-			<Slideshow :images="images" />
-		</div>
+		<Slideshow class="h-25" :images="images" />
 
 		<h1 class="text-black fs-1">{{ product.name }}</h1>
 		<ul class="list-group">
@@ -86,6 +80,5 @@
 	}
 	#slideshow {
 		height: 300px;
-		width: 100%;
 	}
 </style>

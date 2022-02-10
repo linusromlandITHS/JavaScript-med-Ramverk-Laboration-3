@@ -29,7 +29,7 @@
 	<button type="button" :class="className" @click="clicked" :disabled="disabled"><slot>Submit</slot></button>
 </template>
 
-<style>
+<style scoped>
 	.btn {
 		width: 200px;
 		height: 42px;
