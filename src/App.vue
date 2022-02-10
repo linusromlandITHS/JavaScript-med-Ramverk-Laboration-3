@@ -2,7 +2,7 @@
 	<!-- Navbar  -->
 	<Navbar />
 
-	<main style="padding: 35px; border: 1px solid;margin-top:0px">
+	<main style="padding: 35px; border: 1px solid; margin-top: 0px">
 		<RouterView />
 	</main>
 	<hr />

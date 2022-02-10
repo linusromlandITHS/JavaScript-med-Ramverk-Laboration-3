@@ -38,18 +38,16 @@
 
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
-			},
-			test() {
-				console.log('test');
 			}
 		},
 		computed: {
 			images() {
-				console.log(this.product);
+				//This edits the image array and adds the correct path to the image.
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
 		},
 		created() {
+			//This runs the method that retrieves the product datater
 			this.fetchProduct();
 		}
 	};
@@ -77,7 +75,7 @@
 			sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett snöre.
 		</p>
 		<p class="text-black fs-2">SEK{{ product.price }}:-</p>
-		<Button :alternative="false" :disabled="false" @clicked="test">PRIMARY</Button>
+		<Button :alternative="false" :disabled="false">Lägg i varukorg</Button>
 	</div>
 </template>
 <style>
