@@ -4,7 +4,8 @@
 		data() {
 			return {
 				summa: 0,
-				cartItems: []
+				cartItems: [],
+				helaPriset: 0
 			};
 		},
 		methods: {
