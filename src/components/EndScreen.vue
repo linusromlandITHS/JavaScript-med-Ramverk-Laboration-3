@@ -10,7 +10,9 @@
 		},
 		methods: {
 			deleteItem(index) {
+				//deletes the index of that row
 				this.cartItems.splice(index, 1);
+				//calculates the new total price.
 				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 				//this.localStorage.removeItem(index, 1);
 			},
@@ -125,6 +127,12 @@
 		* {
 			font-size: 95%;
 		}
+		main {
+			padding: 20px;
+		}
+	}
+	main {
+		padding: 20px;
 	}
 	.table {
 		padding: 30px;
