@@ -110,6 +110,11 @@
 </template>
 
 <style scoped>
+	@media screen and (max-width: 600px) {
+		* {
+			font-size: 95%;
+		}
+	}
 	.table {
 		padding: 30px;
 		background-color: #c9c9bd;
