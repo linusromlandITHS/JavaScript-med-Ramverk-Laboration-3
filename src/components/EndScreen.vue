@@ -4,48 +4,40 @@
 		data() {
 			return {
 				summa: 0,
-				payments: [
-					{
-						köp: 1,
-						varor: 'Kattavel',
-						antal: '6',
-						pris: 6000
-					},
-					{
-						köp: 2,
-						varor: 'Hö',
-						antal: '7',
-						pris: 10000
-					},
-					{
-						köp: 3,
-						varor: 'Höna',
-						antal: '10',
-						pris: 400
-					}
-				]
+				cartItems: []
 			};
 		},
 		methods: {
 			deleteItem(index) {
-				this.payments.splice(index, 1);
+				this.cartItems.splice(index, 1);
+				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+			},
+			getCart() {
+				if (localStorage.petCart) {
+					return JSON.parse(localStorage.petCart);
+				}
+			},
+
+			async fetchData() {
+				const request = await fetch('/database.json');
+				const result = await request.json();
+
+				return result.animals;
 			}
 		},
-		mounted() {
-			if (localStorage.payments) {
-				this.payments = JSON.parse(localStorage.payments);
-			}
-		},
-		watch: {
-			payments: {
-				handler(newSave) {
-					localStorage.payments = JSON.stringify(newSave);
-				},
-				deep: true
-			}
-		},
-		created() {
-			this.helaPriset = this.payments.reduce((acc, item) => acc + item.pris, 0);
+		async mounted() {
+			const items = await this.fetchData();
+			const cart = this.getCart();
+
+			// Pick all keys from the cart and put into an array
+			const itemIds = Object.keys(cart);
+			// Replace every itemId with the full item-object from the database
+			const cartItems = itemIds.map((itemID) => {
+				// Search through the database for the item
+				return items.find((a) => a.id === itemID);
+			});
+			this.cartItems = cartItems;
+			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 		}
 	};
 </script>
@@ -56,19 +48,19 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col">Köp</th>
-					<th scope="col">Varor</th>
-					<th scope="col">Antal</th>
+					<th scope="col">Namn</th>
+					<th scope="col">Djur</th>
+					<th scope="col">Ras</th>
 					<th scope="col">Pris</th>
 					<th scope="col">X</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="(task, index) in payments" :key="index">
-					<th scope="row">{{ task.köp }}</th>
-					<td>{{ task.varor }}</td>
-					<td>{{ task.antal }}</td>
-					<td>{{ task.pris + ' kr' }}</td>
+				<tr v-for="(task, index) in cartItems" :key="index">
+					<th scope="row">{{ task.name }}</th>
+					<td>{{ task.type }}</td>
+					<td>{{ task.breed }}</td>
+					<td>{{ task.price + ' kr' }}</td>
 					<td @click="deleteItem"><span class="fa fa-trash">X</span></td>
 				</tr>
 				<tr>

@@ -8,10 +8,11 @@
 			Button
 		},
 		methods: {
-			methods: {
-				onClick() {
-					this.$router.push({ path: './AnimalView.vue' });
-				}
+			onClick() {
+				this.$router.push({ path: '/testpetlisting' });
+			},
+			onClickAvel() {
+				this.$router.push({ path: '/avel' });
 			}
 		}
 	};
@@ -33,7 +34,7 @@
 					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
 					alla typer av djurälskare.
 				</p>
-				<Button class="btn btn-secondary" @click="this.onClick">Handla</Button>
+				<Button class="btn btn-secondary" @click="onClick">Handla</Button>
 			</div>
 		</div>
 		<div class="info">
@@ -43,7 +44,7 @@
 					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
 					högsta kalitét.
 				</p>
-				<Button class="btn btn-secondary">Avla</Button>
+				<Button class="btn btn-secondary" @click="onClickAvel">Avla</Button>
 			</div>
 		</div>
 	</section>
