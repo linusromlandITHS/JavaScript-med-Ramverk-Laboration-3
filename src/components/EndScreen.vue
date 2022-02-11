@@ -12,15 +12,16 @@
 			deleteItem(index) {
 				this.cartItems.splice(index, 1);
 				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+				//this.localStorage.removeItem(index, 1);
 			},
 			getCart() {
 				if (localStorage.petCart) {
 					return JSON.parse(localStorage.petCart);
 				}
 			},
-			emptyStorage() {
-				this.localStorage.clear();
-			},
+			//emptyStorage() {
+			//	this.localStorage.clear();
+			//},
 
 			async fetchData() {
 				const request = await fetch('/database.json');
