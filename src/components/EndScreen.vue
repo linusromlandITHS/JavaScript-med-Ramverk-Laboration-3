@@ -70,8 +70,13 @@
 				</tr>
 				<tr>
 					<th scope="row">Att Betala</th>
-					<td>{{ helaPriset + ' kr' }}</td>
-					<td>{{ 'var av moms ' + helaPriset * 0.25 + ' kr' }}</td>
+					<td>
+						{{ helaPriset + ' kr' }} <br />
+						<span> {{ 'Var av moms ' + helaPriset * 0.25 + ' kr' }} </span>
+					</td>
+					<td />
+					<td />
+					<td />
 				</tr>
 			</tbody>
 		</table>
@@ -136,7 +141,9 @@
 		border-color: #faac77;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
-
+	span {
+		font-size: 90%;
+	}
 	div {
 		border: 4px;
 		border-color: #faac77;
