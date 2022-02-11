@@ -6,6 +6,13 @@
 		name: 'HomeView',
 		components: {
 			Button
+		},
+		methods: {
+			methods: {
+				onClick() {
+					this.$router.push({ path: './AnimalView.vue' });
+				}
+			}
 		}
 	};
 </script>
@@ -26,7 +33,7 @@
 					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
 					alla typer av djurälskare.
 				</p>
-				<Button class="btn btn-secondary">Handla</Button>
+				<Button class="btn btn-secondary" @click="this.onClick">Handla</Button>
 			</div>
 		</div>
 		<div class="info">
