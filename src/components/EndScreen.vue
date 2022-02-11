@@ -96,7 +96,7 @@
 					</div>
 					<div class="col-6">
 						<div class="d-flex flex-column">
-							<p class="text mb-1">Utgångsdatum</p>
+							<p class="text mb-1">Ut-datum</p>
 							<input class="form-control mb-3" type="text" placeholder="MM/YYYY" />
 						</div>
 					</div>
@@ -127,7 +127,7 @@
 	}
 	#table {
 		color: black;
-		padding: 30px;
+		padding: 15px;
 		background-color: #c9c9bd;
 		border: 4px;
 		border-color: #faac77;
