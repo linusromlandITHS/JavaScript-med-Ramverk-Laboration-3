@@ -149,4 +149,7 @@
 	#totalAmount {
 		margin-top: 1rem;
 	}
+	h2 {
+		border: 2px;
+	}
 </style>
