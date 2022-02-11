@@ -1,12 +1,10 @@
 <script>
 	//Component Imports:
-	import EndScreen from '../components/EndScreen.vue';
 	import Button from '../components/Button.vue';
 
 	export default {
 		name: 'HomeView',
 		components: {
-			EndScreen,
 			Button
 		}
 	};
@@ -42,7 +40,6 @@
 			</div>
 		</div>
 	</section>
-	<EndScreen />
 </template>
 
 <style>
