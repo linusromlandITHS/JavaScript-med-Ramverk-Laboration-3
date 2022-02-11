@@ -120,4 +120,8 @@
 		height: 60px;
 		border-radius: 30px;
 	}
+
+	.underTitel > h3 {
+		margin: 0;
+	}
 </style>
