@@ -18,6 +18,9 @@
 					return JSON.parse(localStorage.petCart);
 				}
 			},
+			emptyStorage() {
+				this.localStorage.clear();
+			},
 
 			async fetchData() {
 				const request = await fetch('/database.json');
@@ -100,8 +103,9 @@
 						</div>
 					</div>
 					<div class="col-12">
-						<div class="btn btn-primary mb-3">
-							<span class="ps-3">Betala 16400 kr</span> <span class="fas fa-arrow-right" />
+						<div @click="emptyStorage" class="btn btn-primary mb-3">
+							<span class="ps-3">{{ 'Betala ' + helaPriset + ' kr' }}</span>
+							<span class="fas fa-arrow-right" />
 						</div>
 					</div>
 				</div>
