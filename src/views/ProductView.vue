@@ -91,15 +91,15 @@
 	</div>
 	<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
 		<h2 class="text-black">Liknande Produkter:</h2>
-		<div class="m-2" v-for="(product, index) in recommendedProducts" :key="index">
+		<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
 			<ProductCard
-				:p_id="product.id"
-				:p_name="product.name"
-				:p_images_arr="product.images"
-				:p_temperament="product.temperament"
-				:p_price="product.price"
-				:p_type="product.type"
-				:p_one_picture="product.images[1]"
+				:p_id="recommendedProduct.id"
+				:p_name="recommendedProduct.name"
+				:p_images_arr="recommendedProduct.images"
+				:p_temperament="recommendedProduct.temperament"
+				:p_price="recommendedProduct.price"
+				:p_type="recommendedProduct.type"
+				:p_one_picture="recommendedProduct.images[1]"
 			/>
 		</div>
 	</div>
