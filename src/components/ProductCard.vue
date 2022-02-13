@@ -108,7 +108,7 @@
 	};
 </script>
 <template>
-	<div @click="go_to_details_view(this.p_id, this.p_name)" class="card">
+	<div @click="go_to_details_view(this.p_id)" class="card">
 		<div class="image">
 			<img :srcset="this.img_src" class="img-image" alt="brutus" />
 			<!-- <picture> -->
