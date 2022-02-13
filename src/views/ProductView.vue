@@ -1,16 +1,19 @@
 <script>
 	import Slideshow from '../components/Slideshow.vue';
 	import Button from '../components/Button.vue';
+	import ProductCard from '../components/ProductCard.vue';
 
 	export default {
 		name: 'ProductView',
 		components: {
 			Slideshow,
-			Button
+			Button,
+			ProductCard
 		},
 		data() {
 			return {
-				product: {} //Object containg all data for product
+				product: {}, //Object containg all data for product
+				recommendedProducts: [] //Array of recommended products
 			};
 		},
 		methods: {
@@ -32,6 +35,11 @@
 
 				//Finds the product that matches the param id
 				this.product = response.animals.find((product) => product.id === this.$route.params.id);
+
+				//Find 5 products that are similar to the product
+				this.recommendedProducts = response.animals
+					.filter((product) => product.id !== this.$route.params.id)
+					.slice(0, 5);
 
 				//If product is not found, redirect to home page
 				if (!this.product) this.$router.push('/');
@@ -79,6 +87,20 @@
 		<div class="align-self-center">
 			<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
 			<Button :alternative="false" :disabled="false" @clicked="test">Lägg i kundvagn</Button>
+		</div>
+	</div>
+	<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
+		<h2 class="text-black">Liknande Produkter:</h2>
+		<div class="m-2" v-for="(product, index) in recommendedProducts" :key="index">
+			<ProductCard
+				:p_id="product.id"
+				:p_name="product.name"
+				:p_images_arr="product.images"
+				:p_temperament="product.temperament"
+				:p_price="product.price"
+				:p_type="product.type"
+				:p_one_picture="product.images[1]"
+			/>
 		</div>
 	</div>
 </template>
