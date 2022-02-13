@@ -43,7 +43,7 @@
 <template>
 	<section class="d-flex flex-column">
 		<!-- The active image shown -->
-		<img :src="activeImage" alt="Product image" />
+		<img :src="activeImage" alt="Product image" class="w-100" />
 
 		<!-- Only shows nav if more then one image is available. -->
 		<nav v-if="images.length > 1" class="mw-100 d-flex horizontal-scrollable p-2 justify-content-center">
@@ -67,7 +67,7 @@
 
 	img {
 		width: 100%;
-		height: 250px;
+		height: 25rem;
 		object-fit: contain;
 	}
 
@@ -93,12 +93,5 @@
 
 	.activeImage {
 		filter: brightness(50%);
-	}
-
-	/**Media Query for desktop */
-	@media (min-width: 992px) {
-		img {
-			height: 500px;
-		}
 	}
 </style>
