@@ -10,7 +10,7 @@
 			margin-left: auto;
 		"
 	>
-		<small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small>
+		<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
 		<h4><i>Välkommen att se våra djur!</i></h4>
 		<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
 		<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
@@ -51,7 +51,7 @@
 	//import TestPetCardComponent from '../components/TestPetCardComponent.vue';
 	import ProductCard from '../components/ProductCard.vue';
 	export default {
-		name: 'TestPetListing',
+		name: 'PetListing',
 
 		components: {
 			ProductCard
@@ -68,61 +68,61 @@
 
 
 
-keep_only_type(pet_type_to_show)
-	{ 
-		let full = this.full_pet_list;
+// keep_only_type(pet_type_to_show)
+// 	{ 
+// 		let full = this.full_pet_list;
 
 
-let output_obj = new Object();
+// let output_obj = new Object();
 
-//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-output_obj = { ...full };
+// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+// output_obj = { ...full };
 
-		for(let i in output_obj)
-			{
-				var b1 = output_obj[i];
+// 		for(let i in output_obj)
+// 			{
+// 				var b1 = output_obj[i];
 
-console.log(b1)
+// console.log(b1)
 
-			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
 
-			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
-			//['IM1']);
+// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+// 			//['IM1']);
 
-//	:p_images_arr = pet.images
+// //	:p_images_arr = pet.images
 
-				//output_obj[i]['type']
+// 				//output_obj[i]['type']
 
-				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
 
-				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
-					{
-						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
-						delete output_obj[ i ];
+// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+// 					{
+// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+// 						delete output_obj[ i ];
 
-					}
-					else
-					{
+// 					}
+// 					else
+// 					{
 
-				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-						console.log("behåller:" + output_obj[ i ].name);
-						console.log("den har denna image1:" + output_obj[ i ]['image1']);
-						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+// 						console.log("behåller:" + output_obj[ i ].name);
+// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
 
-						console.log("och detta:" + output_obj[ i ]);
+// 						console.log("och detta:" + output_obj[ i ]);
 
-console.log("#######" + output_obj[ i ]['image1'] + b1)
-			//	var b1 = output_obj[i]['p_images_arr'][0];
+// console.log("#######" + output_obj[ i ]['image1'] + b1)
+// 			//	var b1 = output_obj[i]['p_images_arr'][0];
 
 			
 
-					}
-			}
+// 					}
+// 			}
 
-	console.log(output_obj);
-	return output_obj;
-	},
+// 	console.log(output_obj);
+// 	return output_obj;
+// 	},
 
 
 		filter_by_pet_type(category)

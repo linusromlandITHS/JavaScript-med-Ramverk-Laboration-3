@@ -44,11 +44,7 @@
 				type: String,
 				required: true
 			}
-
-
-
 		},
-
 		data() {
 			return {
 				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
@@ -106,9 +102,6 @@
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
 
-
-
-
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			}
 		}
@@ -121,7 +114,7 @@
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
-				<img :srcset="this.img_src" style="max-width: 100%" alt="brutus" />
+				<img :srcset="this.img_src" style="max-width: 100%;max-height: 100%" alt="brutus" />
 			</picture>
 		</div>
 		<div class="title">{{ p_name }}</div>

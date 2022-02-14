@@ -9,7 +9,7 @@
 		},
 		methods: {
 			onClick() {
-				this.$router.push({ path: '/testpetlisting' });
+				this.$router.push({ path: '/petlisting' });
 			},
 			onClickAvel() {
 				this.$router.push({ path: '/avel' });
