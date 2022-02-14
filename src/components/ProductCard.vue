@@ -11,7 +11,7 @@
 				type: Object,
 				required: true
 			},
-// NYTT
+			// NYTT
 			p_id: {
 				type: String,
 				required: true
@@ -61,14 +61,13 @@
 			console.log(this.data);
 
 			//alert("this.p_id \n"+ this.p_id);
-			this.img_src = 'assets/products/' + this.p_images_arr[0]
-
+			this.img_src = 'assets/products/' + this.p_images_arr[0];
 		},
 
-	methods: {
-			 go_to_details_view(id_) {
-			 	this.$router.push({ path: '/product/' + id_ + '/' });
-			 },
+		methods: {
+			go_to_details_view(id_) {
+				this.$router.push({ path: '/product/' + id_ + '/' });
+			},
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
@@ -108,20 +107,29 @@
 	};
 </script>
 <template>
-	<div @click="go_to_details_view(this.p_id, this.p_name)" class="card">
+	<div @click="go_to_details_view(this.p_id)" class="card">
 		<div class="image">
+<<<<<<< HEAD
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
 				<img :srcset="this.img_src" style="max-width: 100%;max-height: 100%" alt="brutus" />
 			</picture>
+=======
+			<img :srcset="this.img_src" class="img-image" alt="brutus" />
+			<!-- <picture> -->
+			<!-- <source :srcset="this.img_src" media="(max-width: 480px)" /> -->
+			<!-- <source :srcset="this.img_src" media="(max-width: 768px)" /> -->
+			<!-- <source :srcset="this.img_src" media="(max-width: 1500px)" /> -->
+			<!-- </picture> -->
+>>>>>>> 51f5d91168bc6d4530c7e671c34226add2e4744a
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
 		<div class="price">{{ p_price }}:-</div>
 	</div>
-	<Button class="btn"  @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
+	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
 </template>
 
 <style scoped>
@@ -140,11 +148,19 @@
 
 		margin-left: auto;
 		margin-right: auto;
-
 	}
 
 	.card:hover {
 		transform: scale(1.04);
+	}
+
+	.img-image {
+		width: 190px;
+		height: 137.1px;
+		object-fit: cover;
+		object-position: 100% 0;
+		max-width: 100%;
+		/* max-width: fit-content; */
 	}
 
 	.image {

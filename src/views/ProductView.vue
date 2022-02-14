@@ -1,16 +1,19 @@
 <script>
 	import Slideshow from '../components/Slideshow.vue';
 	import Button from '../components/Button.vue';
+	import ProductCard from '../components/ProductCard.vue';
 
 	export default {
 		name: 'ProductView',
 		components: {
 			Slideshow,
-			Button
+			Button,
+			ProductCard
 		},
 		data() {
 			return {
-				product: {} //Object containg all data for product
+				product: {}, //Object containg all data for product
+				recommendedProducts: [] //Array of recommended products
 			};
 		},
 		methods: {
@@ -33,6 +36,11 @@
 				//Finds the product that matches the param id
 				this.product = response.animals.find((product) => product.id === this.$route.params.id);
 
+				//Find 5 products that are similar to the product
+				this.recommendedProducts = response.animals
+					.filter((product) => product.id !== this.$route.params.id)
+					.slice(0, 5);
+
 				//If product is not found, redirect to home page
 				if (!this.product) this.$router.push('/');
 
@@ -54,31 +62,47 @@
 </script>
 
 <template>
-	<div class="col-12 col-md-8 d-flex flex-column">
-		<Slideshow class="h-25" :images="images" />
+	<div class="d-flex flex-md-row flex-column justify-content-around">
+		<div class="col-12 col-md-8 d-flex flex-column">
+			<Slideshow :images="images" />
 
-		<h1 class="monospace text-black fs-1">{{ product.name }}</h1>
-		<div class="d-flex flex-column flex-md-row">
-			<ul class="list-group col-md-4 col-12 me-4 mb-2">
-				<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
-				<li class="list-group-item"><span class="fw-bold">Ålder:</span> {{ product.age }}</li>
-				<li class="list-group-item"><span class="fw-bold">Färg:</span> {{ product.color }}</li>
-				<li class="list-group-item">
-					<span class="fw-bold">Kön:</span> {{ product.sex == 'Male' ? 'Hane' : 'Hona' }}
-				</li>
-				<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
-			</ul>
-			<p class="serif text-black col-md-6 col-12">
-				<!-- TEXTEN ÄR FRÅN BLOCKET, SKALL GÖRAS TILL NÅGON DYNAMISK TEXT-->
-				Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek och
-				lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på magen.
-				Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett
-				snöre.
-			</p>
+			<h1 class="monospace text-black fs-1">{{ product.name }}</h1>
+			<div class="d-flex flex-column flex-md-row">
+				<ul class="list-group col-md-4 col-12 me-4 mb-2">
+					<li class="list-group-item"><span class="fw-bold">Ras:</span> {{ product.breed }}</li>
+					<li class="list-group-item"><span class="fw-bold">Ålder:</span> {{ product.age }}</li>
+					<li class="list-group-item"><span class="fw-bold">Färg:</span> {{ product.color }}</li>
+					<li class="list-group-item">
+						<span class="fw-bold">Kön:</span> {{ product.sex == 'Male' ? 'Hane' : 'Hona' }}
+					</li>
+					<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
+				</ul>
+				<p class="serif text-black col-md-6 col-12">
+					<!-- TEXTEN ÄR FRÅN BLOCKET, SKALL GÖRAS TILL NÅGON DYNAMISK TEXT-->
+					Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek
+					och lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på
+					magen. Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll
+					eller ett snöre.
+				</p>
+			</div>
+			<div class="align-self-center">
+				<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
+				<Button :alternative="false" :disabled="false" @clicked="test">LÄGG I KUNDVAGN</Button>
+			</div>
 		</div>
-		<div class="align-self-center">
-			<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
-			<Button :alternative="false" :disabled="false" @clicked="test">Lägg i kundvagn</Button>
+		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
+			<h2 class="text-black">Liknande Produkter:</h2>
+			<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
+				<ProductCard
+					:p_id="recommendedProduct.id"
+					:p_name="recommendedProduct.name"
+					:p_images_arr="recommendedProduct.images"
+					:p_temperament="recommendedProduct.temperament"
+					:p_price="recommendedProduct.price"
+					:p_type="recommendedProduct.type"
+					:p_one_picture="recommendedProduct.images[1]"
+				/>
+			</div>
 		</div>
 	</div>
 </template>

@@ -50,7 +50,8 @@
 		<div id="itemSection">
 			<ol>
 				<li v-for="cartItem in cartItems" :key="cartItem.id" class="productCard">
-					<img id="itemPicture" :src="this.imgUrl + cartItem.images" />
+					<!-- Gets the first image from image array -->
+					<img id="itemPicture" :src="this.imgUrl + cartItem.images[0]" />
 					<div id="productText">
 						<h6>{{ cartItem.name }}</h6>
 						<p>{{ cartItem.type }}</p>
