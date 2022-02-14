@@ -50,17 +50,15 @@
 			}
 		},
 
-
-computed: {
-      shorter_text_description() {
-        return this.p_description.substring(0,130) + "..." // 
-
-      },
-			p_price_with_space()
-			{ // Visar pris snyggare (10000 blir 10 000)
+		computed: {
+			shorter_text_description() {
+				return this.p_description.substring(0, 130) + '...'; //
+			},
+			p_price_with_space() {
+				// Visar pris snyggare (10000 blir 10 000)
 				return this.p_price.toLocaleString();
 			}
-    },
+		},
 
 		data() {
 			return {
@@ -75,7 +73,7 @@ computed: {
 		},
 
 		created() {
-//			console.log(this.data);
+			//			console.log(this.data);
 
 			//alert("this.p_id \n"+ this.p_id);
 			this.img_src = 'assets/products/' + this.p_images_arr[0];
@@ -126,14 +124,12 @@ computed: {
 <template>
 	<div @click="go_to_details_view(this.p_id)" class="card">
 		<div class="image">
-
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
-				<img :srcset="this.img_src" style="max-width: 100%;max-height: 100%" alt="brutus" />
+				<img :srcset="this.img_src" style="max-width: 100%; max-height: 100%" alt="brutus" />
 			</picture>
-
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ shorter_text_description }}</div>
