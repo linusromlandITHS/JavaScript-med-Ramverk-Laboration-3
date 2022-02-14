@@ -53,7 +53,7 @@
 
 computed: {
       shorter_text_description() {
-        return this.p_description.substring(0,137) + "..." // 
+        return this.p_description.substring(0,130) + "..." // 
 
       }
     },
