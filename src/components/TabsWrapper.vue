@@ -32,8 +32,8 @@
 
 <style scoped>
 	.tabs {
-		max-width: 400px;
-		margin: 0 auto;
+		max-width: 1024px;
+		margin: auto;
 	}
 
 	.tabs__header {

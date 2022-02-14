@@ -11,6 +11,12 @@ const router = createRouter({
 		},
 		{
 			// About Route
+			name: 'About',
+			component: () => import('./views/AboutView.vue'),
+			path: '/about'
+		},
+		{
+			// About Route
 			name: 'Contact',
 			component: () => import('./views/ContactView.vue'),
 			path: '/contact'
@@ -48,8 +54,7 @@ const router = createRouter({
 	]
 });
 
-router.beforeEach((to, from, next) =>
-{
+router.beforeEach((to, from, next) => {
 	//Before each route, updates the title of page to match name attribute of route
 	document.title = `${String(to.name)} | Red Mountain Ranch`;
 	next();

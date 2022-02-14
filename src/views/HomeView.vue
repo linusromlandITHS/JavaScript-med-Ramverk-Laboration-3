@@ -1,15 +1,11 @@
 <script>
 	//Component Imports:
 	import Button from '../components/Button.vue';
-	import TabsWrapper from '../components/TabsWrapper.vue';
-	import Tab from '../components/Tab.vue';
 
 	export default {
 		name: 'HomeView',
 		components: {
-			Button,
-			TabsWrapper,
-			Tab
+			Button
 		},
 		methods: {
 			onClick() {
@@ -52,15 +48,6 @@
 			</div>
 		</div>
 	</section>
-	<TabsWrapper>
-		<Tab title="David">Davids sida</Tab>
-		<Tab title="Fredric">Fredrics sida</Tab>
-		<Tab title="Kenneth">Kenneths sida</Tab>
-		<Tab title="Linus">Linus sida</Tab>
-		<Tab title="Nathi">Nathis sida</Tab>
-		<Tab title="Olena">Olenas sida</Tab>
-		<Tab title="Patryk">Patryks sida</Tab>
-	</TabsWrapper>
 </template>
 
 <style>
