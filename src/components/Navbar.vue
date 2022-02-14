@@ -1,6 +1,10 @@
 <script>
+	import Button from '/Button.vue';
 	export default {
 		name: 'Navbar',
+		components: {
+			Button
+		},
 
 		data() {
 			return { logo: '../public/logo.png' };
@@ -22,7 +26,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<button id="myCart" type="button" class="btn btn-primary">Varukorg</button>
+						<Button />
 					</RouterLink>
 				</div>
 				<div class="menu-items">
@@ -57,7 +61,7 @@
 
 	.navbar {
 		width: 100%;
-		box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+		box-shadow: 0 1px 4px rgb(146 161 176 / 1%);
 	}
 
 	.nav-container {
@@ -186,5 +190,11 @@
 
 	.nav-container input[type='checkbox']:checked ~ .logo {
 		display: none;
+	}
+
+	@media screen and (min-width: 992px) {
+		.navbar .menu-items {
+			text-align: left;
+		}
 	}
 </style>
