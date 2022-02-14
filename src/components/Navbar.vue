@@ -5,9 +5,14 @@
 		components: {
 			Button
 		},
-
 		data() {
 			return { logo: '../public/logo.png' };
+		},
+		watch: {
+			$route() {
+				//Hide Navbar on route change
+				document.getElementById('checkbox').checked = false;
+			}
 		}
 	};
 </script>
@@ -16,7 +21,7 @@
 	<nav>
 		<div class="navbar">
 			<div class="container nav-container">
-				<input class="checkbox" type="checkbox" name="" id="" />
+				<input class="checkbox" type="checkbox" id="checkbox" />
 				<div class="hamburger-lines">
 					<span class="line line1" />
 					<span class="line line2" />
