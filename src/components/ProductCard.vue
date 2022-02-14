@@ -109,21 +109,14 @@
 <template>
 	<div @click="go_to_details_view(this.p_id)" class="card">
 		<div class="image">
-<<<<<<< HEAD
+
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
 				<source :srcset="this.img_src" media="(max-width: 768px)" />
 				<source :srcset="this.img_src" media="(max-width: 1500px)" />
 				<img :srcset="this.img_src" style="max-width: 100%;max-height: 100%" alt="brutus" />
 			</picture>
-=======
-			<img :srcset="this.img_src" class="img-image" alt="brutus" />
-			<!-- <picture> -->
-			<!-- <source :srcset="this.img_src" media="(max-width: 480px)" /> -->
-			<!-- <source :srcset="this.img_src" media="(max-width: 768px)" /> -->
-			<!-- <source :srcset="this.img_src" media="(max-width: 1500px)" /> -->
-			<!-- </picture> -->
->>>>>>> 51f5d91168bc6d4530c7e671c34226add2e4744a
+
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
