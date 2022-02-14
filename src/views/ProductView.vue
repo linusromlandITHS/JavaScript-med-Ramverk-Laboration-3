@@ -18,8 +18,6 @@
 		},
 		methods: {
 			/**
-			 * @author Linus Romland (hello@linusromland.com)
-			 *
 			 * @name fetchProduct
 			 * @description Fetches product data from database.json
 			 * @param {string} id - The id of the product to fetch
@@ -46,6 +44,23 @@
 
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
+			},
+			/**			 *
+			 * @name addToCart
+			 * @description Add a new product to the cart
+			 * @returns {null} - No return value
+			 */
+			addToCart() {
+				//Declares cart variable with either empty array or existing cart
+				let cart = localStorage.getItem('petCart') ? JSON.parse(localStorage.getItem('petCart')) : {};
+
+				//Add product to cart
+				cart[this.product.id] = this.product.name;
+
+				//Save cart to local storage
+				localStorage.setItem('petCart', JSON.stringify(cart));
+
+				// TODO Add toast message to indicate product was added to cart
 			}
 		},
 		computed: {
@@ -87,7 +102,7 @@
 			</div>
 			<div class="align-self-center">
 				<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
-				<Button :alternative="false" :disabled="false" @clicked="test">LÄGG I KUNDVAGN</Button>
+				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I KUNDVAGN</Button>
 			</div>
 		</div>
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
