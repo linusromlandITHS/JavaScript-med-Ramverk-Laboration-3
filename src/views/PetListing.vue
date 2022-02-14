@@ -40,6 +40,7 @@
 					:p_price="pet.price"
 					:p_type="pet.type"
 					:p_one_picture="this.picture_1"
+					:p_description="pet.description"
 				/>
 			</div>
 		</div>

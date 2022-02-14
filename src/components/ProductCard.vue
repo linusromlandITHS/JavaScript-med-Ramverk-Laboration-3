@@ -43,8 +43,25 @@
 			p_type: {
 				type: String,
 				required: true
+			},
+			p_description: {
+				type: String,
+				required: true
 			}
 		},
+
+
+computed: {
+      shorter_text_description() {
+        return this.p_description.substring(0,130) + "..." // 
+
+      },
+			p_price_with_space()
+			{ // Visar pris snyggare (10000 blir 10 000)
+				return this.p_price.toLocaleString();
+			}
+    },
+
 		data() {
 			return {
 				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
@@ -58,7 +75,7 @@
 		},
 
 		created() {
-			console.log(this.data);
+//			console.log(this.data);
 
 			//alert("this.p_id \n"+ this.p_id);
 			this.img_src = 'assets/products/' + this.p_images_arr[0];
@@ -119,8 +136,8 @@
 
 		</div>
 		<div class="title">{{ p_name }}</div>
-		<div class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, reprehenderit.</div>
-		<div class="price">{{ p_price }}:-</div>
+		<div class="text">{{ shorter_text_description }}</div>
+		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
 	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
 </template>

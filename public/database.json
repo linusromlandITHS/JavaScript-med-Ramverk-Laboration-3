@@ -11,7 +11,8 @@
 			"temperament": "Lugn",
 			"age": 2,
 			"images": ["58c6f899-15fb-4c45-8597-dd4dbb1c2d83/0.jpg"],
-			"price": 14500
+			"price": 14500,
+			"description": "Pompe är en fridfull sälle. Hundrasen Beagle är första gången omnämnd i skrift under 1400-talet. Man tror att namnet kan komma av det keltiska ordet beag som betyder liten eller av medelengelskans begle som i sin tur kommer av fornfranskans beegueule som betyder skrikhals. Fram till slutet av 1800-talet var beaglarna av väldigt olika typ. Renaveln av den typ vi känner idag vidtog i samband med att den brittiska rasklubben bildades 1890, två år efter USA:s."
 		},
 		{
 			"id": "2cf0b1f3-5865-47d6-8798-4d45fea02fd5",
@@ -24,7 +25,8 @@
 			"temperament": "Lugn",
 			"age": 3,
 			"images": ["2cf0b1f3-5865-47d6-8798-4d45fea02fd5/0.jpg"],
-			"price": 14700
+			"price": 14700,
+			"description": "Fido är en försiktig kamrat. Den tyska schäferhundens ursprung är de gårdshundar, vallhundar och herdehundar av olika typ som fanns runt om i Tyskland under 1800-talet och som idag går under namnet Altdeutsche Hütehunde. På 1880-talet vaknade ett intresse för att börja renavla dessa."
 		},
 		{
 			"id": "52916c1b-09bf-44a4-b973-003ee33987c8",
@@ -37,7 +39,8 @@
 			"temperament": "Sprallig",
 			"age": 2,
 			"images": ["52916c1b-09bf-44a4-b973-003ee33987c8/0.JPG"],
-			"price": 13900
+			"price": 13900,
+			"description": "Tussa är lekfull! Schäfer är tyska för 'fåraherde', och rasen ingår i vallhundsgruppen, men är vanligast som brukshund och sällskapshund. 1 januari 2012 bytte schäfern officiellt namn till tysk schäferhund."
 		},
 		{
 			"id": "0d0c26f5-8066-4b6b-a6b1-2ac6c21b32be",
@@ -50,7 +53,8 @@
 			"temperament": "Feg",
 			"age": 1,
 			"images": ["0d0c26f5-8066-4b6b-a6b1-2ac6c21b32be/0.jpg"],
-			"price": 13200
+			"price": 13200,
+			"description": "Tossan tillhör de försiktigas skara. Huskatt, blandraskatt eller bondkatt är de officiella benämningarna på alla de katter som saknar stamtavla, och alltså inte är registrerade i någon kattorganisation. Även om båda föräldrarna är registrerade raskatter så kallas avkomman huskatt om den inte registreras."
 		},
 		{
 			"id": "d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77",
@@ -63,7 +67,8 @@
 			"temperament": "Sprallig",
 			"age": 4,
 			"images": ["d55f55a1-b8ac-4c1b-9e3c-cb5fa46eca77/0.jpg"],
-			"price": 13200
+			"price": 13200,
+			"description": "Pelle är en katt med hög energinivå. Huskatten kallas också ofta vardagligt bondkatt, eller felaktigt europé. Den sistnämnda är emellertid en helt egen ras – dagens huskatt är så genetiskt uppblandad att den har ganska litet gemensamt med europén. Huskattens officiella engelska benämning är domestic cat ('tamkatt'), uppdelad i domestic short-haired cats ('tama korthårskatter') och domestic long-haired cats ('tama långhårskatter')."
 		},
 		{
 			"id": "fb77d238-ba84-4071-9e40-fb0eb1d8b915",
@@ -76,7 +81,8 @@
 			"temperament": "Nyfiken",
 			"age": 2,
 			"images": ["fb77d238-ba84-4071-9e40-fb0eb1d8b915/0.jpg"],
-			"price": 13250
+			"price": 13250,
+			"description": "Ada hittar på många hyss. Huskatter kan ställas ut på kattklubbarnas utställningar i egna klasser, vanligtvis uppdelade i korthåriga och långhåriga. Huskatten bedöms enligt en särskild huskattstandard som främst ser till kondition, kroppsbyggnad och temperament."
 		},
 		{
 			"id": "e1f13460-ff7d-472b-a98f-b38bec29e992",
@@ -89,7 +95,8 @@
 			"temperament": "Lugn",
 			"age": 0,
 			"images": ["e1f13460-ff7d-472b-a98f-b38bec29e992/0.jpg"],
-			"price": 550
+			"price": 550,
+			"description": "Ture är fina fisken. Molly ingår i släktet Poecilia, och familjen Poeciliidae. Inga underarter finns listade. Vildformen av Black molly är en liten blekgrön fisk som lever i bräckt vatten. Hanen blir som mest 6 centimeter lång, medan honan kan bli ända upp till 10 centimeter."
 		},
 		{
 			"id": "d2e75f81-8559-4783-86dd-652dcd505146",
@@ -102,7 +109,8 @@
 			"temperament": "Lugn",
 			"age": 1,
 			"images": ["d2e75f81-8559-4783-86dd-652dcd505146/0.jpg"],
-			"price": 750
+			"price": 750,
+			"description": "Skalaren är en någorlunda fredlig och lugn akvariefisk den fungerar bra med andra litet större och lugna fiskar i ett vanligt akvarium. Skalaren kan bli uppemot 16 centimeter lång stjärtfenan inräknad, och kräver därför mycket utrymme."
 		},
 		{
 			"id": "0c42d07f-b5d5-4fd7-8da6-10c5ca72d82e",
@@ -115,7 +123,8 @@
 			"temperament": "Lugn",
 			"age": 1,
 			"images": ["0c42d07f-b5d5-4fd7-8da6-10c5ca72d82e/0.jpg"],
-			"price": 650
+			"price": 650,
+			"description": "Skalaren är en någorlunda fredlig och lugn akvariefisk den fungerar bra med andra litet större och lugna fiskar i ett vanligt akvarium. Skalaren kan bli uppemot 16 centimeter lång stjärtfenan inräknad, och kräver därför mycket utrymme. Vuxna skalarer lever i par som ingår i mindre grupper, och så bör de hållas i akvarium. "
 		},
 		{
 			"id": "021906a9-d44a-4fb7-826d-0890a13ef984",
@@ -128,7 +137,8 @@
 			"temperament": "Lugn",
 			"age": 2,
 			"images": ["021906a9-d44a-4fb7-826d-0890a13ef984/0.JPG"],
-			"price": 4100
+			"price": 4100,
+			"description": "Tamkanin (Oryctolagus cuniculus var. domestica) är en av alla varianter av domesticerad europeisk kanin, vilka idag uppvisar en stor variation vad gäller färger, storlek, utseende och fertilitet."
 		},
 		{
 			"id": "57116269-3bd4-4735-b833-5ade58578fac",
@@ -141,7 +151,8 @@
 			"temperament": "Räddhågsen",
 			"age": 2,
 			"images": ["57116269-3bd4-4735-b833-5ade58578fac/0.jpg"],
-			"price": 3000
+			"price": 3000,
+			"description": "Karl är en kompis som gärna håller sig undan. Tamkaninens faktiska ursprung är oklart. De första som beskrev kaniner var fenicierna som stötte på dem under sina resor utefter kusten av norra Afrika och Iberiska halvön. Burstorleken ska enligt lag vara minst 50 x 100 x 50 cm för små kaniner under 3 kg, minst 0,7 kvm för kaniner mellan 3 och 5 kg (med kravet att den kortaste sidan och höjden i buren är 60 cm) och 0,9 kvm för större raser (med krav att den kortaste sidan och höjden är 70 cm)."
 		},
 		{
 			"id": "bd2f6ba0-4261-437f-bac0-c263554a9d5e",
@@ -154,20 +165,22 @@
 			"temperament": "Räddhågsen",
 			"age": 1,
 			"images": ["bd2f6ba0-4261-437f-bac0-c263554a9d5e/0.jpg"],
-			"price": 5300
+			"price": 5300,
+			"description": "Toppe är urtypen av tamkanin. Tamkanin (Oryctolagus cuniculus var. domestica) är en av alla varianter av domesticerad europeisk kanin, vilka idag uppvisar en stor variation vad gäller färger, storlek, utseende och fertilitet."
 		},
 		{
 			"id": "864389c7-f065-4e07-bf34-1cd2ccdf15d3",
 			"name": "Nicko",
 			"type": "Häst",
-			"breed": "Svenskt Varmblod",
+			"breed": "Svenskt varmblod",
 			"sex": "Female",
 			"categories": ["Däggdjur", "Sällskapsdjur"],
 			"color": "Brun",
 			"temperament": "Lugn",
 			"age": 5,
 			"images": ["864389c7-f065-4e07-bf34-1cd2ccdf15d3/0.JPG"],
-			"price": 30000
+			"price": 30000,
+			"description": "Söker du en stillsam häst är detta något att se närmare på. Svenskt varmblod är en hästras som har utvecklats i Sverige ur den svenska lanthästen främst för militärt bruk. I dagligt tal används ofta även begreppet svenskt halvblod. Rasen har både före och efter den militära 'avhästningen' på 1950-talet alltid varit konkurrenskraftig i internationella tävlingssammanhang och är bland världens främsta tävlingshästar i grenarna hoppning, dressyr, fälttävlan och körning."
 		},
 		{
 			"id": "f77fde3f-af17-402f-b182-a0474b7a5ce8",
@@ -180,20 +193,22 @@
 			"temperament": "Nyfiken",
 			"age": 3,
 			"images": ["f77fde3f-af17-402f-b182-a0474b7a5ce8/0.jpg"],
-			"price": 27500
+			"price": 27500,
+			"description": "En trevlig russ som trivs bra i sällskap. Gotlandsrusset är en svensk hästras av ponnytyp med ursprung på Gotland. Gotlandsrusset, som även kallas skogsbagge, är en mycket gammal ras som har funnits på ön sedan järnåldern. Idag är det en populär ridponny för barn och populär inom ponnytrav, och på Lojsta hed lever fortfarande halvvilda russ i stora flockar. Den blir omkring 130 cm i mankhöjd och väger ca 200 till 300 kg."
 		},
 		{
 			"id": "fcef347f-8432-4bb8-908b-b27619996187",
 			"name": "Vilgot",
 			"type": "Häst",
-			"breed": "Svenskt Varmblod",
+			"breed": "Svenskt varmblod",
 			"sex": "Male",
 			"categories": ["Däggdjur", "Sportdjur", "Sällskapdjur"],
 			"color": "Svart",
 			"temperament": "Nyfiken",
 			"age": 3,
 			"images": ["fcef347f-8432-4bb8-908b-b27619996187/0.jpg"],
-			"price": 31000
+			"price": 31000,
+			"description": "Vilgot är en glad häst som rör sig mycket. Historik om rasen: Under 1800-talet försämrades Sveriges hästavel avsevärt vilket fick svenska staten att reagera. En organisation för remonthästar startades och staten införde regler för hästavel och tyngdpunkten lades på hingsthållningen och dess kvalitet. "
 		},
 		{
 			"id": "7b8dd433-a977-4f26-b90a-33a31a6be7ad",
@@ -211,7 +226,8 @@
 				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/2.png",
 				"7b8dd433-a977-4f26-b90a-33a31a6be7ad/3.png"
 			],
-			"price": 149
+			"price": 149,
+			"description": "Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek och lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på magen. Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll eller ett snöre."
 		}
 	]
 }
