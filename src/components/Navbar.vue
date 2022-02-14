@@ -10,8 +10,8 @@
 		},
 		watch: {
 			$route() {
-				//Hide Navbar on route change
-				document.getElementById('checkbox').checked = false;
+				//When the route changes, sets the navbar to closed
+				if (document.getElementById('checkbox').checked) document.getElementById('checkbox').checked = false;
 			}
 		}
 	};
