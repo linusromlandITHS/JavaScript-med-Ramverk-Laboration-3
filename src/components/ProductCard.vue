@@ -55,7 +55,11 @@ computed: {
       shorter_text_description() {
         return this.p_description.substring(0,130) + "..." // 
 
-      }
+      },
+			p_price_with_space()
+			{ // Visar pris snyggare (10000 blir 10 000)
+				return this.p_price.toLocaleString();
+			}
     },
 
 		data() {
@@ -133,7 +137,7 @@ computed: {
 		</div>
 		<div class="title">{{ p_name }}</div>
 		<div class="text">{{ shorter_text_description }}</div>
-		<div class="price">{{ p_price }}:-</div>
+		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
 	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
 </template>
