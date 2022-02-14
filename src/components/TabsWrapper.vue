@@ -47,6 +47,7 @@
 	.tabs__header li {
 		/* width: auto; */
 		text-align: center;
+		font-size: 14px;
 		padding: 10px 20px;
 		margin-right: 10px;
 		background-color: #606b6f;
