@@ -26,7 +26,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button />
+						<Button>Varukorgen</Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">
