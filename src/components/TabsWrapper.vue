@@ -34,6 +34,7 @@
 	.tabs {
 		max-width: 1024px;
 		margin: auto;
+		margin-top: 20px;
 	}
 
 	.tabs__header {
