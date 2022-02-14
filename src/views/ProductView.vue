@@ -39,7 +39,7 @@
 				//Find 5 products that are similar to the product
 				this.recommendedProducts = response.animals
 					.filter((product) => product.id !== this.$route.params.id)
-					.slice(0, 5);
+					.slice(0, 3);
 
 				//If product is not found, redirect to home page
 				if (!this.product) this.$router.push('/');
@@ -62,7 +62,7 @@
 </script>
 
 <template>
-	<div class="d-flex flex-md-row flex-column justify-content-around">
+	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
 		<div class="col-12 col-md-8 d-flex flex-column">
 			<Slideshow :images="images" />
 
@@ -100,7 +100,8 @@
 					:p_temperament="recommendedProduct.temperament"
 					:p_price="recommendedProduct.price"
 					:p_type="recommendedProduct.type"
-					:p_one_picture="recommendedProduct.images[1]"
+					:p_one_picture="recommendedProduct.images[0]"
+					:p_description="recommendedProduct.description"
 				/>
 			</div>
 		</div>
