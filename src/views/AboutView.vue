@@ -40,7 +40,7 @@
 		</Tab>
 		<Tab title="Kenneth">
 			<div class="img-container">
-				<img class="img" src="assets\members\Kenneth.png" alt="kennethwilhelmsson" />
+				<img class="img" src="assets\members\Kenneth.jpg" alt="kennethwilhelmsson" />
 			</div>
 			<h2 class="tab-heading">Kenneth Wilhelmsson</h2>
 			<h3 class="tab-info">Utvecklare</h3>
