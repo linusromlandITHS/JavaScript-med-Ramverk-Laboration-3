@@ -185,7 +185,7 @@ computed: {
 	.title {
 		width: 190px;
 		height: 17.14px;
-		font-family: 'Noto Mono', 'Roboto Mono', monospace;
+		font-family: 'Roboto Mono', monospace !important;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 15px;
@@ -201,7 +201,7 @@ computed: {
 		width: 190px;
 		height: 50.4px;
 
-		font-family: Noto Serif;
+		font-family: 'Noto Serif';
 		font-style: normal;
 		font-weight: 200;
 		font-size: 10px;

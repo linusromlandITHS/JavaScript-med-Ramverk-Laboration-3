@@ -284,7 +284,7 @@ localStorage.removeItem('petCart');
 
 	.linklike {
 		cursor: pointer;
-		font-family: 'Noto Mono', 'Roboto Mono', monospace;
+		font-family: 'Roboto Medium', 'Roboto','Roboto Mono' !important;
 		color: #333333;
 	}
 
@@ -295,7 +295,7 @@ localStorage.removeItem('petCart');
 
 
 	.listing_header {
-		font-family: 'Noto Mono', 'Roboto Mono', monospace;
+		font-family:  'Roboto Medium', 'Roboto','Roboto Mono' !important;
 		
 	}
 
