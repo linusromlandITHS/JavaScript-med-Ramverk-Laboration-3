@@ -106,6 +106,9 @@
 		#title {
 			width: 340px;
 		}
+		#kortInfo {
+			width: 300px;
+		}
 	}
 	.info {
 		background-color: #faac77;

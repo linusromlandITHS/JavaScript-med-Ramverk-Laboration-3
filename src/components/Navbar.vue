@@ -5,9 +5,14 @@
 		components: {
 			Button
 		},
-
 		data() {
 			return { logo: '../public/logo.png' };
+		},
+		watch: {
+			$route() {
+				//When the route changes, sets the navbar to closed
+				if (document.getElementById('checkbox').checked) document.getElementById('checkbox').checked = false;
+			}
 		}
 	};
 </script>
@@ -16,7 +21,7 @@
 	<nav>
 		<div class="navbar">
 			<div class="container nav-container">
-				<input class="checkbox" type="checkbox" name="" id="" />
+				<input class="checkbox" type="checkbox" id="checkbox" />
 				<div class="hamburger-lines">
 					<span class="line line1" />
 					<span class="line line2" />
@@ -26,7 +31,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button />
+						<Button>Varukorgen</Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">

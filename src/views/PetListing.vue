@@ -69,115 +69,95 @@
 			};
 		},
 
-	methods: {
+		methods: {
+			// keep_only_type(pet_type_to_show)
+			// 	{
+			// 		let full = this.full_pet_list;
 
+			// let output_obj = new Object();
 
+			// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+			// output_obj = { ...full };
 
-// keep_only_type(pet_type_to_show)
-// 	{ 
-// 		let full = this.full_pet_list;
+			// 		for(let i in output_obj)
+			// 			{
+			// 				var b1 = output_obj[i];
 
+			// console.log(b1)
 
-// let output_obj = new Object();
+			// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
 
-// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-// output_obj = { ...full };
+			// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+			// 			//['IM1']);
 
-// 		for(let i in output_obj)
-// 			{
-// 				var b1 = output_obj[i];
+			// //	:p_images_arr = pet.images
 
-// console.log(b1)
+			// 				//output_obj[i]['type']
 
-// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+			// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
 
-// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
-// 			//['IM1']);
+			// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+			// 					{
+			// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+			// 						delete output_obj[ i ];
 
-// //	:p_images_arr = pet.images
+			// 					}
+			// 					else
+			// 					{
 
-// 				//output_obj[i]['type']
+			// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+			// 						console.log("behåller:" + output_obj[ i ].name);
+			// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+			// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
 
-// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
-// 					{
-// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
-// 						delete output_obj[ i ];
+			// 						console.log("och detta:" + output_obj[ i ]);
 
-// 					}
-// 					else
-// 					{
+			// console.log("#######" + output_obj[ i ]['image1'] + b1)
+			// 			//	var b1 = output_obj[i]['p_images_arr'][0];
 
-// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+			// 					}
+			// 			}
 
-// 						console.log("behåller:" + output_obj[ i ].name);
-// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
-// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+			// 	console.log(output_obj);
+			// 	return output_obj;
+			// 	},
 
-// 						console.log("och detta:" + output_obj[ i ]);
+			filter_by_pet_type(category) {
+				//alla katt hund häst fisk kanin
 
-// console.log("#######" + output_obj[ i ]['image1'] + b1)
-// 			//	var b1 = output_obj[i]['p_images_arr'][0];
-
-			
-
-// 					}
-// 			}
-
-// 	console.log(output_obj);
-// 	return output_obj;
-// 	},
-
-
-		filter_by_pet_type(category)
-		{
-//alla katt hund häst fisk kanin
-
-// 
-// 
-// 
-	console.log("filter_by_pet_type " + category);
-	switch(category) {
-
-  case 'katt':
-    this.current_pet_list = this.keep_only_type('katt');
-    break;
-  case 'hund':
-    this.current_pet_list = this.keep_only_type('hund');
-    break;
-  case 'häst':
-    this.current_pet_list = this.keep_only_type('häst');
-    break;
-  case 'fisk':
-    this.current_pet_list = this.keep_only_type('fisk');
-    break;
-  case 'kanin':
-    this.current_pet_list = this.keep_only_type('kanin');
-    break;
-  default:
-    this.current_pet_list = this.full_pet_list;
-}
-},
-
-
-
-
-
-
-
-
+				//
+				//
+				//
+				console.log('filter_by_pet_type ' + category);
+				switch (category) {
+					case 'katt':
+						this.current_pet_list = this.keep_only_type('katt');
+						break;
+					case 'hund':
+						this.current_pet_list = this.keep_only_type('hund');
+						break;
+					case 'häst':
+						this.current_pet_list = this.keep_only_type('häst');
+						break;
+					case 'fisk':
+						this.current_pet_list = this.keep_only_type('fisk');
+						break;
+					case 'kanin':
+						this.current_pet_list = this.keep_only_type('kanin');
+						break;
+					default:
+						this.current_pet_list = this.full_pet_list;
+				}
+			},
 
 			// Tömmer innehållet i kundvagn (petCart) i localStorage
-	purgeCart()
-	{
-//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
-localStorage.removeItem('petCart');
-		alert("Kundvagnen är tom");
-	}
-			,
-
-				add_to_cart(id_, na_) {
+			purgeCart() {
+				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+				localStorage.removeItem('petCart');
+				alert('Kundvagnen är tom');
+			},
+			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
@@ -210,61 +190,52 @@ localStorage.removeItem('petCart');
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
 
-
-
-
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			},
 
+			keep_only_type(pet_type_to_show) {
+				let full = this.full_pet_list;
 
+				let output_obj = new Object();
 
-	keep_only_type(pet_type_to_show)
-	{ 
-		let full = this.full_pet_list;
+				//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+				output_obj = { ...full };
 
+				for (let i in output_obj) {
+					var b1 = output_obj[i];
 
-			let output_obj = new Object();
+					console.log(b1);
 
-			//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-			output_obj = { ...full };
+					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
 
-			for (let i in output_obj) {
-				var b1 = output_obj[i];
+					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
+					//['IM1']);
 
-				console.log(b1);
+					//	:p_images_arr = pet.images
 
-				output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
+					//output_obj[i]['type']
 
-				console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
-				//['IM1']);
+					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
 
-				//	:p_images_arr = pet.images
+					if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
+						console.log('tar bort:' + output_obj[i] + output_obj[i].name);
+						delete output_obj[i];
+					} else {
+						//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-				//output_obj[i]['type']
+						console.log('behåller:' + output_obj[i].name);
+						console.log('den har denna image1:' + output_obj[i]['image1']);
+						console.log('den har denna IM1:' + output_obj[i]['IM1']);
 
-				console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
+						console.log('och detta:' + output_obj[i]);
 
-				if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
-					console.log('tar bort:' + output_obj[i] + output_obj[i].name);
-					delete output_obj[i];
-				} else {
-					//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
-
-					console.log('behåller:' + output_obj[i].name);
-					console.log('den har denna image1:' + output_obj[i]['image1']);
-					console.log('den har denna IM1:' + output_obj[i]['IM1']);
-
-					console.log('och detta:' + output_obj[i]);
-
-					console.log('#######' + output_obj[i]['image1'] + b1);
-					//	var b1 = output_obj[i]['p_images_arr'][0];
+						console.log('#######' + output_obj[i]['image1'] + b1);
+						//	var b1 = output_obj[i]['p_images_arr'][0];
+					}
 				}
-			}
 				console.log(output_obj);
 				return output_obj;
-			
 			}
-
 		},
 		created() {
 			//this.picture_1 = this.p_images_arr[0];

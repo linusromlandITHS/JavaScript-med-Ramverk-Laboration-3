@@ -2,12 +2,11 @@
 	<!-- Navbar  -->
 	<Navbar />
 
-
-	<!-- <main style="padding: 35px; margin-top: 0px; padding-top: 0px"> -->
-
 <!--
-	<main>
-		<RouterView />
+	<main style="margin-top: 0px">
+		<main>
+			<RouterView />
+		</main>
 	</main>
 --> 
 
