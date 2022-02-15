@@ -49,18 +49,16 @@
 				required: true
 			}
 		},
-computed: {
-      shorter_text_description() {
-				if(this.p_description)
-				{
-        return this.p_description.substring(0,130).trim() + "..."; 
+		computed: {
+			shorter_text_description() {
+				if (this.p_description) {
+					return this.p_description.substring(0, 130).trim() + '...';
+				} else {
+					return '';
 				}
-				else{
-					return "";
-				}
-      },
-			p_price_with_space()
-			{ // Visar pris snyggare (10000 blir 10 000)
+			},
+			p_price_with_space() {
+				// Visar pris snyggare (10000 blir 10 000)
 				return this.p_price.toLocaleString();
 			}
 		},
@@ -193,8 +191,7 @@ computed: {
 		text-align: center;
 		text-transform: uppercase;
 		margin-bottom: 5px;
-				color:black;
-
+		color: black;
 	}
 
 	.text {
@@ -208,7 +205,7 @@ computed: {
 		line-height: 12px;
 
 		margin-bottom: 5px;
-		color:black;
+		color: black;
 	}
 
 	.price {
@@ -221,8 +218,7 @@ computed: {
 		line-height: 18px;
 		text-align: center;
 		margin-bottom: 5px;
-		color:black;
-
+		color: black;
 	}
 
 	/* .cart-button {
