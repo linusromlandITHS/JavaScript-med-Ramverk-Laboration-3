@@ -94,7 +94,12 @@
 					<div class="col-12">
 						<div class="d-flex flex-column">
 							<p class="text mb-1">Namn och efternamn</p>
-							<input class="form-control mb-3" type="text" placeholder="Name" value="Barry Allen" />
+							<input
+								class="form-control mb-3"
+								type="text"
+								placeholder="Name"
+								value="Ninni af Glidefjäll"
+							/>
 						</div>
 					</div>
 					<div class="col-12">
@@ -123,51 +128,40 @@
 					</div>
 				</div>
 			</div>
-			<template v-if="show !== true">
-				<div class="container" id="table">
-					<div class="card px-4">
-						<p class="h8 py-3">Betalnings information:</p>
-						<div class="row gx-3">
-							<div class="col-12">
-								<div class="d-flex flex-column">
-									<p class="text mb-1">Namn och efternamn</p>
-									<input
-										class="form-control mb-3"
-										type="text"
-										placeholder="Name"
-										value="Barry Allen"
-									/>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="d-flex flex-column">
-									<p class="text mb-1">Kort nummer</p>
-									<input class="form-control mb-3" type="text" placeholder="1234 5678 435678" />
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="d-flex flex-column">
-									<p class="text mb-1">Ut-datum</p>
-									<input class="form-control mb-3" type="text" placeholder="MM/YYYY" />
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="d-flex flex-column">
-									<p class="text mb-1">CVV/CVC</p>
-									<input class="form-control mb-3 pt-2" type="password" placeholder="***" />
-								</div>
-							</div>
-							<div class="col-12">
-								<div @click="showMap" class="btn btn-primary mb-3">
-									<span class="ps-3">{{ 'Betala ' + helaPriset + ' kr' }}</span>
-									<span class="fas fa-arrow-right" />
-								</div>
+		</div>
+		<template v-if="show === true">
+			<div class="container" id="tableTwo">
+				<div class="card px-4">
+					<p class="h8 py-3">Hemkörning:</p>
+					<div class="row gx-3">
+						<div class="col-12">
+							<div class="d-flex flex-column">
+								<p class="text mb-1">Adress</p>
+								<input
+									class="form-control mb-3"
+									type="text"
+									placeholder="Name"
+									value="Vandrandepinne gatan 50"
+								/>
 							</div>
 						</div>
+						<div class="col-12">
+							<div class="d-flex flex-column">
+								<p class="text mb-1">postnummer och ort</p>
+								<input class="form-control mb-3" type="text" placeholder="414 76 Göteborg" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="d-flex flex-column">
+								<p class="text mb-1">Telefon nummer</p>
+								<input class="form-control mb-3" type="text" placeholder="070*******" />
+							</div>
+						</div>
+						<iframe src="http://maps.google.com/maps?q=57.708870,11.974560&z=16&output=embed" />
 					</div>
 				</div>
-			</template>
-		</div>
+			</div>
+		</template>
 	</div>
 </template>
 
@@ -191,6 +185,15 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	#table {
+		color: black;
+		padding: 15px;
+		background-color: #c9c9bd;
+		border: 4px;
+		border-color: #faac77;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		margin-bottom: 20px;
+	}
+	#tableTwo {
 		color: black;
 		padding: 15px;
 		background-color: #c9c9bd;
