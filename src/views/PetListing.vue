@@ -55,19 +55,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', end
 		
 		
 		>
-			<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
-			<h4 class="listing_header">Välkommen att se våra djur!</h4>
-			<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
-			<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
-			<span class="linklike" @click="filter_by_pet_type('hund')">Hundar</span> |
-			<span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> |
-			<span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> |
-			<span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
-			<br />
-			<span class="linklike" @click="displayCartContents()">Visa kundvagn</span> |
-			<span class="linklike" @click="purgeCart()">Töm kundvagn</span>
-
-			<hr />
+		
 
 			<div
 				class="d-flex flex-wrap justify-content-center"
