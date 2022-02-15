@@ -49,9 +49,6 @@
 				required: true
 			}
 		},
-
-<<<<<<< HEAD
-
 computed: {
       shorter_text_description() {
 				if(this.p_description)
@@ -64,14 +61,6 @@ computed: {
       },
 			p_price_with_space()
 			{ // Visar pris snyggare (10000 blir 10 000)
-=======
-		computed: {
-			shorter_text_description() {
-				return this.p_description.substring(0, 130) + '...'; //
-			},
-			p_price_with_space() {
-				// Visar pris snyggare (10000 blir 10 000)
->>>>>>> 9aa8633a42abf998c5be515c91c58db654c17b80
 				return this.p_price.toLocaleString();
 			}
 		},
@@ -159,7 +148,7 @@ computed: {
 		width: 200px;
 		height: 250px;
 		background-color: #f0efee;
-		color: #333c3e;
+		color: antiquewhite;
 		padding: 5px;
 		margin-bottom: 5px;
 		border-radius: 8px;
@@ -204,6 +193,7 @@ computed: {
 		text-align: center;
 		text-transform: uppercase;
 		margin-bottom: 5px;
+				color:black;
 	}
 
 	.text {
@@ -217,6 +207,7 @@ computed: {
 		line-height: 12px;
 
 		margin-bottom: 5px;
+		color:black;
 	}
 
 	.price {
@@ -253,5 +244,6 @@ computed: {
 
 	.btn {
 		text-transform: uppercase;
+		margin-top: 9px;
 	}
 </style>
