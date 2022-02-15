@@ -93,11 +93,7 @@
 					<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
 				</ul>
 				<p class="serif text-black col-md-6 col-12">
-					<!-- TEXTEN ÄR FRÅN BLOCKET, SKALL GÖRAS TILL NÅGON DYNAMISK TEXT-->
-					Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek
-					och lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på
-					magen. Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll
-					eller ett snöre.
+					{{ product.description }}
 				</p>
 			</div>
 			<div class="align-self-center">
