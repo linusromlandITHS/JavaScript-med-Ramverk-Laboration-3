@@ -2,7 +2,13 @@
 	import { inject } from 'vue';
 
 	export default {
-		props: ['title'],
+		props: {
+			title: {
+				//Array of titles to display
+				type: Array,
+				required: true
+			}
+		},
 		setup() {
 			const selectedTitle = inject('selectedTitle');
 
@@ -24,7 +30,7 @@
 		background-color: #f0efee;
 		color: #333c3e;
 		min-height: 400px;
-		width: auto;
+		width: 648px;
 		padding: 20px;
 		border-radius: 8px;
 		box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.05);

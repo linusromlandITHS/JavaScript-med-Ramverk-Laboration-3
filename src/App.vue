@@ -3,7 +3,9 @@
 	<Navbar />
 
 	<main style="margin-top: 0px">
-		<RouterView />
+		<main>
+			<RouterView />
+		</main>
 	</main>
 </template>
 

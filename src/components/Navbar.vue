@@ -1,9 +1,18 @@
 <script>
+	import Button from './Button.vue';
 	export default {
 		name: 'Navbar',
-
+		components: {
+			Button
+		},
 		data() {
 			return { logo: '../public/logo.png' };
+		},
+		watch: {
+			$route() {
+				//When the route changes, sets the navbar to closed
+				if (document.getElementById('checkbox').checked) document.getElementById('checkbox').checked = false;
+			}
 		}
 	};
 </script>
@@ -12,7 +21,7 @@
 	<nav>
 		<div class="navbar">
 			<div class="container nav-container">
-				<input class="checkbox" type="checkbox" name="" id="" />
+				<input class="checkbox" type="checkbox" id="checkbox" />
 				<div class="hamburger-lines">
 					<span class="line line1" />
 					<span class="line line2" />
@@ -22,14 +31,14 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<button id="myCart" type="button" class="btn btn-primary">Varukorg</button>
+						<Button>Varukorgen</Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">
 					<li><RouterLink to="/">Hem</RouterLink></li>
+					<li><RouterLink to="/petlisting">Våra Djur</RouterLink></li>
 					<li><RouterLink to="/contact">Kontakt</RouterLink></li>
-					<li><RouterLink to="/djur">Sida för att se innehållet i DB...</RouterLink></li>
-					<li><RouterLink to="/petlisting">Temp. version av listningssidan</RouterLink></li>
+					<li><RouterLink to="/about">Om oss</RouterLink></li>
 				</div>
 			</div>
 		</div>
@@ -57,7 +66,7 @@
 
 	.navbar {
 		width: 100%;
-		box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+		box-shadow: 0 1px 4px rgb(146 161 176 / 1%);
 	}
 
 	.nav-container {
@@ -186,5 +195,11 @@
 
 	.nav-container input[type='checkbox']:checked ~ .logo {
 		display: none;
+	}
+
+	@media screen and (min-width: 992px) {
+		.navbar .menu-items {
+			text-align: left;
+		}
 	}
 </style>

@@ -5,11 +5,25 @@
 		data() {
 			return {
 				cartItems: [],
-				imgUrl: 'assets/products/'
+				imgUrl: 'assets/products/',
+				totalAmount: ''
 			};
 		},
 
 		methods: {
+			// deleteItem-function by David Sabel
+			deleteItem(index) {
+				//deletes the index of that row
+				this.cartItems.splice(index, 1);
+				//calculates the new total price.
+				this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+
+				// Update localstorage with the new data
+				let lsCart = {};
+				this.cartItems.forEach((item) => (lsCart[item.id] = item.name));
+				localStorage.setItem('petCart', JSON.stringify(lsCart));
+			},
+
 			onClick() {
 				this.$router.push({ path: '/checkout' });
 			},
@@ -40,42 +54,55 @@
 				return items.find((a) => a.id === itemID);
 			});
 			this.cartItems = cartItems;
+
+			this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 		}
 	};
 </script>
 
 <template>
 	<main>
-		<h1>Din varukorg</h1>
-		<div id="itemSection">
-			<ol>
-				<li v-for="cartItem in cartItems" :key="cartItem.id" class="productCard">
-					<!-- Gets the first image from image array -->
-					<img id="itemPicture" :src="this.imgUrl + cartItem.images[0]" />
-					<div id="productText">
-						<h6>{{ cartItem.name }}</h6>
-						<p>{{ cartItem.type }}</p>
-					</div>
-					<p id="price">{{ cartItem.price }}</p>
-				</li>
-			</ol>
-		</div>
-		<div id="totalCheckout">
-			<div class="container-sm">
-				<h6>
-					Total summa
-					<span id="inclVAT">inkl. moms </span>
-				</h6>
-				<p id="totalAmount">100:-</p>
+		<header>
+			<h1>Din varukorg</h1>
+		</header>
+		<body>
+			<div id="itemSection">
+				<ol>
+					<li v-for="cartItem in cartItems" :key="cartItem.id" class="productCard">
+						<!-- Gets the first image from image array -->
+						<img id="itemPicture" :src="this.imgUrl + cartItem.images[0]" />
+						<div id="productText">
+							<h6>{{ cartItem.name }}</h6>
+							<p>{{ cartItem.type }}</p>
+						</div>
+						<p id="price">{{ cartItem.price + ' kr' }}</p>
+						<p id="removeItem" @click="deleteItem">X</p>
+					</li>
+				</ol>
 			</div>
-			<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">Gå vidare till kassan</button>
-		</div>
+			<div id="totalCheckout">
+				<div class="container-sm">
+					<h6>
+						Total summa
+						<span id="inclVAT">inkl. moms </span>
+					</h6>
+					<p id="totalAmount">{{ this.totalAmount + ' kr' }}</p>
+				</div>
+				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">
+					Gå vidare till kassan
+				</button>
+			</div>
+		</body>
 	</main>
 </template>
 
 <style scoped>
 	* {
 		color: black;
+	}
+
+	body {
+		background-color: #ffffff;
 	}
 
 	li {
@@ -92,7 +119,7 @@
 	}
 
 	h6 {
-		margin-top: 0.5rem;
+		margin-top: 1rem;
 	}
 
 	main {
@@ -102,7 +129,7 @@
 		border-radius: 5px;
 		margin: auto;
 		max-width: 1024px;
-		padding: 5%;
+		padding: 3%;
 	}
 
 	.productCard {
@@ -112,6 +139,8 @@
 		height: 80px;
 		margin-top: 15px;
 	}
+
+	/* | ------------------------ Max-width ----------------------------- | */
 
 	@media (max-width: 575.98px) {
 		.container-sm {
@@ -128,12 +157,33 @@
 			width: 100%;
 		}
 	}
+	/* | ---------------------- XX -- XX --------------------------- | */
+
+	@media (min-width: 576px) and (max-width: 1023.8px) {
+		main {
+			margin: 3%;
+		}
+		.container-sm {
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.container-sm {
+			margin: 20px 0 75px 0;
+		}
+	}
+
+	/* | ------------------------ Min-width ----------------------------- | */
 
 	@media (min-width: 576px) {
+		body {
+			display: flex;
+		}
 		.container-sm {
 			display: flex;
 			justify-content: space-between;
-			margin: 10px 0 10px 0;
 		}
 
 		#checkOut {
@@ -141,49 +191,52 @@
 		}
 
 		#itemSection {
-			max-width: 55%;
+			width: 75%;
 		}
 
 		#totalCheckout {
 			background-color: #f0efee;
 			/* border: 1px solid; */
 			border-radius: 5px;
-			margin-left: 65%;
+			margin-left: 15%;
+			max-height: 220px;
 			padding: 10px;
 			width: 35%;
 			text-align: center;
 		}
 	}
 
+	/* | ---------------------- XX -- XX --------------------------- | */
+
 	#inclVAT {
 		display: block;
 		font-size: small;
 	}
 
-	#itemSection {
-		color: black;
-	}
-
 	#itemPicture {
 		height: 90%;
 		margin: 5px 0 0px 5px;
-		width: auto;
+		max-width: 96px;
 	}
 
 	#price {
 		display: flex;
-		padding-left: 15%;
+		padding-left: 25%;
+		padding-right: 10%;
 		margin: auto;
 	}
 
 	#productText {
 		margin-left: 5%;
+		width: 10%;
+	}
+
+	#removeItem {
+		color: #ff0000;
+		margin: 5px 10px 0 0;
 	}
 
 	#totalAmount {
 		margin-top: 1rem;
-	}
-	h2 {
-		border: 2px;
 	}
 </style>

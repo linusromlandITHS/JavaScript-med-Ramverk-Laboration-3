@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto&display=swap');
+
 $body-bg: #dddddd;
 
 $body-color: rgba(255, 255, 255, 0.9);
@@ -15,4 +17,10 @@ $theme-colors: (
 
 @import 'bootstrap/scss/bootstrap';
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto&display=swap');
+p {
+	font-family: 'Noto Serif', serif;
+}
+
+* {
+	font-family: 'Noto Mono', monospace;
+}

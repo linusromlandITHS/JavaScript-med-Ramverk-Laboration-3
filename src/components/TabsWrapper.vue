@@ -32,8 +32,9 @@
 
 <style scoped>
 	.tabs {
-		max-width: 400px;
-		margin: 0 auto;
+		max-width: 1024px;
+		margin: auto;
+		margin-top: 20px;
 	}
 
 	.tabs__header {
@@ -47,6 +48,7 @@
 	.tabs__header li {
 		/* width: auto; */
 		text-align: center;
+		font-size: 14px;
 		padding: 10px 20px;
 		margin-right: 10px;
 		background-color: #606b6f;

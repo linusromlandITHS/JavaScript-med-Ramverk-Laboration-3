@@ -18,8 +18,6 @@
 		},
 		methods: {
 			/**
-			 * @author Linus Romland (hello@linusromland.com)
-			 *
 			 * @name fetchProduct
 			 * @description Fetches product data from database.json
 			 * @param {string} id - The id of the product to fetch
@@ -39,13 +37,30 @@
 				//Find 5 products that are similar to the product
 				this.recommendedProducts = response.animals
 					.filter((product) => product.id !== this.$route.params.id)
-					.slice(0, 5);
+					.slice(0, 3);
 
 				//If product is not found, redirect to home page
 				if (!this.product) this.$router.push('/');
 
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
+			},
+			/**			 *
+			 * @name addToCart
+			 * @description Add a new product to the cart
+			 * @returns {null} - No return value
+			 */
+			addToCart() {
+				//Declares cart variable with either empty array or existing cart
+				let cart = localStorage.getItem('petCart') ? JSON.parse(localStorage.getItem('petCart')) : {};
+
+				//Add product to cart
+				cart[this.product.id] = this.product.name;
+
+				//Save cart to local storage
+				localStorage.setItem('petCart', JSON.stringify(cart));
+
+				// TODO Add toast message to indicate product was added to cart
 			}
 		},
 		computed: {
@@ -62,7 +77,7 @@
 </script>
 
 <template>
-	<div class="d-flex flex-md-row flex-column justify-content-around">
+	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
 		<div class="col-12 col-md-8 d-flex flex-column">
 			<Slideshow :images="images" />
 
@@ -78,16 +93,12 @@
 					<li class="list-group-item"><span class="fw-bold">Temperament:</span> {{ product.temperament }}</li>
 				</ul>
 				<p class="serif text-black col-md-6 col-12">
-					<!-- TEXTEN ÄR FRÅN BLOCKET, SKALL GÖRAS TILL NÅGON DYNAMISK TEXT-->
-					Bosse är en myskatt som gärna ligger nära om hon känner sig bekväm. Viktigt att hon får massa kärlek
-					och lugn och ro för att känna sig trygg. Då är hon världens gosigaste katt som gärna blir kliad på
-					magen. Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna 5-10min med en boll
-					eller ett snöre.
+					{{ product.description }}
 				</p>
 			</div>
 			<div class="align-self-center">
 				<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
-				<Button :alternative="false" :disabled="false" @clicked="test">LÄGG I KUNDVAGN</Button>
+				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I KUNDVAGN</Button>
 			</div>
 		</div>
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
@@ -100,7 +111,8 @@
 					:p_temperament="recommendedProduct.temperament"
 					:p_price="recommendedProduct.price"
 					:p_type="recommendedProduct.type"
-					:p_one_picture="recommendedProduct.images[1]"
+					:p_one_picture="recommendedProduct.images[0]"
+					:p_description="recommendedProduct.description"
 				/>
 			</div>
 		</div>
