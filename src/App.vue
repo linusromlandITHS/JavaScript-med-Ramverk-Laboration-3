@@ -9,7 +9,11 @@
 	<main>
 		<RouterView />
 	</main>
--->
+--> 
+
+<!--
+https://learnvue.co/2021/01/4-awesome-examples-of-vue-router-transitions/#-1-fade-vue-router-transitions
+--> 
  <router-view v-slot="{ Component }">
   <transition name="fade">
     <component :is="Component" />
