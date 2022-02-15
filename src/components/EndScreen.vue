@@ -5,7 +5,9 @@
 			return {
 				summa: 0,
 				cartItems: [],
-				helaPriset: 0
+				helaPriset: 0,
+				show: true,
+				showTwo: true
 			};
 		},
 		methods: {
@@ -20,6 +22,9 @@
 				if (localStorage.petCart) {
 					return JSON.parse(localStorage.petCart);
 				}
+			},
+			showMap() {
+				this.show = false;
 			},
 			//emptyStorage() {
 			//	this.localStorage.clear();
@@ -118,6 +123,50 @@
 					</div>
 				</div>
 			</div>
+			<template v-if="show !== true">
+				<div class="container" id="table">
+					<div class="card px-4">
+						<p class="h8 py-3">Betalnings information:</p>
+						<div class="row gx-3">
+							<div class="col-12">
+								<div class="d-flex flex-column">
+									<p class="text mb-1">Namn och efternamn</p>
+									<input
+										class="form-control mb-3"
+										type="text"
+										placeholder="Name"
+										value="Barry Allen"
+									/>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="d-flex flex-column">
+									<p class="text mb-1">Kort nummer</p>
+									<input class="form-control mb-3" type="text" placeholder="1234 5678 435678" />
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="d-flex flex-column">
+									<p class="text mb-1">Ut-datum</p>
+									<input class="form-control mb-3" type="text" placeholder="MM/YYYY" />
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="d-flex flex-column">
+									<p class="text mb-1">CVV/CVC</p>
+									<input class="form-control mb-3 pt-2" type="password" placeholder="***" />
+								</div>
+							</div>
+							<div class="col-12">
+								<div @click="showMap" class="btn btn-primary mb-3">
+									<span class="ps-3">{{ 'Betala ' + helaPriset + ' kr' }}</span>
+									<span class="fas fa-arrow-right" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
 		</div>
 	</div>
 </template>

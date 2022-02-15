@@ -100,9 +100,6 @@
 		#mainInfo {
 			flex-direction: column;
 		}
-		.info {
-			width: 200px;
-		}
 		#title {
 			width: 340px;
 		}
