@@ -26,7 +26,7 @@
 		<hr />
 
 		<div
-			class="d-flex flex-wrap justify-content-around"
+			class="d-flex flex-wrap justify-content-center"
 			style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
 		>
 			<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
@@ -159,13 +159,6 @@
     this.current_pet_list = this.full_pet_list;
 }
 },
-
-
-
-
-
-
-
 
 
 			// Tömmer innehållet i kundvagn (petCart) i localStorage
@@ -317,5 +310,6 @@ localStorage.removeItem('petCart');
 		margin-bottom: 14px;
 		cursor: pointer;
 		flex-basis: 25%;
+ 
 	}
 </style>

@@ -185,15 +185,16 @@ computed: {
 	.title {
 		width: 190px;
 		height: 17.14px;
-		font-family: Roboto Mono;
+		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 18px;
 		text-align: center;
 		text-transform: uppercase;
 		margin-bottom: 5px;
 				color:black;
+
 	}
 
 	.text {
@@ -213,13 +214,15 @@ computed: {
 	.price {
 		width: 190px;
 		height: 14.11px;
-		font-family: Roboto Mono;
+		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 18px;
 		text-align: center;
 		margin-bottom: 5px;
+		color:black;
+
 	}
 
 	/* .cart-button {

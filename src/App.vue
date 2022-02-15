@@ -64,7 +64,7 @@ https://learnvue.co/2021/01/4-awesome-examples-of-vue-router-transitions/#-1-fad
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.34s ease;
 }
 
 
