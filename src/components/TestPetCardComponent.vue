@@ -49,7 +49,7 @@
 		<div class="price">{{ p_price.toLocaleString() }} KR</div>
 	</div>
 
-	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i kundvagn</button>
+	<button type="button" class="cart-button" @click="add_to_cart(this.p_id, this.p_name)">Lägg i varukorg</button>
 
 	<!-- </div> -->
 </template>
@@ -111,7 +111,7 @@
 				this.$router.push({ path: '/product/' + id_ + '/' });
 			},
 			add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
 				let cart;
@@ -131,10 +131,10 @@
 				// 3 Sätt localStorage till det nya objektet
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
 				this.displayCartContents();
 			},
-			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];

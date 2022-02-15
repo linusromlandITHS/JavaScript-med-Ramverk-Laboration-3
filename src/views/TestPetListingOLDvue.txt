@@ -6,8 +6,8 @@
 <h4><i>Välkommen att se våra djur!</i></h4>
 <span class="linklike" @click="onclick('alla')">Alla</span> | <span class="linklike" @click="onclick('katt')">Katter</span> | <span class="linklike" @click="onclick('hund')">Hundar</span> | <span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> | <span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> | <span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
 <br />
-<span class="linklike" @click="displayCartContents()">Visa kundvagn</span> |
-<span class="linklike" @click="purgeCart()">Töm kundvagn</span>
+<span class="linklike" @click="displayCartContents()">Visa varukorg</span> |
+<span class="linklike" @click="purgeCart()">Töm varukorg</span>
 
 <hr /> 
 
@@ -58,7 +58,7 @@
 		methods: 
 		{
 
-	// Alerta innehållet i kundvagn (petCart) i Localstorage
+	// Alerta innehållet i varukorg (petCart) i Localstorage
 	// Denna metod ligger både här och komponenten (TestPetCardComponent) - borde kunna göras elegantare?
 	displayCartContents()
 	{
@@ -78,12 +78,12 @@
 
 	},
 
-	// Tömmer innehållet i kundvagn (petCart) i localStorage
+	// Tömmer innehållet i varukorg (petCart) i localStorage
 	purgeCart()
 	{
 //https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 localStorage.removeItem('petCart');
-		alert("Kundvagnen är tom");
+		alert("varukorgen är tom");
 	}
 			,
 			// Val av djurkategori

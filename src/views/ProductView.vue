@@ -98,7 +98,7 @@
 			</div>
 			<div class="align-self-center">
 				<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
-				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I KUNDVAGN</Button>
+				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I varukorg</Button>
 			</div>
 		</div>
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">

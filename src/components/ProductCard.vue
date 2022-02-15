@@ -89,7 +89,7 @@ computed: {
 				this.$router.push({ path: '/product/' + id_ + '/' });
 			},
 			add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
 				let cart;
@@ -109,10 +109,10 @@ computed: {
 				// 3 Sätt localStorage till det nya objektet
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
 				this.displayCartContents();
 			},
-			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];
@@ -140,7 +140,7 @@ computed: {
 		<div class="text">{{ shorter_text_description }}</div>
 		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
-	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i kundvagn</Button>
+	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i varukorg</Button>
 </template>
 
 <style scoped>

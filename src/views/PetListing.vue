@@ -2,7 +2,18 @@
 <transition>
 <div
 		style="
-			background-color: #aaaaaa !important;
+			/* background-color: #aaaaaa !important; */
+
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#aaaaaa+1,eeeeee+91 */
+background: rgb(170,170,170); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgb(170,170,170) 1%, rgb(238,238,238) 91%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover,  rgb(170,170,170) 1%,rgb(238,238,238) 91%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center,  rgb(170,170,170) 1%,rgb(238,238,238) 91%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
 			color: black;
 			padding: 12px;
 			text-align: center;
@@ -13,21 +24,36 @@
 	>
 		<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
 		<h4 class="listing_header">Välkommen att se våra djur!</h4>
-		<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
-		<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
-		<span class="linklike" @click="filter_by_pet_type('hund')">Hundar</span> |
-		<span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> |
-		<span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> |
-		<span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
-		<br />
-		<span class="linklike" @click="displayCartContents()">Visa kundvagn</span> |
-		<span class="linklike" @click="purgeCart()">Töm kundvagn</span>
 
-		<hr />
+		<!--
+		<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span> 
+		<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span> 
+		<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span> 
+		<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span> 
+		<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span> 
+		<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span> 
+ -->
+ <div class="petHeaders d-flex flex-wrap justify-content-center">
+ 		<span class=" badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+		<span class=" badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+		<span class=" badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+		<span class=" badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+		<span class=" badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+		<span class=" badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+</div>
 
-		<div
+<div class="cartdiv">
+		<span class="cartspan" @click="displayCartContents()">Visa varukorg</span>  
+		<span class="cartspan" @click="purgeCart()">Töm varukorg</span>
+</div>
+
+		<div id="mainbg"
 			class="d-flex flex-wrap justify-content-center"
-			style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
+			style=" margin-left: auto; margin-right: auto"
+		
+		
+		
+		
 		>
 			<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
 				<!-- v-if="pet.type=='Fisk'" -->
@@ -161,17 +187,17 @@
 },
 
 
-			// Tömmer innehållet i kundvagn (petCart) i localStorage
+			// Tömmer innehållet i varukorg (petCart) i localStorage
 	purgeCart()
 	{
 //https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 localStorage.removeItem('petCart');
-		alert("Kundvagnen är tom");
+		alert("varukorgen är tom");
 	}
 			,
 
 				add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
 				let cart;
@@ -191,10 +217,10 @@ localStorage.removeItem('petCart');
 				// 3 Sätt localStorage till det nya objektet
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
 				this.displayCartContents();
 			},
-			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];
@@ -296,6 +322,7 @@ localStorage.removeItem('petCart');
 
 	.listing_header {
 		font-family:  'Roboto Medium', 'Roboto','Roboto Mono' !important;
+				color: black;
 		
 	}
 
@@ -312,4 +339,95 @@ localStorage.removeItem('petCart');
 		flex-basis: 25%;
  
 	}
+
+
+.badgelike{ 
+			font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+			cursor: pointer;
+	line-height:11px;
+	font-size: 13px !important;
+background: #faac77;
+padding:5px;
+border:1px solid black;
+color: black;
+margin: 0px;
+margin-top: 15px;
+margin-bottom: 15px;
+margin-right: 3px;
+}
+
+.petHeaders
+{
+color: #aaa;
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgb(238,238,238) 47%, rgb(204,204,204) 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgb(238,238,238) 47%,rgb(204,204,204) 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgb(238,238,238) 47%,rgb(204,204,204) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+padding: 5px;
+border:1px grey solid;
+margin-top: 15px;
+}
+
+.badgelike:hover{ 
+background-color:white;
+}
+
+
+.cartspan
+{
+font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+			cursor: pointer;
+	font-size: 13px !important;
+background: white;
+padding:5px;
+border:1px solid grey;
+color: black;
+margin-top: 2px;
+margin-bottom: 1px;
+margin-right: 3px;
+}
+
+.cartspan:hover
+{
+background: #faac77;
+}
+
+.cartdiv
+{
+font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+			cursor: pointer;
+
+background: white;
+padding:6px;
+border:1px solid grey;
+color: black;
+margin-top: 11px;
+margin-bottom: 15px;
+margin-right: 3px;
+min-height:33px;
+
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgb(238,238,238) 47%, rgb(204,204,204) 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgb(238,238,238) 47%,rgb(204,204,204) 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgb(238,238,238) 47%,rgb(204,204,204) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+#mainbg
+{
+padding:16px;
+background-color:#aaaaaa;
+margin-top: 9px;;
+}
+
+
+
 </style>
