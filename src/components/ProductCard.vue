@@ -50,28 +50,12 @@
 			}
 		},
 
-<<<<<<< HEAD
-
-computed: {
-      shorter_text_description() {
-				if(this.p_description)
-				{
-        return this.p_description.substring(0,130).trim() + "..."; 
-				}
-				else{
-					return "";
-				}
-      },
-			p_price_with_space()
-			{ // Visar pris snyggare (10000 blir 10 000)
-=======
 		computed: {
 			shorter_text_description() {
 				return this.p_description.substring(0, 130) + '...'; //
 			},
 			p_price_with_space() {
 				// Visar pris snyggare (10000 blir 10 000)
->>>>>>> 9aa8633a42abf998c5be515c91c58db654c17b80
 				return this.p_price.toLocaleString();
 			}
 		},
