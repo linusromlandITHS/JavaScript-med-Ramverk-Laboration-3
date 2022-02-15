@@ -3,6 +3,14 @@
 	import Tab from '../components/Tab.vue';
 
 	export default {
+		data() {
+			return {
+				text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
+				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
+				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
+				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.`
+			};
+		},
 		components: {
 			TabsWrapper,
 			Tab
@@ -19,10 +27,7 @@
 			<h2 class="tab-heading">David Sabel</h2>
 			<h3 class="tab-info">Utvecklare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Fredric">
@@ -32,23 +37,17 @@
 			<h2 class="tab-heading">Fredric Ryding</h2>
 			<h3 class="tab-info">Utvecklare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Kenneth">
 			<div class="img-container">
-				<img class="img" src="assets\members\Kenneth.png" alt="kennethwilhelmsson" />
+				<img class="img" src="assets\members\Kenneth.jpg" alt="kennethwilhelmsson" />
 			</div>
 			<h2 class="tab-heading">Kenneth Wilhelmsson</h2>
 			<h3 class="tab-info">Utvecklare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Linus">
@@ -58,10 +57,7 @@
 			<h2 class="tab-heading">Linus Romland</h2>
 			<h3 class="tab-info">Projektledare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Nathi">
@@ -71,10 +67,7 @@
 			<h2 class="tab-heading">Nathi Geigant</h2>
 			<h3 class="tab-info">UI/UX</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Olena">
@@ -84,10 +77,7 @@
 			<h2 class="tab-heading">Olena Drozdova</h2>
 			<h3 class="tab-info">Utvecklare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 		<Tab title="Patryk">
@@ -97,10 +87,7 @@
 			<h2 class="tab-heading">Patryk Sroka</h2>
 			<h3 class="tab-info">Utvecklare</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
-				Quam ipsa dolorem perspiciatis vitae, adipisci odit magnam mollitia sed fugit incidunt dicta ipsam id
-				unde exercitationem. Veniam accusantium iure saepe officiis, labore eveniet rem harum fugiat modi,
-				pariatur vero, qui eum quibusdam temporibus unde dolorum. Molestiae.
+				{{ text }}
 			</p>
 		</Tab>
 	</TabsWrapper>

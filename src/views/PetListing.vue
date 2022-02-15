@@ -1,7 +1,8 @@
 <template>
-	<div
+<transition>
+<div
 		style="
-			background-color: white !important;
+			background-color: #aaaaaa !important;
 			color: black;
 			padding: 12px;
 			text-align: center;
@@ -11,7 +12,7 @@
 		"
 	>
 		<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
-		<h4><i>Välkommen att se våra djur!</i></h4>
+		<h4 class="listing_header">Välkommen att se våra djur!</h4>
 		<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
 		<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
 		<span class="linklike" @click="filter_by_pet_type('hund')">Hundar</span> |
@@ -25,8 +26,8 @@
 		<hr />
 
 		<div
-			class="d-flex flex-wrap justify-content-around"
-			style="background-color: white !important; margin-left: auto; margin-right: auto"
+			class="d-flex flex-wrap justify-content-center"
+			style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
 		>
 			<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
 				<!-- v-if="pet.type=='Fisk'" -->
@@ -46,6 +47,9 @@
 		</div>
 		<hr />
 	</div>
+
+  </transition>
+
 </template>
 
 <script>
@@ -65,95 +69,108 @@
 			};
 		},
 
-		methods: {
-			// keep_only_type(pet_type_to_show)
-			// 	{
-			// 		let full = this.full_pet_list;
+	methods: {
 
-			// let output_obj = new Object();
 
-			// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-			// output_obj = { ...full };
 
-			// 		for(let i in output_obj)
-			// 			{
-			// 				var b1 = output_obj[i];
+// keep_only_type(pet_type_to_show)
+// 	{ 
+// 		let full = this.full_pet_list;
 
-			// console.log(b1)
 
-			// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+// let output_obj = new Object();
 
-			// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
-			// 			//['IM1']);
+// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+// output_obj = { ...full };
 
-			// //	:p_images_arr = pet.images
+// 		for(let i in output_obj)
+// 			{
+// 				var b1 = output_obj[i];
 
-			// 				//output_obj[i]['type']
+// console.log(b1)
 
-			// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
 
-			// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
-			// 					{
-			// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
-			// 						delete output_obj[ i ];
+// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+// 			//['IM1']);
 
-			// 					}
-			// 					else
-			// 					{
+// //	:p_images_arr = pet.images
 
-			// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+// 				//output_obj[i]['type']
 
-			// 						console.log("behåller:" + output_obj[ i ].name);
-			// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
-			// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
 
-			// 						console.log("och detta:" + output_obj[ i ]);
+// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+// 					{
+// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+// 						delete output_obj[ i ];
 
-			// console.log("#######" + output_obj[ i ]['image1'] + b1)
-			// 			//	var b1 = output_obj[i]['p_images_arr'][0];
+// 					}
+// 					else
+// 					{
 
-			// 					}
-			// 			}
+// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-			// 	console.log(output_obj);
-			// 	return output_obj;
-			// 	},
+// 						console.log("behåller:" + output_obj[ i ].name);
+// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
 
-			filter_by_pet_type(category) {
-				//alla katt hund häst fisk kanin
+// 						console.log("och detta:" + output_obj[ i ]);
 
-				//
-				//
-				//
-				console.log('filter_by_pet_type ' + category);
-				switch (category) {
-					case 'katt':
-						this.current_pet_list = this.keep_only_type('katt');
-						break;
-					case 'hund':
-						this.current_pet_list = this.keep_only_type('hund');
-						break;
-					case 'häst':
-						this.current_pet_list = this.keep_only_type('häst');
-						break;
-					case 'fisk':
-						this.current_pet_list = this.keep_only_type('fisk');
-						break;
-					case 'kanin':
-						this.current_pet_list = this.keep_only_type('kanin');
-						break;
-					default:
-						this.current_pet_list = this.full_pet_list;
-				}
-			},
+// console.log("#######" + output_obj[ i ]['image1'] + b1)
+// 			//	var b1 = output_obj[i]['p_images_arr'][0];
+
+			
+
+// 					}
+// 			}
+
+// 	console.log(output_obj);
+// 	return output_obj;
+// 	},
+
+
+		filter_by_pet_type(category)
+		{
+//alla katt hund häst fisk kanin
+
+// 
+// 
+// 
+	console.log("filter_by_pet_type " + category);
+	switch(category) {
+
+  case 'katt':
+    this.current_pet_list = this.keep_only_type('katt');
+    break;
+  case 'hund':
+    this.current_pet_list = this.keep_only_type('hund');
+    break;
+  case 'häst':
+    this.current_pet_list = this.keep_only_type('häst');
+    break;
+  case 'fisk':
+    this.current_pet_list = this.keep_only_type('fisk');
+    break;
+  case 'kanin':
+    this.current_pet_list = this.keep_only_type('kanin');
+    break;
+  default:
+    this.current_pet_list = this.full_pet_list;
+}
+},
+
 
 			// Tömmer innehållet i kundvagn (petCart) i localStorage
-			purgeCart() {
-				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
-				localStorage.removeItem('petCart');
-				alert('Kundvagnen är tom');
-			},
-			add_to_cart(id_, na_) {
+	purgeCart()
+	{
+//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+localStorage.removeItem('petCart');
+		alert("Kundvagnen är tom");
+	}
+			,
+
+				add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
@@ -186,52 +203,61 @@
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
 
+
+
+
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			},
 
-			keep_only_type(pet_type_to_show) {
-				let full = this.full_pet_list;
 
-				let output_obj = new Object();
 
-				//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-				output_obj = { ...full };
+	keep_only_type(pet_type_to_show)
+	{ 
+		let full = this.full_pet_list;
 
-				for (let i in output_obj) {
-					var b1 = output_obj[i];
 
-					console.log(b1);
+			let output_obj = new Object();
 
-					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
+			//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+			output_obj = { ...full };
 
-					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
-					//['IM1']);
+			for (let i in output_obj) {
+				var b1 = output_obj[i];
 
-					//	:p_images_arr = pet.images
+				console.log(b1);
 
-					//output_obj[i]['type']
+				output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
 
-					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
+				console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
+				//['IM1']);
 
-					if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
-						console.log('tar bort:' + output_obj[i] + output_obj[i].name);
-						delete output_obj[i];
-					} else {
-						//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+				//	:p_images_arr = pet.images
 
-						console.log('behåller:' + output_obj[i].name);
-						console.log('den har denna image1:' + output_obj[i]['image1']);
-						console.log('den har denna IM1:' + output_obj[i]['IM1']);
+				//output_obj[i]['type']
 
-						console.log('och detta:' + output_obj[i]);
+				console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
 
-						console.log('#######' + output_obj[i]['image1'] + b1);
-						//	var b1 = output_obj[i]['p_images_arr'][0];
-					}
+				if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
+					console.log('tar bort:' + output_obj[i] + output_obj[i].name);
+					delete output_obj[i];
+				} else {
+					//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+
+					console.log('behåller:' + output_obj[i].name);
+					console.log('den har denna image1:' + output_obj[i]['image1']);
+					console.log('den har denna IM1:' + output_obj[i]['IM1']);
+
+					console.log('och detta:' + output_obj[i]);
+
+					console.log('#######' + output_obj[i]['image1'] + b1);
+					//	var b1 = output_obj[i]['p_images_arr'][0];
 				}
+			}
 				console.log(output_obj);
 				return output_obj;
+			
 			}
+
 		},
 		created() {
 			//this.picture_1 = this.p_images_arr[0];
@@ -251,18 +277,26 @@
 
 <style>
 	* {
-		font-family: 'Roboto Mono';
+		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	.linklike {
 		cursor: pointer;
+		font-family: 'Roboto Medium', 'Roboto','Roboto Mono' !important;
+		color: #333333;
 	}
 
 	.linklike:hover {
 		text-decoration-line: underline;
 		color: black;
+	}
+
+
+	.listing_header {
+		font-family:  'Roboto Medium', 'Roboto','Roboto Mono' !important;
+		
 	}
 
 	/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
@@ -276,5 +310,6 @@
 		margin-bottom: 14px;
 		cursor: pointer;
 		flex-basis: 25%;
+ 
 	}
 </style>

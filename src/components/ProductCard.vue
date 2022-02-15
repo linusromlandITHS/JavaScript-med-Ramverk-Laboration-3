@@ -49,13 +49,18 @@
 				required: true
 			}
 		},
-
-		computed: {
-			shorter_text_description() {
-				return this.p_description.substring(0, 130) + '...'; //
-			},
-			p_price_with_space() {
-				// Visar pris snyggare (10000 blir 10 000)
+computed: {
+      shorter_text_description() {
+				if(this.p_description)
+				{
+        return this.p_description.substring(0,130).trim() + "..."; 
+				}
+				else{
+					return "";
+				}
+      },
+			p_price_with_space()
+			{ // Visar pris snyggare (10000 blir 10 000)
 				return this.p_price.toLocaleString();
 			}
 		},
@@ -143,7 +148,7 @@
 		width: 200px;
 		height: 250px;
 		background-color: #f0efee;
-		color: #333c3e;
+		color: antiquewhite;
 		padding: 5px;
 		margin-bottom: 5px;
 		border-radius: 8px;
@@ -180,39 +185,44 @@
 	.title {
 		width: 190px;
 		height: 17.14px;
-		font-family: Roboto Mono;
+		font-family: 'Roboto Mono', monospace !important;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 18px;
 		text-align: center;
 		text-transform: uppercase;
 		margin-bottom: 5px;
+				color:black;
+
 	}
 
 	.text {
 		width: 190px;
 		height: 50.4px;
 
-		font-family: Noto Serif;
+		font-family: 'Noto Serif';
 		font-style: normal;
 		font-weight: 200;
 		font-size: 10px;
 		line-height: 12px;
 
 		margin-bottom: 5px;
+		color:black;
 	}
 
 	.price {
 		width: 190px;
 		height: 14.11px;
-		font-family: Roboto Mono;
+		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 18px;
 		text-align: center;
 		margin-bottom: 5px;
+		color:black;
+
 	}
 
 	/* .cart-button {
@@ -237,5 +247,6 @@
 
 	.btn {
 		text-transform: uppercase;
+		margin-top: 9px;
 	}
 </style>
