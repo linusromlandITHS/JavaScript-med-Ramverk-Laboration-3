@@ -2,7 +2,7 @@
 	<!-- Navbar  -->
 	<Navbar />
 
-	<main style="padding: 35px; margin-top: 0px">
+	<main style="margin-top: 0px">
 		<RouterView />
 	</main>
 </template>
