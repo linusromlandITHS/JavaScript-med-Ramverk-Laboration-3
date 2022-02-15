@@ -39,42 +39,37 @@
 </script>
 
 <template>
-
 	<jumbotron class="jumbotron">
 		<div>
-asd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe r
+			asd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd
+			rew rwe r
 		</div>
 
-<button type="button" class="btn btn-primary">
-  Notifications <span class="badge badge-light">4</span>
-</button>
- <span class="badge badge-success">4324</span>
-<h1>Example heading <span class="badge badge-third">first</span></h1>
-<h2>Example heading <span class="badge badge-secondary">New</span></h2>
-<h3 class="badge bg-success">Example heading <span class="badge badge-secondary">New</span></h3>
-<h4>Example heading <span class="badge badge-secondary">New</span></h4>
-<h5>Example heading <span class="badge badge-secondary">New</span></h5>
-<h6>Example heading <span class="badge badge-secondary">New</span></h6>
-</jumbotron>
+		<button type="button" class="btn btn-primary">Notifications <span class="badge badge-light">4</span></button>
+		<span class="badge badge-success">4324</span>
+		<h1>Example heading <span class="badge badge-third">first</span></h1>
+		<h2>Example heading <span class="badge badge-secondary">New</span></h2>
+		<h3 class="badge bg-success">Example heading <span class="badge badge-secondary">New</span></h3>
+		<h4>Example heading <span class="badge badge-secondary">New</span></h4>
+		<h5>Example heading <span class="badge badge-secondary">New</span></h5>
+		<h6>Example heading <span class="badge badge-secondary">New</span></h6>
+	</jumbotron>
 
-<container>CONTAINTER HÄR
-</container>
-<container class="container">CONTAINTER 2 HÄR
-<span class="badge bg-success">Hästar</span>
-<span class="badge bg-secondary">Katter</span>
-<span class="badge bg-first">Hundar</span>
-<span class="badge bg-success">Fiskar</span>
+	<container>CONTAINTER HÄR </container>
+	<container class="container"
+		>CONTAINTER 2 HÄR
+		<span class="badge bg-success">Hästar</span>
+		<span class="badge bg-secondary">Katter</span>
+		<span class="badge bg-first">Hundar</span>
+		<span class="badge bg-success">Fiskar</span>
 
-<span class="badgelike">H1ästar</span>
-<span class="badgelike">Ka2tter</span>
-<span class="badgelike">Hu3ndar</span>
-<span class="badgelike">Fis4kar</span>
+		<span class="badgelike">H1ästar</span>
+		<span class="badgelike">Ka2tter</span>
+		<span class="badgelike">Hu3ndar</span>
+		<span class="badgelike">Fis4kar</span>
+	</container>
 
-
-
-</container>
-
-<!-- 
+	<!--
 	<div style="background-color: white !important; padding: 12px; border: 1px solid">
 		<hr />
 		<h5>Vue-router-sidan DjurView här:</h5>
@@ -85,43 +80,32 @@ asd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe rasd rew rwe ras
 		<b> DJUR SLUTAR HÄR </b>
 	</div> -->
 
-
 	<!-- <ProductCard :data="this.djur[0]" /> -->
-
-
-
-
 </template>
 
-
 <style>
-jumbotron{ 
+	jumbotron {
+		color: black;
+		border: 1px solid black;
+	}
+	container {
+		height: 600px;
+		width: 600px;
 
-	color:black;
-	border:1px solid black;
-}
-container{ 
+		margin: 111px;
+		padding: 111px;
+		color: black;
+		border: 1px solid red;
+	}
 
-	height: 600px;
-	width: 600px;
+	badge {
+		font-size: 23px !important;
+	}
 
-	margin:111px;
-	padding:111px;
-	color:black;
-	border:1px solid red;
-}
-
-badge{ 
-	font-size: 23px !important;
-}
-
-
-.badgelike{ 
-	
-	line-height:25px;
-	font-size: 23px !important;
-background-color: red  !important;
-border:1px dashed yellow;
-}
-
+	.badgelike {
+		line-height: 25px;
+		font-size: 23px !important;
+		background-color: red !important;
+		border: 1px dashed yellow;
+	}
 </style>

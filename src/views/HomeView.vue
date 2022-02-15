@@ -29,7 +29,7 @@
 	<section id="mainInfo">
 		<div class="info">
 			<div class="underTitel"><h3>Nytt husdjur?</h3></div>
-			<div class="innerDiv">
+			<div class="innerDiv d-flex flex-column align-items-center">
 				<p>
 					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Finns både små och stora djur för
 					alla typer av djurälskare.
@@ -39,7 +39,7 @@
 		</div>
 		<div class="info">
 			<div class="underTitel"><h3>Avla din katt?</h3></div>
-			<div class="innerDiv">
+			<div class="innerDiv d-flex flex-column align-items-center">
 				<p>
 					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
 					högsta kalitét.
@@ -109,7 +109,7 @@
 	}
 	.info {
 		background-color: #faac77;
-		height: 400px;
+		height: 300px;
 		width: 350px;
 		margin: 20px;
 		border-radius: 30px;
