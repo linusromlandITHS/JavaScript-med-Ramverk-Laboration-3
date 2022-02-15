@@ -53,8 +53,13 @@
 
 computed: {
       shorter_text_description() {
-        return this.p_description.substring(0,130) + "..." // 
-
+				if(this.p_description)
+				{
+        return this.p_description.substring(0,130).trim() + "..."; 
+				}
+				else{
+					return "";
+				}
       },
 			p_price_with_space()
 			{ // Visar pris snyggare (10000 blir 10 000)

@@ -1,5 +1,6 @@
 <template>
-	<div
+<transition>
+<div
 		style="
 			background-color: white !important;
 			color: black;
@@ -46,6 +47,9 @@
 		</div>
 		<hr />
 	</div>
+
+  </transition>
+
 </template>
 
 <script>
