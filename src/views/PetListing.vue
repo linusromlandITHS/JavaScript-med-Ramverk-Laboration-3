@@ -1,59 +1,95 @@
 <template>
-<transition>
-<div
-		style="
-			background-color: #aaaaaa !important;
-			color: black;
-			padding: 12px;
-			text-align: center;
-			max-width: 82%;
-			margin-right: auto;
-			margin-left: auto;
-		"
-	>
-		<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
-		<h4 class="listing_header">Välkommen att se våra djur!</h4>
-		<span class="linklike" @click="filter_by_pet_type('alla')">Alla</span> |
-		<span class="linklike" @click="filter_by_pet_type('katt')">Katter</span> |
-		<span class="linklike" @click="filter_by_pet_type('hund')">Hundar</span> |
-		<span class="linklike" @click="filter_by_pet_type('kanin')">Kaniner</span> |
-		<span class="linklike" @click="filter_by_pet_type('fisk')">Fiskar</span> |
-		<span class="linklike" @click="filter_by_pet_type('häst')">Hästar</span>
-		<br />
-		<span class="linklike" @click="displayCartContents()">Visa kundvagn</span> |
-		<span class="linklike" @click="purgeCart()">Töm kundvagn</span>
-
-		<hr />
-
+	<transition>
 		<div
-			class="d-flex flex-wrap justify-content-center"
-			style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
-		>
-			<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
-				<!-- v-if="pet.type=='Fisk'" -->
+			style="
+				/* background-color: #aaaaaa !important; */
 
-				<ProductCard
-					:key="pet.id"
-					:p_id="pet.id"
-					:p_name="pet.name"
-					:p_images_arr="pet.images"
-					:p_temperament="pet.temperament"
-					:p_price="pet.price"
-					:p_type="pet.type"
-					:p_one_picture="this.picture_1"
-					:p_description="pet.description"
-				/>
+				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#aaaaaa+1,eeeeee+91 */
+				background: rgb(170, 170, 170); /* Old browsers */
+				background: -moz-radial-gradient(
+					center,
+					ellipse cover,
+					rgb(170, 170, 170) 1%,
+					rgb(238, 238, 238) 91%
+				); /* FF3.6-15 */
+				background: -webkit-radial-gradient(
+					center,
+					ellipse cover,
+					rgb(170, 170, 170) 1%,
+					rgb(238, 238, 238) 91%
+				); /* Chrome10-25,Safari5.1-6 */
+				background: radial-gradient(
+					ellipse at center,
+					rgb(170, 170, 170) 1%,
+					rgb(238, 238, 238) 91%
+				); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+				color: black;
+				padding: 12px;
+				text-align: center;
+				max-width: 78%;
+				margin-right: auto;
+				margin-left: auto;
+			"
+		>
+			<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
+			<h4 class="listing_header">Välkommen att se våra djur!</h4>
+
+			<!--
+		<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+		<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+		<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+		<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+		<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+		<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+ -->
+			<div class="petHeaders d-flex flex-wrap justify-content-center">
+				<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+				<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+				<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+				<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+				<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+				<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+			</div>
+
+			<div class="cartdiv">
+				<span class="cartspan" @click="displayCartContents()">Visa varukorg</span>
+				<span class="cartspan" @click="purgeCart()">Töm varukorg</span>
+			</div>
+
+			<div
+				id="mainbg"
+				class="d-flex flex-wrap justify-content-center"
+				style="margin-left: auto; margin-right: auto"
+			>
+				<div
+					class="d-flex flex-wrap justify-content-center"
+					style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
+				>
+					<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
+						<!-- v-if="pet.type=='Fisk'" -->
+
+						<ProductCard
+							:key="pet.id"
+							:p_id="pet.id"
+							:p_name="pet.name"
+							:p_images_arr="pet.images"
+							:p_temperament="pet.temperament"
+							:p_price="pet.price"
+							:p_type="pet.type"
+							:p_one_picture="this.picture_1"
+							:p_description="pet.description"
+						/>
+					</div>
+				</div>
+				<hr />
 			</div>
 		</div>
-		<hr />
-	</div>
-
-  </transition>
-
+	</transition>
 </template>
 
 <script>
-	//import TestPetCardComponent from '../components/TestPetCardComponent.vue';
 	import ProductCard from '../components/ProductCard.vue';
 	export default {
 		name: 'PetListing',
@@ -69,109 +105,96 @@
 			};
 		},
 
-	methods: {
+		methods: {
+			// keep_only_type(pet_type_to_show)
+			// 	{
+			// 		let full = this.full_pet_list;
 
+			// let output_obj = new Object();
 
+			// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+			// output_obj = { ...full };
 
-// keep_only_type(pet_type_to_show)
-// 	{ 
-// 		let full = this.full_pet_list;
+			// 		for(let i in output_obj)
+			// 			{
+			// 				var b1 = output_obj[i];
 
+			// console.log(b1)
 
-// let output_obj = new Object();
+			// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
 
-// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-// output_obj = { ...full };
+			// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+			// 			//['IM1']);
 
-// 		for(let i in output_obj)
-// 			{
-// 				var b1 = output_obj[i];
+			// //	:p_images_arr = pet.images
 
-// console.log(b1)
+			// 				//output_obj[i]['type']
 
-// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+			// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
 
-// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
-// 			//['IM1']);
+			// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+			// 					{
+			// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+			// 						delete output_obj[ i ];
 
-// //	:p_images_arr = pet.images
+			// 					}
+			// 					else
+			// 					{
 
-// 				//output_obj[i]['type']
+			// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+			// 						console.log("behåller:" + output_obj[ i ].name);
+			// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+			// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
 
-// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
-// 					{
-// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
-// 						delete output_obj[ i ];
+			// 						console.log("och detta:" + output_obj[ i ]);
 
-// 					}
-// 					else
-// 					{
+			// console.log("#######" + output_obj[ i ]['image1'] + b1)
+			// 			//	var b1 = output_obj[i]['p_images_arr'][0];
 
-// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+			// 					}
+			// 			}
 
-// 						console.log("behåller:" + output_obj[ i ].name);
-// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
-// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+			// 	console.log(output_obj);
+			// 	return output_obj;
+			// 	},
 
-// 						console.log("och detta:" + output_obj[ i ]);
+			filter_by_pet_type(category) {
+				//alla katt hund häst fisk kanin
 
-// console.log("#######" + output_obj[ i ]['image1'] + b1)
-// 			//	var b1 = output_obj[i]['p_images_arr'][0];
+				//
+				//
+				//
+				console.log('filter_by_pet_type ' + category);
+				switch (category) {
+					case 'katt':
+						this.current_pet_list = this.keep_only_type('katt');
+						break;
+					case 'hund':
+						this.current_pet_list = this.keep_only_type('hund');
+						break;
+					case 'häst':
+						this.current_pet_list = this.keep_only_type('häst');
+						break;
+					case 'fisk':
+						this.current_pet_list = this.keep_only_type('fisk');
+						break;
+					case 'kanin':
+						this.current_pet_list = this.keep_only_type('kanin');
+						break;
+					default:
+						this.current_pet_list = this.full_pet_list;
+				}
+			},
 
-			
-
-// 					}
-// 			}
-
-// 	console.log(output_obj);
-// 	return output_obj;
-// 	},
-
-
-		filter_by_pet_type(category)
-		{
-//alla katt hund häst fisk kanin
-
-// 
-// 
-// 
-	console.log("filter_by_pet_type " + category);
-	switch(category) {
-
-  case 'katt':
-    this.current_pet_list = this.keep_only_type('katt');
-    break;
-  case 'hund':
-    this.current_pet_list = this.keep_only_type('hund');
-    break;
-  case 'häst':
-    this.current_pet_list = this.keep_only_type('häst');
-    break;
-  case 'fisk':
-    this.current_pet_list = this.keep_only_type('fisk');
-    break;
-  case 'kanin':
-    this.current_pet_list = this.keep_only_type('kanin');
-    break;
-  default:
-    this.current_pet_list = this.full_pet_list;
-}
-},
-
-
-			// Tömmer innehållet i kundvagn (petCart) i localStorage
-	purgeCart()
-	{
-//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
-localStorage.removeItem('petCart');
-		alert("Kundvagnen är tom");
-	}
-			,
-
-				add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i kundvagnen:\nID: " + id_);
+			// Tömmer innehållet i varukorg (petCart) i localStorage
+			purgeCart() {
+				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
+				localStorage.removeItem('petCart');
+				alert('varukorgen är tom');
+			},
+			add_to_cart(id_, na_) {
+				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
 
 				// 1 Hämta tidigare innehåll i localStorage (en array)
 				let cart;
@@ -191,10 +214,10 @@ localStorage.removeItem('petCart');
 				// 3 Sätt localStorage till det nya objektet
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// 4 (Ev.) meddela vad som ligger i localStorage (kundvagnen) nu
+				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
 				this.displayCartContents();
 			},
-			// Alerta innehållet i kundvagn (petCart) i Localstorage
+			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];
@@ -203,61 +226,52 @@ localStorage.removeItem('petCart');
 					utarr.push(i + ' (' + fetched_cart[i] + ')');
 				}
 
-
-
-
 				alert('Innehåll i petCart (i localStorage) nu:\n\n' + utarr.join('\n'));
 			},
 
+			keep_only_type(pet_type_to_show) {
+				let full = this.full_pet_list;
 
+				let output_obj = new Object();
 
-	keep_only_type(pet_type_to_show)
-	{ 
-		let full = this.full_pet_list;
+				//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+				output_obj = { ...full };
 
+				for (let i in output_obj) {
+					var b1 = output_obj[i];
 
-			let output_obj = new Object();
+					console.log(b1);
 
-			//https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
-			output_obj = { ...full };
+					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
 
-			for (let i in output_obj) {
-				var b1 = output_obj[i];
+					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
+					//['IM1']);
 
-				console.log(b1);
+					//	:p_images_arr = pet.images
 
-				output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
+					//output_obj[i]['type']
 
-				console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
-				//['IM1']);
+					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
 
-				//	:p_images_arr = pet.images
+					if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
+						console.log('tar bort:' + output_obj[i] + output_obj[i].name);
+						delete output_obj[i];
+					} else {
+						//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
 
-				//output_obj[i]['type']
+						console.log('behåller:' + output_obj[i].name);
+						console.log('den har denna image1:' + output_obj[i]['image1']);
+						console.log('den har denna IM1:' + output_obj[i]['IM1']);
 
-				console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
+						console.log('och detta:' + output_obj[i]);
 
-				if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
-					console.log('tar bort:' + output_obj[i] + output_obj[i].name);
-					delete output_obj[i];
-				} else {
-					//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
-
-					console.log('behåller:' + output_obj[i].name);
-					console.log('den har denna image1:' + output_obj[i]['image1']);
-					console.log('den har denna IM1:' + output_obj[i]['IM1']);
-
-					console.log('och detta:' + output_obj[i]);
-
-					console.log('#######' + output_obj[i]['image1'] + b1);
-					//	var b1 = output_obj[i]['p_images_arr'][0];
+						console.log('#######' + output_obj[i]['image1'] + b1);
+						//	var b1 = output_obj[i]['p_images_arr'][0];
+					}
 				}
-			}
 				console.log(output_obj);
 				return output_obj;
-			
 			}
-
 		},
 		created() {
 			//this.picture_1 = this.p_images_arr[0];
@@ -284,7 +298,7 @@ localStorage.removeItem('petCart');
 
 	.linklike {
 		cursor: pointer;
-		font-family: 'Roboto Medium', 'Roboto','Roboto Mono' !important;
+		font-family: 'Roboto Medium', 'Roboto', 'Roboto Mono' !important;
 		color: #333333;
 	}
 
@@ -293,10 +307,9 @@ localStorage.removeItem('petCart');
 		color: black;
 	}
 
-
 	.listing_header {
-		font-family:  'Roboto Medium', 'Roboto','Roboto Mono' !important;
-		
+		font-family: 'Roboto Medium', 'Roboto', 'Roboto Mono' !important;
+		color: black;
 	}
 
 	/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
@@ -310,6 +323,99 @@ localStorage.removeItem('petCart');
 		margin-bottom: 14px;
 		cursor: pointer;
 		flex-basis: 25%;
- 
+	}
+
+	.badgelike {
+		font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+		cursor: pointer;
+		line-height: 11px;
+		font-size: 13px !important;
+		background: #faac77;
+		padding: 5px;
+		border: 1px solid black;
+		color: black;
+		margin: 0px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		margin-right: 3px;
+	}
+
+	.petHeaders {
+		color: #aaa;
+
+		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
+		background: rgb(238, 238, 238); /* Old browsers */
+		background: -moz-linear-gradient(top, rgb(238, 238, 238) 47%, rgb(204, 204, 204) 99%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(
+			top,
+			rgb(238, 238, 238) 47%,
+			rgb(204, 204, 204) 99%
+		); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(
+			to bottom,
+			rgb(238, 238, 238) 47%,
+			rgb(204, 204, 204) 99%
+		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+		padding: 5px;
+		margin-top: 15px;
+	}
+
+	.badgelike:hover {
+		background-color: white;
+	}
+
+	.cartspan {
+		font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+		cursor: pointer;
+		font-size: 13px !important;
+		background: white;
+		padding: 5px;
+		padding-left: 23px;
+		padding-right: 23px;
+		border: 1px solid grey;
+		color: black;
+		margin-top: 2px;
+		margin-bottom: 1px;
+		margin-right: 3px;
+	}
+
+	.cartspan:hover {
+		background: #faac77;
+	}
+
+	.cartdiv {
+		font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
+		cursor: pointer;
+
+		background: white;
+		padding: 6px;
+		border: none;
+		color: black;
+		margin-top: 11px;
+		margin-bottom: 15px;
+		min-height: 33px;
+
+		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
+		background: rgb(238, 238, 238); /* Old browsers */
+		background: -moz-linear-gradient(top, rgb(238, 238, 238) 47%, rgb(204, 204, 204) 99%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(
+			top,
+			rgb(238, 238, 238) 47%,
+			rgb(204, 204, 204) 99%
+		); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(
+			to bottom,
+			rgb(238, 238, 238) 47%,
+			rgb(204, 204, 204) 99%
+		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	}
+
+	#mainbg {
+		padding: 16px;
+		background-color: #aaaaaa;
+		margin-top: 9px;
 	}
 </style>

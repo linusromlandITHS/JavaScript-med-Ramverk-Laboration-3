@@ -31,12 +31,12 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button>Varukorgen</Button>
+						<Button>Varukorgen <i class="bi bi-cart" /></Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">
 					<li><RouterLink to="/">Hem</RouterLink></li>
-					<li><RouterLink to="/petlisting">Våra Djur</RouterLink></li>
+					<li><RouterLink to="/petlisting">Våra djur</RouterLink></li>
 					<li><RouterLink to="/contact">Kontakt</RouterLink></li>
 					<li><RouterLink to="/about">Om oss</RouterLink></li>
 				</div>

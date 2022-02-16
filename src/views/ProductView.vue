@@ -79,8 +79,10 @@
 <template>
 	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
 		<div class="col-12 col-md-8 d-flex flex-column">
+			<!-- Slideshow Compoenent that displays the images of the product -->
 			<Slideshow :images="images" />
 
+			<!-- Product Information -->
 			<h1 class="monospace text-black fs-1">{{ product.name }}</h1>
 			<div class="d-flex flex-column flex-md-row">
 				<ul class="list-group col-md-4 col-12 me-4 mb-2">
@@ -98,12 +100,15 @@
 			</div>
 			<div class="align-self-center">
 				<p class="monospace text-black text-center fs-2">SEK{{ product.price }}:-</p>
-				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I KUNDVAGN</Button>
+				<Button :alternative="false" :disabled="false" @clicked="addToCart">LÄGG I VARUKORG</Button>
 			</div>
 		</div>
+
+		<!-- Recommended Products -->
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
 			<h2 class="text-black">Liknande Produkter:</h2>
 			<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
+				<!-- Product Card Component that displays recommended products -->
 				<ProductCard
 					:p_id="recommendedProduct.id"
 					:p_name="recommendedProduct.name"
@@ -119,14 +124,17 @@
 	</div>
 </template>
 <style>
+	/** Serif Font (Noto Serif) */
 	.serif {
 		font-family: 'Noto Serif', serif;
 	}
 
+	/** Monospace Font (Noto Mono) */
 	.monospace {
 		font-family: 'Noto Mono', monospace;
 	}
 
+	/** Sets slideshow height */
 	#slideshow {
 		height: 300px;
 	}
