@@ -84,28 +84,32 @@
 </template>
 
 <style>
-	jumbotron {
-		color: black;
-		border: 1px solid black;
-	}
-	container {
-		height: 600px;
-		width: 600px;
+jumbotron{ 
 
-		margin: 111px;
-		padding: 111px;
-		color: black;
-		border: 1px solid red;
-	}
+	color:black;
+	border:1px solid black;
+}
+container{ 
 
-	badge {
-		font-size: 23px !important;
-	}
+	height: 600px;
+	width: 600px;
 
-	.badgelike {
-		line-height: 25px;
-		font-size: 23px !important;
-		background-color: red !important;
-		border: 1px dashed yellow;
-	}
+	margin:111px;
+	padding:111px;
+	color:black;
+	border:1px solid red;
+}
+
+badge{ 
+	font-size: 23px !important;
+}
+
+
+.badgelike{ 
+	line-height:25px;
+	font-size: 23px !important;
+background-color: red  !important;
+border:1px dashed yellow;
+}
+
 </style>
