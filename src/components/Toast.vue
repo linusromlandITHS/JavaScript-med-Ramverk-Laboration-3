@@ -1,9 +1,8 @@
-<!-- 
+<!--
 <template>
 
 
 <div id="#app">
-  <!-- Your vue application -->
   <vue-toastr ref="mytoast"></vue-toastr>
 </div>
 
