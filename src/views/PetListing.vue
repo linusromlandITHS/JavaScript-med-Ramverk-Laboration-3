@@ -28,7 +28,7 @@
 				color: black;
 				padding: 12px;
 				text-align: center;
-				max-width: 82%;
+				max-width: 78%;
 				margin-right: auto;
 				margin-left: auto;
 			"
@@ -359,7 +359,6 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 
 		padding: 5px;
-		border: 1px grey solid;
 		margin-top: 15px;
 	}
 
@@ -373,6 +372,8 @@
 		font-size: 13px !important;
 		background: white;
 		padding: 5px;
+		padding-left: 23px;
+		padding-right: 23px;
 		border: 1px solid grey;
 		color: black;
 		margin-top: 2px;
@@ -390,11 +391,10 @@
 
 		background: white;
 		padding: 6px;
-		border: 1px solid grey;
+		border: none;
 		color: black;
 		margin-top: 11px;
 		margin-bottom: 15px;
-		margin-right: 3px;
 		min-height: 33px;
 
 		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
