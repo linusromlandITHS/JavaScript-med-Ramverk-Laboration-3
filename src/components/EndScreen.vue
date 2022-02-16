@@ -89,11 +89,11 @@
 		</table>
 		<div class="container" id="table">
 			<div class="card px-4">
-				<p class="h8 py-3">Betalnings information:</p>
+				<p class="h8 py-3">Betalningsinformation:</p>
 				<div class="row gx-3">
 					<div class="col-12">
 						<div class="d-flex flex-column">
-							<p class="text mb-1">Namn och efternamn</p>
+							<p class="text mb-1">För- och efternamn</p>
 							<input
 								class="form-control mb-3"
 								type="text"
@@ -104,13 +104,13 @@
 					</div>
 					<div class="col-12">
 						<div class="d-flex flex-column">
-							<p class="text mb-1">Kort nummer</p>
+							<p class="text mb-1">Kortnummer</p>
 							<input class="form-control mb-3" type="text" placeholder="1234 5678 435678" />
 						</div>
 					</div>
 					<div class="col-6">
 						<div class="d-flex flex-column">
-							<p class="text mb-1">Ut-datum</p>
+							<p class="text mb-1">Utgångsdatum</p>
 							<input class="form-control mb-3" type="text" placeholder="MM/YYYY" />
 						</div>
 					</div>
@@ -147,13 +147,13 @@
 						</div>
 						<div class="col-12">
 							<div class="d-flex flex-column">
-								<p class="text mb-1">postnummer och ort</p>
+								<p class="text mb-1">Postnummer och ort</p>
 								<input class="form-control mb-3" type="text" placeholder="414 76 Göteborg" />
 							</div>
 						</div>
 						<div class="col-6">
 							<div class="d-flex flex-column">
-								<p class="text mb-1">Telefon nummer</p>
+								<p class="text mb-1">Telefonnummer</p>
 								<input class="form-control mb-3" type="text" placeholder="070*******" />
 							</div>
 						</div>
