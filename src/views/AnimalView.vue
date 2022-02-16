@@ -117,7 +117,6 @@ badge{
 
 
 .badgelike{ 
-	
 	line-height:25px;
 	font-size: 23px !important;
 background-color: red  !important;
