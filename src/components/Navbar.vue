@@ -31,7 +31,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button>Varukorgen</Button>
+						<Button>Varukorgen <i class="bi bi-cart" /></Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">

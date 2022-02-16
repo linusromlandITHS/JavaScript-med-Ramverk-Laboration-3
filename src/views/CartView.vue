@@ -76,7 +76,7 @@
 							<p>{{ cartItem.type }}</p>
 						</div>
 						<p id="price">{{ cartItem.price + ' kr' }}</p>
-						<p id="removeItem" @click="deleteItem">X</p>
+						<p id="removeItem" @click="deleteItem"><i class="bi bi-x" /></p>
 					</li>
 				</ol>
 			</div>
@@ -138,6 +138,12 @@
 		display: flex;
 		height: 80px;
 		margin-top: 15px;
+	}
+
+	.bi-x {
+		color: #ff0000;
+		font-size: 25px;
+		margin-right: 10px;
 	}
 
 	/* | ------------------------ Max-width ----------------------------- | */
@@ -216,7 +222,7 @@
 	#itemPicture {
 		height: 90%;
 		margin: 5px 0 0px 5px;
-		max-width: 96px;
+		width: 96px;
 	}
 
 	#price {
@@ -229,11 +235,6 @@
 	#productText {
 		margin-left: 5%;
 		width: 10%;
-	}
-
-	#removeItem {
-		color: #ff0000;
-		margin: 5px 10px 0 0;
 	}
 
 	#totalAmount {
