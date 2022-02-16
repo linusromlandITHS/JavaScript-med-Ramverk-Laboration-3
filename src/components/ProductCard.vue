@@ -7,11 +7,6 @@
 			Button
 		},
 		props: {
-			data: {
-				type: Object,
-				required: true
-			},
-			// NYTT
 			p_id: {
 				type: String,
 				required: true

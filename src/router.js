@@ -54,10 +54,13 @@ const router = createRouter({
 	]
 });
 
-router.beforeEach((to, from, next) =>
-{
+router.beforeEach((to, from, next) => {
 	//Before each route, updates the title of page to match name attribute of route
 	document.title = `${String(to.name)} | Red Mountain Ranch`;
+
+	//Scroll to top of page
+	window.scrollTo(0, 0);
+
 	next();
 });
 
