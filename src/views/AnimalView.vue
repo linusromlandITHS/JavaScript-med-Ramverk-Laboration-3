@@ -1,6 +1,4 @@
 <script>
-	import ProductCard from '../components/ProductCard.vue';
-
 	export default {
 		name: 'DjurView',
 		data() {
@@ -33,8 +31,7 @@
 			}
 			htmlarr.push('</table>');
 			this.djurtabell = htmlarr.join('');
-		},
-		components: { ProductCard }
+		}
 	};
 </script>
 
@@ -84,32 +81,28 @@
 </template>
 
 <style>
-jumbotron{ 
+	jumbotron {
+		color: black;
+		border: 1px solid black;
+	}
+	container {
+		height: 600px;
+		width: 600px;
 
-	color:black;
-	border:1px solid black;
-}
-container{ 
+		margin: 111px;
+		padding: 111px;
+		color: black;
+		border: 1px solid red;
+	}
 
-	height: 600px;
-	width: 600px;
+	badge {
+		font-size: 23px !important;
+	}
 
-	margin:111px;
-	padding:111px;
-	color:black;
-	border:1px solid red;
-}
-
-badge{ 
-	font-size: 23px !important;
-}
-
-
-.badgelike{ 
-	line-height:25px;
-	font-size: 23px !important;
-background-color: red  !important;
-border:1px dashed yellow;
-}
-
+	.badgelike {
+		line-height: 25px;
+		font-size: 23px !important;
+		background-color: red !important;
+		border: 1px dashed yellow;
+	}
 </style>
