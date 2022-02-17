@@ -1,9 +1,8 @@
-<!-- 
+<!--
 <template>
 
 
 <div id="#app">
-  <!-- Your vue application -->
   <vue-toastr ref="mytoast"></vue-toastr>
 </div>
 
@@ -16,7 +15,7 @@ import App from "./App.vue";
 // import plugin
 import VueToastr from "vue-toastr";
 // register component
-Vue.component("vue-toastr", VueToastr);
+Vue.component("VueToastr", VueToastr);
 
 Vue.config.productionTip = false;
 // for more details about using component please check vue.js documentation out.

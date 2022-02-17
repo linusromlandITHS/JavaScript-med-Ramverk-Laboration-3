@@ -11,11 +11,10 @@
 		},
 
 		methods: {
-			// deleteItem-function by David Sabel
-			deleteItem(index) {
-				//deletes the index of that row
-				this.cartItems.splice(index, 1);
-				//calculates the new total price.
+			removeItem(itemId) {
+				// Remove the current item by ID
+				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
+				//calculates the new total price. (Made by David Sabel)
 				this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 
 				// Update localstorage with the new data
@@ -76,7 +75,7 @@
 							<p>{{ cartItem.type }}</p>
 						</div>
 						<p id="price">{{ cartItem.price + ' kr' }}</p>
-						<p id="removeItem" @click="deleteItem"><i class="bi bi-x" /></p>
+						<p id="removeItem" @click="removeItem(cartItem.id)"><i class="bi bi-x" /></p>
 					</li>
 				</ol>
 			</div>

@@ -50,6 +50,7 @@
 			});
 			this.cartItems = cartItems;
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+			console.log(cartItems);
 		}
 	};
 </script>
