@@ -76,10 +76,10 @@
 					<td @click="deleteItem"><span class="fa fa-trash">X</span></td>
 				</tr>
 				<tr>
-					<th scope="row">Att Betala</th>
+					<th scope="row">Att betala</th>
 					<td>
 						{{ helaPriset + ' kr' }} <br />
-						<span> {{ 'Var av moms ' + helaPriset * 0.25 + ' kr' }} </span>
+						<span> {{ 'Varav moms ' + helaPriset * 0.25 + ' kr' }} </span>
 					</td>
 					<td />
 					<td />

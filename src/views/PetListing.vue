@@ -372,8 +372,8 @@
 		font-size: 13px !important;
 		background: white;
 		padding: 5px;
-		padding-left: 23px;
-		padding-right: 23px;
+		padding-left: px;
+		padding-right: 8px;
 		border: 1px solid grey;
 		color: black;
 		margin-top: 2px;
