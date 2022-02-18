@@ -10,7 +10,6 @@
 				tabTitles,
 				selectedTitle
 			};
-			
 		}
 	};
 </script>

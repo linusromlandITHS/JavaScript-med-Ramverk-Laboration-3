@@ -2,7 +2,6 @@
 	<transition>
 		<div
 			style="
-
 				background: white;
 
 				color: black;
@@ -79,7 +78,7 @@
 		},
 		data() {
 			return {
-				nn:123,
+				nn: 123,
 				current_pet_list: null,
 				full_pet_list: null,
 				picture_1: '' //current_pet_list[0]
@@ -173,10 +172,8 @@
 				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 				localStorage.removeItem('petCart');
 
-
-			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
-			this.$store.commit('updateNumInCartBasedOnLS');
-
+				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+				this.$store.commit('updateNumInCartBasedOnLS');
 			},
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
@@ -271,12 +268,8 @@
 					this.current_pet_list = this.full_pet_list;
 				});
 
-				
-
 			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');
-
-
 		}
 	};
 </script>

@@ -6,9 +6,10 @@
 			Button
 		},
 		data() {
-			return { logo: '../public/logo.png'
-			//,
-			//num_on_button:0
+			return {
+				logo: '../public/logo.png'
+				//,
+				//num_on_button:0
 			};
 		},
 		watch: {
@@ -34,7 +35,12 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button>Varukorgen <i class="bi bi-cart" /> <span class="badge span_number_of_items_in_cart">{{ $store.state.numOfItemsInCart }}</span></Button>
+						<Button
+							>Varukorgen <i class="bi bi-cart" />
+							<span class="badge span_number_of_items_in_cart">{{
+								$store.state.numOfItemsInCart
+							}}</span></Button
+						>
 					</RouterLink>
 				</div>
 				<div class="menu-items">
@@ -61,18 +67,16 @@
 		font-family: 'Poppins', sans-serif;
 	}
 
+	.span_number_of_items_in_cart {
+		text-align: center;
+		background-color: #0e2431;
+		margin-left: 15px;
 
-.span_number_of_items_in_cart{
- text-align:center;
-background-color: #0e2431;
-margin-left: 15px;
-
-padding:8px;
-padding-right:9px; 
-padding-top:5px; 
-padding-bottom:4px; 
-}
-
+		padding: 8px;
+		padding-right: 9px;
+		padding-top: 5px;
+		padding-bottom: 4px;
+	}
 
 	.container {
 		max-width: 1050px;
