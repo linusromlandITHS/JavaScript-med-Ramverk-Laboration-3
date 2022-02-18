@@ -10,6 +10,17 @@
 				showTwo: true
 			};
 		},
+
+
+		created() {
+	
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
+
+		},
+
 		methods: {
 			deleteItem(index) {
 				//deletes the index of that row
@@ -17,6 +28,12 @@
 				//calculates the new total price.
 				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 				//this.localStorage.removeItem(index, 1);
+
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
+
 			},
 			getCart() {
 				if (localStorage.petCart) {

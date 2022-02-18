@@ -32,39 +32,41 @@ const mutations = {
 		// ANTAL SAKER I KUNDVAGNEN EFTER ÄNDRING
 		state.numOfItemsInCart = Object.keys(cart).length;
 
-	},
-
-
-
-	// 220218: Number of items in cart to display on button
-	incrementNumInCart(state)
-	{
-		//alert("anropar incrementNumInCart")
-		state.numOfItemsInCart += 1;
-		//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
-	},
-
-
-	// 220218: Number of items in cart to display on button
-	NumInCartToZero(state)
-	{
-		//alert("anropar NumInCartToZero")
-		state.numOfItemsInCart = 0;
-		//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
-	},
-
-
-	// 220218: showCurrentNumInCart
-	// This method is called eg. on reload to update the 
-	// "Number of items in cart to display on button"
-	// with what IS ALREADY in the localstorage cart ("NUM")
-	// -- This method is run on "created" (not on button click)
-	showCurrentNumInCart(state, NUM)
-	{
-		//alert("anropar incrementNumInCart")
-		state.numOfItemsInCart = NUM;
-		//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
 	}
+
+	// ,
+
+
+
+	// // 220218: Number of items in cart to display on button
+	// incrementNumInCart(state)
+	// {
+	// 	//alert("anropar incrementNumInCart")
+	// 	state.numOfItemsInCart += 1;
+	// 	//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
+	// },
+
+
+	// // 220218: Number of items in cart to display on button
+	// NumInCartToZero(state)
+	// {
+	// 	//alert("anropar NumInCartToZero")
+	// 	state.numOfItemsInCart = 0;
+	// 	//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
+	// },
+
+
+	// // 220218: showCurrentNumInCart
+	// // This method is called eg. on reload to update the 
+	// // "Number of items in cart to display on button"
+	// // with what IS ALREADY in the localstorage cart ("NUM")
+	// // -- This method is run on "created" (not on button click)
+	// showCurrentNumInCart(state, NUM)
+	// {
+	// 	//alert("anropar incrementNumInCart")
+	// 	state.numOfItemsInCart = NUM;
+	// 	//alert("HÄR\n" + this.numOfItemsInCart + "\n" + + "\n" + + "\n" + + "\n")
+	// }
 
 
 
