@@ -61,8 +61,8 @@
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
 
-			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
-			this.$store.commit('updateNumInCartBasedOnLS');
+				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+				this.$store.commit('updateNumInCartBasedOnLS');
 
 				// TODO Add toast message to indicate product was added to cart
 			}
