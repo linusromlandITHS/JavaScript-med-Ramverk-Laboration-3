@@ -7,6 +7,13 @@
 		components: {
 			Button
 		},
+		created(){
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
+
+		},
 		methods: {
 			onClick() {
 				this.$router.push({ path: '/petlisting' });

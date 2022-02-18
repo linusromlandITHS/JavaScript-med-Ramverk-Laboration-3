@@ -2,28 +2,8 @@
 	<transition>
 		<div
 			style="
-				/* background-color: #aaaaaa !important; */
 
-				/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#aaaaaa+1,eeeeee+91 */
-				background: rgb(170, 170, 170); /* Old browsers */
-				background: -moz-radial-gradient(
-					center,
-					ellipse cover,
-					rgb(170, 170, 170) 1%,
-					rgb(238, 238, 238) 91%
-				); /* FF3.6-15 */
-				background: -webkit-radial-gradient(
-					center,
-					ellipse cover,
-					rgb(170, 170, 170) 1%,
-					rgb(238, 238, 238) 91%
-				); /* Chrome10-25,Safari5.1-6 */
-				background: radial-gradient(
-					ellipse at center,
-					rgb(170, 170, 170) 1%,
-					rgb(238, 238, 238) 91%
-				); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+				background: white;
 
 				color: black;
 				padding: 12px;
@@ -99,6 +79,7 @@
 		},
 		data() {
 			return {
+				nn:123,
 				current_pet_list: null,
 				full_pet_list: null,
 				picture_1: '' //current_pet_list[0]
@@ -191,7 +172,11 @@
 			purgeCart() {
 				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 				localStorage.removeItem('petCart');
-				alert('varukorgen är tom');
+
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
 			},
 			add_to_cart(id_, na_) {
 				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
@@ -215,7 +200,7 @@
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
 				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
-				this.displayCartContents();
+				//this.displayCartContents();
 			},
 			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
@@ -285,6 +270,13 @@
 					// Börja med att lista alla djur;
 					this.current_pet_list = this.full_pet_list;
 				});
+
+				
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
+
 		}
 	};
 </script>
@@ -344,20 +336,7 @@
 		color: #aaa;
 
 		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
-		background: rgb(238, 238, 238); /* Old browsers */
-		background: -moz-linear-gradient(top, rgb(238, 238, 238) 47%, rgb(204, 204, 204) 99%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(
-			top,
-			rgb(238, 238, 238) 47%,
-			rgb(204, 204, 204) 99%
-		); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(
-			to bottom,
-			rgb(238, 238, 238) 47%,
-			rgb(204, 204, 204) 99%
-		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
-
+		background: white;
 		padding: 5px;
 		margin-top: 15px;
 	}
@@ -397,20 +376,7 @@
 		margin-bottom: 15px;
 		min-height: 33px;
 
-		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
-		background: rgb(238, 238, 238); /* Old browsers */
-		background: -moz-linear-gradient(top, rgb(238, 238, 238) 47%, rgb(204, 204, 204) 99%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(
-			top,
-			rgb(238, 238, 238) 47%,
-			rgb(204, 204, 204) 99%
-		); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(
-			to bottom,
-			rgb(238, 238, 238) 47%,
-			rgb(204, 204, 204) 99%
-		); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+		background: white;
 	}
 
 	#mainbg {

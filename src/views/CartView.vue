@@ -21,6 +21,11 @@
 				let lsCart = {};
 				this.cartItems.forEach((item) => (lsCart[item.id] = item.name));
 				localStorage.setItem('petCart', JSON.stringify(lsCart));
+
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
 			},
 
 			onClick() {

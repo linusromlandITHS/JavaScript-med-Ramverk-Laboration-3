@@ -1,5 +1,6 @@
 <script>
 	import Button from './Button.vue';
+	
 
 	export default {
 		name: 'ProductCard',
@@ -95,6 +96,7 @@
 					cart = {}; //sessionStorage.getItem('petCart');
 				}
 
+
 				// 2 Lägg till det aktuella id:t till hämtat obj
 				// Lägger till aktuellt djur
 				cart[id_] = na_;
@@ -103,8 +105,19 @@
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
 				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
-				this.displayCartContents();
+				// this.displayCartContents();
+
+				// ANTAL SAKER I KUNDVAGNEN EFTER NYTT TILLÄGG
+				let numOfItemsInCart = Object.keys(cart).length + 1;
+
+
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+
 			},
+
+
 			// Alerta innehållet i varukorg (petCart) i Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
@@ -133,7 +146,7 @@
 		<div class="text">{{ shorter_text_description }}</div>
 		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
-	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i varukorg</Button>
+	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name);">lägg i varukorg</Button>
 </template>
 
 <style scoped>
