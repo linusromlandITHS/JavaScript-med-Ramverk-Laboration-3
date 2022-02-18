@@ -108,7 +108,7 @@
 				// this.displayCartContents();
 
 				// ANTAL SAKER I KUNDVAGNEN EFTER NYTT TILLÄGG
-				let numOfItemsInCart = Object.keys(cart).length + 1;
+				//let numOfItemsInCart = Object.keys(cart).length + 1;
 
 
 
