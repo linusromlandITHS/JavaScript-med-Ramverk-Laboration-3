@@ -228,6 +228,25 @@
 			],
 			"price": 149,
 			"description": "Bosse är en huskatt på 8 år. Han bor för närvarande i en familj med vuxna och två barn vilket han tycker är väldigt irriterande. Han gillar att gå ut och bråka med grannkatten eller jaga möss. Hans päls är svart och vit och hans familj tycker att han är väldigt irriterande. Bosse är en myskatt som gärna ligger nära om han känner sig bekväm. Viktigt att han får massa kärlek och lugn och ro för att känna sig trygg. Då är han världens gosigaste katt som gärna blir kliad på magen. Drar sig gärna undan när det blir för stökigt och högljutt. Leker gärna med hårband."
+		},
+		{
+			"id": "fec0c684-03ed-43fe-9d9b-27569e90b5a2",
+			"name": "Sickan",
+			"type": "Hund",
+			"breed": "Jack Russell",
+			"sex": "Male",
+			"categories": ["Sällskapsdjur"],
+			"color": "Brun/Vit",
+			"temperament": "Lugn",
+			"age": 1,
+			"images": [
+				"fec0c684-03ed-43fe-9d9b-27569e90b5a2/0.webp",
+				"fec0c684-03ed-43fe-9d9b-27569e90b5a2/1.webp",
+				"fec0c684-03ed-43fe-9d9b-27569e90b5a2/2.webp",
+				"fec0c684-03ed-43fe-9d9b-27569e90b5a2/3.webp"
+			],
+			"price": 14999,
+			"description": "Han heter Sickan och är en renrasig Jack Russell, släthårig. Han är hur mysig som helst och älskar att sova I ens famn och nära en. Han älskar att springa loss på gräsmattor och jaga bollar. Han älskar att bita I händer, men slutar när man ger honom en leksak. Han är väldigt nyfiken och vill hälsa på alla, barn som äldre och hundar. Han gillar inte när det blåser eller regnar, men är det soligt så får man bära hem honom."
 		}
 	]
 }
