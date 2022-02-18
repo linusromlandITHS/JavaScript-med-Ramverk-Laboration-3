@@ -60,7 +60,6 @@
 				//Save cart to local storage
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
@@ -122,7 +121,7 @@
 					:p_type="recommendedProduct.type"
 					:p_one_picture="recommendedProduct.images[0]"
 					:p_description="recommendedProduct.description"
-			/>
+				/>
 			</div>
 		</div>
 	</div>

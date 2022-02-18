@@ -1,15 +1,12 @@
 <template>
-
-<div style="/*background-image: url(../assets/farm.jpg);background-size: cover;background-repeat: no-repeat;*/">
-
-	<!-- Navbar  -->
-	<Navbar />
-
-	<router-view v-slot="{ Component }">
-		<transition name="fade">
-			<component :is="Component" style="background:white" />
-		</transition>
-	</router-view>
+	<div style="/*background-image: url(../assets/farm.jpg);background-size: cover;background-repeat: no-repeat;*/">
+		<!-- Navbar  -->
+		<Navbar />
+		<router-view v-slot="{ Component }">
+			<transition name="fade">
+				<component :is="Component" style="background: white" />
+			</transition>
+		</router-view>
 	</div>
 </template>
 
