@@ -10,7 +10,8 @@
 				inputName: '',
 				nollaAllt: '',
 				url: null,
-				ereSant: false
+				ereSant: false,
+				finalNameErr: ''
 			};
 		},
 		methods: {
@@ -29,8 +30,9 @@
 						this.nameEndings[ending] +
 						this.surName[efternamn];
 					this.ereSant = true;
+					this.finalNameErr = '';
 				} else {
-					this.finalName = 'Skriv din katts namn och ladda upp en bild.';
+					this.finalNameErr = 'Skriv din katts namn och ladda upp en bild.';
 				}
 			},
 			onFileChange(e) {
@@ -47,12 +49,13 @@
 		<div id="formDiv">
 			<input type="text" placeholder="Kattens namn" v-model="inputName" />
 			<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
-			<p class="hello">{{ finalName }}</p>
+			<p class="hello">{{ finalNameErr }}</p>
 			<button @click="randomName">KLICK</button>
 		</div>
 		<div id="displayImg" />
 		<div id="preview" v-show="ereSant">
 			<img id="bild" v-if="url" :src="url" />
+			<p v-if="url" id="coolName">{{ finalName }}</p>
 		</div>
 	</div>
 </template>
@@ -74,6 +77,7 @@
 		height: 400px;
 		border-radius: 16px;
 		transition: width 2s, height 4s;
+		position: relative;
 	}
 	#mainDiv {
 		display: flex;
@@ -93,5 +97,12 @@
 		width: 350px;
 		height: 200px;
 		border-radius: 10px;
+	}
+	#coolName {
+		position: absolute;
+		color: white;
+		top: 70%;
+		color: red;
+		font-size: 2em;
 	}
 </style>
