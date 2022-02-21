@@ -1,6 +1,10 @@
 <script>
+	import Button from '../components/Button.vue';
 	export default {
 		name: 'AvelPage',
+		components: {
+			Button
+		},
 		data() {
 			return {
 				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Satan ', 'Young ', 'Lil ', 'Von '],
@@ -56,6 +60,7 @@
 		<div id="preview" v-show="ereSant">
 			<img id="bild" v-if="url" :src="url" />
 			<p v-if="url" id="coolName">{{ finalName }}</p>
+			<Button class="btn btn-secondary">Avla</Button>
 		</div>
 	</div>
 </template>
@@ -103,6 +108,7 @@
 		color: white;
 		top: 70%;
 		color: red;
-		font-size: 2em;
+		background-color: black;
+		font-size: 1.5em;
 	}
 </style>
