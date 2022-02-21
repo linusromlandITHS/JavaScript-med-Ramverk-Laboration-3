@@ -1,4 +1,6 @@
 <script>
+	import AvelPage from '../components/avelPage.vue';
+
 	export default {
 		name: 'EndScreen',
 		data() {
@@ -10,12 +12,10 @@
 				showTwo: true
 			};
 		},
-
 		created() {
 			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');
 		},
-
 		methods: {
 			deleteItem(index) {
 				//deletes the index of that row
@@ -23,7 +23,6 @@
 				//calculates the new total price.
 				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 				//this.localStorage.removeItem(index, 1);
-
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
@@ -38,18 +37,15 @@
 			//emptyStorage() {
 			//	this.localStorage.clear();
 			//},
-
 			async fetchData() {
 				const request = await fetch('/database.json');
 				const result = await request.json();
-
 				return result.animals;
 			}
 		},
 		async mounted() {
 			const items = await this.fetchData();
 			const cart = this.getCart();
-
 			// Pick all keys from the cart and put into an array
 			const itemIds = Object.keys(cart);
 			// Replace every itemId with the full item-object from the database
@@ -60,7 +56,8 @@
 			this.cartItems = cartItems;
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 			console.log(cartItems);
-		}
+		},
+		components: { AvelPage }
 	};
 </script>
 
@@ -173,6 +170,7 @@
 			</div>
 		</template>
 	</div>
+	<AvelPage />
 </template>
 
 <style scoped>
