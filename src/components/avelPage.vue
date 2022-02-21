@@ -39,20 +39,54 @@
 </script>
 
 <template>
-	<div><input type="text" placeholder="Kattens namn" v-model="inputName" /></div>
-	<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
-	<p class="hello">{{ finalName }}</p>
-	<button @click="randomName">KLICK</button>
-	<div id="displayImg" />
-	<div id="preview">
-		<img v-if="url" :src="url" />
+	<div id="mainDiv">
+		<div id="formDiv">
+			<input type="text" placeholder="Kattens namn" v-model="inputName" />
+			<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
+			<p class="hello">{{ finalName }}</p>
+			<button @click="randomName">KLICK</button>
+		</div>
+		<div id="displayImg" />
+		<div id="preview">
+			<img id="bild" v-if="url" :src="url" />
+		</div>
 	</div>
 </template>
 
-<style>
-	#preview {
-		max-width: 100%;
-		max-height: 500px;
+<style scoped>
+	#bild {
+		width: 330px;
+		height: 300px;
 		filter: invert(100%);
+		border-radius: 16px;
+	}
+	#preview {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background-color: #faac77;
+		width: 350px;
+		height: 400px;
+		border-radius: 16px;
+	}
+	#mainDiv {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	#formDiv {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #faac77;
+		flex-direction: column;
+		margin-bottom: 30px;
+		width: 350px;
+		height: 200px;
+		border-radius: 10px;
 	}
 </style>
