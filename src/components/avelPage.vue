@@ -5,34 +5,38 @@
 			return {
 				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Satan ', 'Young ', 'Lil ', 'Von '],
 				nameEndings: ['missan', 'popy', 'prutt'],
-				surName: [' Hellscream', ' Jr', ' Killer'],
+				surName: [' Hellscream', ' Jr', ' Satansdotter', ' Powerwolf', ' Dragonsbreath'],
 				finalName: '',
 				inputName: '',
 				nollaAllt: '',
-				url: null
+				url: null,
+				ereSant: false
 			};
 		},
 		methods: {
 			randomName() {
-				let chosenNumber = Math.floor(Math.random() * this.kickAsName.length);
-				let ending = Math.floor(Math.random() * this.nameEndings.length);
-				let efternamn = Math.floor(Math.random() * this.surName.length);
-				let letters = this.inputName.split('');
-				this.finalName =
-					this.kickAsName[chosenNumber] +
-					letters[0] +
-					letters[1] +
-					letters[2] +
-					letters[3] +
-					this.nameEndings[ending] +
-					this.surName[efternamn];
-				if (this.inputName === '') {
-					this.finalName = 'Skriv din katts namn!';
+				if (this.inputName !== '' && this.url !== null) {
+					let chosenNumber = Math.floor(Math.random() * this.kickAsName.length);
+					let ending = Math.floor(Math.random() * this.nameEndings.length);
+					let efternamn = Math.floor(Math.random() * this.surName.length);
+					let letters = this.inputName.split('');
+					this.finalName =
+						this.kickAsName[chosenNumber] +
+						letters[0] +
+						letters[1] +
+						letters[2] +
+						letters[3] +
+						this.nameEndings[ending] +
+						this.surName[efternamn];
+					this.ereSant = true;
+				} else {
+					this.finalName = 'Skriv din katts namn och ladda upp en bild.';
 				}
 			},
 			onFileChange(e) {
 				const file = e.target.files[0];
 				this.url = URL.createObjectURL(file);
+				console.log(this.url);
 			}
 		}
 	};
@@ -47,7 +51,7 @@
 			<button @click="randomName">KLICK</button>
 		</div>
 		<div id="displayImg" />
-		<div id="preview">
+		<div id="preview" v-show="ereSant">
 			<img id="bild" v-if="url" :src="url" />
 		</div>
 	</div>
@@ -69,6 +73,7 @@
 		width: 350px;
 		height: 400px;
 		border-radius: 16px;
+		transition: width 2s, height 4s;
 	}
 	#mainDiv {
 		display: flex;
