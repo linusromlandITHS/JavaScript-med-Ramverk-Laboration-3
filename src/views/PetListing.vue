@@ -37,6 +37,8 @@
 				<span class="cartspan" @click="purgeCart()">Töm varukorg</span>
 			</div>
 
+			<li><RouterLink to="/petlisting2">Se petlisting2 istället...</RouterLink></li>
+
 			<div
 				id="mainbg"
 				class="d-flex flex-wrap justify-content-center"
@@ -274,7 +276,7 @@
 	};
 </script>
 
-<style>
+<style scoped>
 	* {
 		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;

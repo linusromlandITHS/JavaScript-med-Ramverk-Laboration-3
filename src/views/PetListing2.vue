@@ -185,7 +185,7 @@
 	};
 </script>
 
-<style>
+<style scoped>
 	* {
 		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
