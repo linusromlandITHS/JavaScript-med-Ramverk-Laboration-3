@@ -8,14 +8,19 @@
 		data() {
 			return {
 				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Satan ', 'Young ', 'Lil ', 'Von '],
-				nameEndings: ['missan', 'popy', 'prutt'],
+				nameEndings: ['missan', 'popy', 'snutt', 'laban', 'wolf', 'gädd', 'pop', 'plupp', 'snor'],
 				surName: [' Hellscream', ' Jr', ' Satansdotter', ' Powerwolf', ' Dragonsbreath'],
 				finalName: '',
 				inputName: '',
 				nollaAllt: '',
 				url: null,
 				ereSant: false,
-				finalNameErr: ''
+				finalNameErr: '',
+				isShow: false,
+				isShow2: false,
+				isShow4: false,
+				isShow3: false,
+				avlaFormShow: false
 			};
 		},
 		methods: {
@@ -50,7 +55,45 @@
 
 <template>
 	<div id="mainDiv">
-		<div id="formDiv">
+		<div class="cards">
+			<div @click="isShow = !isShow" class="cardDiv">
+				<img v-show="!isShow" class="cardimg" src="/assets/satancat.jpeg" alt="" />
+				<h3>Catferatu</h3>
+				<p>Lol bub bob pop</p>
+				<div v-show="isShow">
+					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+				</div>
+			</div>
+			<div @click="isShow2 = !isShow2" class="cardDiv">
+				<img v-show="!isShow2" class="cardimg" src="/assets/satancat2.jpeg" alt="" />
+				<h3>Catferatu</h3>
+				<p>Lol bub bob pop</p>
+				<div v-show="isShow2">
+					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+				</div>
+			</div>
+			<div @click="isShow3 = !isShow3" class="cardDiv">
+				<img v-show="!isShow3" class="cardimg" src="/assets/satancat3.jpeg" alt="" />
+				<h3>Catferatu</h3>
+				<p>Lol bub bob pop</p>
+				<div v-show="isShow3">
+					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+				</div>
+			</div>
+			<div @click="isShow4 = !isShow4" class="cardDiv">
+				<img v-show="!isShow4" class="cardimg" src="/assets/satancat.jpeg" alt="" />
+				<h3>Catferatu</h3>
+				<p>Lol bub bob pop</p>
+				<div v-show="isShow4">
+					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+				</div>
+			</div>
+		</div>
+		<div v-show="avlaFormShow" id="formDiv">
 			<input type="text" placeholder="Kattens namn" v-model="inputName" />
 			<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
 			<p class="hello">{{ finalNameErr }}</p>
@@ -66,9 +109,34 @@
 </template>
 
 <style scoped>
+	.cardimg {
+		height: 300px;
+		width: 320px;
+		object-fit: cover;
+	}
+	p {
+		transition: all 1s ease;
+	}
+	.cards {
+		display: flex;
+		flex-direction: row;
+	}
+	.cardDiv {
+		width: 350px;
+		height: auto;
+		margin: 20px;
+		padding: 15px;
+		background-color: black;
+		transition: 2s ease-out;
+	}
+	.cardDiv:hover {
+		background-color: black;
+		filter: invert(100%);
+		cursor: pointer;
+	}
 	#bild {
 		width: 330px;
-		height: 300px;
+		height: auto;
 		filter: invert(100%);
 		border-radius: 16px;
 	}
@@ -77,7 +145,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		background-color: #faac77;
+		background-color: black;
 		width: 350px;
 		height: 400px;
 		border-radius: 16px;
@@ -96,7 +164,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: #faac77;
+		background-color: black;
 		flex-direction: column;
 		margin-bottom: 30px;
 		width: 350px;

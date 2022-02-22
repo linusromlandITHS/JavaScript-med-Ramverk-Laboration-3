@@ -56,6 +56,12 @@ const router = createRouter({
 			name: 'Petlisting2',
 			component: () => import('./views/PetListing2.vue'),
 			path: '/petlisting2'
+		},
+		{
+			// TEMP AVEL
+			name: 'Avel',
+			component: () => import('./components/avelPage.vue'),
+			path: '/avel'
 		}
 	]
 });
