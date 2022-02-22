@@ -54,7 +54,7 @@
 	</section>
 </template>
 
-<style>
+<style scoped>
 	h2,
 	h3 {
 		color: #333c3e;
@@ -138,5 +138,8 @@
 
 	.underTitel > h3 {
 		margin: 0;
+	}
+	body {
+		background-image: url('/src/farm.jpg');
 	}
 </style>
