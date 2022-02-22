@@ -185,7 +185,8 @@
 		max-width: 100%;
 		height: 165px;
 		max-height: 165px;
-
+		margin: auto;
+		margin-top: 5px;
 		margin-bottom: 5px;
 		border-radius: 8px;
 	}

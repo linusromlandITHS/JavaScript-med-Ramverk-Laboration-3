@@ -16,8 +16,12 @@
 					<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
 				</div>
 
-				(Ta bort dessa sedan: <span class="linklike" @click="displayCartContents()">Visa varukorg</span> &nbsp;
-				| &nbsp; <span class="linklike" @click="purgeCart()">Töm varukorg</span>)
+				<small
+					><span class="linklike"> (Ta bort dessa sedan: </span>
+
+					<span class="linklike" @click="displayCartContents()">Visa varukorg</span> &nbsp; | &nbsp;
+					<span class="linklike" @click="purgeCart()">Töm varukorg</span>)</small
+				>
 
 				<div id="cardcontainer" class="d-flex flex-wrap justify-content-center">
 					<!-- style="margin-left: auto; margin-right: auto" -->
@@ -256,9 +260,12 @@
 		color: black;
 		margin: 2px;
 		vertical-align: middle;
+
 		margin-bottom: 4px;
-		margin-top: 4px;
+
 		margin-right: 3px;
+
+		transition: 0.3s;
 	}
 
 	.petHeaders {
@@ -273,6 +280,7 @@
 
 	.badgelike:hover {
 		background-color: white;
+		font-size: 19px;
 	}
 
 	.cartspan {
