@@ -156,6 +156,8 @@
 
 		cursor: pointer;
 		transition: 0.3s ease-out;
+		position: relative;
+		z-index: 2;
 
 		margin-left: auto;
 		margin-right: auto;

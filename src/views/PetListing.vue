@@ -378,5 +378,7 @@
 		padding: 16px;
 		background-color: #aaaaaa;
 		margin-top: 9px;
+		position: relative;
+		z-index: 0;
 	}
 </style>

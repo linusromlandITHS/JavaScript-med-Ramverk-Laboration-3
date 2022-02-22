@@ -78,6 +78,8 @@
 		align-items: center;
 		justify-content: center;
 		animation: gelatine 0.5s infinite;
+		position: relative;
+		z-index: -1;
 	}
 	@keyframes gelatine {
 		from,
