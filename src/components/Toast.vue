@@ -1,38 +1,40 @@
-<!--
+<script>
+	export default {
+		name: 'Toast',
+		props: {
+			message: {
+				type: String,
+				required: true
+			},
+			type: {
+				type: String,
+				required: true,
+				validator: function (value) {
+					return ['success', 'error', 'warning', 'info'].indexOf(value) !== -1;
+				}
+			},
+			position: {
+				type: String,
+				required: false,
+				validator: function (value) {
+					return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].indexOf(value) !== -1;
+				},
+				default: 'top-right'
+			},
+			duration: {
+				type: Number,
+				required: false,
+				validator: function (value) {
+					return value > 0;
+				},
+				default: 3000
+			}
+		}
+	};
+</script>
+
 <template>
-
-
-<div id="#app">
-  <vue-toastr ref="mytoast"></vue-toastr>
-</div>
-
+	<h1>Toast</h1>
 </template>
 
-<script>
-import Vue from "vue";
-import App from "./App.vue";
-
-// import plugin
-import VueToastr from "vue-toastr";
-// register component
-Vue.component("VueToastr", VueToastr);
-
-Vue.config.productionTip = false;
-// for more details about using component please check vue.js documentation out.
-new Vue({
-  render: h => h(App),
-  components: {
-    // "vue-toastr": VueToastr,
-    // VueToastr,
-  },
-  mounted() {
-    // Change default toast position.
-    this.$refs.mytoast.defaultPosition = "toast-top-left";
-    // Send message to browser screen
-    this.$refs.mytoast.s(
-      "This Message From Toastr Plugin\n You can access this plugin : <font color='yellow'>this.$toastr</font>"
-    );
-  }
-}).$mount("#app");
-
-</script> -->
+<style scoped></style>
