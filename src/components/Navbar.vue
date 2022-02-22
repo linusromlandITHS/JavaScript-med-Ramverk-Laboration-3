@@ -35,7 +35,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button
+						<Button id="cartButton"
 							>Varukorgen <i class="bi bi-cart" />
 							<span class="badge span_number_of_items_in_cart">{{
 								$store.state.numOfItemsInCart
@@ -61,6 +61,7 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		z-index: 12;
 	}
 
 	body {
@@ -70,6 +71,7 @@
 	.span_number_of_items_in_cart {
 		text-align: center;
 		background-color: #0e2431;
+
 		margin-left: 15px;
 
 		padding: 8px;
@@ -195,6 +197,12 @@
 		right: 15px;
 		font-size: 1.2rem;
 		color: #0e2431;
+	}
+
+	/* Changed max-width according to feedback - the badge will be further to the right */
+	#cartButton {
+		padding-right: 0px;
+		max-width: 167px;
 	}
 
 	.nav-container input[type='checkbox']:checked ~ .menu-items {

@@ -50,6 +50,12 @@ const router = createRouter({
 			name: 'Petlisting',
 			component: () => import('./views/PetListing.vue'),
 			path: '/petlisting'
+		},
+		{
+			// TEMP ARBETSSIDA FÖR PETLISTING
+			name: 'Petlisting2',
+			component: () => import('./views/PetListing2.vue'),
+			path: '/petlisting2'
 		}
 	]
 });
