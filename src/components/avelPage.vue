@@ -226,6 +226,11 @@
 		display: flex;
 		flex-direction: row;
 	}
+	@media screen and (max-width: 600px) {
+		.cards {
+			flex-direction: column;
+		}
+	}
 	.cardDiv {
 		width: 350px;
 		height: 440px;
