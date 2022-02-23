@@ -9,7 +9,22 @@
 				cartItems: [],
 				helaPriset: 0,
 				show: true,
-				showTwo: true
+				showTwo: true,
+				avelObj: {
+					id: '0d0c26f5-8066-4b6b-a6b1-2ac6c21b32b7',
+					name: 'Avel',
+					type: this.$store.state.namnNyKatt,
+					breed: 'SUPERKATT',
+					sex: 'Female',
+					categories: ['Däggdjur', 'Sällskapsdjur'],
+					color: 'Svart/vit',
+					temperament: 'Feg',
+					age: 1,
+					images: ['0d0c26f5-8066-4b6b-a6b1-2ac6c21b32be/0.jpg'],
+					price: 500,
+					description:
+						'Tossan tillhör de försiktigas skara. Huskatt, blandraskatt eller bondkatt är de officiella benämningarna på alla de katter som saknar stamtavla, och alltså inte är registrerade i någon kattorganisation. Även om båda föräldrarna är registrerade raskatter så kallas avkomman huskatt om den inte registreras.'
+				}
 			};
 		},
 		created() {
@@ -49,11 +64,14 @@
 			// Pick all keys from the cart and put into an array
 			const itemIds = Object.keys(cart);
 			// Replace every itemId with the full item-object from the database
-			const cartItems = itemIds.map((itemID) => {
+			let cartItems = itemIds.map((itemID) => {
 				// Search through the database for the item
 				return items.find((a) => a.id === itemID);
 			});
 			this.cartItems = cartItems;
+			if (this.$store.state.avelPris > 1) {
+				this.cartItems.push(this.avelObj);
+			}
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 			console.log(cartItems);
 		},

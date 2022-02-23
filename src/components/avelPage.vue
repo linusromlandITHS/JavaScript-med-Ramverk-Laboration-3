@@ -133,6 +133,13 @@
 			},
 			reload() {
 				this.location.reload();
+			},
+			AddItem() {
+				this.$store.commit('increment');
+				this.$store.commit('incrementAvel');
+				console.log(this.$store.state.avelPris);
+				this;
+				this.$store.state.namnNyKatt = this.finalName;
 			}
 		},
 		mounted() {
@@ -195,7 +202,7 @@
 			<div id="preview" v-show="ereSant">
 				<img id="bild" v-if="url" :src="url" />
 				<p v-if="url" id="coolName">{{ finalName }}</p>
-				<Button class="btn btn-secondary">Avla</Button>
+				<Button @click="AddItem" class="btn btn-secondary">Avla</Button>
 				<canvas id="canvas1" />
 			</div>
 		</transition>

@@ -34,7 +34,9 @@ const state = {
 	// 220218: Number of items in cart to display on button
 	numOfItemsInCart: 0,
 	// Avelpris
-	avelPris: 0
+	avelPris: 0,
+	namnNyKatt: '',
+	namnAvelKatt: ''
 };
 
 // Creates and exports vuex
