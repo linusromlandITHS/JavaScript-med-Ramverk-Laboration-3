@@ -229,10 +229,10 @@
 	.cardDiv {
 		width: 350px;
 		height: 440px;
-		margin: 20px;
 		padding: 15px;
 		background-color: black;
 		transition: 2s ease-out;
+		border-right: solid 1px #fbc39d;
 	}
 	.cardDiv:hover {
 		background-color: black;

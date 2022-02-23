@@ -32,12 +32,15 @@
 			this.$store.commit('updateNumInCartBasedOnLS');
 		},
 		methods: {
-			deleteItem(index) {
+			deleteItem(itemId) {
 				//deletes the index of that row
-				this.cartItems.splice(index, 1);
+				//this.cartItems.splice(index, 1);
+				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
 				//calculates the new total price.
 				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 				//this.localStorage.removeItem(index, 1);
+				let lsCart = {};
+				this.cartItems.forEach((item) => (lsCart[item.id] = item.name));
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
@@ -98,7 +101,7 @@
 					<td>{{ task.type }}</td>
 					<td>{{ task.breed }}</td>
 					<td>{{ task.price + ' kr' }}</td>
-					<td @click="deleteItem"><span class="fa fa-trash">X</span></td>
+					<td @click="deleteItem(task.id)"><span class="fa fa-trash">X</span></td>
 				</tr>
 				<tr>
 					<th scope="row">Att betala</th>
