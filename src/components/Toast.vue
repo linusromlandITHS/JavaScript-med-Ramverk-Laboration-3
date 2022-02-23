@@ -2,6 +2,10 @@
 	export default {
 		name: 'Toast',
 		props: {
+			title: {
+				type: String,
+				default: 'Notification'
+			},
 			message: {
 				type: String,
 				required: true
@@ -29,12 +33,34 @@
 				},
 				default: 3000
 			}
+		},
+		data() {
+			return {
+				isActive: false,
+				timer: null
+			};
+		},
+		methods: {
+			show() {
+				this.clearTimer();
+
+				this.isActive = true;
+				console.log(this.$props, this.duration);
+
+				this.timer = setTimeout(() => {
+					this.isActive = false;
+				}, this.duration);
+			},
+			clearTimer() {
+				clearTimeout(this.timer);
+				this.timer = null;
+			}
 		}
 	};
 </script>
 
 <template>
-	<h1>Toast</h1>
+	<h1 v-if="isActive">{{ message }}</h1>
 </template>
 
 <style scoped></style>

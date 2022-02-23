@@ -63,7 +63,12 @@
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
-				// TODO Add toast message to indicate product was added to cart
+				// Add toast message to indicate product was added to cart
+				this.$root.showToast({
+					title: 'Cool title br',
+					message: 'svante är inte lika cool som lisse',
+					duration: 1000
+				});
 			}
 		},
 		computed: {
