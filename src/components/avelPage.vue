@@ -143,7 +143,6 @@
 
 <template>
 	<div id="mainDiv" @change.once="reload">
-		<canvas id="canvas1" />
 		<h1>Avla på våra superkatter</h1>
 		<div class="cards">
 			<div @click="isShow = !isShow" class="cardDiv">
@@ -183,18 +182,23 @@
 				</div>
 			</div>
 		</div>
-		<div v-show="avlaFormShow" id="formDiv">
-			<input type="text" placeholder="Kattens namn" v-model="inputName" />
-			<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
-			<p class="hello">{{ finalNameErr }}</p>
-			<button @click="randomName">KLICK</button>
-		</div>
+		<transition name="fade">
+			<div v-show="avlaFormShow" class="formDiv slide-item" name="slide" mode="in-out">
+				<input type="text" placeholder="Kattens namn" v-model="inputName" />
+				<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
+				<p class="hello">{{ finalNameErr }}</p>
+				<button @click="randomName">KLICK</button>
+			</div>
+		</transition>
 		<div id="displayImg" />
-		<div id="preview" v-show="ereSant">
-			<img id="bild" v-if="url" :src="url" />
-			<p v-if="url" id="coolName">{{ finalName }}</p>
-			<Button class="btn btn-secondary">Avla</Button>
-		</div>
+		<transition name="fade">
+			<div id="preview" v-show="ereSant">
+				<img id="bild" v-if="url" :src="url" />
+				<p v-if="url" id="coolName">{{ finalName }}</p>
+				<Button class="btn btn-secondary">Avla</Button>
+				<canvas id="canvas1" />
+			</div>
+		</transition>
 	</div>
 </template>
 
@@ -217,7 +221,7 @@
 	}
 	.cardDiv {
 		width: 350px;
-		height: auto;
+		height: 440px;
 		margin: 20px;
 		padding: 15px;
 		background-color: black;
@@ -254,7 +258,7 @@
 		margin-top: 100px;
 		margin-bottom: 100px;
 	}
-	#formDiv {
+	.formDiv {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -314,5 +318,12 @@
 	article {
 		width: 48%;
 		font-size: 15px;
+	}
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 2s;
+	}
+	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		opacity: 0;
 	}
 </style>

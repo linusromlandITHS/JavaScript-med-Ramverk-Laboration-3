@@ -21,6 +21,9 @@ const mutations = {
 
 		// ANTAL SAKER I KUNDVAGNEN EFTER ÄNDRING/uppdatering/omladdning/etc.
 		state.numOfItemsInCart = Object.keys(cart).length;
+	},
+	incrementAvel(state) {
+		state.avelPris += 500;
 	}
 };
 
@@ -29,7 +32,9 @@ const state = {
 	counter: 0,
 
 	// 220218: Number of items in cart to display on button
-	numOfItemsInCart: 0
+	numOfItemsInCart: 0,
+	// Avelpris
+	avelPris: 0
 };
 
 // Creates and exports vuex

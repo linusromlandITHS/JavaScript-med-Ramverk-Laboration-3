@@ -30,9 +30,6 @@
 </script>
 
 <style>
-	body {
-		background-image: url('/src/farm.jpg');
-	}
 	.scale-slide-enter-active,
 	.scale-slide-leave-active {
 		position: absolute;
