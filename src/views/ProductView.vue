@@ -68,8 +68,7 @@
 					title: 'Cool title br',
 					message: 'svante är inte lika cool som lisse',
 					duration: 1000,
-					type: 'success',
-					position: 'top-left'
+					type: 'success'
 				});
 			}
 		},

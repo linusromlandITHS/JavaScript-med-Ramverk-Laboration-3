@@ -64,14 +64,20 @@
 </script>
 
 <template>
-	<div v-if="isActive" :class="position + ' position-fixed bg-white text-black m-4 shadow rounded'" @click="close">
-		<p :class="type + ' m-0 p-2 pe-5 rounded-top'">{{ title }}</p>
+	<div
+		id="toast"
+		:class="`${
+			isActive ? 'opacity-100' : 'opacity-0'
+		} ${position} position-fixed bg-white text-black m-4 shadow rounded`"
+		@click="close"
+	>
+		<p :class="`${type} m-0 p-2 pe-5 rounded-top`">{{ title }}</p>
 		<p class="p-2 pe-5 m-0">{{ message }}</p>
 	</div>
 </template>
 
 <style scoped>
-	.danger {
+	.error {
 		background-color: red;
 	}
 	.info {
@@ -98,5 +104,14 @@
 	.bottom-right {
 		bottom: 0;
 		right: 0;
+	}
+
+	#toast {
+		transition: scale, opacity 350ms ease-out;
+	}
+
+	#toast:hover {
+		cursor: pointer;
+		scale: 1.01;
 	}
 </style>
