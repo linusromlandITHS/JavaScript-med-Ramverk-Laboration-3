@@ -60,14 +60,13 @@
 				//Save cart to local storage
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+				// Updates the cart count in the navbar (Created by Kenneth)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
 				// Add toast message to indicate product was added to cart
 				this.$root.showToast({
 					title: 'Cool title br',
 					message: 'svante är inte lika cool som lisse',
-					duration: 1000,
 					type: 'success'
 				});
 			}

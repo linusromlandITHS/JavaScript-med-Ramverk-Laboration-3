@@ -24,40 +24,44 @@
 					return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].indexOf(value) !== -1;
 				},
 				default: 'top-right'
-			},
-			duration: {
-				type: Number,
-				required: false,
-				validator: function (value) {
-					return value > 0;
-				},
-				default: 3000
 			}
 		},
 		data() {
 			return {
 				isActive: false,
-				timer: null
+				timer: null,
+				barAnimation: null,
+				timerStartTime: null,
+				barWidth: 0,
+				duration: 3000
 			};
 		},
 		methods: {
 			show() {
 				this.clearTimer();
-
 				this.isActive = true;
-				console.log(this.$props, this.duration);
-
+				this.timerStartTime = Date.now();
 				this.timer = setTimeout(() => {
-					this.isActive = false;
-				}, 15000);
+					this.close();
+				}, this.duration);
+
+				this.barAnimation = setInterval(() => {
+					const value = ((this.duration - (Date.now() - this.timerStartTime)) / this.duration) * 100;
+					this.barWidth = 100 - value;
+					if (value < 0) clearInterval(this.barAnimation);
+				}, 25);
 			},
 			clearTimer() {
 				clearTimeout(this.timer);
+				clearInterval(this.barAnimation);
+				this.timerStartTime = null;
 				this.timer = null;
+				this.barAnimation = null;
+				this.barWidth = 0;
 			},
 			close() {
 				this.isActive = false;
-				this.clearTimer();
+				setTimeout(this.clearTimer, 250);
 			}
 		}
 	};
@@ -73,6 +77,7 @@
 	>
 		<p :class="`${type} m-0 p-2 pe-5 rounded-top`">{{ title }}</p>
 		<p class="p-2 pe-5 m-0">{{ message }}</p>
+		<div id="bar" :class="type" :style="`width: ${barWidth > 100 ? 100 : barWidth}%; height: 5px;`" />
 	</div>
 </template>
 
@@ -113,5 +118,9 @@
 	#toast:hover {
 		cursor: pointer;
 		scale: 1.01;
+	}
+
+	#bar {
+		transition: width 50ms linear;
 	}
 </style>
