@@ -70,7 +70,7 @@
 					// Add toast message to indicate product was already in cart
 					this.$root.showToast({
 						title: 'Varukorgen',
-						message: `${this.product.name} fanns readan i din varukorg!`,
+						message: `${this.product.name} fanns redan i din varukorg!`,
 						type: 'info'
 					});
 				} else {
