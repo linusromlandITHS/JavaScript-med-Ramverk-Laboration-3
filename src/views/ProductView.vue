@@ -54,6 +54,9 @@
 				//Declares cart variable with either empty array or existing cart
 				let cart = localStorage.getItem('petCart') ? JSON.parse(localStorage.getItem('petCart')) : {};
 
+				//Check if product already exists in cart
+				const alreadyInCart = cart[this.product.id] ? true : false;
+
 				//Add product to cart
 				cart[this.product.id] = this.product.name;
 
@@ -63,12 +66,21 @@
 				// Updates the cart count in the navbar (Created by Kenneth)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
-				// Add toast message to indicate product was added to cart
-				this.$root.showToast({
-					title: 'Cool title br',
-					message: 'svante är inte lika cool som lisse',
-					type: 'success'
-				});
+				if (alreadyInCart) {
+					// Add toast message to indicate product was already in cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.product.name} fanns readan i din varukorg!`,
+						type: 'info'
+					});
+				} else {
+					// Add toast message to indicate product was added to cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.product.name} har lagts till i din varukorg.`,
+						type: 'success'
+					});
+				}
 			}
 		},
 		computed: {

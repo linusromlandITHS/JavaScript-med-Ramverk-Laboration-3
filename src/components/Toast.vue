@@ -28,15 +28,19 @@
 		},
 		data() {
 			return {
-				isActive: false,
-				timer: null,
-				barAnimation: null,
-				timerStartTime: null,
-				barWidth: 0,
-				duration: 3000
+				isActive: false, //If the toast should be visible
+				timer: null, //The timer for the toast
+				barAnimation: null, //The animation for the toast
+				timerStartTime: null, //The time the toast was started
+				barWidth: 0, //The width of the toast bar
+				duration: 3000 //The duration of the toast
 			};
 		},
 		methods: {
+			/**
+			 * @name show
+			 * @description Shows the toast
+			 */
 			show() {
 				this.clearTimer();
 				this.isActive = true;
@@ -51,6 +55,10 @@
 					if (value < 0) clearInterval(this.barAnimation);
 				}, 25);
 			},
+			/**
+			 * @name clearTimer
+			 * @description Clears all timers and resets variables
+			 */
 			clearTimer() {
 				clearTimeout(this.timer);
 				clearInterval(this.barAnimation);
@@ -59,6 +67,10 @@
 				this.barAnimation = null;
 				this.barWidth = 0;
 			},
+			/**
+			 * @name close
+			 * @description Closes the toast and resets it.
+			 */
 			close() {
 				this.isActive = false;
 				setTimeout(this.clearTimer, 250);
