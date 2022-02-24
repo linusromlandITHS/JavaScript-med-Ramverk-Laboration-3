@@ -1,5 +1,5 @@
 <template>
-	<div style="/*background-image: url(../assets/farm.jpg);background-size: cover;background-repeat: no-repeat;*/">
+	<div>
 		<!-- Navbar  -->
 		<Navbar />
 		<router-view v-slot="{ Component }">
