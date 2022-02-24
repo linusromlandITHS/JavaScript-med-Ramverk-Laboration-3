@@ -64,7 +64,7 @@
 </script>
 
 <template>
-	<div v-if="isActive" class="position-fixed top-0 end-0 bg-white text-black m-4 shadow rounded" @click="close">
+	<div v-if="isActive" :class="position + ' position-fixed bg-white text-black m-4 shadow rounded'" @click="close">
 		<p :class="type + ' m-0 p-2 pe-5 rounded-top'">{{ title }}</p>
 		<p class="p-2 pe-5 m-0">{{ message }}</p>
 	</div>
@@ -82,5 +82,21 @@
 	}
 	.success {
 		background-color: green;
+	}
+	.top-left {
+		top: 0;
+		left: 0;
+	}
+	.top-right {
+		top: 0;
+		right: 0;
+	}
+	.bottom-left {
+		bottom: 0;
+		left: 0;
+	}
+	.bottom-right {
+		bottom: 0;
+		right: 0;
 	}
 </style>
