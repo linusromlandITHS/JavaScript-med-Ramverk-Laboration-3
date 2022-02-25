@@ -1,33 +1,57 @@
 <template>
 	<transition>
-		<div id="above_mainbg" style="">
-			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
-				<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
-				<header class="listing_header" style="margin: auto">
-					<h4>Välkommen att se våra djur!</h4>
-				</header>
+		<div
+			style="
+				background: white;
 
-				<div class="petHeaders d-flex flex-wrap justify-content-center">
-					<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
-					<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
-					<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
-					<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
-					<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
-					<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
-				</div>
+				color: black;
+				padding: 12px;
+				text-align: center;
+				max-width: 78%;
+				margin-right: auto;
+				margin-left: auto;
+			"
+		>
+			<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
+			<h4 class="listing_header">Välkommen att se våra djur!</h4>
 
-				<small
-					><span class="linklike"> (Ta bort dessa sedan: </span>
+			<!--
+		<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+		<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+		<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+		<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+		<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+		<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+ -->
+			<div class="petHeaders d-flex flex-wrap justify-content-center">
+				<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+				<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+				<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+				<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+				<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+				<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+			</div>
 
-					<span class="linklike" @click="displayCartContents()">Visa varukorg</span> &nbsp; | &nbsp;
-					<span class="linklike" @click="purgeCart()">Töm varukorg</span>)</small
+			<div class="cartdiv">
+				<span class="cartspan" @click="displayCartContents()">Visa varukorg</span>
+				<span class="cartspan" @click="purgeCart()">Töm varukorg</span>
+			</div>
+
+			<li><RouterLink to="/petlisting2">Se petlisting2 istället...</RouterLink></li>
+
+			<div
+				id="mainbg"
+				class="d-flex flex-wrap justify-content-center"
+				style="margin-left: auto; margin-right: auto"
+			>
+				<div
+					class="d-flex flex-wrap justify-content-center"
+					style="background-color: #aaaaaa !important; margin-left: auto; margin-right: auto"
 				>
+					<div v-for="pet in current_pet_list" class="p-2" :key="pet.id">
+						<!-- v-if="pet.type=='Fisk'" -->
 
-				<div id="cardcontainer" class="d-flex flex-wrap justify-content-center">
-					<!-- style="margin-left: auto; margin-right: auto" -->
-
-					<div v-for="pet in current_pet_list" class="p-2" flex-fill :key="pet.id">
-						<ProductCard2
+						<ProductCard
 							:key="pet.id"
 							:p_id="pet.id"
 							:p_name="pet.name"
@@ -47,24 +71,82 @@
 </template>
 
 <script>
-	import ProductCard2 from '../components/ProductCard2.vue';
+	import ProductCard from '../components/ProductCard.vue';
 	export default {
-		name: 'PetListing2',
+		name: 'PetListing',
 
 		components: {
-			ProductCard2
+			ProductCard
 		},
 		data() {
 			return {
 				nn: 123,
 				current_pet_list: null,
 				full_pet_list: null,
-				picture_1: ''
+				picture_1: '' //current_pet_list[0]
 			};
 		},
 
 		methods: {
+			// keep_only_type(pet_type_to_show)
+			// 	{
+			// 		let full = this.full_pet_list;
+
+			// let output_obj = new Object();
+
+			// //https://www.w3docs.com/snippets/javascript/how-to-clone-a-javascript-object.html
+			// output_obj = { ...full };
+
+			// 		for(let i in output_obj)
+			// 			{
+			// 				var b1 = output_obj[i];
+
+			// console.log(b1)
+
+			// 			output_obj[i]['IM1'] = this.image_1//output_obj[i]['p_images_arr'][0];
+
+			// 			console.log("1¤¤¤¤¤¤ " + output_obj[i]['IM1'])
+			// 			//['IM1']);
+
+			// //	:p_images_arr = pet.images
+
+			// 				//output_obj[i]['type']
+
+			// 				console.log(full[i]['type'].toLowerCase() + " -- " +pet_type_to_show);
+
+			// 				if(output_obj[i]['type'].toLowerCase() != pet_type_to_show)
+			// 					{
+			// 						console.log("tar bort:" + output_obj[ i ] + output_obj[ i ].name);
+			// 						delete output_obj[ i ];
+
+			// 					}
+			// 					else
+			// 					{
+
+			// 				//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
+
+			// 						console.log("behåller:" + output_obj[ i ].name);
+			// 						console.log("den har denna image1:" + output_obj[ i ]['image1']);
+			// 						console.log("den har denna IM1:" + output_obj[i]['IM1']);
+
+			// 						console.log("och detta:" + output_obj[ i ]);
+
+			// console.log("#######" + output_obj[ i ]['image1'] + b1)
+			// 			//	var b1 = output_obj[i]['p_images_arr'][0];
+
+			// 					}
+			// 			}
+
+			// 	console.log(output_obj);
+			// 	return output_obj;
+			// 	},
+
 			filter_by_pet_type(category) {
+				//alla katt hund häst fisk kanin
+
+				//
+				//
+				//
 				console.log('filter_by_pet_type ' + category);
 				switch (category) {
 					case 'katt':
@@ -92,7 +174,7 @@
 				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 				localStorage.removeItem('petCart');
 
-				// UPPDATERAR ANTAL VAROR I KORGEN FÖR KNAPPEN UTIFRÅN LS (generisk)
+				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
 			add_to_cart(id_, na_) {
@@ -147,6 +229,11 @@
 					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
 
 					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
+					//['IM1']);
+
+					//	:p_images_arr = pet.images
+
+					//output_obj[i]['type']
 
 					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
 
@@ -196,20 +283,6 @@
 		font-weight: normal;
 	}
 
-	#cardcontainer {
-		padding-top: 20px;
-		padding-left: 10px;
-		padding-right: 10px;
-
-		/*background-image: url(assets/farm2.jpeg);*/
-		background-image: url('assets/farm2.jpg');
-
-		/*https://ui.glass/generator/ */
-		backdrop-filter: blur(16px) saturate(180%);
-		-webkit-backdrop-filter: blur(16px) saturate(180%);
-		background-color: rgba(255, 255, 255, 0.75);
-	}
-
 	.linklike {
 		cursor: pointer;
 		font-family: 'Roboto Medium', 'Roboto', 'Roboto Mono' !important;
@@ -222,14 +295,8 @@
 	}
 
 	.listing_header {
-		display: block;
-
 		font-family: 'Roboto Medium', 'Roboto', 'Roboto Mono' !important;
 		color: black;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 16px;
-		text-align: center;
 	}
 
 	/* https://www.codegrepper.com/code-examples/css/how+to+import+roboto+font+in+css */
@@ -240,47 +307,37 @@
 	}
 
 	.p-2 {
-		margin-bottom: 23px;
+		margin-bottom: 14px;
 		cursor: pointer;
-		flex-basis: 32%;
+		flex-basis: 25%;
 	}
 
 	.badgelike {
+		font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
 		cursor: pointer;
-		width: 120px;
-		height: 42px;
-		border-radius: 8px;
-
-		/* font-family: 'Roboto Mono', monospace; */
-		font-size: 18px;
-
-		background: white;
+		line-height: 11px;
+		font-size: 13px !important;
+		background: #faac77;
 		padding: 5px;
-		border: none;
+		border: 1px solid black;
 		color: black;
-		margin: 2px;
-		vertical-align: middle;
-
-		margin-bottom: 4px;
-
+		margin: 0px;
+		margin-top: 15px;
+		margin-bottom: 15px;
 		margin-right: 3px;
-
-		transition: 0.3s;
 	}
 
 	.petHeaders {
-		display: block;
 		color: #aaa;
 
 		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+47,cccccc+99 */
-
-		padding: 1px;
-		margin-top: 0px;
+		background: white;
+		padding: 5px;
+		margin-top: 15px;
 	}
 
 	.badgelike:hover {
 		background-color: white;
-		font-size: 19px;
 	}
 
 	.cartspan {
@@ -288,11 +345,14 @@
 		cursor: pointer;
 		font-size: 13px !important;
 		background: white;
-
+		padding: 5px;
+		padding-left: px;
+		padding-right: 8px;
 		border: 1px solid grey;
 		color: black;
-
-		max-height: 26px;
+		margin-top: 2px;
+		margin-bottom: 1px;
+		margin-right: 3px;
 	}
 
 	.cartspan:hover {
@@ -303,9 +363,7 @@
 		font-family: 'Roboto Mono', 'Noto Mono', 'Roboto Medium', 'Roboto';
 		cursor: pointer;
 
-		background-color: antiquewhite;
-		background-position: center;
-
+		background: white;
 		padding: 6px;
 		border: none;
 		color: black;
@@ -313,31 +371,14 @@
 		margin-bottom: 15px;
 		min-height: 33px;
 
-		backdrop-filter: blur(11px) saturate(80%);
-		-webkit-backdrop-filter: blur(11px) saturate(80%);
-	}
-
-	@media screen and (min-width: 1281px) {
-		#above_mainbg {
-			color: black;
-			padding: none;
-			text-align: center;
-			max-width: 74%;
-			margin-right: auto;
-			margin-left: auto;
-
-			-webkit-box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
-			-moz-box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
-			box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
-		}
+		background: white;
 	}
 
 	#mainbg {
-		padding: 0px;
-
+		padding: 16px;
+		background-color: #aaaaaa;
 		margin-top: 9px;
-
-		backdrop-filter: blur(16px) saturate(180%);
-		-webkit-backdrop-filter: blur(16px) saturate(180%);
+		position: relative;
+		z-index: 0;
 	}
 </style>

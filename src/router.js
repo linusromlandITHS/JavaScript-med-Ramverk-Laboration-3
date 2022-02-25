@@ -52,10 +52,10 @@ const router = createRouter({
 			path: '/petlisting'
 		},
 		{
-			// TEMP ARBETSSIDA FÖR PETLISTING
+			// GAMMAL VERSION AV FÖR PETLISTING
 			name: 'Petlisting2',
-			component: () => import('./views/PetListing2.vue'),
-			path: '/petlisting2'
+			component: () => import('./views/PetListingOLD.vue'),
+			path: '/petlistingOLD'
 		},
 		{
 			// TEMP AVEL
