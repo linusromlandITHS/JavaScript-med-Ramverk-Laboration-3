@@ -115,10 +115,11 @@
 	}
 	.info {
 		background-color: #faac77;
+		color: #333c3e;
 		height: 300px;
 		width: 350px;
 		margin: 20px;
-		border-radius: 30px;
+		border-radius: 8px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	.innerDiv {
@@ -133,7 +134,7 @@
 		color: #333c3e;
 		margin: 3%;
 		height: 60px;
-		border-radius: 30px;
+		border-radius: 8px;
 	}
 
 	.underTitel > h3 {
