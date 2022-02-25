@@ -88,6 +88,7 @@
 	.navbar {
 		width: 100%;
 		box-shadow: 0 1px 4px rgb(146 161 176 / 1%);
+		background-color: #f0efee;
 	}
 
 	.nav-container {
