@@ -248,5 +248,21 @@
 			"price": 14999,
 			"description": "Han heter Sickan och är en renrasig Jack Russell, släthårig. Han är hur mysig som helst och älskar att sova I ens famn och nära en. Han älskar att springa loss på gräsmattor och jaga bollar. Han älskar att bita I händer, men slutar när man ger honom en leksak. Han är väldigt nyfiken och vill hälsa på alla, barn som äldre och hundar. Han gillar inte när det blåser eller regnar, men är det soligt så får man bära hem honom."
 		}
+	],
+	"supperkatter": [
+		{
+			"id": "58c6f899-15fb-4c45-8597-dd4dbb1c2d99",
+			"name": "ULTRA",
+			"type": "SUPERKATT",
+			"breed": "Beagle",
+			"sex": "Male",
+			"categories": ["Däggdjur", "Sällskapsdjur"],
+			"color": "Brun",
+			"temperament": "Lugn",
+			"age": 2,
+			"images": ["58c6f899-15fb-4c45-8597-dd4dbb1c2d83/0.jpg"],
+			"price": 1000,
+			"description": "Pompe är en fridfull sälle. Hundrasen Beagle är första gången omnämnd i skrift under 1400-talet. Man tror att namnet kan komma av det keltiska ordet beag som betyder liten eller av medelengelskans begle som i sin tur kommer av fornfranskans beegueule som betyder skrikhals. Fram till slutet av 1800-talet var beaglarna av väldigt olika typ. Renaveln av den typ vi känner idag vidtog i samband med att den brittiska rasklubben bildades 1890, två år efter USA:s."
+		}
 	]
 }
