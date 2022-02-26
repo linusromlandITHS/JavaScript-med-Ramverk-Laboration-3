@@ -125,6 +125,7 @@
 
 	#toast {
 		transition: scale, opacity 350ms ease-out;
+		z-index: 1000;
 	}
 
 	.font-set {
