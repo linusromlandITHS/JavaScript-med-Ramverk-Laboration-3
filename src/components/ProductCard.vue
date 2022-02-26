@@ -95,6 +95,9 @@
 					cart = {}; //sessionStorage.getItem('petCart');
 				}
 
+				//Check if product already exists in cart
+				const alreadyInCart = cart[this.p_id] ? true : false;
+
 				// 2 Lägg till det aktuella id:t till hämtat obj
 				// Lägger till aktuellt djur
 				cart[id_] = na_;
@@ -110,6 +113,22 @@
 
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
+
+				if (alreadyInCart) {
+					// Add toast message to indicate product was already in cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.p_name} fanns redan i din varukorg!`,
+						type: 'info'
+					});
+				} else {
+					// Add toast message to indicate product was added to cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.p_name} har lagts till i din varukorg.`,
+						type: 'success'
+					});
+				}
 			},
 
 			// Alerta innehållet i varukorg (petCart) i Localstorage

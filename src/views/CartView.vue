@@ -13,6 +13,15 @@
 
 		methods: {
 			removeItem(itemId) {
+				let itemToDelete = this.cartItems.find((item) => item.id === itemId);
+
+				// Add toast message to indicate product was added to cart
+				this.$root.showToast({
+					title: 'Varukorgen',
+					message: `${itemToDelete.name} har tagits bort från din varukorg.`,
+					type: 'warning'
+				});
+
 				// Remove the current item by ID
 				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
 				//calculates the new total price. (Made by David Sabel)
