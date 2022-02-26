@@ -87,24 +87,24 @@
 		} ${position} position-fixed bg-white text-black m-4 shadow rounded`"
 		@click="close"
 	>
-		<p :class="`${type} m-0 p-2 pe-5 rounded-top`">{{ title }}</p>
-		<p class="p-2 pe-5 m-0">{{ message }}</p>
+		<p :class="`${type} m-0 p-2 pe-5 rounded-top text-white font-set`">{{ title }}</p>
+		<p class="p-2 pe-5 m-0 font-set">{{ message }}</p>
 		<div id="bar" :class="type" :style="`width: ${barWidth > 100 ? 100 : barWidth}%; height: 5px;`" />
 	</div>
 </template>
 
 <style scoped>
 	.error {
-		background-color: red;
+		background-color: #e23636;
 	}
 	.info {
-		background-color: blue;
+		background-color: #4a90e2;
 	}
 	.warning {
-		background-color: yellow;
+		background-color: #edb95e;
 	}
 	.success {
-		background-color: green;
+		background-color: #82dd55;
 	}
 	.top-left {
 		top: 0;
@@ -125,6 +125,10 @@
 
 	#toast {
 		transition: scale, opacity 350ms ease-out;
+	}
+
+	.font-set {
+		font-family: 'Noto Mono', monospace;
 	}
 
 	#toast:hover {
