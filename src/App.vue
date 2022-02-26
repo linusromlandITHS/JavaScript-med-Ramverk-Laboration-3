@@ -14,14 +14,7 @@
 			</transition>
 		</router-view>
 	</div>
-	<Toast
-		:title="toast.title"
-		:message="toast.message"
-		:type="toast.type"
-		:position="toast.position"
-		:duration="toast.duration"
-		ref="toastRef"
-	/>
+	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
 </template>
 
 <script>

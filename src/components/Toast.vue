@@ -33,7 +33,7 @@
 				barAnimation: null, //The animation for the toast
 				timerStartTime: null, //The time the toast was started
 				barWidth: 0, //The width of the toast bar
-				duration: 3000 //The duration of the toast
+				duration: 4000 //The duration of the toast,
 			};
 		},
 		methods: {
@@ -82,9 +82,8 @@
 <template>
 	<div
 		id="toast"
-		:class="`${
-			isActive ? 'opacity-100' : 'opacity-0'
-		} ${position} position-fixed bg-white text-black m-4 shadow rounded`"
+		v-if="isActive"
+		:class="`${position} position-fixed bg-white text-black m-4 shadow rounded`"
 		@click="close"
 	>
 		<p :class="`${type} m-0 p-2 pe-5 rounded-top text-white font-set`">{{ title }}</p>
@@ -124,7 +123,8 @@
 	}
 
 	#toast {
-		transition: scale, opacity 350ms ease-out;
+		transition: scale 350ms;
+		animation: fadeToast 4s;
 		z-index: 1000;
 	}
 
@@ -139,5 +139,20 @@
 
 	#bar {
 		transition: width 50ms linear;
+	}
+
+	@keyframes fadeToast {
+		0% {
+			opacity: 0;
+		}
+		12% {
+			opacity: 1;
+		}
+		88% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
 	}
 </style>
