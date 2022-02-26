@@ -30,6 +30,11 @@
 </script>
 
 <style>
+	html,
+	body {
+		height: 100%;
+	}
+
 	.scale-slide-enter-active,
 	.scale-slide-leave-active {
 		position: absolute;
