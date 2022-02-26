@@ -99,7 +99,7 @@
 <template>
 	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
 		<div class="col-12 col-md-8 d-flex flex-column">
-			<!-- Slideshow Compoenent that displays the images of the product -->
+			<!-- Slideshow Component that displays the images of the product -->
 			<Slideshow :images="images" />
 
 			<!-- Product Information -->
