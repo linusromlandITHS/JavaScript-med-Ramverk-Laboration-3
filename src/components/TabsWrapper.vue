@@ -16,7 +16,7 @@
 
 <template>
 	<div class="tabs">
-		<ul class="tabs__header">
+		<ul class="tabs__header d-flex flex-wrap justify-content-left">
 			<li
 				v-for="title in tabTitles"
 				:key="title"
@@ -43,6 +43,9 @@
 		padding: 0;
 		display: flex;
 		align-items: center;
+		max-width: 74%;
+		margin-right: auto;
+		margin-left: auto;
 	}
 
 	.tabs__header li {
@@ -51,6 +54,7 @@
 		font-size: 14px;
 		padding: 10px 20px;
 		margin-right: 10px;
+		margin-bottom: 10px;
 		background-color: #606b6f;
 		border-radius: 8px;
 		cursor: pointer;
@@ -62,7 +66,17 @@
 	}
 
 	.tabs__header li.selected {
+		font-weight: bold;
 		background-color: #faac77;
 		color: #333c3e;
+	}
+
+	/* | ------------------------ Max-width ----------------------------- | */
+
+	@media (max-width: 575.98px) {
+		.tabs__header li {
+			font-size: 11px;
+			margin: 1%;
+		}
 	}
 </style>

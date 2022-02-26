@@ -50,6 +50,18 @@ const router = createRouter({
 			name: 'Petlisting',
 			component: () => import('./views/PetListing.vue'),
 			path: '/petlisting'
+		},
+		{
+			// GAMMAL VERSION AV FÖR PETLISTING
+			name: 'Petlisting2',
+			component: () => import('./views/PetListingOLD.vue'),
+			path: '/petlistingOLD'
+		},
+		{
+			// TEMP AVEL
+			name: 'Avel',
+			component: () => import('./components/avelPage.vue'),
+			path: '/avel'
 		}
 	]
 });

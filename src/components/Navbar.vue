@@ -35,7 +35,7 @@
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
-						<Button
+						<Button id="cartButton"
 							>Varukorgen <i class="bi bi-cart" />
 							<span class="badge span_number_of_items_in_cart">{{
 								$store.state.numOfItemsInCart
@@ -61,6 +61,7 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		z-index: 12;
 	}
 
 	body {
@@ -70,8 +71,8 @@
 	.span_number_of_items_in_cart {
 		text-align: center;
 		background-color: #0e2431;
-		margin-left: 15px;
 
+		margin-left: 15px;
 		padding: 8px;
 		padding-right: 9px;
 		padding-top: 5px;
@@ -87,6 +88,7 @@
 	.navbar {
 		width: 100%;
 		box-shadow: 0 1px 4px rgb(146 161 176 / 1%);
+		background-color: #f0efee;
 	}
 
 	.nav-container {
@@ -98,6 +100,8 @@
 
 	.navbar .menu-items {
 		display: flex;
+		position: relative;
+		z-index: 2;
 	}
 
 	.navbar .nav-container li {
@@ -129,7 +133,7 @@
 		width: 32px;
 		top: 20px;
 		left: 20px;
-		z-index: 5;
+		z-index: 3;
 		opacity: 0;
 		cursor: pointer;
 	}
@@ -171,7 +175,7 @@
 
 	.navbar .menu-items {
 		padding-top: 120px;
-		box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+		background-color: rgba(250, 172, 119, 0.8);
 		height: 100vh;
 		width: 100%;
 		transform: translate(-150%);
@@ -181,11 +185,12 @@
 		padding-left: 50px;
 		transition: transform 0.5s ease-in-out;
 		text-align: center;
+		position: sticky;
 	}
 
 	.navbar .menu-items li {
 		margin-bottom: 1.2rem;
-		font-size: 1.5rem;
+		font-size: 2.5rem;
 		font-weight: 500;
 	}
 
@@ -195,6 +200,12 @@
 		right: 15px;
 		font-size: 1.2rem;
 		color: #0e2431;
+	}
+
+	/* Changed max-width according to feedback - the badge will be further to the right */
+	#cartButton {
+		padding-right: 0px;
+		max-width: 167px;
 	}
 
 	.nav-container input[type='checkbox']:checked ~ .menu-items {

@@ -30,9 +30,13 @@
 		background-color: #f0efee;
 		color: #333c3e;
 		min-height: 400px;
-		width: 648px;
+		max-width: 74%;
+		margin-left: auto;
+		margin-right: auto;
+		/* width: 1000px; */
 		padding: 20px;
 		border-radius: 8px;
-		box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.05);
+
+		/* box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.05); */
 	}
 </style>

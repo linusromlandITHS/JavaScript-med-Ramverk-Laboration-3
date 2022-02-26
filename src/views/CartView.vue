@@ -6,6 +6,7 @@
 			return {
 				cartItems: [],
 				imgUrl: 'assets/products/',
+				insert: false,
 				totalAmount: ''
 			};
 		},
@@ -41,6 +42,15 @@
 				const result = await request.json();
 
 				return result.animals;
+			},
+
+			addDiscount() {
+				this.insert = true;
+			},
+
+			showMessage() {
+				alert('Wrong code, bro!');
+				this.insert = false;
 			}
 		},
 
@@ -83,6 +93,8 @@
 				</ol>
 			</div>
 			<div id="totalCheckout">
+				<a id="addDiscount" @click="addDiscount">Lägg till rabattkod</a>
+				<input @keyup.enter="showMessage" v-if="insert" type="text" />
 				<div class="container-sm">
 					<h6>
 						Total summa
@@ -105,10 +117,8 @@
 
 	body {
 		background-color: #ffffff;
-	}
-
-	li {
-		list-style: none;
+		background-image: none;
+		padding-bottom: 15px;
 	}
 
 	ol {
@@ -116,8 +126,10 @@
 	}
 
 	h1 {
+		border-bottom: 0.5px solid #f0efee;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
 		text-align: center;
-		margin-bottom: 50px;
 	}
 
 	h6 {
@@ -145,7 +157,7 @@
 	.bi-x {
 		color: #ff0000;
 		font-size: 25px;
-		margin-right: 10px;
+		margin-right: 5px;
 	}
 
 	/* | ------------------------ Max-width ----------------------------- | */
@@ -156,30 +168,48 @@
 			border-radius: 5px;
 			display: flex;
 			justify-content: space-between;
-			margin-top: 50px;
+			margin-top: 10px;
 			margin-bottom: 15px;
 			max-width: 90%;
+		}
+
+		#addDiscount {
+			padding: 5% 2% 0 5%;
 		}
 
 		#checkOut {
 			width: 100%;
 		}
+
+		#totalCheckout {
+			border-top: 0.5px solid #f0efee;
+			padding-top: 15px;
+		}
 	}
 	/* | ---------------------- XX -- XX --------------------------- | */
 
-	@media (min-width: 576px) and (max-width: 1023.8px) {
+	@media (min-width: 576px) and (max-width: 1024px) {
 		main {
 			margin: 3%;
 		}
 		.container-sm {
 			flex-direction: column;
-			margin-bottom: 20px;
+			margin-bottom: 5px;
 		}
 	}
 
-	@media (min-width: 1024px) {
+	@media (min-width: 1024.2px) {
 		.container-sm {
-			margin: 20px 0 75px 0;
+			margin: 20px 0 45px 0;
+		}
+	}
+
+	@media (min-width: 320px) and (max-width: 424px) {
+		#addDiscount {
+			padding: 0;
+		}
+		#totalCheckout {
+			text-align: center;
 		}
 	}
 
@@ -188,6 +218,7 @@
 	@media (min-width: 576px) {
 		body {
 			display: flex;
+			border-bottom: 0.5px solid #f0efee;
 		}
 		.container-sm {
 			display: flex;
@@ -199,22 +230,26 @@
 		}
 
 		#itemSection {
-			width: 75%;
+			width: 100%;
 		}
 
 		#totalCheckout {
 			background-color: #f0efee;
 			/* border: 1px solid; */
 			border-radius: 5px;
-			margin-left: 15%;
-			max-height: 220px;
-			padding: 10px;
-			width: 35%;
+			margin-left: 10%;
+			max-height: 280px;
+			padding: 25px 10px 10px 10px;
+			width: 50%;
 			text-align: center;
 		}
 	}
 
 	/* | ---------------------- XX -- XX --------------------------- | */
+
+	#addDiscount {
+		cursor: pointer;
+	}
 
 	#inclVAT {
 		display: block;
@@ -229,14 +264,18 @@
 
 	#price {
 		display: flex;
-		padding-left: 25%;
-		padding-right: 10%;
+		padding-left: 20%;
+		padding-right: 5%;
 		margin: auto;
 	}
 
 	#productText {
 		margin-left: 5%;
 		width: 10%;
+	}
+
+	#removeItem {
+		cursor: pointer;
 	}
 
 	#totalAmount {
