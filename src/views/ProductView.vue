@@ -126,7 +126,7 @@
 
 		<!-- Recommended Products -->
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
-			<h2 class="text-black">Liknande Produkter:</h2>
+			<h2 class="text-black">Andra djur:</h2>
 			<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
 				<!-- Product Card Component that displays recommended products -->
 				<ProductCard
