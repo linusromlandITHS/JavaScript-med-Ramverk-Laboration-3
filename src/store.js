@@ -36,7 +36,12 @@ const state = {
 	// Avelpris
 	avelPris: 0,
 	namnNyKatt: '',
-	namnAvelKatt: ''
+	namnAvelKatt: '',
+	// Rabattkod
+	discountCode: {
+		iths: 0.95,
+		magic: 0.75
+	}
 };
 
 // Creates and exports vuex

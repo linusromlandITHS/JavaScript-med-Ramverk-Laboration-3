@@ -5,9 +5,12 @@
 		data() {
 			return {
 				cartItems: [],
+				discount: '',
+				discountedAmount: '',
+				display: true,
 				imgUrl: 'assets/products/',
-				insert: false,
-				totalAmount: ''
+				show: false,
+				totalAmount: 0
 			};
 		},
 
@@ -54,12 +57,22 @@
 			},
 
 			addDiscount() {
-				this.insert = true;
+				this.show = true;
 			},
 
 			showMessage() {
-				alert('Wrong code, bro!');
-				this.insert = false;
+				const discountCode = this.$store.state.discountCode;
+
+				const discountRate = discountCode[this.discount];
+
+				if (discountRate) {
+					const discountAmount = discountRate * this.totalAmount;
+
+					this.discountedAmount = discountAmount;
+				} else {
+					alert('Wrong code, bro!');
+				}
+				this.show = false;
 			}
 		},
 
@@ -102,14 +115,16 @@
 				</ol>
 			</div>
 			<div id="totalCheckout">
+				<p id="amount">Värde: {{ this.totalAmount + ' kr' }}</p>
 				<a id="addDiscount" @click="addDiscount">Lägg till rabattkod</a>
-				<input @keyup.enter="showMessage" v-if="insert" type="text" />
+				<input @keyup.enter="showMessage" v-if="show" type="text" v-model="discount" />
 				<div class="container-sm">
 					<h6>
 						Total summa
 						<span id="inclVAT">inkl. moms </span>
 					</h6>
-					<p id="totalAmount">{{ this.totalAmount + ' kr' }}</p>
+					<p v-if="!discountedAmount" id="totalAmount">{{ this.totalAmount + ' kr' }}</p>
+					<p v-if="discountedAmount" id="totalAmount">{{ this.discountedAmount + ' kr' }}</p>
 				</div>
 				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">
 					Gå vidare till kassan
@@ -186,6 +201,10 @@
 			padding: 5% 2% 0 5%;
 		}
 
+		#amount {
+			padding-left: 5%;
+		}
+
 		#checkOut {
 			width: 100%;
 		}
@@ -214,7 +233,8 @@
 	}
 
 	@media (min-width: 320px) and (max-width: 424px) {
-		#addDiscount {
+		#addDiscount,
+		#amount {
 			padding: 0;
 		}
 		#totalCheckout {
@@ -247,7 +267,7 @@
 			/* border: 1px solid; */
 			border-radius: 5px;
 			margin-left: 10%;
-			max-height: 280px;
+			max-height: 320px;
 			padding: 25px 10px 10px 10px;
 			width: 50%;
 			text-align: center;
