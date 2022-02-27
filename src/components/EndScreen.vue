@@ -1,5 +1,6 @@
 <script>
 	import AvelPage from '../components/avelPage.vue';
+	import Popup from '../components/Popup.vue';
 
 	export default {
 		name: 'EndScreen',
@@ -10,6 +11,8 @@
 				helaPriset: 0,
 				show: true,
 				showTwo: true,
+				showPopup: false,
+
 				avelObj: {
 					id: '0d0c26f5-8066-4b6b-a6b1-2ac6c21b32b7',
 					name: 'Avel',
@@ -52,9 +55,14 @@
 			showMap() {
 				this.show = false;
 			},
-			//emptyStorage() {
-			//	this.localStorage.clear();
-			//},
+			emptyStorage() {
+				this.togglePopup();
+				// this.localStorage.clear();
+			},
+			togglePopup() {
+				// console.log('showPopup', this.showPopup);
+				this.showPopup = !this.showPopup;
+			},
 			async fetchData() {
 				const request = await fetch('/database.json');
 				const result = await request.json();
@@ -78,7 +86,7 @@
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 			console.log(cartItems);
 		},
-		components: { AvelPage }
+		components: { AvelPage, Popup }
 	};
 </script>
 
@@ -191,6 +199,7 @@
 			</div>
 		</template>
 	</div>
+	<Popup :showPopup="showPopup" :togglePopup="togglePopup" />
 	<AvelPage />
 </template>
 
