@@ -54,16 +54,33 @@
 				//Declares cart variable with either empty array or existing cart
 				let cart = localStorage.getItem('petCart') ? JSON.parse(localStorage.getItem('petCart')) : {};
 
+				//Check if product already exists in cart
+				const alreadyInCart = cart[this.product.id] ? true : false;
+
 				//Add product to cart
 				cart[this.product.id] = this.product.name;
 
 				//Save cart to local storage
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+				// Updates the cart count in the navbar (Created by Kenneth)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
-				// TODO Add toast message to indicate product was added to cart
+				if (alreadyInCart) {
+					// Add toast message to indicate product was already in cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.product.name} fanns redan i din varukorg!`,
+						type: 'info'
+					});
+				} else {
+					// Add toast message to indicate product was added to cart
+					this.$root.showToast({
+						title: 'Varukorgen',
+						message: `${this.product.name} har lagts till i din varukorg.`,
+						type: 'success'
+					});
+				}
 			}
 		},
 		computed: {
@@ -82,7 +99,7 @@
 <template>
 	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
 		<div class="col-12 col-md-8 d-flex flex-column">
-			<!-- Slideshow Compoenent that displays the images of the product -->
+			<!-- Slideshow Component that displays the images of the product -->
 			<Slideshow :images="images" />
 
 			<!-- Product Information -->
@@ -109,7 +126,7 @@
 
 		<!-- Recommended Products -->
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
-			<h2 class="text-black">Liknande Produkter:</h2>
+			<h2 class="text-black">Andra djur:</h2>
 			<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
 				<!-- Product Card Component that displays recommended products -->
 				<ProductCard

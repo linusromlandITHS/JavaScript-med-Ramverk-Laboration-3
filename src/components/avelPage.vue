@@ -92,6 +92,9 @@
 				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Satan ', 'Young ', 'Lil ', 'Von '],
 				nameEndings: ['missan', 'popy', 'snutt', 'aban', 'wolf', 'gädd', 'pop', 'plupp', 'snor'],
 				surName: [' Hellscream', ' Jr', ' Satansdotter', ' Powerwolf', ' Dragonsbreath'],
+				superKatterArr: ['Missan Val Enberg', 'Navel af Ludd', 'Count Kattula', 'Pelle von Guldsvans'],
+				superKatter: '',
+				parent: '',
 				finalName: '',
 				inputName: '',
 				nollaAllt: '',
@@ -120,6 +123,7 @@
 						letters[3] +
 						this.nameEndings[ending] +
 						this.surName[efternamn];
+					this.parent = this.superKatter.substr(this.superKatter.indexOf(' ') + 1);
 					this.ereSant = true;
 					this.finalNameErr = '';
 				} else {
@@ -133,6 +137,16 @@
 			},
 			reload() {
 				this.location.reload();
+			},
+			AddItem() {
+				this.$store.commit('increment');
+				this.$store.commit('incrementAvel');
+				console.log(this.$store.state.avelPris);
+				this;
+				this.$store.state.namnNyKatt = this.finalName;
+			},
+			loadCat(index) {
+				this.superKatter = this.superKatterArr[index];
 			}
 		},
 		mounted() {
@@ -143,34 +157,57 @@
 
 <template>
 	<div id="mainDiv" @change.once="reload">
-		<canvas id="canvas1" />
-		<h1>Avla på våra superkatter</h1>
+		<div class="cardFotter">
+			<h1>Avla på våra superkatter</h1>
+		</div>
 		<div class="cards">
+			<div class="sides" />
 			<div @click="isShow = !isShow" class="cardDiv">
 				<img v-show="!isShow" class="cardimg" src="/assets/satancat.jpeg" alt="" />
-				<h3>Kattferatu</h3>
+				<h3>Missan Val Enberg</h3>
 				<p>Lol bub bob pop</p>
 				<div v-show="isShow">
 					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
-					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+					<Button
+						@click="
+							avlaFormShow = !avlaFormShow;
+							loadCat(0);
+						"
+						class="btn btn-secondary"
+						>Avla</Button
+					>
 				</div>
 			</div>
 			<div @click="isShow2 = !isShow2" class="cardDiv">
 				<img v-show="!isShow2" class="cardimg" src="/assets/satancat2.jpeg" alt="" />
-				<h3>Count Kattula</h3>
+				<h3>Navel af Ludd</h3>
 				<p>Lol bub bob pop</p>
 				<div v-show="isShow2">
 					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
-					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+					<Button
+						@click="
+							avlaFormShow = !avlaFormShow;
+							loadCat(1);
+						"
+						class="btn btn-secondary"
+						>Avla</Button
+					>
 				</div>
 			</div>
 			<div @click="isShow3 = !isShow3" class="cardDiv">
 				<img v-show="!isShow3" class="cardimg" src="/assets/satancat3.jpeg" alt="" />
-				<h3>Cat the ripper</h3>
+				<h3>Count Kattula</h3>
 				<p>Lol bub bob pop</p>
 				<div v-show="isShow3">
 					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
-					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+					<Button
+						@click="
+							avlaFormShow = !avlaFormShow;
+							loadCat(2);
+						"
+						class="btn btn-secondary"
+						>Avla</Button
+					>
 				</div>
 			</div>
 			<div @click="isShow4 = !isShow4" class="cardDiv">
@@ -179,21 +216,36 @@
 				<p>Lol bub bob pop</p>
 				<div v-show="isShow4">
 					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
-					<Button @click="avlaFormShow = !avlaFormShow" class="btn btn-secondary">Avla</Button>
+					<Button
+						@click="
+							avlaFormShow = !avlaFormShow;
+							loadCat(3);
+						"
+						class="btn btn-secondary"
+						>Avla</Button
+					>
 				</div>
 			</div>
+			<div class="sides" />
 		</div>
-		<div v-show="avlaFormShow" id="formDiv">
-			<input type="text" placeholder="Kattens namn" v-model="inputName" />
-			<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
-			<p class="hello">{{ finalNameErr }}</p>
-			<button @click="randomName">KLICK</button>
-		</div>
+		<div class="cardFotter" />
+		<transition name="fade">
+			<div v-show="avlaFormShow" class="formDiv slide-item" name="slide" mode="in-out">
+				<p class="mimimi">Avla på {{ superKatter }}</p>
+				<input type="text" placeholder="Kattens namn" v-model="inputName" />
+				<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
+				<p class="hello">{{ finalNameErr }}</p>
+				<button @click="randomName">KLICK</button>
+				<p v-if="url" id="coolName">{{ finalName }} {{ parent }}</p>
+			</div>
+		</transition>
 		<div id="displayImg" />
+
 		<div id="preview" v-show="ereSant">
 			<img id="bild" v-if="url" :src="url" />
-			<p v-if="url" id="coolName">{{ finalName }}</p>
-			<Button class="btn btn-secondary">Avla</Button>
+			<p v-if="url" id="coolName">{{ finalName }} {{ parent }}</p>
+			<Button @click="AddItem" class="btn btn-secondary">Avla</Button>
+			<canvas id="canvas1" />
 		</div>
 	</div>
 </template>
@@ -202,6 +254,21 @@
 	h1 {
 		color: black;
 		text-decoration-line: underline;
+		animation: burn2 0.4s linear infinite alternate;
+		filter: grayscale(100%);
+	}
+	.sides {
+		background-color: black;
+		width: 200px;
+		height: auto;
+	}
+	.cardFotter {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fbc39d;
+		height: 100px;
+		width: 100%;
 	}
 	.cardimg {
 		height: 300px;
@@ -211,17 +278,46 @@
 	p {
 		transition: all 1s ease;
 	}
+
 	.cards {
 		display: flex;
 		flex-direction: row;
 	}
+	@keyframes burn {
+		from {
+			box-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85, -0.2em -0.2em 0.4em #ffae34,
+				0.2em -0.3em 0.3em #ec760c, -0.2em -0.4em 0.7em #cd4606, 0.1em -0.5em 0.7em #973716,
+				0.1em -0.7em 0.7em #451b0e;
+		}
+		45% {
+			box-shadow: 0.1em -0.2em 0.5em #fefcc9, 0.15em 0 0.4em #feec85, -0.1em -0.25em 0.5em #ffae34,
+				0.15em -0.45em 0.5em #ec760c, -0.1em -0.5em 0.6em #cd4606, 0 -0.8em 0.6em #973716,
+				0.2em -1em 0.8em #451b0e;
+		}
+		70% {
+			box-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85, -0.2em -0.2em 0.6em #ffae34,
+				0.2em -0.3em 0.4em #ec760c, -0.2em -0.4em 0.7em #cd4606, 0.1em -0.5em 0.7em #973716,
+				0.1em -0.7em 0.9em #451b0e;
+		}
+		to {
+			box-shadow: -0.1em -0.2em 0.6em #fefcc9, -0.15em 0 0.6em #feec85, 0.1em -0.25em 0.6em #ffae34,
+				-0.15em -0.45em 0.5em #ec760c, 0.1em -0.5em 0.1em #cd4606, 0 -0.8em 0.6em #973716,
+				-0.2em -1em 0.8em #451b0e;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.cards {
+			flex-direction: column;
+		}
+	}
 	.cardDiv {
 		width: 350px;
-		height: auto;
-		margin: 20px;
+		height: 440px;
 		padding: 15px;
 		background-color: black;
-		transition: 2s ease-out;
+		transition: 0.5s ease-out;
+		/*	border-right: solid 1px #fbc39d; */
 	}
 	.cardDiv:hover {
 		background-color: black;
@@ -243,7 +339,6 @@
 		width: 350px;
 		height: 400px;
 		border-radius: 16px;
-		transition: width 2s, height 4s;
 		position: relative;
 	}
 	#mainDiv {
@@ -254,16 +349,16 @@
 		margin-top: 100px;
 		margin-bottom: 100px;
 	}
-	#formDiv {
+	.formDiv {
+		margin-top: 10px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		background-color: black;
 		flex-direction: column;
 		margin-bottom: 30px;
-		width: 350px;
+		width: 600px;
 		height: 200px;
-		border-radius: 10px;
 	}
 	#coolName {
 		position: absolute;
@@ -272,6 +367,29 @@
 		color: red;
 		background-color: black;
 		font-size: 1.5em;
+		animation: burn2 0.4s linear infinite alternate;
+	}
+	@keyframes burn2 {
+		from {
+			text-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85, -0.2em -0.2em 0.4em #ffae34,
+				0.2em -0.3em 0.3em #ec760c, -0.2em -0.4em 0.4em #cd4606, 0.1em -0.5em 0.7em #973716,
+				0.1em -0.7em 0.7em #451b0e;
+		}
+		45% {
+			text-shadow: 0.1em -0.2em 0.5em #fefcc9, 0.15em 0 0.4em #feec85, -0.1em -0.25em 0.5em #ffae34,
+				0.15em -0.45em 0.5em #ec760c, -0.1em -0.5em 0.6em #cd4606, 0 -0.8em 0.6em #973716,
+				0.2em -1em 0.8em #451b0e;
+		}
+		70% {
+			text-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85, -0.2em -0.2em 0.6em #ffae34,
+				0.2em -0.3em 0.4em #ec760c, -0.2em -0.4em 0.7em #cd4606, 0.1em -0.5em 0.7em #973716,
+				0.1em -0.7em 0.9em #451b0e;
+		}
+		to {
+			text-shadow: -0.1em -0.2em 0.6em #fefcc9, -0.15em 0 0.6em #feec85, 0.1em -0.25em 0.6em #ffae34,
+				-0.15em -0.45em 0.5em #ec760c, 0.1em -0.5em 0.6em #cd4606, 0 -0.8em 0.6em #973716,
+				-0.2em -1em 0.8em #451b0e;
+		}
 	}
 	HTML CSS JSResult Skip Results Iframe EDIT ON * {
 		margin: 0;
@@ -314,5 +432,16 @@
 	article {
 		width: 48%;
 		font-size: 15px;
+	}
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 2s;
+	}
+	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		opacity: 0;
+	}
+	.mimimi {
+		font-size: 1.5em;
+		animation: burn2 0.4s linear infinite alternate;
 	}
 </style>
