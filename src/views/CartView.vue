@@ -68,7 +68,7 @@
 				if (discountRate) {
 					const discountAmount = discountRate * this.totalAmount;
 
-					this.discountedAmount = discountAmount;
+					this.discountedAmount = discountAmount.toFixed();
 				} else {
 					alert('Wrong code, bro!');
 				}
@@ -90,6 +90,9 @@
 			this.cartItems = cartItems;
 
 			this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
 		}
 	};
 </script>
@@ -106,7 +109,7 @@
 						<!-- Gets the first image from image array -->
 						<img id="itemPicture" :src="this.imgUrl + cartItem.images[0]" />
 						<div id="productText">
-							<h6>{{ cartItem.name }}</h6>
+							<p id="itemName">{{ cartItem.name }}</p>
 							<p>{{ cartItem.type }}</p>
 						</div>
 						<p id="price">{{ cartItem.price + ' kr' }}</p>
@@ -116,7 +119,10 @@
 			</div>
 			<div id="totalCheckout">
 				<p id="amount">Värde: {{ this.totalAmount + ' kr' }}</p>
-				<a id="addDiscount" @click="addDiscount">Lägg till rabattkod</a>
+				<a v-if="!discountedAmount" id="addDiscount" @click="addDiscount">Lägg till rabattkod</a>
+				<p id="discountText" v-if="discountedAmount">
+					Rabatt: {{ discount }} -{{ this.totalAmount - discountedAmount + ' kr' }}
+				</p>
 				<input @keyup.enter="showMessage" v-if="show" type="text" v-model="discount" />
 				<div class="container-sm">
 					<h6>
@@ -126,9 +132,7 @@
 					<p v-if="!discountedAmount" id="totalAmount">{{ this.totalAmount + ' kr' }}</p>
 					<p v-if="discountedAmount" id="totalAmount">{{ this.discountedAmount + ' kr' }}</p>
 				</div>
-				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">
-					Gå vidare till kassan
-				</button>
+				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">Till kassan</button>
 			</div>
 		</body>
 	</main>
@@ -140,8 +144,6 @@
 	}
 
 	body {
-		background-color: #ffffff;
-		background-image: none;
 		padding-bottom: 15px;
 	}
 
@@ -201,7 +203,8 @@
 			padding: 5% 2% 0 5%;
 		}
 
-		#amount {
+		#amount,
+		#discountText {
 			padding-left: 5%;
 		}
 
@@ -267,7 +270,7 @@
 			/* border: 1px solid; */
 			border-radius: 5px;
 			margin-left: 10%;
-			max-height: 320px;
+			max-height: 300px;
 			padding: 25px 10px 10px 10px;
 			width: 50%;
 			text-align: center;
@@ -280,9 +283,19 @@
 		cursor: pointer;
 	}
 
+	#discountText {
+		font-family: 'Noto Mono', monospace;
+		margin-bottom: 0;
+	}
+
 	#inclVAT {
 		display: block;
 		font-size: small;
+	}
+
+	#itemName {
+		font-weight: bold;
+		margin: 10px 0 8px 0;
 	}
 
 	#itemPicture {
