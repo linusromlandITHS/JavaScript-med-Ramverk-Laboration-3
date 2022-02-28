@@ -201,8 +201,11 @@
 		padding-left: 10px;
 		padding-right: 10px;
 
-		/*background-image: url(assets/farm2.jpeg);*/
-		background-image: url('assets/mountain.jpg');
+		/* background-image: url(assets/farm.jpg); */
+		/* background-image: url(assets/farm2.jpg); */
+		/* background-image: url('assets/mountain2.jpg'); */
+		background-image: url('assets/bg10.jpg');
+		/* background-image: url('assets/bg1.jpg'); */
 
 		background-repeat: no-repeat;
 		background-attachment: fixed;
