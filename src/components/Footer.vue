@@ -1,8 +1,38 @@
 <script></script>
 
 <template>
-	<footer class="text-center text-lg-start bg-light text-muted">
-		<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" />
+	<footer class="text-center text-lg-start bg-dark text-muted">
+		<!-- Section: Social media -->
+		<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+			<!-- Left -->
+			<div class="me-5 d-none d-lg-block">
+				<span>Kontakta oss på våra sociala nätverk:</span>
+			</div>
+			<!-- Left -->
+
+			<!-- Right -->
+			<div>
+				<a href="https://www.facebook.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-facebook" />
+				</a>
+				<a href="https://twitter.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-twitter" />
+				</a>
+				<a href="https://www.google.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-google" />
+				</a>
+				<a href="https://www.instagram.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-instagram" />
+				</a>
+				<a href="https://www.linkedin.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-linkedin" />
+				</a>
+				<a href="https://github.com/" class="me-4 text-reset" target="_blank">
+					<i class="bi bi-github" />
+				</a>
+			</div>
+			<!-- Right -->
+		</section>
 
 		<!-- Section: Links  -->
 		<section class="container-bottom">
@@ -14,8 +44,8 @@
 						<!-- Content -->
 						<h6 class="text-uppercase fw-bold mb-4"><i class="bi bi-shop" /> Red Mountain Ranch</h6>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit.
+							Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Vi har både små och stora
+							djur för alla typer av djurälskare.
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -23,18 +53,22 @@
 					<!-- Grid column -->
 					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">Lorem</h6>
+						<h6 class="text-uppercase fw-bold mb-4">Kundtjänst</h6>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a
+								href="https://www.postnord.se/vara-verktyg/spara-brev-paket-och-pall?shipmentId="
+								class="text-reset"
+								>Spåra din leverans</a
+							>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Teknisk support</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Store</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Kontakta oss</a>
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -42,18 +76,18 @@
 					<!-- Grid column -->
 					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">Lorem</h6>
+						<h6 class="text-uppercase fw-bold mb-4">Informationssidor</h6>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Leveransavtal</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Cookies</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Artiklar</a>
 						</p>
 						<p>
-							<a href="#!" class="text-reset">Lorem</a>
+							<a href="#!" class="text-reset">Guider</a>
 						</p>
 					</div>
 					<!-- Grid column -->
@@ -65,10 +99,9 @@
 						<p><i class="bi bi-building" /> Klaraborgen, 411 03 Göteborg</p>
 						<p>
 							<i class="bi bi-envelope-fill" />
-							Redmountain_team@gmail.com
+							Rmr@info.com
 						</p>
 						<p><i class="bi bi-telephone-fill" /> + 46 (0)31-118 118</p>
-						<p><i class="" /> + XX XXX XXX XX</p>
 					</div>
 					<!-- Grid column -->
 				</div>
@@ -80,17 +113,64 @@
 		<!-- Copyright -->
 		<div class="text-center p-4">
 			© 2022 Copyright:
-			<a class="text-reset fw-bold" href="http://localhost:3000/#/">Red Mountain Ranch</a>
+			<a class="text-reset" href="http://localhost:3000/#/">Red Mountain Ranch</a>
 		</div>
 		<!-- Copyright -->
 	</footer>
 </template>
-<style>
+<style scoped>
+	.text-uppercase.fw-bold.mb-4 {
+		color: #faac77;
+		font-weight: bold;
+		font-size: 17px;
+	}
+
+	.text-reset {
+		text-decoration: none;
+		transition: 0.3s all ease-out;
+	}
+
+	.text-reset:hover {
+		color: aqua;
+	}
+
+	p {
+		color: white;
+		font-size: 15px;
+	}
+
+	.bi {
+		color: white;
+	}
 	.d-flex {
 		margin-top: 5%;
 	}
 
 	.text-center.p4 {
-		background-color: rgba(0, 0, 0, 0.05);
+		color: white;
+		background-color: aliceblue;
+	}
+
+	.bi.bi-facebook {
+		color: #3b5998;
+	}
+	.bi.bi-twitter {
+		color: #00acee;
+	}
+
+	.bi.bi-google {
+		color: #f4c20d;
+	}
+
+	.bi.bi-instagram {
+		color: #8a3ab9;
+	}
+
+	.bi.bi-linkedin {
+		color: #0072b1;
+	}
+
+	.bi.bi-github {
+		color: #171515;
 	}
 </style>
