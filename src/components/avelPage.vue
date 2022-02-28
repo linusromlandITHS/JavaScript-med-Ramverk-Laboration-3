@@ -110,7 +110,7 @@
 		},
 		methods: {
 			randomName() {
-				if (this.inputName !== '' && this.url !== null) {
+				if (this.inputName !== '') {
 					let chosenNumber = Math.floor(Math.random() * this.kickAsName.length);
 					let ending = Math.floor(Math.random() * this.nameEndings.length);
 					let efternamn = Math.floor(Math.random() * this.surName.length);
@@ -233,20 +233,20 @@
 			<div v-show="avlaFormShow" class="formDiv slide-item" name="slide" mode="in-out">
 				<p class="mimimi">Avla på {{ superKatter }}</p>
 				<input type="text" placeholder="Kattens namn" v-model="inputName" />
-				<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />
+				<!--<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />-->
 				<p class="hello">{{ finalNameErr }}</p>
-				<button @click="randomName">KLICK</button>
-				<p v-if="url" id="coolName">{{ finalName }} {{ parent }}</p>
+				<button @click="randomName">Ny katt</button>
+				<p id="coolName">{{ finalName }} {{ parent }}</p>
 			</div>
 		</transition>
-		<div id="displayImg" />
+		<!--<div id="displayImg" />
 
 		<div id="preview" v-show="ereSant">
 			<img id="bild" v-if="url" :src="url" />
 			<p v-if="url" id="coolName">{{ finalName }} {{ parent }}</p>
 			<Button @click="AddItem" class="btn btn-secondary">Avla</Button>
 			<canvas id="canvas1" />
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -361,7 +361,6 @@
 		height: 200px;
 	}
 	#coolName {
-		position: absolute;
 		color: white;
 		top: 70%;
 		color: red;

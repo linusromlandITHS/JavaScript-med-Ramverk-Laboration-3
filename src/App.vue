@@ -1,36 +1,17 @@
-<template>
-	<div
-		id="topdiv"
-		style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%)"
-	>
-		<!-- height: 70vh;
-			background-color: #e7f9fb;
-			position: relative; -->
-		<!-- Navbar  -->
-		<Navbar />
-		<router-view v-slot="{ Component }">
-			<transition name="fade">
-				<component :is="Component" style="background: white" />
-			</transition>
-		</router-view>
-	</div>
-	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
-
-	<backToTop />
-</template>
-
 <script>
 	//Component Imports:
 	import Navbar from './components/Navbar.vue';
 	import Toast from './components/Toast.vue';
 	import backToTop from './components/backToTop.vue';
+	import Footer from './components/Footer.vue';
 
 	export default {
 		name: 'App',
 		components: {
 			Navbar,
 			Toast,
-			backToTop
+			backToTop,
+			Footer
 		},
 		data() {
 			return {
@@ -56,6 +37,28 @@
 		}
 	};
 </script>
+
+<template>
+	<div
+		id="topdiv"
+		style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%)"
+	>
+		<!-- height: 70vh;
+			background-color: #e7f9fb;
+			position: relative; -->
+		<!-- Navbar  -->
+		<Navbar />
+		<router-view v-slot="{ Component }">
+			<transition name="fade">
+				<component :is="Component" style="background: white" />
+			</transition>
+		</router-view>
+	</div>
+	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
+
+	<backToTop />
+	<Footer />
+</template>
 
 <style>
 	html,
