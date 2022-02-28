@@ -21,20 +21,16 @@
 				type: String,
 				required: true
 			},
-			p_image_1: {
-				type: String,
-				required: true
-			},
 			p_temperament: {
 				type: String,
 				required: true
 			},
 			p_price: {
-				type: String,
+				type: Number,
 				required: true
 			},
 			p_images_arr: {
-				type: String,
+				type: Array,
 				required: true
 			},
 			p_type: {

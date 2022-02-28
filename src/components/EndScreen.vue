@@ -57,7 +57,9 @@
 			},
 			emptyStorage() {
 				this.togglePopup();
-				// this.localStorage.clear();
+				//Clear localStorage
+				localStorage.clear();
+				this.$store.commit('updateNumInCartBasedOnLS');
 			},
 			togglePopup() {
 				// console.log('showPopup', this.showPopup);
