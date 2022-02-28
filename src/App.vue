@@ -15,18 +15,22 @@
 		</router-view>
 	</div>
 	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
+
+	<backToTop />
 </template>
 
 <script>
 	//Component Imports:
 	import Navbar from './components/Navbar.vue';
 	import Toast from './components/Toast.vue';
+	import backToTop from './components/backToTop.vue';
 
 	export default {
 		name: 'App',
 		components: {
 			Navbar,
-			Toast
+			Toast,
+			backToTop
 		},
 		data() {
 			return {
