@@ -38,12 +38,16 @@
 			p_description: {
 				type: String,
 				required: true
+			},
+			background: {
+				type: Boolean,
+				default: false
 			}
 		},
 		computed: {
 			shorter_text_description() {
 				if (this.p_description) {
-					return this.p_description.substring(0, 130).trim() + '...';
+					return this.p_description.substring(0, 165).trim() + '...';
 				} else {
 					return '';
 				}
@@ -58,11 +62,6 @@
 			return {
 				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
 				img_src: 'assets/products/' + this.p_images_arr[0]
-				/*
-				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
-        // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
-        //img_src: "assets/products/" + this.p_id + "/0.jpg"
-*/
 			};
 		},
 
@@ -142,7 +141,7 @@
 	};
 </script>
 <template>
-	<div @click="go_to_details_view(this.p_id)" class="card">
+	<div @click="go_to_details_view(this.p_id)" :class="`card ${background ? 'background-change' : ''}`">
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
@@ -155,27 +154,38 @@
 		<div class="text">{{ shorter_text_description }}</div>
 		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
-	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i varukorg</Button>
+	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)" :larger="true">lägg i varukorg</Button>
 </template>
 
 <style scoped>
 	.card {
-		width: 200px;
-		height: 250px;
-		background-color: #f0efee;
+		width: 300px;
+		height: 390px;
+		max-height: 390px;
+		background-color: #ffffff;
 		color: antiquewhite;
-		padding: 5px;
+		padding: 15px;
 		margin-bottom: 5px;
 		border-radius: 8px;
 		border-style: none;
 
 		cursor: pointer;
 		transition: 0.3s ease-out;
-		position: relative;
-		z-index: 2;
 
 		margin-left: auto;
 		margin-right: auto;
+
+		/*https://ui.glass/generator/ */
+		backdrop-filter: blur(16px) saturate(180%);
+		-webkit-backdrop-filter: blur(16px) saturate(180%);
+		background-color: rgba(255, 255, 255, 0.75);
+	}
+
+	/**
+	* Sets gray transparent background to work better on ProductView.vue
+	*/
+	.background-change {
+		background-color: #f0efee !important; /**Important is used to override .card options */
 	}
 
 	.card:hover {
@@ -183,58 +193,65 @@
 	}
 
 	.img-image {
-		width: 190px;
-		height: 137.1px;
+		max-width: 100%;
+		height: 165px;
+		max-height: 165px;
 		object-fit: cover;
 		object-position: 100% 0;
 		max-width: 100%;
 		/* max-width: fit-content; */
 	}
+	img {
+		border: 1px solid white;
+	}
 
 	.image {
-		width: 190px;
-		height: 137.1px;
-		background: #cfc6c6;
+		max-width: 100%;
+		height: 165px;
+		max-height: 165px;
+		margin: auto;
+		margin-top: 5px;
 		margin-bottom: 5px;
 		border-radius: 8px;
 	}
 
 	.title {
-		width: 190px;
 		height: 17.14px;
 		font-family: 'Roboto Mono', monospace !important;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 15px;
+		font-size: 23px;
 		line-height: 18px;
 		text-align: center;
 		text-transform: uppercase;
-		margin-bottom: 5px;
+		margin-top: 12px;
+		margin-bottom: 12px;
 		color: black;
 	}
 
 	.text {
-		width: 190px;
-		height: 50.4px;
+		text-align: center;
+		width: 98%;
+		/* height: 50.4px; */
 
 		font-family: 'Noto Serif';
-		font-style: normal;
-		font-weight: 200;
-		font-size: 10px;
-		line-height: 12px;
+
+		font-size: 14px;
+		line-height: 20px;
 
 		margin-bottom: 5px;
 		color: black;
 	}
 
 	.price {
-		width: 190px;
+		bottom: 36px;
+		position: absolute;
+		width: 300px;
 		height: 14.11px;
 		font-family: 'Noto Mono', 'Roboto Mono', monospace;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 14px;
-		line-height: 18px;
+		font-size: 21px;
 		text-align: center;
 		margin-bottom: 5px;
 		color: black;

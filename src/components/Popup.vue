@@ -17,7 +17,7 @@
 	<div v-if="showPopup" class="modal">
 		<div class="modal-content">
 			<img class="close-popup" src="assets/close.svg" @click="togglePopup()" />
-			<h1>TACK FÖR DIN KÖP!</h1>
+			<h1>TACK FÖR DITT KÖP!</h1>
 			<img class="animation" src="assets/lazy_dog.gif" />
 		</div>
 	</div>

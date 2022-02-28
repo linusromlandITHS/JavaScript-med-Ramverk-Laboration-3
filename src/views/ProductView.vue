@@ -36,7 +36,7 @@
 
 				//Find 3 products that are similar to the product
 				this.recommendedProducts = response.animals
-					.filter((product) => product.id !== this.$route.params.id)
+					.filter((product) => product.id !== this.$route.params.id && product.type == this.product.type)
 					.slice(0, 3);
 
 				//If product is not found, redirect to home page
@@ -143,6 +143,7 @@
 					:p_type="recommendedProduct.type"
 					:p_one_picture="recommendedProduct.images[0]"
 					:p_description="recommendedProduct.description"
+					:background="true"
 				/>
 			</div>
 		</div>
