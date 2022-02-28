@@ -38,6 +38,10 @@
 			p_description: {
 				type: String,
 				required: true
+			},
+			background: {
+				type: Boolean,
+				default: false
 			}
 		},
 		computed: {
@@ -137,7 +141,7 @@
 	};
 </script>
 <template>
-	<div @click="go_to_details_view(this.p_id)" class="card">
+	<div @click="go_to_details_view(this.p_id)" :class="`card ${background ? 'background-change' : ''}`">
 		<div class="image">
 			<picture>
 				<source :srcset="this.img_src" media="(max-width: 480px)" />
@@ -175,6 +179,13 @@
 		backdrop-filter: blur(16px) saturate(180%);
 		-webkit-backdrop-filter: blur(16px) saturate(180%);
 		background-color: rgba(255, 255, 255, 0.75);
+	}
+
+	/**
+	* Sets gray transparent background to work better on ProductView.vue
+	*/
+	.background-change {
+		background-color: #f0efee !important; /**Important is used to override .card options */
 	}
 
 	.card:hover {
