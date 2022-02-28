@@ -17,6 +17,7 @@
 	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
 
 	<backToTop />
+	<Footer />
 </template>
 
 <script>
@@ -24,13 +25,15 @@
 	import Navbar from './components/Navbar.vue';
 	import Toast from './components/Toast.vue';
 	import backToTop from './components/backToTop.vue';
+	import Footer from './components/Footer.vue';
 
 	export default {
 		name: 'App',
 		components: {
 			Navbar,
 			Toast,
-			backToTop
+			backToTop,
+			Footer
 		},
 		data() {
 			return {
