@@ -90,7 +90,11 @@
 			}
 		},
 		created() {
-			//This runs the method that retrieves the product datater
+			//Fetches product data
+			this.fetchProduct();
+		},
+		updated() {
+			//Fetches product data
 			this.fetchProduct();
 		}
 	};
