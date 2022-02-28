@@ -47,7 +47,7 @@
 </template>
 
 <script>
-	import ProductCard2 from '../components/ProductCard2.vue';
+	import ProductCard2 from '../components/ProductCard.vue';
 	export default {
 		name: 'PetListing2',
 
