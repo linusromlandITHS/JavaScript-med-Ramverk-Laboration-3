@@ -59,10 +59,10 @@
 				//image_1: 'assets/products/' + this.p_id + '/0.jpg',
 				img_src: 'assets/products/' + this.p_images_arr[0]
 				/*
-				//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
-        // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
-        //img_src: "assets/products/" + this.p_id + "/0.jpg"
-*/
+					//image_1 : "assets/products/" + this.p_id + "/0.jpg" ,
+	        // str : "<img class='card_img' src='assets/products/" + this.p_id + "/0.jpg' style='width=100%' />",
+	        //img_src: "assets/products/" + this.p_id + "/0.jpg"
+	*/
 			};
 		},
 
@@ -70,6 +70,9 @@
 			//			console.log(this.data);
 
 			//alert("this.p_id \n"+ this.p_id);
+			this.img_src = 'assets/products/' + this.p_images_arr[0];
+		},
+		updated() {
 			this.img_src = 'assets/products/' + this.p_images_arr[0];
 		},
 
