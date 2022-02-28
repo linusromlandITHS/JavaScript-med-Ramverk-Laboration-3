@@ -1,51 +1,3 @@
-<template>
-	<transition>
-		<div id="above_mainbg" style="">
-			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
-				<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
-				<header class="listing_header" style="margin: auto">
-					<h3>Välkommen att se våra djur!</h3>
-				</header>
-
-				<div class="petHeaders d-flex flex-wrap justify-content-center">
-					<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
-					<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
-					<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
-					<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
-					<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
-					<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
-				</div>
-
-				<!-- <small
-					><span class="linklike"> (Ta bort dessa sedan: </span>
-
-					<span class="linklike" @click="displayCartContents()">Visa varukorg</span> &nbsp; | &nbsp;
-					<span class="linklike" @click="purgeCart()">Töm varukorg</span>)</small
-				> -->
-
-				<div id="cardcontainer" class="d-flex flex-wrap justify-content-center">
-					<!-- style="margin-left: auto; margin-right: auto" -->
-
-					<div v-for="pet in current_pet_list" class="p-2" flex-fill :key="pet.id">
-						<ProductCard2
-							:key="pet.id"
-							:p_id="pet.id"
-							:p_name="pet.name"
-							:p_images_arr="pet.images"
-							:p_temperament="pet.temperament"
-							:p_price="pet.price"
-							:p_type="pet.type"
-							:p_one_picture="this.picture_1"
-							:p_description="pet.description"
-						/>
-					</div>
-				</div>
-				<hr />
-			</div>
-		</div>
-	</transition>
-</template>
-
 <script>
 	import ProductCard2 from '../components/ProductCard.vue';
 	export default {
@@ -188,6 +140,54 @@
 		}
 	};
 </script>
+
+<template>
+	<transition>
+		<div id="above_mainbg" style="">
+			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
+				<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
+				<header class="listing_header" style="margin: auto">
+					<h3>Välkommen att se våra djur!</h3>
+				</header>
+
+				<div class="petHeaders d-flex flex-wrap justify-content-center">
+					<span class="badgelike" @click="filter_by_pet_type('alla')">Alla</span>
+					<span class="badgelike" @click="filter_by_pet_type('katt')">Katter</span>
+					<span class="badgelike" @click="filter_by_pet_type('hund')">Hundar</span>
+					<span class="badgelike" @click="filter_by_pet_type('kanin')">Kaniner</span>
+					<span class="badgelike" @click="filter_by_pet_type('fisk')">Fiskar</span>
+					<span class="badgelike" @click="filter_by_pet_type('häst')">Hästar</span>
+				</div>
+
+				<!-- <small
+					><span class="linklike"> (Ta bort dessa sedan: </span>
+
+					<span class="linklike" @click="displayCartContents()">Visa varukorg</span> &nbsp; | &nbsp;
+					<span class="linklike" @click="purgeCart()">Töm varukorg</span>)</small
+				> -->
+
+				<div id="cardcontainer" class="d-flex flex-wrap justify-content-center">
+					<!-- style="margin-left: auto; margin-right: auto" -->
+
+					<div v-for="pet in current_pet_list" class="p-2" flex-fill :key="pet.id">
+						<ProductCard2
+							:key="pet.id"
+							:p_id="pet.id"
+							:p_name="pet.name"
+							:p_images_arr="pet.images"
+							:p_temperament="pet.temperament"
+							:p_price="pet.price"
+							:p_type="pet.type"
+							:p_one_picture="this.picture_1"
+							:p_description="pet.description"
+						/>
+					</div>
+				</div>
+				<hr />
+			</div>
+		</div>
+	</transition>
+</template>
 
 <style scoped>
 	* {
