@@ -12,13 +12,20 @@
 		methods: {
 			onClick() {
 				this.clicked = true;
-				console.log('onClick', 'test');
+				// console.log('onClick', 'test');
 				if (this.name != '' && this.email != '') {
 					this.msg = 'Tack för din fråga! Vi kommer att kontakta dig så snart som möjligt.';
 				} else {
 					this.msg = 'Skriv ditt namn och email!';
 				}
+				this.clearValue();
 			}
+			// clearValue() {
+			// 	// this.name = '';
+			// 	// this.email = '';
+
+			// 	this.clicked = false;
+			// }
 		}
 	};
 </script>
@@ -40,7 +47,7 @@
 			</div>
 
 			<input class="btn btn-primary btn" @click="onClick" type="button" value="Skicka" />
-			<h3 style="color: red">{{ msg }}</h3>
+			<h3>{{ msg }}</h3>
 		</div>
 		<div class="address">
 			<p><img src="assets/alarm.svg" class="icons" /> 9:00 - 18:00</p>
