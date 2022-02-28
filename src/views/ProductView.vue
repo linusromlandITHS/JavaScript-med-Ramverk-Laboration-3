@@ -34,9 +34,9 @@
 				//Finds the product that matches the param id
 				this.product = response.animals.find((product) => product.id === this.$route.params.id);
 
-				//Find 5 products that are similar to the product
+				//Find 3 products that are similar to the product
 				this.recommendedProducts = response.animals
-					.filter((product) => product.id !== this.$route.params.id)
+					.filter((product) => product.id !== this.$route.params.id && product.type == this.product.type)
 					.slice(0, 3);
 
 				//If product is not found, redirect to home page
@@ -45,7 +45,7 @@
 				//Updates title of document to product name
 				document.title = `${this.product.name} | Red Mountain Ranch`;
 			},
-			/**			 *
+			/**
 			 * @name addToCart
 			 * @description Add a new product to the cart
 			 * @returns {null} - No return value
@@ -85,6 +85,7 @@
 		},
 		computed: {
 			images() {
+				if (!this.product.images) return [];
 				//This edits the image array and adds the correct path to the image.
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
@@ -142,6 +143,7 @@
 					:p_type="recommendedProduct.type"
 					:p_one_picture="recommendedProduct.images[0]"
 					:p_description="recommendedProduct.description"
+					:background="true"
 				/>
 			</div>
 		</div>
