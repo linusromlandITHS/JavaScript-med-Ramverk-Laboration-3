@@ -9,12 +9,16 @@
 			disabled: {
 				type: Boolean,
 				default: false
+			},
+			larger: {
+				type: Boolean,
+				default: false
 			}
 		},
 		emits: ['clicked'],
 		computed: {
 			className() {
-				return `btn btn-${!this.alternative ? 'primary' : 'secondary'}`;
+				return `btn btn-${this.larger ? 'large' : 'small'} btn-${!this.alternative ? 'primary' : 'secondary'}`;
 			}
 		},
 		methods: {
@@ -31,11 +35,19 @@
 
 <style scoped>
 	.btn {
-		width: 200px;
 		height: 42px;
 		border-radius: 8px;
-		font-size: 14px;
 		font-family: 'Roboto Mono', monospace;
+	}
+
+	.btn-small {
+		width: 200px;
+		font-size: 14px;
+	}
+
+	.btn-large {
+		width: 300px;
+		font-size: 18px;
 	}
 
 	.btn-primary:hover {

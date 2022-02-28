@@ -1,12 +1,10 @@
 <script>
-	//import Button2 from './Button2.vue';
-
-	import Button2 from '../components/Button2.vue';
+	import Button from '../components/Button.vue';
 
 	export default {
 		name: 'ProductCard',
 		components: {
-			Button2
+			Button
 		},
 		props: {
 			p_id: {
@@ -152,7 +150,7 @@
 		<div class="text">{{ shorter_text_description }}</div>
 		<div class="price">{{ p_price_with_space }}:-</div>
 	</div>
-	<Button2 class="btn" @click="add_to_cart(this.p_id, this.p_name)">lägg i varukorg</Button2>
+	<Button class="btn" @click="add_to_cart(this.p_id, this.p_name)" :larger="true">lägg i varukorg</Button>
 </template>
 
 <style scoped>
