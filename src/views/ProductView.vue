@@ -85,6 +85,7 @@
 		},
 		computed: {
 			images() {
+				if (!this.product.images) return [];
 				//This edits the image array and adds the correct path to the image.
 				return this.product.images.map((image) => `../../assets/products/${image}`);
 			}
