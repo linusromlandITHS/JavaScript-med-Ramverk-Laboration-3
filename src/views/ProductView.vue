@@ -1,7 +1,7 @@
 <script>
 	import Slideshow from '../components/Slideshow.vue';
 	import Button from '../components/Button.vue';
-	import ProductCard from '../components/ProductCard.vue';
+	import ProductCard from '../components/ProductCard2.vue';
 
 	export default {
 		name: 'ProductView',
@@ -143,6 +143,7 @@
 					:p_type="recommendedProduct.type"
 					:p_one_picture="recommendedProduct.images[0]"
 					:p_description="recommendedProduct.description"
+					:background="true"
 				/>
 			</div>
 		</div>
