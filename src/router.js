@@ -22,12 +22,6 @@ const router = createRouter({
 			path: '/contact'
 		},
 		{
-			// Products Route?
-			name: 'Animal',
-			component: () => import('./views/AnimalView.vue'),
-			path: '/animal'
-		},
-		{
 			// Product Route
 			name: 'Product',
 			component: () => import('./views/ProductView.vue'),
@@ -50,12 +44,6 @@ const router = createRouter({
 			name: 'Petlisting',
 			component: () => import('./views/PetListingView.vue'),
 			path: '/petlisting'
-		},
-		{
-			// GAMMAL VERSION AV FÖR PETLISTING
-			name: 'Petlisting2',
-			component: () => import('./views/PetListingOLD.vue'),
-			path: '/petlistingOLD'
 		},
 		{
 			// TEMP AVEL
