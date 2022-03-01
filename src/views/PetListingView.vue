@@ -333,9 +333,9 @@
 			margin-right: auto;
 			margin-left: auto;
 
-			-webkit-box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
-			-moz-box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
-			box-shadow: 0px 16px 39px 0px rgba(0, 0, 0, 0.64);
+			-webkit-box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+			-moz-box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+			box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
 		}
 	}
 

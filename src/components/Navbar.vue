@@ -31,7 +31,6 @@
 					<span class="line line2" />
 					<span class="line line3" />
 				</div>
-
 				<div class="logo">
 					<img alt="" src="{{ logo }}" height="50px" />
 					<RouterLink to="/cart">
@@ -88,7 +87,7 @@
 	.navbar {
 		width: 100%;
 		box-shadow: 0 1px 4px rgb(146 161 176 / 1%);
-		background-color: #f0efee;
+		background-color: #606b6f;
 	}
 
 	.nav-container {
