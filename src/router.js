@@ -21,12 +21,12 @@ const router = createRouter({
 			component: () => import('./views/ContactView.vue'),
 			path: '/contact'
 		},
-		{
-			// Products Route?
-			name: 'Animal',
-			component: () => import('./views/AnimalView.vue'),
-			path: '/animal'
-		},
+		// {
+		// 	// Products Route?
+		// 	name: 'Animal',
+		// 	component: () => import('./views/AnimalView.vue'),
+		// 	path: '/animal'
+		// },
 		{
 			// Product Route
 			name: 'Product',
@@ -51,12 +51,12 @@ const router = createRouter({
 			component: () => import('./views/PetListingView.vue'),
 			path: '/petlisting'
 		},
-		{
-			// GAMMAL VERSION AV FÖR PETLISTING
-			name: 'Petlisting2',
-			component: () => import('./views/PetListingOLD.vue'),
-			path: '/petlistingOLD'
-		},
+		// {
+		// 	// GAMMAL VERSION AV FÖR PETLISTING
+		// 	name: 'Petlisting2',
+		// 	component: () => import('./views/PetListingOLD.vue'),
+		// 	path: '/petlistingOLD'
+		// },
 		{
 			// TEMP AVEL
 			name: 'Avel',
