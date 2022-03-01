@@ -202,7 +202,6 @@
 		</template>
 	</div>
 	<Popup :showPopup="showPopup" :togglePopup="togglePopup" />
-	<AvelPage />
 </template>
 
 <style scoped>
