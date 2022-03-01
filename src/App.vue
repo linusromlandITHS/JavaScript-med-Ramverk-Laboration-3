@@ -4,6 +4,7 @@
 	import Toast from './components/Toast.vue';
 	import backToTop from './components/backToTop.vue';
 	import Footer from './components/Footer.vue';
+	import DiscountBanner from './components/DiscountBanner.vue';
 
 	export default {
 		name: 'App',
@@ -11,7 +12,8 @@
 			Navbar,
 			Toast,
 			backToTop,
-			Footer
+			Footer,
+			DiscountBanner
 		},
 		data() {
 			return {
@@ -48,6 +50,7 @@
 			position: relative; -->
 		<!-- Navbar  -->
 		<Navbar />
+		<DiscountBanner />
 		<router-view v-slot="{ Component }">
 			<transition name="fade">
 				<component :is="Component" style="background: white" />

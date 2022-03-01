@@ -130,10 +130,6 @@
 		transition: 0.3s all ease-out;
 	}
 
-	.text-reset:hover {
-		color: aqua;
-	}
-
 	p {
 		color: white;
 		font-size: 15px;
