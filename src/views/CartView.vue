@@ -60,7 +60,13 @@
 				this.show = true;
 			},
 
-			showMessage() {
+			watchProduct(itemId) {
+				const route = this.cartItems.find((item) => item.id === itemId);
+
+				this.$router.push({ path: '/product/' + route.id });
+			},
+
+			getDiscount() {
 				const discountCode = this.$store.state.discountCode;
 
 				const discountRate = discountCode[this.discount];
@@ -105,7 +111,12 @@
 		<body>
 			<div id="itemSection">
 				<ol>
-					<li v-for="cartItem in cartItems" :key="cartItem.id" class="productCard">
+					<li
+						@click="watchProduct(cartItem.id)"
+						v-for="cartItem in cartItems"
+						:key="cartItem.id"
+						class="productCard"
+					>
 						<!-- Gets the first image from image array -->
 						<img id="itemPicture" :src="this.imgUrl + cartItem.images[0]" />
 						<div id="productText">
@@ -123,7 +134,7 @@
 				<p id="discountText" v-if="discountedAmount">
 					Rabatt: {{ discount }} -{{ this.totalAmount - discountedAmount + ' kr' }}
 				</p>
-				<input @keyup.enter="showMessage" v-if="show" type="text" v-model="discount" />
+				<input @keyup.enter="getDiscount" v-if="show" type="text" v-model="discount" />
 				<div class="container-sm">
 					<h6>
 						Total summa
@@ -175,6 +186,7 @@
 	.productCard {
 		background-color: #f0efee;
 		/* border: 1px solid; */
+		cursor: pointer;
 		display: flex;
 		height: 80px;
 		margin-top: 15px;
@@ -318,6 +330,7 @@
 
 	#removeItem {
 		cursor: pointer;
+		height: 15px;
 	}
 
 	#totalAmount {
