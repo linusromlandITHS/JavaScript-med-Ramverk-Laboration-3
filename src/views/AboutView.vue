@@ -154,12 +154,6 @@
 
 	.tab-info {
 		font-size: 12px;
-		font-family: 'Noto Mono', monospace;
-	}
-
-	p {
-		font-family: Noto Serif;
-		font-size: 12px;
 	}
 
 	.bi-facebook {

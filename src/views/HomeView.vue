@@ -23,39 +23,40 @@
 </script>
 
 <template>
-	<h1 style="display: none">Red Mountain Ranch</h1>
-	<div id="dogDiv">
-		<img src="/assets/välkommen.png" alt="" id="title" />
-		<img src="/assets/logo.png" alt="" id="animationLogo" />
-		<H2 style="margin-top: 60px">Välkommen</H2>
-		<p id="kortInfo">Här är Sveriges främsta webbsida för kattavel och husdjurshandel.</p>
-	</div>
-	<section id="mainInfo">
-		<div class="info">
-			<div class="underTitel"><h3>Nytt husdjur?</h3></div>
-			<div class="innerDiv d-flex flex-column align-items-center">
-				<p>
-					Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Vi har både små och stora djur för
-					alla typer av djurälskare.
-				</p>
-				<Button class="btn btn-secondary" @click="onClick">Handla</Button>
-			</div>
+	<main>
+		<div id="dogDiv">
+			<img src="/assets/välkommen.png" alt="" id="title" />
+			<img src="/assets/logo.png" alt="" id="animationLogo" />
+			<H1 style="margin-top: 60px">Välkommen</H1>
+			<p id="kortInfo">Här är Sveriges främsta webbsida för kattavel och husdjurshandel.</p>
 		</div>
-		<div class="info">
-			<div class="underTitel"><h3>Avla din katt?</h3></div>
-			<div class="innerDiv d-flex flex-column align-items-center">
-				<p>
-					Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av allra
-					högsta kvalitet.
-				</p>
-				<Button class="btn btn-secondary" @click="onClickAvel">Avla</Button>
+		<section id="mainInfo">
+			<div class="info">
+				<div class="underTitel"><h3>Nytt husdjur?</h3></div>
+				<div class="innerDiv d-flex flex-column align-items-center">
+					<p>
+						Hos oss kan du för en rimlig peng köpa hem en ny familjemedlem. Vi har både små och stora djur
+						för alla typer av djurälskare.
+					</p>
+					<Button class="btn btn-secondary" @click="onClick">Handla</Button>
+				</div>
 			</div>
-		</div>
-	</section>
+			<div class="info">
+				<div class="underTitel"><h3>Avla din katt?</h3></div>
+				<div class="innerDiv d-flex flex-column align-items-center">
+					<p>
+						Vill du avla din katt med en av våra superkatter? Här kan du hitta en partner till din katt av
+						allra högsta kvalitet.
+					</p>
+					<Button class="btn btn-secondary" @click="onClickAvel">Avla</Button>
+				</div>
+			</div>
+		</section>
+	</main>
 </template>
 
 <style scoped>
-	h2,
+	h1,
 	h3 {
 		color: #333c3e;
 	}
@@ -79,7 +80,7 @@
 		justify-content: center;
 		animation: gelatine 0.5s infinite;
 		position: relative;
-		z-index: -1;
+		z-index: 1;
 	}
 	@keyframes gelatine {
 		from,
@@ -120,7 +121,7 @@
 		width: 350px;
 		margin: 20px;
 		border-radius: 8px;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
 	}
 	.innerDiv {
 		padding: 7%;
@@ -139,8 +140,5 @@
 
 	.underTitel > h3 {
 		margin: 0;
-	}
-	body {
-		background-image: url('/src/farm.jpg');
 	}
 </style>
