@@ -127,7 +127,7 @@
 					this.ereSant = true;
 					this.finalNameErr = '';
 				} else {
-					this.finalNameErr = 'Skriv din katts namn och ladda upp en bild.';
+					this.finalNameErr = 'Skriv din katts namn.';
 				}
 			},
 			onFileChange(e) {
@@ -157,17 +157,20 @@
 
 <template>
 	<div id="mainDiv" @change.once="reload">
-		<div class="cardFotter">
-			<h1>Avla på våra superkatter</h1>
-		</div>
+		<h1>Avla på våra superkatter</h1>
+		<div class="cardFotter" />
 		<div class="cards">
 			<div class="sides" />
 			<div @click="isShow = !isShow" class="cardDiv">
-				<img v-show="!isShow" class="cardimg" src="/assets/satancat.jpeg" alt="" />
+				<img v-show="!isShow" class="cardimg" src="/assets/epiccat1.jpeg" alt="" />
 				<h3>Missan Val Enberg</h3>
-				<p>Lol bub bob pop</p>
+				<p>"Alla nio liv kvar!"</p>
 				<div v-show="isShow">
-					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<p>
+						Missan Val Enberg är av kunglig börd. Ultrastark, smidig, explosiv och har kvar alla sina nio
+						liv. Ingen kommer bli missnöjd av Missan. I generationer har Val Enberg släktträdet kammat hem
+						äver femton katt VM-guld.
+					</p>
 					<Button
 						@click="
 							avlaFormShow = !avlaFormShow;
@@ -179,11 +182,15 @@
 				</div>
 			</div>
 			<div @click="isShow2 = !isShow2" class="cardDiv">
-				<img v-show="!isShow2" class="cardimg" src="/assets/satancat2.jpeg" alt="" />
+				<img v-show="!isShow2" class="cardimg" src="/assets/epiccat2.jpeg" alt="" />
 				<h3>Navel af Ludd</h3>
-				<p>Lol bub bob pop</p>
+				<p>"Varken lasange eller blomkål går säker!"</p>
 				<div v-show="isShow2">
-					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<p>
+						Navel af Ludd kan äta tre middagar. Vill du ha en kattunge med god aptit? Då är Navel af Ludd
+						katten för dig. Katten Gustaf framstår som en amatör i förhållande till af Ludd. Varken lasange
+						eller blomkål går säker.
+					</p>
 					<Button
 						@click="
 							avlaFormShow = !avlaFormShow;
@@ -197,9 +204,13 @@
 			<div @click="isShow3 = !isShow3" class="cardDiv">
 				<img v-show="!isShow3" class="cardimg" src="/assets/satancat3.jpeg" alt="" />
 				<h3>Count Kattula</h3>
-				<p>Lol bub bob pop</p>
+				<p>"Rumäniens stolthet!"</p>
 				<div v-show="isShow3">
-					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<p>
+						Rumäniens stolthet. Count Kattula har överlevt svälttider och torka. Vill du ha en kattunge som
+						sover tjugotvå timmar om dygnet och är vresig och bitsk resten av tiden så är Count Kattula
+						katten du skall avla på.
+					</p>
 					<Button
 						@click="
 							avlaFormShow = !avlaFormShow;
@@ -213,9 +224,13 @@
 			<div @click="isShow4 = !isShow4" class="cardDiv">
 				<img v-show="!isShow4" class="cardimg" src="/assets/satancat4.jpeg" alt="" />
 				<h3>Pelle von Guldsvans</h3>
-				<p>Lol bub bob pop</p>
+				<p>"Vill du ha tur i affärer?"</p>
 				<div v-show="isShow4">
-					<p>jksdjksdjfkjskdjfslkdf jhsdläfjäakljdsfö lkjasöldkfhjl öakdhsföj ahsdkjfhaökdlsj hfakjsdhf</p>
+					<p>
+						Pelle är rik! Väääldigt rik! Vill du ha tur i affärer? Pelle von Guldsvans är bättre än vilken
+						vinkande guldkatt som helst. Han har dessutom en brun guldliknande urtjusig svans som passar i
+						vilket snabbigt hem som helst.
+					</p>
 					<Button
 						@click="
 							avlaFormShow = !avlaFormShow;
@@ -232,10 +247,11 @@
 		<transition name="fade">
 			<div v-show="avlaFormShow" class="formDiv slide-item" name="slide" mode="in-out">
 				<p class="mimimi">Avla på {{ superKatter }}</p>
-				<input type="text" placeholder="Kattens namn" v-model="inputName" />
+				<input type="text" placeholder="Din katts namn" v-model="inputName" />
 				<!--<input type="file" id="inputImg" name="avatar" accept="image/png, image/jpeg" @change="onFileChange" />-->
 				<p class="hello">{{ finalNameErr }}</p>
-				<button @click="randomName">Ny katt</button>
+				<Button @click="randomName">Ny katt</Button>
+				<Button @click="AddItem" class="btn btn-secondary">Avla</Button>
 				<p id="coolName">{{ finalName }} {{ parent }}</p>
 			</div>
 		</transition>
@@ -256,10 +272,11 @@
 		text-decoration-line: underline;
 		animation: burn2 0.4s linear infinite alternate;
 		filter: grayscale(100%);
+		margin-bottom: 20px;
 	}
 	.sides {
 		background-color: black;
-		width: 200px;
+		width: 400px;
 		height: auto;
 	}
 	.cardFotter {
@@ -267,7 +284,7 @@
 		justify-content: center;
 		align-items: center;
 		background-color: #fbc39d;
-		height: 100px;
+		height: 30px;
 		width: 100%;
 	}
 	.cardimg {
@@ -281,6 +298,7 @@
 
 	.cards {
 		display: flex;
+		justify-content: center;
 		flex-direction: row;
 	}
 	@keyframes burn {
@@ -309,6 +327,9 @@
 	@media screen and (max-width: 600px) {
 		.cards {
 			flex-direction: column;
+		}
+		h1 {
+			font-size: 1.7em;
 		}
 	}
 	.cardDiv {
