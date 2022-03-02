@@ -1,5 +1,4 @@
 <script>
-	import AvelPage from '../components/avelPage.vue';
 	import Popup from '../components/Popup.vue';
 
 	export default {
@@ -88,7 +87,7 @@
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 			console.log(cartItems);
 		},
-		components: { AvelPage, Popup }
+		components: { Popup }
 	};
 </script>
 

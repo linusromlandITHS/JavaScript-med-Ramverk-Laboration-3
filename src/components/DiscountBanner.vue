@@ -61,7 +61,7 @@
 
 	.marquee--inner {
 		display: block;
-		width: 200%;
+		/* width: 200%; */
 		padding-top: 5px;
 		padding-bottom: 5px;
 		position: absolute;
