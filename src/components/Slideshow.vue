@@ -22,12 +22,12 @@
 			 * @param {String} index - The index of the button clicked
 			 */
 			changeImage(event, index) {
+				//Updates the active image index
 				this.activeImageIndex = index;
-				// Removed activeImg from all images
-				document.querySelectorAll('.activeImage').forEach((node) => {
-					node.classList.remove('activeImage');
-				});
-				//Set activeImg on clicked image
+
+				// Remove the active class from all buttons
+				document.querySelectorAll('.activeImage').forEach((element) => element.classList.remove('activeImage'));
+				//Adds the active class to the button that was clicked
 				event.currentTarget.classList.add('activeImage');
 			}
 		},
@@ -43,10 +43,10 @@
 <template>
 	<section class="d-flex flex-column">
 		<!-- The active image shown -->
-		<img :src="activeImage" alt="Product image" class="w-100" />
+		<img :src="activeImage" alt="Active Image" class="w-100" />
 
-		<!-- Only shows nav if more then one image is available. -->
-		<nav v-if="images.length > 1" class="mw-100 d-flex horizontal-scrollable p-2 justify-content-center">
+		<!-- Only shows image selector if more then one image is available. -->
+		<div v-if="images.length > 1" class="mw-100 d-flex imgSelector p-1 justify-content-center">
 			<!-- Loops through all images and creates a button for each image. -->
 			<button
 				v-for="(image, index) in this.images"
@@ -54,17 +54,13 @@
 				class="btn col-1 thumb flex-grow-1"
 				@click="changeImage($event, index)"
 			>
-				<img :src="`assets/products/${image}`" class="w-100 rounded" />
+				<img :src="`assets/products/${image}`" class="w-100 rounded" alt="Image Selector" />
 			</button>
-		</nav>
+		</div>
 	</section>
 </template>
 
 <style scoped>
-	nav {
-		overflow-x: scroll;
-	}
-
 	img {
 		width: 100%;
 		height: 25rem;
@@ -88,7 +84,7 @@
 	}
 
 	.thumb {
-		max-width: 125px;
+		max-width: 120px;
 	}
 
 	.activeImage {
