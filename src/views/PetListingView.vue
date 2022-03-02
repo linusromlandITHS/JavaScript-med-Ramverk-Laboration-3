@@ -200,21 +200,24 @@
 		padding-top: 20px;
 		padding-left: 10px;
 		padding-right: 10px;
+		padding-bottom: 0px;
 
 		/* background-image: url(assets/farm.jpg); */
 		/* background-image: url(assets/farm2.jpg); */
 		/* background-image: url('assets/mountain2.jpg'); */
-		background-image: url('assets/bg10.jpg');
+		/*background-image: url('assets/bg10.jpg');*/
 		/* background-image: url('assets/bg1.jpg'); */
 
-		background-repeat: no-repeat;
+		background-color: #f0efee;
+
+		/* background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-size: cover;
+		background-size: cover; */
 
 		/*https://ui.glass/generator/ */
-		backdrop-filter: blur(16px) saturate(180%);
+		/* backdrop-filter: blur(16px) saturate(180%);
 		-webkit-backdrop-filter: blur(16px) saturate(180%);
-		background-color: rgba(255, 255, 255, 0.75);
+		background-color: rgba(255, 255, 255, 0.75); */
 	}
 
 	.linklike {
