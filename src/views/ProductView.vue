@@ -94,6 +94,7 @@
 			//Fetches product data
 			this.fetchProduct();
 		},
+		//This is needed to make the component update when the route changes to same component.
 		updated() {
 			//Fetches product data
 			this.fetchProduct();
