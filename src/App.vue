@@ -45,7 +45,7 @@
 	<DiscountBanner />
 	<router-view v-slot="{ Component }">
 		<transition name="fade">
-			<component :is="Component" style="background: white" />
+			<component :is="Component" />
 		</transition>
 	</router-view>
 

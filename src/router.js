@@ -40,7 +40,7 @@ const router = createRouter({
 			path: '/checkout'
 		},
 		{
-			// Products Route?
+			// Products Route
 			name: 'Petlisting',
 			component: () => import('./views/PetListingView.vue'),
 			path: '/petlisting'

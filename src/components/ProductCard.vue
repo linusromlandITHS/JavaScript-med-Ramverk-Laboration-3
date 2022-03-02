@@ -66,8 +66,6 @@
 		},
 
 		created() {
-			//			console.log(this.data);
-
 			//alert("this.p_id \n"+ this.p_id);
 			this.img_src = 'assets/products/' + this.p_images_arr[0];
 		},

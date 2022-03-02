@@ -17,7 +17,6 @@
 
 		methods: {
 			filter_by_pet_type(category) {
-				console.log('filter_by_pet_type ' + category);
 				switch (category) {
 					case 'katt':
 						this.current_pet_list = this.keep_only_type('katt');
@@ -92,42 +91,19 @@
 				output_obj = { ...full };
 
 				for (let i in output_obj) {
-					var b1 = output_obj[i];
-
-					console.log(b1);
-
-					output_obj[i]['IM1'] = this.image_1; //output_obj[i]['p_images_arr'][0];
-
-					console.log('1¤¤¤¤¤¤ ' + output_obj[i]['IM1']);
-
-					console.log(full[i]['type'].toLowerCase() + ' -- ' + pet_type_to_show);
+					output_obj[i]['IM1'] = this.image_1;
 
 					if (output_obj[i]['type'].toLowerCase() != pet_type_to_show) {
-						console.log('tar bort:' + output_obj[i] + output_obj[i].name);
 						delete output_obj[i];
-					} else {
-						//output_obj[ i ]["picture_1"] = full[ i ]["p_images_arr"][0];
-
-						console.log('behåller:' + output_obj[i].name);
-						console.log('den har denna image1:' + output_obj[i]['image1']);
-						console.log('den har denna IM1:' + output_obj[i]['IM1']);
-
-						console.log('och detta:' + output_obj[i]);
-
-						console.log('#######' + output_obj[i]['image1'] + b1);
-						//	var b1 = output_obj[i]['p_images_arr'][0];
 					}
 				}
-				console.log(output_obj);
 				return output_obj;
 			}
 		},
 		created() {
-			//this.picture_1 = this.p_images_arr[0];
 			fetch('/database.json')
 				.then((response) => response.json())
 				.then((djur) => {
-					console.log(djur);
 					this.djur = djur;
 					let d = djur.animals;
 					this.full_pet_list = d;
@@ -145,7 +121,6 @@
 	<transition>
 		<div id="above_mainbg" style="">
 			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
-				<!-- <small><b>TestPetListing.vue</b> (anropar komponenten som motsvarar cards: ProductView) med en v-for </small> -->
 				<header class="listing_header" style="margin: auto">
 					<h3>Välkommen att se våra djur!</h3>
 				</header>

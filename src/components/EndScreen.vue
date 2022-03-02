@@ -72,9 +72,9 @@
 		},
 		async mounted() {
 			const items = await this.fetchData();
-			const cart = this.getCart();
+			const cart = await this.getCart();
 			// Pick all keys from the cart and put into an array
-			const itemIds = Object.keys(cart);
+			const itemIds = cart ? Object.keys(cart) : [];
 			// Replace every itemId with the full item-object from the database
 			let cartItems = itemIds.map((itemID) => {
 				// Search through the database for the item
@@ -85,7 +85,7 @@
 				this.cartItems.push(this.avelObj);
 			}
 			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
-			console.log(cartItems);
+			// console.log(cartItems);
 		},
 		components: { Popup }
 	};

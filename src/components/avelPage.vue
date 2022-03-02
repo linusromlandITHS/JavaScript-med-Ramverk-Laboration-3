@@ -133,7 +133,7 @@
 			onFileChange(e) {
 				const file = e.target.files[0];
 				this.url = URL.createObjectURL(file);
-				console.log(this.url);
+				// console.log(this.url);
 			},
 			reload() {
 				this.location.reload();
@@ -141,7 +141,7 @@
 			AddItem() {
 				this.$store.commit('increment');
 				this.$store.commit('incrementAvel');
-				console.log(this.$store.state.avelPris);
+				// console.log(this.$store.state.avelPris);
 				this;
 				this.$store.state.namnNyKatt = this.finalName;
 			},
