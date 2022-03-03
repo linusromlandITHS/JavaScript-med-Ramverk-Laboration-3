@@ -5,7 +5,7 @@
 		props: {
 			title: {
 				//Array of titles to display
-				type: Array,
+				type: String,
 				required: true
 			}
 		},
