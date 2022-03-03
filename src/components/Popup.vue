@@ -28,7 +28,7 @@
 			<h1>TACK FÖR DITT KÖP!</h1>
 			<img class="animation" src="assets/lazy_dog.gif" />
 			<div class="button-container">
-				<button @click="homePage" class="btn btn-primary btn">Hemsida</button>
+				<button @click="homePage" class="btn btn-primary btn">Hem</button>
 				<button @click="breedingPage" class="btn btn-primary btn">Avla</button>
 			</div>
 		</div>

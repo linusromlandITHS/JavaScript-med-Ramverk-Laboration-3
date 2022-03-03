@@ -6,26 +6,29 @@
 				name: '',
 				email: '',
 				msg: '',
-				clicked: false
+				question: '',
+				nameError: false,
+				emailError: false
 			};
 		},
 		methods: {
 			onClick() {
-				this.clicked = true;
-				// console.log('onClick', 'test');
+				this.nameError = false;
+				this.emailError = false;
 				if (this.name != '' && this.email != '') {
 					this.msg = 'Tack för din fråga! Vi kommer att kontakta dig så snart som möjligt.';
+					this.clearValue();
 				} else {
+					if (!this.name) this.nameError = true;
+					if (!this.email) this.emailError = true;
 					this.msg = 'Skriv ditt namn och email!';
 				}
-				this.clearValue();
+			},
+			clearValue() {
+				this.name = '';
+				this.email = '';
+				this.question = '';
 			}
-			// clearValue() {
-			// 	// this.name = '';
-			// 	// this.email = '';
-
-			// 	this.clicked = false;
-			// }
 		}
 	};
 </script>
@@ -36,14 +39,14 @@
 			<h4>Ställ en fråga till oss</h4>
 			<div class="field">
 				<!-- <label>Namn</label> -->
-				<input v-model="name" type="text" :class="{ 'input-error': !name && clicked }" placeholder="Namn" />
+				<input v-model="name" type="text" class="" :class="{ 'input-error': nameError }" placeholder="Namn" />
 			</div>
 			<div class="field">
 				<!-- <label>Email</label> -->
-				<input v-model="email" type="email" :class="{ 'input-error': !email && clicked }" placeholder="Email" />
+				<input v-model="email" type="email" :class="{ 'input-error': emailError }" placeholder="Email" />
 			</div>
 			<div class="field">
-				<textarea placeholder="Skriv ditt meddelande här" />
+				<textarea v-model="question" placeholder="Skriv ditt meddelande här" />
 			</div>
 
 			<input class="btn btn-primary btn" @click="onClick" type="button" value="Skicka" />
@@ -54,10 +57,7 @@
 			<p><i class="bi bi-building" /> Klaraborgen, 411 03 Göteborg</p>
 			<p><i class="bi bi-envelope-fill" /> Rmr@info.com</p>
 			<p><i class="bi bi-telephone-fill" /> 031-118 118</p>
-			<img src="" />
-			<img src="" />
-			<img src="" />
-			<img src="" />
+
 			<iframe src="http://maps.google.com/maps?q=57.7089,11.9746&z=16&output=embed" />
 		</div>
 	</div>
