@@ -45,7 +45,7 @@
 	<DiscountBanner />
 	<router-view v-slot="{ Component }">
 		<transition name="fade">
-			<component :is="Component" style="background: white" />
+			<component :is="Component" />
 		</transition>
 	</router-view>
 
@@ -59,6 +59,7 @@
 	html,
 	body {
 		height: 100%;
+		background-color: #f0efee !important;
 	}
 
 	.scale-slide-enter-active,

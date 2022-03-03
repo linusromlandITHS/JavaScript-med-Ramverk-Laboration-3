@@ -12,7 +12,6 @@
 		methods: {
 			onClick() {
 				this.clicked = true;
-				// console.log('onClick', 'test');
 				if (this.name != '' && this.email != '') {
 					this.msg = 'Tack för din fråga! Vi kommer att kontakta dig så snart som möjligt.';
 				} else {
@@ -20,12 +19,6 @@
 				}
 				this.clearValue();
 			}
-			// clearValue() {
-			// 	// this.name = '';
-			// 	// this.email = '';
-
-			// 	this.clicked = false;
-			// }
 		}
 	};
 </script>
@@ -35,11 +28,9 @@
 		<div class="text-field">
 			<h4>Ställ en fråga till oss</h4>
 			<div class="field">
-				<!-- <label>Namn</label> -->
 				<input v-model="name" type="text" :class="{ 'input-error': !name && clicked }" placeholder="Namn" />
 			</div>
 			<div class="field">
-				<!-- <label>Email</label> -->
 				<input v-model="email" type="email" :class="{ 'input-error': !email && clicked }" placeholder="Email" />
 			</div>
 			<div class="field">
@@ -105,13 +96,11 @@
 		margin-top: 250px;
 	}
 	.text-field {
-		/* display: block; */
 		float: left;
 		width: 350px;
 		margin: 10px;
 	}
 	.address {
-		/* display: block; */
 		float: left;
 		width: 350px;
 		margin: 10px;
@@ -137,11 +126,6 @@
 		border-color: red;
 	}
 
-	/* .btn btn-primary btn {
-		position: relative;
-		width: 80px;
-	} */
-
 	@media (min-width: 320px) and (max-width: 375px) {
 		h4 {
 			text-align: center;
@@ -163,15 +147,12 @@
 			flex-direction: column;
 			margin-right: auto;
 			margin-left: auto;
-			/* margin: 15px; */
-			/* float: left; */
 			width: 100%;
 			position: relative;
 			height: 950px;
 		}
 		.text-field {
 			display: block;
-			/* float: left; */
 			width: 200px;
 			margin: 10px;
 			position: absolute;
@@ -179,12 +160,10 @@
 		}
 		.address {
 			display: block;
-			/* float: left; */
 			width: 200px;
 			margin: 10px;
 			position: absolute;
 			top: 51%;
-			/* margin: -50px 0 0 0; */
 		}
 		p {
 			margin: 15px;
@@ -228,15 +207,12 @@
 			flex-direction: column;
 			margin-right: auto;
 			margin-left: auto;
-			/* margin: 15px; */
-			/* float: left; */
 			width: 100%;
 			position: relative;
 			height: 950px;
 		}
 		.text-field {
 			display: block;
-			/* float: left; */
 			width: 200px;
 			margin: 10px;
 			position: absolute;
@@ -244,12 +220,10 @@
 		}
 		.address {
 			display: block;
-			/* float: left; */
 			width: 200px;
 			margin: 10px;
 			position: absolute;
 			top: 51%;
-			/* margin: -50px 0 0 0; */
 		}
 		p {
 			margin: 15px;
@@ -292,15 +266,12 @@
 			flex-direction: column;
 			margin-right: auto;
 			margin-left: auto;
-			/* margin: 15px; */
-			/* float: left; */
 			width: 100%;
 			position: relative;
 			height: 950px;
 		}
 		.text-field {
 			display: block;
-			/* float: left; */
 			width: 300px;
 			margin: 10px;
 			position: absolute;
@@ -308,12 +279,10 @@
 		}
 		.address {
 			display: block;
-			/* float: left; */
 			width: 300px;
 			margin: 10px;
 			position: absolute;
 			top: 51%;
-			/* margin: -50px 0 0 0; */
 		}
 		p {
 			margin: 15px;
@@ -356,15 +325,12 @@
 			flex-direction: column;
 			margin-right: auto;
 			margin-left: auto;
-			/* margin: 15px; */
-			/* float: left; */
 			width: 100%;
 			position: relative;
 			height: 950px;
 		}
 		.text-field {
 			display: block;
-			/* float: left; */
 			width: 300px;
 			margin: 10px;
 			position: absolute;
@@ -372,12 +338,10 @@
 		}
 		.address {
 			display: block;
-			/* float: left; */
 			width: 300px;
 			margin: 10px;
 			position: absolute;
 			top: 51%;
-			/* margin: -50px 0 0 0; */
 		}
 		p {
 			margin: 15px;
