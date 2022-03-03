@@ -19,7 +19,7 @@
 </script>
 <template>
 	<div class="scroll-to-top">
-		<button @click="scrollToTop">Scroll to top</button>
+		<button @click="scrollToTop">tillbaka till toppen</button>
 	</div>
 </template>
 <style>
@@ -27,6 +27,10 @@
 		padding: 30px 0;
 		position: absolute;
 		right: 0;
+		border-radius: 50%;
+		background-color: #faac77;
+		margin-right: 10px;
+		border: solid #606b6f 0.5px;
 	}
 	.scroll-to-top button {
 		border: none;
