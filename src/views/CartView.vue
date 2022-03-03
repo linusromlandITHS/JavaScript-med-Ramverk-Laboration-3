@@ -37,6 +37,8 @@
 
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
+
+				this.checkCode();
 			},
 
 			onClick() {
@@ -49,6 +51,12 @@
 				}
 			},
 
+			getCode() {
+				if (localStorage.discountCode) {
+					return JSON.parse(localStorage.discountCode);
+				}
+			},
+
 			async fetchData() {
 				const request = await fetch('/database.json');
 				const result = await request.json();
@@ -58,6 +66,15 @@
 
 			addDiscount() {
 				this.show = true;
+			},
+
+			checkCode() {
+				if (this.discountRate) {
+					console.log(this.totalAmount);
+					console.log(this.discountRate);
+					this.discountedAmount = this.totalAmount * this.discountRate;
+					console.log(this.discountedAmount);
+				}
 			},
 
 			watchProduct(itemId) {
@@ -75,6 +92,8 @@
 					const discountAmount = discountRate * this.totalAmount;
 
 					this.discountedAmount = discountAmount.toFixed();
+
+					localStorage.setItem('discountCode', JSON.stringify(discountRate));
 				} else {
 					alert('Wrong code, bro!');
 				}
@@ -85,6 +104,7 @@
 		async mounted() {
 			const items = await this.fetchData();
 			const cart = this.getCart();
+			const code = this.getCode();
 
 			// Pick all keys from the cart and put into an array
 			const itemIds = Object.keys(cart);
@@ -96,6 +116,10 @@
 			this.cartItems = cartItems;
 
 			this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+
+			this.discountRate = code;
+
+			this.checkCode();
 
 			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');

@@ -146,45 +146,51 @@
 		color: #3b5998;
 	}
 
-	.bi.bi-facebook:hover {
-		color: #6c89c6;
-		transition: all 0.3s ease-out;
-	}
 	.bi.bi-twitter {
 		color: #00acee;
-	}
-	.bi.bi-twitter:hover {
-		color: #47cbff;
-		transition: all 0.3s ease-out;
 	}
 
 	.bi.bi-google {
 		color: #f4c20d;
 	}
-	.bi.bi-google:hover {
-		color: #f8d763;
-		transition: all 0.3s ease-out;
-	}
 
 	.bi.bi-instagram {
 		color: #8a3ab9;
-	}
-	.bi.bi-instagram:hover {
-		color: #b073d3;
-		transition: all 0.3s ease-out;
 	}
 
 	.bi.bi-linkedin {
 		color: #0072b1;
 	}
+
+	.bi.bi-github {
+		color: #171515;
+	}
+
+	.bi.bi-facebook:hover {
+		color: #6c89c6;
+		transition: all 0.3s ease-out;
+	}
+
+	.bi.bi-twitter:hover {
+		color: #47cbff;
+		transition: all 0.3s ease-out;
+	}
+
+	.bi.bi-google:hover {
+		color: #f8d763;
+		transition: all 0.3s ease-out;
+	}
+
+	.bi.bi-instagram:hover {
+		color: #b073d3;
+		transition: all 0.3s ease-out;
+	}
+
 	.bi.bi-linkedin:hover {
 		color: #0aa9ff;
 		transition: all 0.3s ease-out;
 	}
 
-	.bi.bi-github {
-		color: #171515;
-	}
 	.bi.bi-github:hover {
 		color: #4b4444;
 		transition: all 0.3s ease-out;

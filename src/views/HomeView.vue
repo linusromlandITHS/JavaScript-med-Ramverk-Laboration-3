@@ -27,7 +27,7 @@
 		<div id="dogDiv">
 			<img src="/assets/välkommen.png" alt="" id="title" />
 			<img src="/assets/logo.png" alt="" id="animationLogo" />
-			<H1 style="margin-top: 60px">Välkommen</H1>
+			<h1 style="margin-top: 60px">Välkommen</h1>
 			<p id="kortInfo">Här är Sveriges främsta webbsida för kattavel och husdjurshandel.</p>
 		</div>
 		<section id="mainInfo">
@@ -60,20 +60,24 @@
 	h3 {
 		color: #333c3e;
 	}
+
 	#kortInfo {
 		color: #333c3e;
 	}
+
 	#dogDiv {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 	}
+
 	#title {
 		height: 150px;
 		width: 450px;
 		object-fit: scale-down;
 	}
+
 	#animationLogo {
 		display: flex;
 		align-items: center;
@@ -82,6 +86,7 @@
 		position: relative;
 		z-index: 1;
 	}
+
 	@keyframes gelatine {
 		from,
 		to {
@@ -97,12 +102,14 @@
 			transform: scale(0.95, 1.05);
 		}
 	}
+
 	#mainInfo {
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
 		align-items: center;
 	}
+
 	@media screen and (max-width: 600px) {
 		#mainInfo {
 			flex-direction: column;
@@ -114,6 +121,7 @@
 			width: 300px;
 		}
 	}
+
 	.info {
 		background-color: #faac77;
 		color: #333c3e;
@@ -123,9 +131,11 @@
 		border-radius: 8px;
 		box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
 	}
+
 	.innerDiv {
 		padding: 7%;
 	}
+
 	.underTitel {
 		display: flex;
 		justify-content: center;

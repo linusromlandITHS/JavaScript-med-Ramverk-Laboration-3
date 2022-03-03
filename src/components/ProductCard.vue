@@ -66,8 +66,6 @@
 		},
 
 		created() {
-			//			console.log(this.data);
-
 			//alert("this.p_id \n"+ this.p_id);
 			this.img_src = 'assets/products/' + this.p_images_arr[0];
 		},
@@ -162,7 +160,7 @@
 		width: 300px;
 		height: 390px;
 		max-height: 390px;
-		background-color: #ffffff;
+		background-color: #f0efee;
 		color: antiquewhite;
 		padding: 15px;
 		margin-bottom: 5px;
@@ -176,9 +174,9 @@
 		margin-right: auto;
 
 		/*https://ui.glass/generator/ */
-		backdrop-filter: blur(16px) saturate(180%);
+		/* backdrop-filter: blur(16px) saturate(180%);
 		-webkit-backdrop-filter: blur(16px) saturate(180%);
-		background-color: rgba(255, 255, 255, 0.75);
+		background-color: rgba(255, 255, 255, 0.75); */
 	}
 
 	/**

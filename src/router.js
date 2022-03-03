@@ -36,11 +36,11 @@ const router = createRouter({
 		{
 			// Checkout Route
 			name: 'Checkout',
-			component: () => import('./components/EndScreen.vue'),
+			component: () => import('./views/CheckoutView.vue'),
 			path: '/checkout'
 		},
 		{
-			// Products Route?
+			// Products Route
 			name: 'Petlisting',
 			component: () => import('./views/PetListingView.vue'),
 			path: '/petlisting'

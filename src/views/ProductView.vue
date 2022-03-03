@@ -95,7 +95,7 @@
 			this.fetchProduct();
 		},
 		//This is needed to make the component update when the route changes to same component.
-		updated() {
+		beforeRouteUpdate() {
 			//Fetches product data
 			this.fetchProduct();
 		}
@@ -103,7 +103,7 @@
 </script>
 
 <template>
-	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
+	<div class="d-flex flex-md-row flex-column justify-content-around p-4 bg-white">
 		<div class="col-12 col-md-8 d-flex flex-column">
 			<!-- Slideshow Component that displays the images of the product -->
 			<Slideshow :images="images" />
@@ -133,7 +133,7 @@
 		<!-- Recommended Products -->
 		<div class="col-12 col-md-2 d-flex align-items-center flex-column my-2">
 			<h2 class="text-black">Andra djur:</h2>
-			<div class="m-2" v-for="(recommendedProduct, index) in recommendedProducts" :key="index">
+			<div class="m-2" v-for="recommendedProduct in recommendedProducts" :key="recommendedProduct.id">
 				<!-- Product Card Component that displays recommended products -->
 				<ProductCard
 					:p_id="recommendedProduct.id"
