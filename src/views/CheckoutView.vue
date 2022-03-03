@@ -1,5 +1,5 @@
 <script>
-	import Popup from './Popup.vue';
+	import Popup from '../components/Popup.vue';
 
 	export default {
 		name: 'Checkout',
