@@ -103,7 +103,7 @@
 </script>
 
 <template>
-	<div class="d-flex flex-md-row flex-column justify-content-around p-4">
+	<div class="d-flex flex-md-row flex-column justify-content-around p-4 bg-white">
 		<div class="col-12 col-md-8 d-flex flex-column">
 			<!-- Slideshow Component that displays the images of the product -->
 			<Slideshow :images="images" />
