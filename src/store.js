@@ -8,18 +8,16 @@ const mutations = {
 	},
 
 	// 220218: Update number on button based on contents in localstorage
-	// This single method replaces all previous attempts
-
+	// This single method works for all
 	updateNumInCartBasedOnLS(state) {
-		// Hämta tidigare innehåll i localStorage
+		// Get previous content
 		let cart;
 		if (localStorage.getItem('petCart')) {
 			cart = JSON.parse(localStorage.getItem('petCart'));
 		} else {
 			cart = {};
 		}
-
-		// ANTAL SAKER I KUNDVAGNEN EFTER ÄNDRING/uppdatering/omladdning/etc.
+		// Num of items after update
 		state.numOfItemsInCart = Object.keys(cart).length;
 	},
 	incrementAvel(state) {
