@@ -2,20 +2,20 @@
 	import Popup from '../components/Popup.vue';
 
 	export default {
-		name: 'EndScreen',
+		name: 'Checkout',
+
 		data() {
 			return {
-				summa: 0,
 				cartItems: [],
-				helaPriset: 0,
+				totalAmount: 0,
 				show: true,
 				showTwo: true,
 				showPopup: false,
 
-				avelObj: {
+				breedingObj: {
 					id: '0d0c26f5-8066-4b6b-a6b1-2ac6c21b32b7',
 					name: 'Avel',
-					type: this.$store.state.namnNyKatt,
+					type: this.$store.state.nameNewCat,
 					breed: 'SUPERKATT',
 					sex: 'Female',
 					categories: ['Däggdjur', 'Sällskapsdjur'],
@@ -29,50 +29,61 @@
 				}
 			};
 		},
-		created() {
-			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
-			this.$store.commit('updateNumInCartBasedOnLS');
-		},
+
 		methods: {
 			deleteItem(itemId) {
 				//deletes the index of that row
 				//this.cartItems.splice(index, 1);
 				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
 				//calculates the new total price.
-				this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+				this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 				//this.localStorage.removeItem(index, 1);
+
 				let lsCart = {};
 				this.cartItems.forEach((item) => (lsCart[item.id] = item.name));
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
+
 			getCart() {
 				if (localStorage.petCart) {
 					return JSON.parse(localStorage.petCart);
 				}
 			},
+
+			getCode() {
+				if (localStorage.discountCode) {
+					return JSON.parse(localStorage.discountCode);
+				}
+			},
+
 			showMap() {
 				this.show = false;
 			},
+
 			emptyStorage() {
 				this.togglePopup();
 				//Clear localStorage
 				localStorage.clear();
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
+
 			togglePopup() {
 				// console.log('showPopup', this.showPopup);
 				this.showPopup = !this.showPopup;
 			},
+
 			async fetchData() {
 				const request = await fetch('/database.json');
 				const result = await request.json();
 				return result.animals;
 			}
 		},
+
 		async mounted() {
 			const items = await this.fetchData();
 			const cart = await this.getCart();
+			const code = this.getCode();
 			// Pick all keys from the cart and put into an array
 			const itemIds = cart ? Object.keys(cart) : [];
 			// Replace every itemId with the full item-object from the database
@@ -80,12 +91,19 @@
 				// Search through the database for the item
 				return items.find((a) => a.id === itemID);
 			});
+
 			this.cartItems = cartItems;
+
 			if (this.$store.state.avelPris > 1) {
-				this.cartItems.push(this.avelObj);
+				this.cartItems.push(this.breedingObj);
 			}
-			this.helaPriset = this.cartItems.reduce((acc, item) => acc + item.price, 0);
-			// console.log(cartItems);
+
+			this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+
+			this.discountRate = code;
+
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
 		},
 		components: { Popup }
 	};
@@ -114,13 +132,14 @@
 				</tr>
 				<tr>
 					<th scope="row">Att betala</th>
-					<td>
-						{{ helaPriset + ' kr' }} <br />
-						<span> {{ 'Varav moms ' + helaPriset * 0.25 + ' kr' }} </span>
+					<td v-if="!discountRate">
+						{{ totalAmount + ' kr' }} <br />
+						<span> {{ 'Varav moms ' + totalAmount * 0.25 + ' kr' }} </span>
 					</td>
-					<td />
-					<td />
-					<td />
+					<td v-if="discountRate">
+						{{ totalAmount * discountRate + ' kr' }} (Rabatt:{{}}) <br />
+						<span> {{ 'Varav moms ' + totalAmount * discountRate * 0.25 + ' kr' }} </span>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -159,7 +178,7 @@
 					</div>
 					<div class="col-12">
 						<div @click="emptyStorage" class="btn btn-primary mb-3">
-							<span class="ps-3">{{ 'Betala ' + helaPriset + ' kr' }}</span>
+							<span class="ps-3">{{ 'Betala ' + totalAmount + ' kr' }}</span>
 							<span class="fas fa-arrow-right" />
 						</div>
 					</div>
@@ -212,9 +231,11 @@
 			padding: 20px;
 		}
 	}
+
 	main {
 		padding: 20px;
 	}
+
 	.table {
 		padding: 30px;
 		background-color: #c9c9bd;
@@ -222,6 +243,7 @@
 		border-color: #faac77;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
+
 	#table {
 		color: black;
 		padding: 15px;
@@ -231,6 +253,7 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		margin-bottom: 20px;
 	}
+
 	#tableTwo {
 		color: black;
 		padding: 15px;
@@ -239,13 +262,16 @@
 		border-color: #faac77;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
+
 	span {
 		font-size: 90%;
 	}
+
 	div {
 		border: 4px;
 		border-color: #faac77;
 	}
+
 	h2 {
 		border: 4px;
 		border-color: #faac77;
@@ -255,9 +281,11 @@
 		align-items: center;
 		color: #faac77;
 	}
+
 	span {
 		cursor: pointer;
 	}
+
 	span:hover {
 		color: black;
 	}

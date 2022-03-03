@@ -33,7 +33,7 @@ const state = {
 	numOfItemsInCart: 0,
 	// Avelpris
 	avelPris: 0,
-	namnNyKatt: '',
+	nameNewCat: '',
 	namnAvelKatt: '',
 	// Rabattkod
 	discountCode: {
