@@ -119,7 +119,7 @@
 
 <template>
 	<transition>
-		<div id="above_mainbg" style="">
+		<div id="above_mainbg" style="background-color: #f0efee !important">
 			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
 				<header class="listing_header" style="margin: auto">
 					<h3>Välkommen att se våra djur!</h3>
@@ -183,7 +183,7 @@
 		/*background-image: url('assets/bg10.jpg');*/
 		/* background-image: url('assets/bg1.jpg'); */
 
-		background-color: #f0efee;
+		background-color: #ffffff;
 
 		/* background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -239,7 +239,7 @@
 		/* font-family: 'Roboto Mono', monospace; */
 		font-size: 18px;
 
-		background: white;
+		background-color: #f0efee !important;
 		padding: 5px;
 		border: none;
 		color: black;
@@ -310,10 +310,7 @@
 			max-width: 74%;
 			margin-right: auto;
 			margin-left: auto;
-
-			-webkit-box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
-			-moz-box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
-			box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+			background-color: #f0efee !important;
 		}
 	}
 
@@ -322,7 +319,6 @@
 
 		margin-top: 9px;
 
-		backdrop-filter: blur(16px) saturate(180%);
-		-webkit-backdrop-filter: blur(16px) saturate(180%);
+		background-color: #f0efee !important;
 	}
 </style>
