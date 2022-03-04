@@ -48,6 +48,8 @@
 			getCart() {
 				if (localStorage.petCart) {
 					return JSON.parse(localStorage.petCart);
+				} else {
+					return {};
 				}
 			},
 
@@ -70,10 +72,7 @@
 
 			checkCode() {
 				if (this.discountRate) {
-					console.log(this.totalAmount);
-					console.log(this.discountRate);
 					this.discountedAmount = this.totalAmount * this.discountRate;
-					console.log(this.discountedAmount);
 				}
 			},
 
@@ -147,13 +146,13 @@
 							<p id="itemName">{{ cartItem.name }}</p>
 							<p>{{ cartItem.type }}</p>
 						</div>
-						<p id="price">{{ cartItem.price + ' kr' }}</p>
+						<p id="price">{{ cartItem.price.toLocaleString() + ' kr' }}</p>
 						<p id="removeItem" @click="removeItem(cartItem.id)"><i class="bi bi-x" /></p>
 					</li>
 				</ol>
 			</div>
 			<div id="totalCheckout">
-				<p id="amount">Värde: {{ this.totalAmount + ' kr' }}</p>
+				<p id="amount">Värde: {{ this.totalAmount.toLocaleString() + ' kr' }}</p>
 				<a v-if="!discountedAmount" id="addDiscount" @click="addDiscount">Lägg till rabattkod</a>
 				<p id="discountText" v-if="discountedAmount">
 					Rabatt: {{ discount }} -{{ this.totalAmount - discountedAmount + ' kr' }}
@@ -164,8 +163,8 @@
 						Total summa
 						<span id="inclVAT">inkl. moms </span>
 					</h6>
-					<p v-if="!discountedAmount" id="totalAmount">{{ this.totalAmount + ' kr' }}</p>
-					<p v-if="discountedAmount" id="totalAmount">{{ this.discountedAmount + ' kr' }}</p>
+					<p v-if="!discountedAmount" id="totalAmount">{{ this.totalAmount.toLocaleString() + ' kr' }}</p>
+					<p v-if="discountedAmount" id="totalAmount">{{ this.discountedAmount.toLocaleString() + ' kr' }}</p>
 				</div>
 				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">Till kassan</button>
 			</div>
@@ -184,6 +183,7 @@
 
 	ol {
 		padding: 0;
+		margin: 0;
 	}
 
 	h1 {
@@ -199,7 +199,6 @@
 
 	main {
 		background-color: #ffffff;
-		/* border: 1px solid; */
 		box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
 		border-radius: 5px;
 		margin: auto;
@@ -209,11 +208,11 @@
 
 	.productCard {
 		background-color: #f0efee;
-		/* border: 1px solid; */
+		border-top: 2px solid #ffffff;
 		cursor: pointer;
 		display: flex;
 		height: 80px;
-		margin-top: 15px;
+		margin-top: 3px;
 	}
 
 	.bi-x {
@@ -249,6 +248,7 @@
 		}
 
 		#totalCheckout {
+			background-color: #ffffff;
 			border-top: 0.5px solid #f0efee;
 			padding-top: 15px;
 		}
@@ -287,6 +287,7 @@
 		body {
 			display: flex;
 			border-bottom: 0.5px solid #f0efee;
+			background-color: #ffffff !important;
 		}
 		.container-sm {
 			display: flex;
@@ -303,7 +304,6 @@
 
 		#totalCheckout {
 			background-color: #f0efee;
-			/* border: 1px solid; */
 			border-radius: 5px;
 			margin-left: 10%;
 			max-height: 300px;
