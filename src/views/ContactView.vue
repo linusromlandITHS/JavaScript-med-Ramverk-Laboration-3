@@ -44,12 +44,8 @@
 			</div>
 			<div class="field">
 				<input v-model="email" type="email" :class="{ 'input-error': emailError }" placeholder="Email" />
+			</div>
 
-				<input v-model="name" type="text" :class="{ 'input-error': !name && clicked }" placeholder="Namn" />
-			</div>
-			<div class="field">
-				<input v-model="email" type="email" :class="{ 'input-error': !email && clicked }" placeholder="Email" />
-			</div>
 			<div class="field">
 				<textarea v-model="question" placeholder="Skriv ditt meddelande här" />
 			</div>
