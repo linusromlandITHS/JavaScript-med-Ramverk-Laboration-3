@@ -36,10 +36,11 @@
 					<RouterLink to="/cart">
 						<Button id="cartButton"
 							>Varukorgen <i class="bi bi-cart" />
-							<span class="badge span_number_of_items_in_cart">{{
-								$store.state.numOfItemsInCart
-							}}</span></Button
-						>
+
+							<span class="badge span_number_of_items_in_cart">
+								{{ $store.state.numOfItemsInCart }}
+							</span>
+						</Button>
 					</RouterLink>
 				</div>
 				<div class="menu-items">

@@ -75,36 +75,31 @@
 				this.$router.push({ path: '/product/' + id_ + '/' });
 			},
 			add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
+				//Adds item to cart
 
-				// 1 Hämta tidigare innehåll i localStorage (en array)
+				// 1 Fetch prev contents of localStorage (array)
 				let cart;
 				if (localStorage.getItem('petCart')) {
 					cart = JSON.parse(localStorage.getItem('petCart'));
-
-					//	alert("Det fanns ngt i ls");
 				} else {
-					//alert("ls var tomt.");
+					//alert("ls is empty");
 					cart = {}; //sessionStorage.getItem('petCart');
 				}
 
 				//Check if product already exists in cart
 				const alreadyInCart = cart[this.p_id] ? true : false;
 
-				// 2 Lägg till det aktuella id:t till hämtat obj
-				// Lägger till aktuellt djur
+				// 2
+				// Adds current pet: { id : name}
 				cart[id_] = na_;
 
-				// 3 Sätt localStorage till det nya objektet
+				// 3 Set localStorage to the new object
 				localStorage.setItem('petCart', JSON.stringify(cart));
 
-				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
+				// 4 (Possibly) - inform about new contents (removed now)
 				// this.displayCartContents();
 
-				// ANTAL SAKER I KUNDVAGNEN EFTER NYTT TILLÄGG
-				//let numOfItemsInCart = Object.keys(cart).length + 1;
-
-				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+				// UPDATE LABEL ON CART BUTTON - GERNERIC CALL
 				this.$store.commit('updateNumInCartBasedOnLS');
 
 				if (alreadyInCart) {
@@ -124,7 +119,7 @@
 				}
 			},
 
-			// Alerta innehållet i varukorg (petCart) i Localstorage
+			// Show contents (petCart) from Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];

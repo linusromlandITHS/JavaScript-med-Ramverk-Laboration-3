@@ -8,7 +8,7 @@ const mutations = {
 	},
 
 	// 220218: Update number on button based on contents in localstorage
-	// This single method works for all
+	// This single method works for all cases
 	updateNumInCartBasedOnLS(state) {
 		// Get previous content
 		let cart;
