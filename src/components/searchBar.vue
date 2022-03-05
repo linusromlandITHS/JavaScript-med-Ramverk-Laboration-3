@@ -62,10 +62,6 @@
 
 	.search_value:hover {
 		transform: scale(1.04);
-	}
-
-	#name {
-		font-weight: bold;
-		float: left;
+		background-color: #fbc39d;
 	}
 </style>
