@@ -5,6 +5,7 @@
 				search: null
 			};
 		},
+
 		created() {
 			fetch('/database.json')
 				.then((response) => response.json())
@@ -16,6 +17,7 @@
 					this.current_pet_list = this.full_pet_list;
 				});
 		},
+
 		computed: {
 			result() {
 				if (this.search) {
@@ -29,16 +31,26 @@
 					return this.animals;
 				}
 			}
+		},
+
+		methods: {
+			watchProduct(itemId) {
+				const route = this.full_pet_list.find((item) => item.id === itemId);
+
+				this.$router.push({ path: '/product/' + route.id });
+			}
 		}
 	};
 </script>
+
 <template>
 	<input v-model="search" />
-	<div v-for="animals of result" :key="animals.id" class="search_value">
+	<div @click="watchProduct(animals.id)" v-for="animals of result" :key="animals.id" class="search_value">
 		{{ animals.name }}
 		{{ animals.price }}:-
 	</div>
 </template>
+
 <style>
 	.search_value {
 		width: 190px;
@@ -47,6 +59,7 @@
 		margin-top: 1%;
 		background-color: #faac77;
 	}
+
 	#name {
 		font-weight: bold;
 		float: left;
