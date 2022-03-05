@@ -60,6 +60,10 @@
 		background-color: #faac77;
 	}
 
+	.search_value:hover {
+		transform: scale(1.04);
+	}
+
 	#name {
 		font-weight: bold;
 		float: left;
