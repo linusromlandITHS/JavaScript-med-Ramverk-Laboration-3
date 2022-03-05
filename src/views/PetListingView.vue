@@ -1,10 +1,12 @@
 <script>
 	import ProductCard2 from '../components/ProductCard.vue';
+	import searchBar from '../components/searchBar.vue';
 	export default {
 		name: 'PetListing2',
 
 		components: {
-			ProductCard2
+			ProductCard2,
+			searchBar
 		},
 		data() {
 			return {
@@ -123,6 +125,7 @@
 			<div id="mainbg" style="margin-left: auto; margin-right: auto; background-color: white">
 				<header class="listing_header" style="margin: auto">
 					<h3>Välkommen att se våra djur!</h3>
+					<searchBar />
 				</header>
 
 				<div class="petHeaders d-flex flex-wrap justify-content-center">
