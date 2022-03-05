@@ -7,6 +7,7 @@
 		data() {
 			return {
 				cartItems: [],
+				discountRate: '',
 				totalAmount: 0,
 				show: true,
 				showTwo: true,
@@ -32,6 +33,14 @@
 
 		methods: {
 			deleteItem(itemId) {
+				let itemToDelete = this.cartItems.find((item) => item.id === itemId);
+
+				// Add toast message to indicate product was added to cart
+				this.$root.showToast({
+					title: 'Varukorgen',
+					message: `${itemToDelete.name} har tagits bort från din varukorg.`,
+					type: 'warning'
+				});
 				//deletes the index of that row
 				//this.cartItems.splice(index, 1);
 				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
@@ -41,6 +50,7 @@
 
 				let lsCart = {};
 				this.cartItems.forEach((item) => (lsCart[item.id] = item.name));
+				localStorage.setItem('petCart', JSON.stringify(lsCart));
 				// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
@@ -102,6 +112,10 @@
 
 			this.discountRate = code;
 
+			const discountAmount = this.discountRate * this.totalAmount;
+
+			this.discountedAmount = discountAmount.toFixed();
+
 			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');
 		},
@@ -111,15 +125,14 @@
 
 <template>
 	<div class="container">
-		<h2>Ditt köp</h2>
+		<h1 class="card px-4">Ditt köp</h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col">Namn</th>
-					<th scope="col">Djur</th>
-					<th scope="col">Ras</th>
-					<th scope="col">Pris</th>
-					<th scope="col">X</th>
+					<th id="name" class="heading" scope="col">Namn</th>
+					<th class="heading" scope="col">Djur</th>
+					<th class="heading" scope="col">Ras</th>
+					<th class="heading" scope="col">Pris</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -127,17 +140,19 @@
 					<th scope="row">{{ task.name }}</th>
 					<td>{{ task.type }}</td>
 					<td>{{ task.breed }}</td>
-					<td>{{ task.price + ' kr' }}</td>
-					<td @click="deleteItem(task.id)"><span class="fa fa-trash">X</span></td>
+					<td>{{ task.price.toLocaleString() + ' kr' }}</td>
+					<td @click="deleteItem(task.id)"><i class="bi bi-x" /></td>
 				</tr>
 				<tr>
-					<th scope="row">Att betala</th>
+					<th id="pay" scope="row">Att betala</th>
 					<td v-if="!discountRate">
 						{{ totalAmount + ' kr' }} <br />
 						<span> {{ 'Varav moms ' + totalAmount * 0.25 + ' kr' }} </span>
 					</td>
 					<td v-if="discountRate">
-						{{ totalAmount * discountRate + ' kr' }} (Rabatt:{{}}) <br />
+						{{ totalAmount * discountRate + ' kr' }} (<span id="discount"
+							>Rabatt: -{{ this.totalAmount - this.discountedAmount }} kr</span
+						>) <br />
 						<span> {{ 'Varav moms ' + totalAmount * discountRate * 0.25 + ' kr' }} </span>
 					</td>
 				</tr>
@@ -232,35 +247,70 @@
 		}
 	}
 
+	* {
+		color: black;
+		font-family: 'Roboto Mono', monospace;
+	}
+
 	main {
 		padding: 20px;
 	}
 
 	.table {
-		padding: 30px;
-		background-color: #c9c9bd;
-		border: 4px;
-		border-color: #faac77;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-color: #ffffff;
+		box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+		margin-bottom: 30px;
+		border-radius: 0 0 8px 8px;
+		padding: 0;
 	}
 
 	#table {
-		color: black;
-		padding: 15px;
-		background-color: #c9c9bd;
+		background-color: #ffffff;
 		border: 4px;
 		border-color: #faac77;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		margin-bottom: 20px;
+		box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+		margin-bottom: 30px;
+		border-radius: 8px;
+		padding: 0;
 	}
 
 	#tableTwo {
-		color: black;
-		padding: 15px;
-		background-color: #c9c9bd;
+		background-color: #ffffff;
 		border: 4px;
 		border-color: #faac77;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow: 2px 10px 28px rgba(51, 60, 62, 0.12);
+		margin-bottom: 30px;
+		border-radius: 8px;
+		padding: 0 0 15px 0;
+	}
+
+	#discount {
+		color: #ff0000;
+	}
+
+	.bi-x {
+		color: #ff0000;
+		cursor: pointer;
+		font-size: 25px;
+		margin-right: 5px;
+	}
+
+	.heading {
+		padding: 0.5rem 0.5rem;
+		font-weight: bold;
+	}
+
+	#name {
+		padding-left: 1.5rem;
+	}
+
+	#pay {
+		font-weight: bold;
+	}
+
+	th {
+		padding-left: 1.5rem;
+		font-weight: lighter;
 	}
 
 	span {
@@ -272,14 +322,15 @@
 		border-color: #faac77;
 	}
 
-	h2 {
+	h1 {
 		border: 4px;
-		border-color: #faac77;
-		padding: 30px;
+		/* border-bottom: 0.5px solid #f0efee; */
+		border-radius: 8px 08px 0 0;
+		padding: 25px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: #faac77;
+		margin: 3% 0 0 0;
 	}
 
 	span {
