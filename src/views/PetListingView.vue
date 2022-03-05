@@ -19,25 +19,34 @@
 
 		methods: {
 			filter_by_pet_type(category) {
-				switch (category) {
-					case 'katt':
-						this.current_pet_list = this.keep_only_type('katt');
-						break;
-					case 'hund':
-						this.current_pet_list = this.keep_only_type('hund');
-						break;
-					case 'häst':
-						this.current_pet_list = this.keep_only_type('häst');
-						break;
-					case 'fisk':
-						this.current_pet_list = this.keep_only_type('fisk');
-						break;
-					case 'kanin':
-						this.current_pet_list = this.keep_only_type('kanin');
-						break;
-					default:
-						this.current_pet_list = this.full_pet_list;
+				let pet_types = { katt: 1, hund: 1, häst: 1, fisk: 1, kanin: 1 };
+				if (category in pet_types) {
+					this.current_pet_list = this.keep_only_type(category);
+				} else {
+					this.current_pet_list = this.full_pet_list;
 				}
+
+				// (220205) SIMPLIFIED THE CODE BELOW
+
+				// switch (category) {
+				// 	case 'katt':
+				// 		this.current_pet_list = this.keep_only_type('katt');
+				// 		break;
+				// 	case 'hund':
+				// 		this.current_pet_list = this.keep_only_type('hund');
+				// 		break;
+				// 	case 'häst':
+				// 		this.current_pet_list = this.keep_only_type('häst');
+				// 		break;
+				// 	case 'fisk':
+				// 		this.current_pet_list = this.keep_only_type('fisk');
+				// 		break;
+				// 	case 'kanin':
+				// 		this.current_pet_list = this.keep_only_type('kanin');
+				// 		break;
+				// 	default:
+				// 		this.current_pet_list = this.full_pet_list;
+				// }
 			},
 
 			// Tömmer innehållet i varukorg (petCart) i localStorage
@@ -45,7 +54,7 @@
 				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 				localStorage.removeItem('petCart');
 
-				// UPPDATERAR ANTAL VAROR I KORGEN FÖR KNAPPEN UTIFRÅN LS (generisk)
+				// UPDATE CAT NUMBER (generic)
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
 			add_to_cart(id_, na_) {
