@@ -59,7 +59,13 @@
 		margin-top: 1%;
 		background-color: #faac77;
 	}
+<<<<<<< Updated upstream
 
+=======
+	.serach_value:hover {
+		transform: scale(1.04);
+	}
+>>>>>>> Stashed changes
 	#name {
 		font-weight: bold;
 		float: left;
