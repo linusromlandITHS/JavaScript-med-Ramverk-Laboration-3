@@ -3,9 +3,7 @@
 <template>
 	<div class="banner">
 		<div class="banner--inner">
-			<span>
-				<div class="text">Använd kod magic för 25% rabatt på hela ditt köp</div>
-			</span>
+			<div class="text">Använd kod magic för 25% rabatt på hela ditt köp</div>
 		</div>
 	</div>
 </template>
@@ -43,17 +41,32 @@
 		animation-play-state: paused;
 	}
 
-	span {
-		float: left;
-		width: 50%;
-	}
-
 	@keyframes marquee {
 		0% {
 			left: 0;
 		}
 		100% {
 			left: -100%;
+		}
+	}
+
+	/* | ------------------------ Max-width ----------------------------- | */
+
+	@media (max-width: 575.98px) {
+		.text {
+			font-size: 10px;
+		}
+		.banner--inner {
+			padding: 7px;
+		}
+	}
+
+	@media (max-width: 375px) {
+		.text {
+			font-size: 7px;
+		}
+		.banner--inner {
+			padding: 9px;
 		}
 	}
 </style>

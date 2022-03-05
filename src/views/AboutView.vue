@@ -3,6 +3,10 @@
 	import Tab from '../components/Tab.vue';
 
 	export default {
+		created() {
+			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			this.$store.commit('updateNumInCartBasedOnLS');
+		},
 		data() {
 			return {
 				text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis iure eligendi molestias sapiente?
