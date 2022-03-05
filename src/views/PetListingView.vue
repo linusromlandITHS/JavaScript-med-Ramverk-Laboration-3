@@ -1,6 +1,6 @@
 <script>
 	import ProductCard2 from '../components/ProductCard.vue';
-	import searchBar from '../components/searchBar.vue';
+	import searchBar from '../components/SearchBar.vue';
 	export default {
 		name: 'PetListing2',
 
