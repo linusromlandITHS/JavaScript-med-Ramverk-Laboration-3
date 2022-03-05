@@ -42,6 +42,7 @@
 
 <template>
 	<Navbar />
+
 	<DiscountBanner />
 	<router-view v-slot="{ Component }">
 		<transition name="fade">
@@ -49,9 +50,9 @@
 		</transition>
 	</router-view>
 
+	<backToTop />
 	<Toast :title="toast.title" :message="toast.message" :type="toast.type" :position="toast.position" ref="toastRef" />
 
-	<backToTop />
 	<Footer />
 </template>
 
