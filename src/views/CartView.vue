@@ -16,18 +16,20 @@
 
 		methods: {
 			removeItem(itemId) {
+				// Find the item by matching the ID
 				let itemToDelete = this.cartItems.find((item) => item.id === itemId);
 
 				// Add toast message to indicate product was added to cart
+				// (Made by Linus Romland)
 				this.$root.showToast({
 					title: 'Varukorgen',
 					message: `${itemToDelete.name} har tagits bort från din varukorg.`,
 					type: 'warning'
 				});
 
-				// Remove the current item by ID
+				// Create a new array without the matched ID
 				this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
-				//calculates the new total price. (Made by David Sabel)
+				// Calculates the new total price. (Made by David Sabel)
 				this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 
 				// Update localstorage with the new data
@@ -38,15 +40,17 @@
 				// UPDATES NUMBER ON BUTTON BASED ON LS (generisk)
 				this.$store.commit('updateNumInCartBasedOnLS');
 
+				// Checks if there is a discount rate and calculates the amount
 				this.checkCode();
 			},
 
-			onClick() {
+			goToCheckout() {
 				this.$router.push({ path: '/checkout' });
 			},
 
 			getCart() {
-				if (localStorage.petCart) {
+				// Get data from local storage
+				if (localStorage.getItem('petCart')) {
 					return JSON.parse(localStorage.petCart);
 				} else {
 					return {};
@@ -54,12 +58,14 @@
 			},
 
 			getCode() {
-				if (localStorage.discountCode) {
+				// Get data from local storage
+				if (localStorage.getItem('discountCode')) {
 					return JSON.parse(localStorage.discountCode);
 				}
 			},
 
 			async fetchData() {
+				// Fetch data from database.json
 				const request = await fetch('/database.json');
 				const result = await request.json();
 
@@ -67,57 +73,71 @@
 			},
 
 			addDiscount() {
+				// If called, display the discount field
 				this.show = true;
 			},
 
 			checkCode() {
+				// Checks if there is a discount rate and calculates the amount
 				if (this.discountRate) {
 					this.discountedAmount = this.totalAmount * this.discountRate;
 				}
 			},
 
 			watchProduct(itemId) {
+				// Find the matched ID and use it to navigate
 				const route = this.cartItems.find((item) => item.id === itemId);
 
 				this.$router.push({ path: '/product/' + route.id });
 			},
 
 			getDiscount() {
+				// Get state from Vuex
 				const discountCode = this.$store.state.discountCode;
-
+				// Put the matched key value into a new variable
 				const discountRate = discountCode[this.discount];
 
 				if (discountRate) {
+					// Calculate the discounted amount
 					const discountAmount = discountRate * this.totalAmount;
 
 					this.discountedAmount = discountAmount.toFixed();
 
+					// Save discount code/rate in local storage
 					localStorage.setItem('discountCode', JSON.stringify(discountRate));
 				} else {
+					// If invalid discount code
 					alert('Wrong code, bro!');
 				}
+				// Hide the discount field
 				this.show = false;
 			}
 		},
 
 		async mounted() {
+			// Put the result from database.json into a variable
 			const items = await this.fetchData();
+
+			// Put the data from local storage into variables
 			const cart = this.getCart();
 			const code = this.getCode();
 
 			// Pick all keys from the cart and put into an array
 			const itemIds = Object.keys(cart);
 			// Replace every itemId with the full item-object from the database
-			const cartItems = itemIds.map((itemID) => {
+			const cartItems = itemIds.map((itemId) => {
 				// Search through the database for the item
-				return items.find((a) => a.id === itemID);
+				return items.find((a) => a.id === itemId);
 			});
+
 			this.cartItems = cartItems;
 
+			// Calculates the new total price. (Made by David Sabel)
 			this.totalAmount = this.cartItems.reduce((acc, item) => acc + item.price, 0);
 
 			this.discountRate = code;
 
+			// Checks if there is a discount rate and calculates the amount
 			this.checkCode();
 
 			// UPDATES NUMBER ON BUTTON BASED ON LS (generisk)
@@ -166,7 +186,7 @@
 					<p v-if="!discountedAmount" id="totalAmount">{{ this.totalAmount.toLocaleString() + ' kr' }}</p>
 					<p v-if="discountedAmount" id="totalAmount">{{ this.discountedAmount.toLocaleString() + ' kr' }}</p>
 				</div>
-				<button @click="onClick" id="checkOut" type="button" class="btn btn-primary">Till kassan</button>
+				<button @click="goToCheckout" id="checkOut" type="button" class="btn btn-primary">Till kassan</button>
 			</div>
 		</body>
 	</main>
@@ -269,6 +289,10 @@
 		.container-sm {
 			margin: 20px 0 45px 0;
 		}
+
+		main {
+			margin-top: 3%;
+		}
 	}
 
 	@media (min-width: 320px) and (max-width: 424px) {
@@ -320,6 +344,7 @@
 	}
 
 	#discountText {
+		color: #ff0000;
 		font-family: 'Noto Mono', monospace;
 		margin-bottom: 0;
 	}
