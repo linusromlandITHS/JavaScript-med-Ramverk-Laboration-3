@@ -202,7 +202,6 @@
 		color: #0e2431;
 	}
 
-	/* Changed max-width according to feedback - the badge will be further to the right */
 	#cartButton {
 		padding-right: 0px;
 		max-width: 167px;
