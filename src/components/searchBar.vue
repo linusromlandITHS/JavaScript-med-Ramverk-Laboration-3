@@ -44,7 +44,7 @@
 </script>
 
 <template>
-	<input v-model="search" placeholder="Search" />
+	<input v-model="search" placeholder="Sök" />
 	<div @click="watchProduct(animals.id)" v-for="animals of result" :key="animals.id" class="search_value">
 		{{ animals.name }}
 		{{ animals.price }}:-
