@@ -49,7 +49,7 @@
 				// }
 			},
 
-			// Tömmer innehållet i varukorg (petCart) i localStorage
+			// Purges cart in localStorage
 			purgeCart() {
 				//https://stackoverflow.com/questions/15193461/how-to-set-localstorage-item-back-to-null
 				localStorage.removeItem('petCart');
@@ -58,30 +58,23 @@
 				this.$store.commit('updateNumInCartBasedOnLS');
 			},
 			add_to_cart(id_, na_) {
-				//alert("Här lägger vi " + na_ + " i varukorgen:\nID: " + id_);
+				//
 
-				// 1 Hämta tidigare innehåll i localStorage (en array)
+				// 1 Fetch previous contents of localStorage
 				let cart;
 				if (localStorage.getItem('petCart')) {
 					cart = JSON.parse(localStorage.getItem('petCart'));
-
-					//	alert("Det fanns ngt i ls");
 				} else {
-					//alert("ls var tomt.");
 					cart = {}; //sessionStorage.getItem('petCart');
 				}
 
-				// 2 Lägg till det aktuella id:t till hämtat obj
-				// Lägger till aktuellt djur
+				// 2 Add current Id to fetched object
 				cart[id_] = na_;
 
-				// 3 Sätt localStorage till det nya objektet
+				// 3 Set localStorage to the new object
 				localStorage.setItem('petCart', JSON.stringify(cart));
-
-				// 4 (Ev.) meddela vad som ligger i localStorage (varukorgen) nu
-				//this.displayCartContents();
 			},
-			// Alerta innehållet i varukorg (petCart) i Localstorage
+			// Display contents (petCart) from Localstorage
 			displayCartContents() {
 				let fetched_cart = JSON.parse(localStorage.getItem('petCart'));
 				let utarr = [];
@@ -122,7 +115,7 @@
 					this.current_pet_list = this.full_pet_list;
 				});
 
-			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			// UPDATES NUMBER ON BUTTON BASED ON LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');
 		}
 	};

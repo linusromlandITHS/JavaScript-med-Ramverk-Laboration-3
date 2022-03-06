@@ -8,7 +8,7 @@
 			Button
 		},
 		created() {
-			// UPPDATERAR ANTAL VAROR I KORGEN UTIFRÅN LS (generisk)
+			// UPDATES NUMBER ON BUTTON BASED ON LS (generisk)
 			this.$store.commit('updateNumInCartBasedOnLS');
 		},
 		methods: {
