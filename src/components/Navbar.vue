@@ -196,7 +196,7 @@
 
 	.logo {
 		position: absolute;
-		top: 5px;
+		top: 10px;
 		right: 15px;
 		font-size: 1.2rem;
 		color: #0e2431;

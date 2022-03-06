@@ -58,6 +58,7 @@
 		}
 		.banner--inner {
 			padding: 7px;
+			padding-left: 20%;
 		}
 	}
 
@@ -67,6 +68,7 @@
 		}
 		.banner--inner {
 			padding: 9px;
+			padding-left: 20%;
 		}
 	}
 </style>
