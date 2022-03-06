@@ -89,9 +89,9 @@
 		},
 		data() {
 			return {
-				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Satan ', 'Young ', 'Lil ', 'Von '],
+				kickAsName: ['Ultra ', 'Super ', 'Mega ', 'Young ', 'Lil ', 'Von '],
 				nameEndings: ['missan', 'popy', 'snutt', 'aban', 'wolf', 'gädd', 'pop', 'plupp', 'snor'],
-				surName: [' Hellscream', ' Jr', ' Satansdotter', ' Powerwolf', ' Dragonsbreath'],
+				surName: [' Hellscream', ' Jr', ' Häggdotter', ' Powerwolf', ' Dragonsbreath'],
 				superKatterArr: ['Missan Val Enberg', 'Navel af Ludd', 'Count Kattula', 'Pelle von Guldsvans'],
 				superKatter: '',
 				parent: '',
@@ -139,14 +139,22 @@
 				this.location.reload();
 			},
 			AddItem() {
+				const avelItem = {
+					name: 'Avel',
+					id: '58c6f899-15fb-4c45-8597-dd4dbb1c2d99'
+				};
 				this.$store.commit('increment');
 				this.$store.commit('incrementAvel');
 				// console.log(this.$store.state.avelPris);
 				this;
 				this.$store.state.namnNyKatt = this.finalName;
+				localStorage.setItem('avel', JSON.stringify(avelItem));
 			},
 			loadCat(index) {
 				this.superKatter = this.superKatterArr[index];
+			},
+			setToLocal() {
+				localStorage.setItem('petCart', JSON.stringify('58c6f899-15fb-4c45-8597-dd4dbb1c2d99'));
 			}
 		},
 		mounted() {
@@ -202,7 +210,7 @@
 				</div>
 			</div>
 			<div @click="isShow3 = !isShow3" class="cardDiv">
-				<img v-show="!isShow3" class="cardimg" src="/assets/satancat3.jpeg" alt="" />
+				<img v-show="!isShow3" class="cardimg" src="/assets/epiccat3.jpeg" alt="" />
 				<h3>Count Kattula</h3>
 				<p>"Rumäniens stolthet!"</p>
 				<div v-show="isShow3">
@@ -222,7 +230,7 @@
 				</div>
 			</div>
 			<div @click="isShow4 = !isShow4" class="cardDiv">
-				<img v-show="!isShow4" class="cardimg" src="/assets/satancat4.jpeg" alt="" />
+				<img v-show="!isShow4" class="cardimg" src="/assets/epiccat4.jpeg" alt="" />
 				<h3>Pelle von Guldsvans</h3>
 				<p>"Vill du ha tur i affärer?"</p>
 				<div v-show="isShow4">
@@ -371,7 +379,6 @@
 		margin-bottom: 100px;
 	}
 	.formDiv {
-		margin-top: 10px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -379,9 +386,10 @@
 		flex-direction: column;
 		margin-bottom: 30px;
 		width: 600px;
-		height: 200px;
+		height: 300px;
 	}
 	#coolName {
+		margin-top: 15px;
 		color: white;
 		top: 70%;
 		color: red;
@@ -462,6 +470,5 @@
 	}
 	.mimimi {
 		font-size: 1.5em;
-		animation: burn2 0.4s linear infinite alternate;
 	}
 </style>

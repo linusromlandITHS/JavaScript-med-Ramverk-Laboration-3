@@ -60,6 +60,13 @@
 					return JSON.parse(localStorage.petCart);
 				}
 			},
+			getCart2() {
+				if (localStorage.avel) {
+					return JSON.parse(localStorage.avel);
+				} else {
+					return {};
+				}
+			},
 
 			getCode() {
 				if (localStorage.discountCode) {
@@ -86,7 +93,7 @@
 			async fetchData() {
 				const request = await fetch('/database.json');
 				const result = await request.json();
-				return result.animals;
+				return [...result.animals, ...result.supperkatter];
 			}
 		},
 
